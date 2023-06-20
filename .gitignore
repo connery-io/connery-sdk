@@ -3,6 +3,7 @@ node_modules
 
 # compiled output
 dist
+out
 
 # local env files
 .env
