@@ -1,7 +1,9 @@
 services:
   runner:
-    build: ./apps/runner
+    build:
+      context: .
+      dockerfile: ./apps/runner/Dockerfile
     ports:
-      - 80:3000
+      - 80:80
     env_file:
       - .env
