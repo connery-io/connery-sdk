@@ -15,13 +15,10 @@ COPY --from=builder /app/out/yarn.lock ./yarn.lock
 RUN yarn install
 # build the app
 COPY --from=builder /app/out/full/ .
-RUN yarn turbo run build --filter=runner
+RUN yarn run build --filter=runner
 
 FROM base AS runner
 WORKDIR /app
-#RUN addgroup --system --gid 1001 nodejs
-#RUN adduser --system --uid 1001 nestjs
-#USER nestjs
 COPY --from=installer --chown=nestjs:nodejs ./app .
 ENV NODE_ENV production
 CMD [ "node", "apps/runner/dist/main" ]
