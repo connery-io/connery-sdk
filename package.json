@@ -1,7 +1,10 @@
 {
   "name": "connery",
   "private": true,
-  "packageManager": "pnpm@7.15.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "dotenv -- turbo run dev",
     "build": "turbo run build",
