@@ -1,0 +1,7 @@
+services:
+  runner:
+    build: ./apps/runner
+    ports:
+      - 80:3000
+    env_file:
+      - .env
