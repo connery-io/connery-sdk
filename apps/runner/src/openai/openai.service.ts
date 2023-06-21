@@ -1,16 +1,20 @@
-import { Inject } from '@nestjs/common';
+import { Inject, Logger } from '@nestjs/common';
 import { ActionSchemaType } from 'src/shared/connector.schema';
 import { ConnectorsService } from 'src/shared/connectors.service';
 import { ChatCompletionFunctions, Configuration, OpenAIApi } from 'openai';
 import { LocalConfigService } from 'src/shared/local-config.service';
 
 export class OpenAiService {
+  private readonly logger = new Logger(OpenAiService.name);
+
   constructor(
     @Inject(ConnectorsService) private connectorsService: ConnectorsService,
     private configService: LocalConfigService,
   ) {}
 
   async runAction(prompt: string): Promise<string> {
+    this.logger.log({ type: 'user_prompt', data: { prompt: prompt } });
+
     const runnerConfig = this.configService.getRunnerConfig();
     const configuration = new Configuration({
       apiKey: runnerConfig.OpenAiApiKey,
@@ -30,6 +34,8 @@ export class OpenAiService {
     });
     const result1 = completion1.data.choices[0];
 
+    this.logger.log({ type: 'openai_response', data: result1 });
+
     if (result1.finish_reason === 'function_call') {
       // If OpenAI classified the user prompt as a function call, run the action
 
@@ -45,6 +51,8 @@ export class OpenAiService {
       } catch (error) {
         actionResult = error.message;
       }
+
+      this.logger.log({ type: 'action_result', data: actionResult });
 
       // Ask OpenAI to generate response for the user based on the action result
       const completion2 = await openai.createChatCompletion({
@@ -66,6 +74,8 @@ export class OpenAiService {
           { role: 'function', name: actionKey, content: this.getResultInstructions(action.schema, actionResult) },
         ],
       });
+
+      this.logger.log({ type: 'openai_response', data: completion2.data.choices[0] });
 
       return completion2.data.choices[0].message.content;
     } else {
