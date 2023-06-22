@@ -71,7 +71,7 @@ export class ConnectorsService {
       this._connectors.push(connector);
     }
 
-    this.logger.log('Connectors initialized');
+    console.log(JSON.stringify({ type: 'system', message: 'All connectors initialized' }));
   }
 
   cleanConnectors(): void {
@@ -79,6 +79,6 @@ export class ConnectorsService {
     this._connectors = [];
     this._actions = [];
 
-    this.logger.log('Connectors cache cleaned');
+    console.log(JSON.stringify({ type: 'system', message: 'All connectors removed from cache' }));
   }
 }

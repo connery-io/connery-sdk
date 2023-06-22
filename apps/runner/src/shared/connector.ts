@@ -73,11 +73,11 @@ export class Connector {
         this.installedConnectorConfig.RepoBranch,
       ]);
 
-      this.logger.log(`Connector '${this.key}' downloaded`);
+      console.log(JSON.stringify({ type: 'system', message: `Connector '${this.key}' downloaded` }));
     } catch (error) {
       // ignore error if the connector is already downloaded
       if (error.message.includes('already exists')) {
-        this.logger.log(`Connector '${this.key}' is already exist in cache`);
+        console.log(JSON.stringify({ type: 'system', message: `Connector '${this.key}' is already exist in cache` }));
       } else {
         throw error;
       }
