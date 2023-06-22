@@ -1,10 +1,11 @@
 import { rmSync } from 'fs';
 import { LocalConfigService } from './local-config.service';
 import { Connector } from './connector';
-import { Inject } from '@nestjs/common';
+import { Inject, Logger } from '@nestjs/common';
 import { Action } from './action';
 
 export class ConnectorsService {
+  private readonly logger = new Logger(ConnectorsService.name);
   private _connectors: Connector[] = [];
   private _actions: Action[] = [];
 
@@ -69,11 +70,15 @@ export class ConnectorsService {
       this._actions.push(...actions);
       this._connectors.push(connector);
     }
+
+    this.logger.log('Connectors initialized');
   }
 
   cleanConnectors(): void {
     rmSync('connectors', { recursive: true, force: true });
     this._connectors = [];
     this._actions = [];
+
+    this.logger.log('Connectors cache cleaned');
   }
 }

@@ -13,7 +13,7 @@ export class OpenAiService {
   ) {}
 
   async runAction(prompt: string): Promise<string> {
-    this.logger.log({ type: 'user_prompt', data: { prompt: prompt } });
+    this.logger.log('Received prompt from the user', { type: 'user_prompt', data: { prompt: prompt } });
 
     const runnerConfig = this.configService.getRunnerConfig();
     const configuration = new Configuration({
@@ -34,7 +34,10 @@ export class OpenAiService {
     });
     const result1 = completion1.data.choices[0];
 
-    this.logger.log({ type: 'openai_response', data: result1 });
+    this.logger.log('Recieved response from OpenAI about the initial user prompt', {
+      type: 'openai_response',
+      data: result1,
+    });
 
     if (result1.finish_reason === 'function_call') {
       // If OpenAI classified the user prompt as a function call, run the action
@@ -52,7 +55,7 @@ export class OpenAiService {
         actionResult = error.message;
       }
 
-      this.logger.log({ type: 'action_result', data: actionResult });
+      this.logger.log('Recieved execution result from action', { type: 'action_result', data: actionResult });
 
       // Ask OpenAI to generate response for the user based on the action result
       const completion2 = await openai.createChatCompletion({
@@ -75,7 +78,10 @@ export class OpenAiService {
         ],
       });
 
-      this.logger.log({ type: 'openai_response', data: completion2.data.choices[0] });
+      this.logger.log('Recieved response from OpenAI based on the action result', {
+        type: 'openai_response',
+        data: completion2.data.choices[0],
+      });
 
       return completion2.data.choices[0].message.content;
     } else {

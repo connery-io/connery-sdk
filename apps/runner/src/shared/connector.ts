@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { simpleGit } from 'simple-git';
 import { existsSync } from 'fs';
 import { fromZodError } from 'zod-validation-error';
@@ -8,6 +8,7 @@ import { Action } from './action';
 
 @Injectable()
 export class Connector {
+  private readonly logger = new Logger(Connector.name);
   private _connectorSchema: ConnectorSchemaType;
 
   constructor(private installedConnectorConfig: InstalledConnectorConfigType, private runnerConfig: RunnerConfigType) {}
@@ -71,9 +72,13 @@ export class Connector {
         '--branch',
         this.installedConnectorConfig.RepoBranch,
       ]);
+
+      this.logger.log(`Connector '${this.key}' downloaded`);
     } catch (error) {
       // ignore error if the connector is already downloaded
-      if (!error.message.includes('already exists')) {
+      if (error.message.includes('already exists')) {
+        this.logger.log(`Connector '${this.key}' is already exist in cache`);
+      } else {
         throw error;
       }
     }
@@ -84,6 +89,8 @@ export class Connector {
   }
 
   private parseAndValidateConnectorSchema(): ConnectorSchemaType {
+    // clear require cache to avoid issues with connector cache cleanup
+    delete require.cache[this.fullConnectorDefinitionPath];
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const connectorSchema = require(this.fullConnectorDefinitionPath);
     try {
