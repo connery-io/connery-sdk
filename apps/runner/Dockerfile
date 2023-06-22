@@ -19,6 +19,6 @@ RUN yarn run build --filter=runner
 
 FROM base AS runner
 WORKDIR /app
-COPY --from=installer --chown=nestjs:nodejs ./app .
+COPY --from=installer ./app .
 ENV NODE_ENV production
 CMD [ "node", "apps/runner/dist/main" ]
