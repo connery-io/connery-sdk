@@ -1,12 +1,10 @@
-import { Inject, Logger } from '@nestjs/common';
+import { Inject } from '@nestjs/common';
 import { ActionSchemaType } from 'src/shared/connector.schema';
 import { ConnectorsService } from 'src/shared/connectors.service';
 import { ChatCompletionFunctions, Configuration, OpenAIApi } from 'openai';
 import { LocalConfigService } from 'src/shared/local-config.service';
 
 export class OpenAiService {
-  private readonly logger = new Logger(OpenAiService.name);
-
   constructor(
     @Inject(ConnectorsService) private connectorsService: ConnectorsService,
     private configService: LocalConfigService,

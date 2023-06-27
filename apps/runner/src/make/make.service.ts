@@ -1,23 +1,34 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { map } from 'lodash';
-import { Connector } from '../shared/connector';
+import { RunInput } from 'src/openai/types';
 import { Action } from 'src/shared/action';
+import { ConnectorsService } from 'src/shared/connectors.service';
 
 Injectable();
 export class MakeService {
-  constructor(private connector: Connector, private action: Action) {}
+  constructor(@Inject(ConnectorsService) private connectorsService: ConnectorsService) {}
 
-  get actions() {
-    return map(this.connector.schema.actions, (action) => {
+  async getActions() {
+    const actions = await this.connectorsService.getActions();
+
+    return map(actions, (action: Action) => {
       return {
         value: action.key,
-        label: action.title + (action.description ? ` - ${action.description}` : ''),
+        label: action.schema.title,
       };
     });
   }
 
-  get inputMetadata() {
-    return map(this.action.schema.inputParameters, (inputParameter) => {
+  async runAction(actionKey: string, inputParameters: RunInput) {
+    const action = await this.connectorsService.getAction(actionKey);
+
+    return await action.runAction(inputParameters);
+  }
+
+  async getInputMetadata(actionKey: string) {
+    const action = await this.connectorsService.getAction(actionKey);
+
+    return map(action.schema.inputParameters, (inputParameter) => {
       return {
         name: inputParameter.key,
         label: inputParameter.title,
@@ -28,8 +39,10 @@ export class MakeService {
     });
   }
 
-  get outputMetadata() {
-    return map(this.action.schema.outputParameters, (outputParameter) => {
+  async getOutputMetadata(actionKey: string) {
+    const action = await this.connectorsService.getAction(actionKey);
+
+    return map(action.schema.outputParameters, (outputParameter) => {
       return {
         name: outputParameter.key,
         label: outputParameter.title,

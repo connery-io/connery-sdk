@@ -1,11 +1,10 @@
 import { rmSync } from 'fs';
 import { LocalConfigService } from './local-config.service';
 import { Connector } from './connector';
-import { Inject, Logger } from '@nestjs/common';
+import { Inject } from '@nestjs/common';
 import { Action } from './action';
 
 export class ConnectorsService {
-  private readonly logger = new Logger(ConnectorsService.name);
   private _connectors: Connector[] = [];
   private _actions: Action[] = [];
 
