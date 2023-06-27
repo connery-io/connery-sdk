@@ -1,0 +1,6 @@
+{
+  "extends": "tsconfig/commander.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  }
+}
