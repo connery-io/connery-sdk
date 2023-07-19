@@ -11,6 +11,10 @@
       "outputs": ["dist/**"]
     },
     "lint": {},
-    "format": {}
+    "format": {},
+    "publish-packages": {
+      "dependsOn": ["build"]
+    },
+    "changeset": {}
   }
 }

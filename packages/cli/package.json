@@ -1,7 +1,10 @@
 {
-  "name": "connery",
+  "name": "cli",
   "version": "0.0.1",
-  "bin": "./dist/index.js",
+  "license": "AGPL-3.0",
+  "bin": {
+    "connery": "./dist/index.js"
+  },
   "dependencies": {
     "commander": "^11.0.0",
     "webpack": "^5.88.0"
@@ -11,6 +14,7 @@
     "tsup": "^7.1.0"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs --dts"
+    "build": "tsup src/index.ts --format cjs --dts",
+    "publish-packages": "changeset version && changeset publish"
   }
 }

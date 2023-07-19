@@ -10,7 +10,8 @@
     "dev": "dotenv -- turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
-    "format": "turbo run format"
+    "format": "turbo run format",
+    "publish-packages": "turbo run publish-packages"
   },
   "devDependencies": {
     "dotenv-cli": "^7.2.1",
