@@ -11,7 +11,9 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "format": "turbo run format",
-    "publish-packages": "turbo run publish-packages"
+    "publish-packages": "turbo run publish-packages",
+    "changeset": "changeset",
+    "version": "changeset version"
   },
   "devDependencies": {
     "dotenv-cli": "^7.2.1",
