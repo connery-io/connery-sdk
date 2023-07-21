@@ -11,11 +11,10 @@
   },
   "devDependencies": {
     "tsconfig": "*",
-    "tsup": "^7.1.0",
-    "@changesets/cli": "^2.26.2"
+    "tsup": "^7.1.0"
   },
   "scripts": {
     "build": "tsup src/index.ts --format cjs --dts",
-    "publish-packages": "changeset version && changeset publish"
+    "dev": "npm run build -- --watch"
   }
 }

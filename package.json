@@ -11,10 +11,11 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "format": "turbo run format",
-    "publish-packages": "turbo run publish-packages"
+    "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "devDependencies": {
     "dotenv-cli": "^7.2.1",
-    "turbo": "latest"
+    "turbo": "latest",
+    "@changesets/cli": "^2.26.2"
   }
 }
