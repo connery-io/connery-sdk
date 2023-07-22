@@ -1,4 +1,4 @@
-# Open source connector ecosystem for AI
+# Connery - Open source connector ecosystem for AI
 
 ## Demo
 
