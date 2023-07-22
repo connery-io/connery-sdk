@@ -42,7 +42,7 @@ export const ActionSchema = zod.object({
   key: zod.string().regex(keyRegex).min(1).max(50),
   title: zod.string().min(1).max(100),
   description: zod.string().min(0).max(2000).optional(),
-  type: zod.enum(['action']),
+  type: zod.enum(['create', 'read', 'update', 'delete', 'list']),
   inputParameters: zod
     .array(InputParameterSchema)
     .refine(uniqueKeysValidator, { message: 'Input parameters must have unique keys' }),
