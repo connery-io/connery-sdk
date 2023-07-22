@@ -31,8 +31,7 @@
 
 ## Connectors
 
-Available connectors 
-(list an a separate page)
+[List of public connectors](/docs/list-of-public-connectors.md)
 
 Develop connector 
 (separate page)
