@@ -1,4 +1,4 @@
-import { webpack } from "webpack";
+import pkg from "webpack";
 import { existsSync } from "fs";
 
 const sourceFilePath = "./index.js";
@@ -6,9 +6,9 @@ const sourceFilePath = "./index.js";
 export default async function (): Promise<void> {
   try {
     await build();
-    console.log("Build is completed");
+    console.log("Build is successfully completed");
   } catch (error: any) {
-    console.log("Build is failed");
+    console.log("Error occurred while building the connector");
     console.log(error.message);
     return;
   }
@@ -19,7 +19,7 @@ function build(): Promise<void> {
     throw new Error(`The source file '${sourceFilePath}' is not found`);
   }
 
-  const compiler = webpack({
+  const compiler = pkg.webpack({
     entry: sourceFilePath,
     mode: "production",
     target: "node",

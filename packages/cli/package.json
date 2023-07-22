@@ -3,10 +3,12 @@
   "version": "0.0.2",
   "license": "AGPL-3.0",
   "bin": {
-    "connery": "./dist/index.js"
+    "connery": "./dist/index.mjs"
   },
   "dependencies": {
+    "@inquirer/prompts": "^3.0.0",
     "commander": "^11.0.0",
+    "node-plop": "^0.31.1",
     "webpack": "^5.88.0"
   },
   "devDependencies": {
@@ -14,7 +16,7 @@
     "tsup": "^7.1.0"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs --dts",
+    "build": "tsup src/index.ts --format esm --dts",
     "dev": "npm run build -- --watch"
   }
 }
