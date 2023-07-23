@@ -31,8 +31,11 @@
 
 ## Connectors
 
-- [List of public connectors](/docs/list-of-public-connectors.md)
-- [How to create connector](/docs/how-to-create-connector.md)
+Start with the quick guide how to create the connector in your browser...
+
+Here is more information about the connector development...
+
+Here is the liost of public connectors...
 
 ## Runner
 
