@@ -1,6 +1,6 @@
 # Quick start with a connector development
 
-> In this guide you learn how to start with the connector development real quick **using only your browser**.
+> ℹ️ In this guide you learn how to start with the connector development real quick **using only your browser**.
 
 ### 1. Create a new public repository in GitHub
 
@@ -30,7 +30,13 @@ Now your files are synchronized to the `main` branch of your GitHub repository. 
 
 You can find the "Build connector" workflow in the "Actions" tab of the repository.
 
+### 5. (Run your action on the runner)
+
+Link to the Runner configuration page
+
 ### 5. Add a new action to the connector
+
+add new action
 
 ```
 npx --yes @connery-io/cli@latest add-action
