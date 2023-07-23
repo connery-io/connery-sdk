@@ -1,5 +1,11 @@
 # @connery-io/cli
 
+## 0.0.6
+
+### Patch Changes
+
+- Use the latest version of Connery CLI in template generator
+
 ## 0.0.5
 
 ### Patch Changes
