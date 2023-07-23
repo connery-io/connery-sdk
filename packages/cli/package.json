@@ -1,6 +1,6 @@
 {
   "name": "@connery-io/cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "license": "AGPL-3.0",
   "bin": {
     "connery": "./dist/index.mjs"

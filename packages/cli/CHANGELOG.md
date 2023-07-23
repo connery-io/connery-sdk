@@ -1,5 +1,12 @@
 # @connery-io/cli
 
+## 0.0.7
+
+### Patch Changes
+
+- Add prettier and prettify all the files
+- Add 'validate' command
+
 ## 0.0.6
 
 ### Patch Changes
