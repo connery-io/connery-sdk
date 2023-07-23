@@ -12,7 +12,7 @@
 
 (Image: Connectors --> Runner --> Clients)
 
-**Connector with actions**. *Connector* is a set of simple *actions* that a user can delegate to AI. For example "Send email" action in "Gmail" connector. Every connector is a separate open source GitHub reposotory using similar approach to GitHub Actions. Connectors have different names - plugins in ChatGPT, tools in LangChain, apps/integrations in Zapier. 
+**Connector with actions**. _Connector_ is a set of simple _actions_ that a user can delegate to AI. For example "Send email" action in "Gmail" connector. Every connector is a separate open source GitHub reposotory using similar approach to GitHub Actions. Connectors have different names - plugins in ChatGPT, tools in LangChain, apps/integrations in Zapier.
 
 (Link: to sample connector repository - send GMAIL)
 
@@ -31,25 +31,24 @@
 
 ## Connectors
 
-[List of public connectors](/docs/list-of-public-connectors.md)
-
-Develop connector 
-(separate page)
+- [List of public connectors](/docs/list-of-public-connectors.md)
+- [How to create connector](/docs/how-to-create-connector.md)
 
 ## Runner
+
 Setting up your personal runner
 (separate page)
 
 ## Clients
 
 - LangChain Tool
-    - (comming soon)
+  - (comming soon)
 - Slack App
-    - (installation link)
-    - (Demo video)
+  - (installation link)
+  - (Demo video)
 - Make App
-    - (installation link)
-    - (Demo video)
+  - (installation link)
+  - (Demo video)
 
 ## Roadmap
 
