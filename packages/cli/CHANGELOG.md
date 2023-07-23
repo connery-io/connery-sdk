@@ -1,5 +1,11 @@
 # @connery-io/cli
 
+## 0.0.5
+
+### Patch Changes
+
+- Add unit testing to the CLI template generators
+
 ## 0.0.4
 
 ### Patch Changes
