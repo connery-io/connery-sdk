@@ -1,14 +1,14 @@
-import pkg from "webpack";
-import { existsSync } from "fs";
+import pkg from 'webpack';
+import { existsSync } from 'fs';
 
-const sourceFilePath = "./index.js";
+const sourceFilePath = './index.js';
 
 export default async function (): Promise<void> {
   try {
     await build();
-    console.log("✅ Build is successfully completed");
+    console.log('✅ Build is successfully completed');
   } catch (error: any) {
-    console.log("🔴 Error occurred while building the connector");
+    console.log('🔴 Error occurred while building the connector');
     console.log(error.message);
     return;
   }
@@ -21,16 +21,16 @@ function build(): Promise<void> {
 
   const compiler = pkg.webpack({
     entry: sourceFilePath,
-    mode: "production",
-    target: "node",
+    mode: 'production',
+    target: 'node',
     optimization: {
       minimize: true,
     },
     output: {
       library: {
-        type: "commonjs2",
+        type: 'commonjs2',
       },
-      filename: "connector.js",
+      filename: 'connector.js',
     },
   });
 
