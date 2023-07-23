@@ -8,7 +8,7 @@ const content = `{
   },
   "dependencies": {},
   "devDependencies": {
-    "@connery-io/cli": "^0.0.2"
+    "@connery-io/cli": "^0.0.4"
   },
   "scripts": {
     "build": "connery build"
