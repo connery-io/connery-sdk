@@ -1,5 +1,5 @@
 import { Inject } from '@nestjs/common';
-import { ActionSchemaType } from 'src/shared/connector.schema';
+import { ActionSchemaType } from 'connector-schema';
 import { ConnectorsService } from 'src/shared/connectors.service';
 import { ChatCompletionFunctions, Configuration, OpenAIApi } from 'openai';
 import { LocalConfigService } from 'src/shared/local-config.service';

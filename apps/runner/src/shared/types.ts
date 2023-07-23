@@ -1,4 +1,4 @@
-import { ActionSchemaType, ConnectorSchemaType } from './connector.schema';
+import { ActionSchemaType, ConnectorSchemaType } from 'connector-schema';
 
 export type ConfigurationParametersObject = {
   [key: string]: string;

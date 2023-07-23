@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Internal Package",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "declaration": true
+  }
+}

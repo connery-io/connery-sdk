@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InputParametersObject, OperationContext } from './types';
-import { ActionSchemaType } from './connector.schema';
+import { ActionSchemaType } from 'connector-schema';
 import { Connector } from './connector';
 
 @Injectable()

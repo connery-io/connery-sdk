@@ -12,7 +12,7 @@ export default () => ({
   InstalledConnectors: [
     {
       RepoOwner: 'connery-io',
-      RepoName: 'custom-from-email-connector',
+      RepoName: 'amazon-ses-identity-verification',
       RepoBranch: 'main',
       ConfigurationParameters: {
         AwsRegion: process.env.SES_AWS_REGION,

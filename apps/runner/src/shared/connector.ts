@@ -1,8 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { simpleGit } from 'simple-git';
 import { existsSync } from 'fs';
-import { fromZodError } from 'zod-validation-error';
-import { ConnectorSchemaType, ConnectorSchema } from './connector.schema';
+import { ConnectorSchemaType, parseAndValidateConnectorSchema } from 'connector-schema';
 import { ConfigurationParametersObject, InstalledConnectorConfigType, RunnerConfigType } from './types';
 import { Action } from './action';
 
@@ -88,15 +87,14 @@ export class Connector {
   }
 
   private parseAndValidateConnectorSchema(): ConnectorSchemaType {
-    // clear require cache to avoid issues with connector cache cleanup
-    delete require.cache[this.fullConnectorDefinitionPath];
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const connectorSchema = require(this.fullConnectorDefinitionPath);
     try {
-      return ConnectorSchema.parse(connectorSchema);
+      const connectorSchema = parseAndValidateConnectorSchema(this.fullConnectorDefinitionPath);
+      return connectorSchema;
     } catch (error) {
-      const userFriendlyValidationError = fromZodError(error, { prefix: 'Connector schema validation error' });
-      throw new HttpException(userFriendlyValidationError, HttpStatus.INTERNAL_SERVER_ERROR);
+      throw new HttpException(
+        `Connector definition validation error: ${error.message}`,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
   }
 

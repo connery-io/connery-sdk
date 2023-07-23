@@ -1,6 +1,7 @@
 import * as zod from 'zod';
 
 const keyRegex = /^[A-Z][a-zA-Z0-9]*$/;
+const keyRegexMessage = 'Key must be in PascalCase and start with a letter';
 
 // Types
 export type ValidationSchemaType = zod.infer<typeof ValidationSchema>;
@@ -18,7 +19,7 @@ export const ValidationSchema = zod.object({
 });
 
 export const InputParameterSchema = zod.object({
-  key: zod.string().regex(keyRegex).min(1).max(50),
+  key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
   title: zod.string().min(1).max(100),
   description: zod.string().min(1).max(2000).optional(),
   type: zod.enum(['string']),
@@ -26,7 +27,7 @@ export const InputParameterSchema = zod.object({
 });
 
 export const OutputParameterSchema = zod.object({
-  key: zod.string().regex(keyRegex).min(1).max(50),
+  key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
   title: zod.string().min(1).max(100),
   description: zod.string().min(1).max(2000).optional(),
   type: zod.enum(['string']),
@@ -39,7 +40,7 @@ export const JavaScriptOperationSchema = zod.object({
 });
 
 export const ActionSchema = zod.object({
-  key: zod.string().regex(keyRegex).min(1).max(50),
+  key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
   title: zod.string().min(1).max(100),
   description: zod.string().min(0).max(2000).optional(),
   type: zod.enum(['create', 'read', 'update', 'delete']),
@@ -53,7 +54,7 @@ export const ActionSchema = zod.object({
 });
 
 export const ConfigurationParameterSchema = zod.object({
-  key: zod.string().regex(keyRegex).min(1).max(50),
+  key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
   title: zod.string().min(1).max(100),
   description: zod.string().min(1).max(2000).optional(),
   type: zod.enum(['string']),
@@ -76,7 +77,7 @@ export const ConnectorSchema = zod.object({
 });
 
 // Custom validators
-function uniqueKeysValidator(array) {
-  const keys = array.map((item) => item.key);
+function uniqueKeysValidator(array: any[]) {
+  const keys = array.map((item: { key: any }) => item.key);
   return new Set(keys).size === keys.length;
 }
