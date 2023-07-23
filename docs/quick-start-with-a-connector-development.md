@@ -1,6 +1,6 @@
 # Quick start with a connector development
 
-> ℹ️ In this guide you learn how to start with the connector development real quick **using only your browser**.
+> In this guide you learn how to start with the connector development real quick **using only your browser**.
 
 ### 1. Create a new public repository in GitHub
 
