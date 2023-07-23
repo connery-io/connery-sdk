@@ -57,9 +57,9 @@ export default async function () {
       year: new Date().getFullYear(),
     });
 
-    console.log("Connector repository is successfully initialized");
+    console.log("✅ Connector repository is successfully initialized");
   } catch (error: any) {
-    console.log("Error occurred while initializing connector repository");
+    console.log("🔴 Error occurred while initializing connector repository");
     console.log(error.message);
     return;
   }

@@ -34,9 +34,9 @@ export default async function (): Promise<void> {
       type: answers.actionType,
     });
 
-    console.log("Action is successfully added");
+    console.log("✅ Action is successfully added");
   } catch (error: any) {
-    console.log("Error occurred while adding action");
+    console.log("🔴 Error occurred while adding action");
     console.log(error.message);
     return;
   }
