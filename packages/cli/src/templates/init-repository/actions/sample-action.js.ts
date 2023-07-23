@@ -1,4 +1,4 @@
-const content = `// TODO: Remove this sample action when you add your own actions to the connector
+const content = `// TODO: Remove this sample action when you add your own actions to the connector.
 
 module.exports = {
   key: "SampleAction",

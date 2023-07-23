@@ -1,12 +1,18 @@
 import nodePlop from "node-plop";
+
+// init-repository
 import readmeTemplate from "./templates/init-repository/README.md";
 import buildConnectorWorkflowTemplate from "./templates/init-repository/.github/workflows/build-connector.yml";
-import sampleActionTemplate from "./templates/init-repository/actions/sample-action.js.js";
+import sampleActionTemplate from "./templates/init-repository/actions/sample-action.js";
+import sampleActionTestTemplate from "./templates/init-repository/tests/SampleAction.test.js";
 import packageJsonTemplate from "./templates/init-repository/package.json";
-import indexJsTemplate from "./templates/init-repository/index.js.js";
+import indexJsTemplate from "./templates/init-repository/index.js";
 import gitignoreTemplate from "./templates/init-repository/.gitignore";
 import licenseTemplate from "./templates/init-repository/LICENSE";
+
+// add-action
 import actionTemplate from "./templates/add-action/action.js";
+import actionTestTemplate from "./templates/add-action/action.test.js";
 
 async function getGenerator(key: string) {
   const plot = await nodePlop("");
@@ -27,6 +33,11 @@ async function getGenerator(key: string) {
         type: "add",
         path: "actions/SampleAction.js",
         template: sampleActionTemplate,
+      },
+      {
+        type: "add",
+        path: "tests/SampleAction.test.js",
+        template: sampleActionTestTemplate,
       },
       {
         type: "add",
@@ -63,6 +74,11 @@ async function getGenerator(key: string) {
         type: "add",
         path: "actions/{{key}}.js",
         template: actionTemplate,
+      },
+      {
+        type: "add",
+        path: "tests/{{key}}.test.js",
+        template: actionTestTemplate,
       },
       {
         type: "modify",

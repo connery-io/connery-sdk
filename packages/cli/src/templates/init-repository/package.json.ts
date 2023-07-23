@@ -8,10 +8,12 @@ const content = `{
   },
   "dependencies": {},
   "devDependencies": {
-    "@connery-io/cli": "^0.0.4"
+    "@connery-io/cli": "^0.0.4",
+    "jest": "^29.6.1"
   },
   "scripts": {
-    "build": "connery build"
+    "build": "connery build",
+    "test": "jest"
   }
 }
 `;
