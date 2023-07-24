@@ -1,4 +1,10 @@
-# @connery-io/cli
+# connery
+
+## 0.0.9
+
+### Patch Changes
+
+- Move the CLI from @connery-io/cli to connery
 
 ## 0.0.8
 

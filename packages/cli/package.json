@@ -1,10 +1,8 @@
 {
-  "name": "@connery-io/cli",
-  "version": "0.0.8",
+  "name": "connery",
+  "version": "0.0.9",
   "license": "AGPL-3.0",
-  "bin": {
-    "connery": "./dist/index.mjs"
-  },
+  "bin": "./dist/index.mjs",
   "dependencies": {
     "@inquirer/prompts": "^3.0.0",
     "commander": "^11.0.0",
