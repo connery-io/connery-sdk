@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { simpleGit } from 'simple-git';
 import { existsSync } from 'fs';
-import { ConnectorSchemaType, parseAndValidateConnectorSchema } from 'connector-schema';
+import { ConnectorSchemaType, parseAndValidateConnectorSchema } from 'lib';
 import { ConfigurationParametersObject, InstalledConnectorConfigType, RunnerConfigType } from './types';
 import { Action } from './action';
 

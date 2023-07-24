@@ -1,4 +1,4 @@
-import { parseAndValidateConnectorSchema } from 'connector-schema';
+import { parseAndValidateConnectorSchema } from 'lib';
 
 export default async function (): Promise<void> {
   try {

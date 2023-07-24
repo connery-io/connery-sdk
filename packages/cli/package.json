@@ -10,7 +10,7 @@
     "commander": "^11.0.0",
     "node-plop": "^0.31.1",
     "webpack": "^5.88.0",
-    "connector-schema": "*"
+    "lib": "*"
   },
   "devDependencies": {
     "tsconfig": "*",

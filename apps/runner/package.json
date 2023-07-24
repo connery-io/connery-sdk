@@ -26,7 +26,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "simple-git": "^3.19.0",
-    "connector-schema": "*"
+    "lib": "*"
   },
   "devDependencies": {
     "@nestjs/cli": "^9.5.0",
