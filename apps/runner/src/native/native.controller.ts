@@ -1,6 +1,6 @@
 import { Controller, Inject, Post } from '@nestjs/common';
-import { Action } from 'src/shared/action';
-import { RequestService } from 'src/shared/request.service';
+import { Action } from ':src/shared/action';
+import { RequestService } from ':src/shared/request.service';
 
 @Controller('/runner/native/exposed/:repoOwner/:repoName/:repoBranch/:actionKey')
 export class NativeController {

@@ -1,8 +1,8 @@
 import { Inject } from '@nestjs/common';
 import { ActionSchemaType } from 'lib';
-import { ConnectorsService } from 'src/shared/connectors.service';
+import { ConnectorsService } from ':src/shared/connectors.service';
 import { ChatCompletionFunctions, Configuration, OpenAIApi } from 'openai';
-import { LocalConfigService } from 'src/shared/local-config.service';
+import { LocalConfigService } from ':src/shared/local-config.service';
 
 export class OpenAiService {
   constructor(

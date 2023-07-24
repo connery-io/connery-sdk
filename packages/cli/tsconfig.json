@@ -2,5 +2,6 @@
   "extends": "tsconfig/commander.json",
   "compilerOptions": {
     "outDir": "dist"
-  }
+  },
+  "include": ["src/**/*"]
 }

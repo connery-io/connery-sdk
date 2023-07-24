@@ -1,8 +1,7 @@
 {
-  "extends": "tsconfig/internal-package.json",
   "compilerOptions": {
     "outDir": "dist",
-    "declarationDir": "dist"
+    "composite": true
   },
-  "include": ["src"]
+  "include": ["src/**/*"]
 }

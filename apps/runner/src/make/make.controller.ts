@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post, Headers } from '@nestjs/common';
 import { MakeService } from './make.service';
-import { RunInput } from 'src/openai/types';
-import { LocalConfigService } from 'src/shared/local-config.service';
+import { RunInput } from ':src/openai/types';
+import { LocalConfigService } from ':src/shared/local-config.service';
 
 @Controller('/runner/make')
 export class MakeController {

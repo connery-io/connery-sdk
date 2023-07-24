@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { map } from 'lodash';
-import { RunInput } from 'src/openai/types';
-import { Action } from 'src/shared/action';
-import { ConnectorsService } from 'src/shared/connectors.service';
+import { RunInput } from ':src/openai/types';
+import { Action } from ':src/shared/action';
+import { ConnectorsService } from ':src/shared/connectors.service';
 
 Injectable();
 export class MakeService {
