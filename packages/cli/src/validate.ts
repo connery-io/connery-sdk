@@ -2,7 +2,7 @@ import { parseAndValidateConnector, readConnectorDefinitionFileUsingImport } fro
 
 export default async function (): Promise<void> {
   try {
-    console.log('🔎 Validating connector definition in ./index.js file and linked files...');
+    console.log('🔎 Validating connector definition in ./index.js and linked files...');
     const connector = await readConnectorDefinitionFileUsingImport(`${process.cwd()}/index.js`);
     parseAndValidateConnector(connector);
     console.log('✅ Connector definition is valid');

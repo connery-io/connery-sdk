@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.11
+
+### Patch Changes
+
+- Update messages
+
 ## 0.0.10
 
 ### Patch Changes
