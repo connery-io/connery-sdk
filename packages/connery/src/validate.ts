@@ -1,14 +1,15 @@
 import { parseAndValidateConnector, readConnectorDefinitionFileUsingImport } from 'lib';
+import { logError, logErrorBody, logInfo, logSuccess } from './shared';
 
 export default async function (): Promise<void> {
   try {
-    console.log('🔎 Validating connector definition in ./index.js and linked files...');
+    logInfo('🔎 Validating connector definition in ./index.js and linked files...');
     const connector = await readConnectorDefinitionFileUsingImport(`${process.cwd()}/index.js`);
     parseAndValidateConnector(connector);
-    console.log('✅ Connector definition is valid');
+    logSuccess('Connector definition is valid');
   } catch (error: any) {
-    console.log('🔴 Error occurred while validating connector definition');
-    console.log(error.message);
+    logError('Error occurred while validating connector definition');
+    logErrorBody(error.message);
     return;
   }
 }

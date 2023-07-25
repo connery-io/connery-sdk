@@ -1,16 +1,17 @@
 import pkg from 'webpack';
 import { existsSync } from 'fs';
+import { logError, logErrorBody, logInfo, logSuccess } from './shared';
 
 const sourceFilePath = './index.js';
 
 export default async function (): Promise<void> {
   try {
-    console.log('🔨 Building connector...');
+    logInfo('🔨 Building connector...');
     await build();
-    console.log('✅ Build is successfully completed');
+    logSuccess('Build is successfully completed');
   } catch (error: any) {
-    console.log('🔴 Error occurred while building the connector');
-    console.log(error.message);
+    logError('Error occurred while building the connector');
+    logErrorBody(error.message);
     return;
   }
 }

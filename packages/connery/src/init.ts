@@ -1,11 +1,13 @@
 import { input } from '@inquirer/prompts';
 import { initRepository } from './templates-generator';
+import { logError, logErrorBody, logSuccess, styleAnswer, styleQuestion } from './shared';
 
 export default async function () {
   try {
     const answers = {
       connectorTitle: await input({
-        message: 'What is the connector title? (e.g.: My test connector)?',
+        message: styleQuestion('What is the connector title?', '(e.g.: My test connector)'),
+        transformer: styleAnswer,
         validate: (value: string) => {
           if (value.length > 0) {
             return true;
@@ -13,11 +15,9 @@ export default async function () {
           return 'Please enter the connector title';
         },
       }),
-      connectorDescription: await input({
-        message: 'What is the connector description? (optional)',
-      }),
       authorName: await input({
-        message: 'What is your full name?',
+        message: styleQuestion('What is your full name?', '(for license and maintainer fields)'),
+        transformer: styleAnswer,
         validate: (value: string) => {
           if (value.length > 0) {
             return true;
@@ -26,7 +26,8 @@ export default async function () {
         },
       }),
       authorEmail: await input({
-        message: 'What is your email address?',
+        message: styleQuestion('What is your email address?', '(for license and maintainer fields)'),
+        transformer: styleAnswer,
         validate: (value: string) => {
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           const isValidEmail = emailRegex.test(value);
@@ -48,7 +49,7 @@ export default async function () {
       connector: {
         key: answers.connectorTitle.replace(/\s+/g, '-').toLowerCase(),
         title: answers.connectorTitle,
-        description: answers.connectorDescription,
+        description: `${answers.connectorTitle} connector for Connery`,
       },
       author: {
         name: answers.authorName,
@@ -57,10 +58,10 @@ export default async function () {
       year: new Date().getFullYear(),
     });
 
-    console.log('✅ Connector repository is successfully initialized');
+    logSuccess('Connector repository is successfully initialized');
   } catch (error: any) {
-    console.log('🔴 Error occurred while initializing connector repository');
-    console.log(error.message);
+    logError('Error occurred while initializing connector repository');
+    logErrorBody(error.message);
     return;
   }
 }

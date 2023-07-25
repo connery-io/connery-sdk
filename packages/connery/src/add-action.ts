@@ -1,5 +1,6 @@
 import { input, select } from '@inquirer/prompts';
 import { addAction } from './templates-generator';
+import { logError, logErrorBody, logSuccess } from './shared';
 
 export default async function (): Promise<void> {
   try {
@@ -34,10 +35,10 @@ export default async function (): Promise<void> {
       type: answers.actionType,
     });
 
-    console.log('✅ Action is successfully added');
+    logSuccess('Action is successfully added');
   } catch (error: any) {
-    console.log('🔴 Error occurred while adding action');
-    console.log(error.message);
+    logError('Error occurred while adding action');
+    logErrorBody(error.message);
     return;
   }
 }

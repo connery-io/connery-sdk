@@ -1,6 +1,6 @@
 const content = `MIT License
 
-Copyright (c) {{year}} {{author.name}}
+Copyright (c) {{year}} {{author.name}} ({{author.email}})
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

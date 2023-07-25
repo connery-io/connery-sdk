@@ -13,7 +13,7 @@ Once the codespace is created and loaded you should see a VS Code editor in your
 Run the following command in the terminal and follow the instructions. You will be asked a couple of questions needed for the connector repository initialization.
 
 ```
-npx connery init
+npx connery@latest init
 ```
 
 Once the repository initialized, you should see the new files added.
@@ -47,7 +47,7 @@ Link to the Runner configuration page
 add new action
 
 ```
-npx connery add-action
+npx connery@latest add-action
 ```
 
 build
