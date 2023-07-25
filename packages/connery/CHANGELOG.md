@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.14
+
+### Patch Changes
+
+- Update messages and colors
+
 ## 0.0.13
 
 ### Patch Changes
