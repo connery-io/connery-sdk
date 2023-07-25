@@ -2,11 +2,16 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "commander.js",
   "compilerOptions": {
-    "target": "es2018",
-    "module": "commonjs",
-    "lib": ["es2018"],
-    "esModuleInterop": true,
+    "lib": ["es2022"],
+    "module": "Node16",
+    "target": "es2022",
+
     "strict": true,
-    "sourceMap": true
+    "esModuleInterop": true,
+
+    "moduleResolution": "node16",
+
+    "sourceMap": true,
+    "allowJs": true
   }
 }

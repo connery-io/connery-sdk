@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { simpleGit } from 'simple-git';
 import { existsSync } from 'fs';
-import { ConnectorSchemaType, parseAndValidateConnectorSchema } from 'lib';
+import { ConnectorSchemaType, parseAndValidateConnector, readConnectorDefinitionFileUsingRequire } from 'lib';
 import { ConfigurationParametersObject, InstalledConnectorConfigType, RunnerConfigType } from './types';
 import { Action } from './action';
 
@@ -15,7 +15,7 @@ export class Connector {
     if (!this.isConnectorDefinitionFileExist()) {
       await this.downloadConnector();
     }
-    this._connectorSchema = this.parseAndValidateConnectorSchema();
+    this._connectorSchema = await this.parseAndValidateConnector();
   }
 
   get key(): string {
@@ -86,9 +86,10 @@ export class Connector {
     return existsSync(this.connectorDefinitionPath);
   }
 
-  private parseAndValidateConnectorSchema(): ConnectorSchemaType {
+  private async parseAndValidateConnector(): Promise<ConnectorSchemaType> {
     try {
-      const connectorSchema = parseAndValidateConnectorSchema(this.fullConnectorDefinitionPath);
+      const connector = await readConnectorDefinitionFileUsingRequire(this.fullConnectorDefinitionPath);
+      const connectorSchema = parseAndValidateConnector(connector);
       return connectorSchema;
     } catch (error) {
       throw new HttpException(

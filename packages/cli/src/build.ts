@@ -5,6 +5,7 @@ const sourceFilePath = './index.js';
 
 export default async function (): Promise<void> {
   try {
+    console.log('🔨 Building connector...');
     await build();
     console.log('✅ Build is successfully completed');
   } catch (error: any) {
