@@ -1,13 +1,21 @@
 import chalk from 'chalk';
 
-export function styleQuestion(question: string, description: string) {
-  const styleQuestion = chalk.reset.hex('#362490').bold(question);
+const successColor = '#00ff00';
+const errorColor = '#ff0000';
+const questionColor = '#362490';
+
+export function styleQuestion(question: string, description?: string) {
+  const styleQuestion = chalk.reset.hex(questionColor).bold(question);
   const styleDescription = chalk.reset.hex('#eeeeee')(description);
-  return `${styleQuestion} ${styleDescription}`;
+  return styleDescription ? `${styleQuestion} ${styleDescription}` : `${styleQuestion}`;
 }
 
 export function styleAnswer(answer: string) {
-  return chalk.hex('#362490').bold(answer);
+  return chalk.hex(questionColor)(answer);
+}
+
+export function styleError(message: string) {
+  return chalk.reset.hex(errorColor)(message);
 }
 
 export function logInfo(message: string) {
@@ -16,16 +24,16 @@ export function logInfo(message: string) {
 }
 
 export function logSuccess(message: string) {
-  const logMessage = '✅ ' + chalk.reset.hex('#00ff00').bold(message);
+  const logMessage = '✅ ' + chalk.reset.hex(successColor).bold(message);
   console.log(logMessage);
 }
 
 export function logError(message: string) {
-  const logMessage = '🔴 ' + chalk.reset.hex('#ff0000').bold(message);
+  const logMessage = '🔴 ' + chalk.reset.hex(errorColor).bold(message);
   console.log(logMessage);
 }
 
 export function logErrorBody(message: string) {
-  const logMessage = chalk.reset.hex('#ff0000')(message);
+  const logMessage = chalk.reset.hex(errorColor)(message);
   console.log(logMessage);
 }

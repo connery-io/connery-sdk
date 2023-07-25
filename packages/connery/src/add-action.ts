@@ -1,24 +1,26 @@
 import { input, select } from '@inquirer/prompts';
 import { addAction } from './templates-generator';
-import { logError, logErrorBody, logSuccess } from './shared';
+import { logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from './shared';
 
 export default async function (): Promise<void> {
   try {
     const answers = {
       actionTitle: await input({
-        message: 'What is the new action title? (e.g.: My test action)?',
+        message: styleQuestion('What is the new action title?', '(e.g.: My test action)?'),
+        transformer: styleAnswer,
         validate: (value: string) => {
-          if (value.length > 0) {
-            return true;
+          if (value.trim() === '') {
+            return styleError('Please enter the action title');
           }
-          return 'Please enter the action title';
+          return true;
         },
       }),
       actionDescription: await input({
-        message: 'What is the new action description? (optional)',
+        message: styleQuestion('What is the new action description?', '(optional)'),
+        transformer: styleAnswer,
       }),
       actionType: await select({
-        message: 'Select the action type',
+        message: styleQuestion('Select the action type'),
         choices: [
           { name: 'Create', value: 'create' },
           { name: 'Read', value: 'read' },
@@ -29,10 +31,10 @@ export default async function (): Promise<void> {
     };
 
     addAction({
-      key: toPascalCase(answers.actionTitle),
-      title: answers.actionTitle,
-      description: answers.actionDescription,
-      type: answers.actionType,
+      key: toPascalCase(answers.actionTitle.trim()),
+      title: answers.actionTitle.trim(),
+      description: answers.actionDescription.trim(),
+      type: answers.actionType.trim(),
     });
 
     logSuccess('Action is successfully added');

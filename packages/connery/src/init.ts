@@ -1,6 +1,6 @@
 import { input } from '@inquirer/prompts';
 import { initRepository } from './templates-generator';
-import { logError, logErrorBody, logSuccess, styleAnswer, styleQuestion } from './shared';
+import { logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from './shared';
 
 export default async function () {
   try {
@@ -9,20 +9,20 @@ export default async function () {
         message: styleQuestion('What is the connector title?', '(e.g.: My test connector)'),
         transformer: styleAnswer,
         validate: (value: string) => {
-          if (value.length > 0) {
-            return true;
+          if (value.trim() === '') {
+            return styleError('Please enter the connector title');
           }
-          return 'Please enter the connector title';
+          return true;
         },
       }),
       authorName: await input({
         message: styleQuestion('What is your full name?', '(for license and maintainer fields)'),
         transformer: styleAnswer,
         validate: (value: string) => {
-          if (value.length > 0) {
-            return true;
+          if (value.trim() === '') {
+            return styleError('Please enter your full name');
           }
-          return 'Please enter your full name';
+          return true;
         },
       }),
       authorEmail: await input({
@@ -32,12 +32,12 @@ export default async function () {
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           const isValidEmail = emailRegex.test(value);
 
-          if (!value) {
-            return 'Please enter your email address';
+          if (value.trim() === '') {
+            return styleError('Please enter your email address');
           }
 
           if (!isValidEmail) {
-            return 'Please enter a valid email address';
+            return styleError('Please enter a valid email address');
           }
 
           return true;
@@ -47,13 +47,13 @@ export default async function () {
 
     initRepository({
       connector: {
-        key: answers.connectorTitle.replace(/\s+/g, '-').toLowerCase(),
-        title: answers.connectorTitle,
-        description: `${answers.connectorTitle} connector for Connery`,
+        key: answers.connectorTitle.trim().replace(/\s+/g, '-').toLowerCase(),
+        title: answers.connectorTitle.trim(),
+        description: `${answers.connectorTitle.trim()} connector for Connery`,
       },
       author: {
-        name: answers.authorName,
-        email: answers.authorEmail,
+        name: answers.authorName.trim(),
+        email: answers.authorEmail.trim(),
       },
       year: new Date().getFullYear(),
     });
