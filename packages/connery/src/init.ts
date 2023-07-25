@@ -1,6 +1,7 @@
 import { input } from '@inquirer/prompts';
 import { initRepository } from './templates-generator';
 import { logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from './shared';
+import * as fs from 'fs';
 
 export default async function () {
   try {
@@ -45,6 +46,12 @@ export default async function () {
       }),
     };
 
+    // Remove README.md, .gitignore and LICENSE files which may be created by GitHub
+    // TODO: Replace this with a better solution as this can remove files which are created by the user
+    await removeFile(`${process.cwd()}/README.md`);
+    await removeFile(`${process.cwd()}/.gitignore`);
+    await removeFile(`${process.cwd()}/LICENSE`);
+
     initRepository({
       connector: {
         key: answers.connectorTitle.trim().replace(/\s+/g, '-').toLowerCase(),
@@ -64,4 +71,17 @@ export default async function () {
     logErrorBody(error.message);
     return;
   }
+}
+
+function removeFile(filePath: string): Promise<void> {
+  return new Promise((resolve) => {
+    fs.unlink(filePath, (err) => {
+      if (err) {
+        // ignore error if file doesn't exist
+        resolve();
+      } else {
+        resolve();
+      }
+    });
+  });
 }

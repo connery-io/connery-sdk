@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.15
+
+### Patch Changes
+
+- Handle standard files created by HitHub
+
 ## 0.0.14
 
 ### Patch Changes
