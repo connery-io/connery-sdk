@@ -8,12 +8,11 @@ const content = `{
   },
   "dependencies": {},
   "devDependencies": {
-    "@connery-io/cli": "*",
+    "connery": "*",
     "jest": "^29.6.1"
   },
   "scripts": {
-    "build": "connery validate && connery build",
-    "validate": "connery validate",
+    "build": "jest && connery validate && connery build",
     "test": "jest"
   }
 }

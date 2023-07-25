@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.12
+
+### Patch Changes
+
+- Update init template
+
 ## 0.0.11
 
 ### Patch Changes
