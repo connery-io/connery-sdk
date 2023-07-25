@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.10
+
+### Patch Changes
+
+- Fix dynamic connector import for validation
+
 ## 0.0.9
 
 ### Patch Changes
