@@ -12,7 +12,10 @@ module.exports = {
             name: '{{author.name}}',
             email: '{{author.email}}',
         }
-    ]
+    ],
+    connery: {
+        runnerVersion: '1',
+    }
 };
 `;
 
