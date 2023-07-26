@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.19
+
+### Patch Changes
+
+- Throw error if error happens
+
 ## 0.0.18
 
 ### Patch Changes

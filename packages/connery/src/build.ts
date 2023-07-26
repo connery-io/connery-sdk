@@ -12,7 +12,7 @@ export default async function (): Promise<void> {
   } catch (error: any) {
     logError('Error occurred while building the connector');
     logErrorBody(error.message);
-    return;
+    throw error;
   }
 }
 

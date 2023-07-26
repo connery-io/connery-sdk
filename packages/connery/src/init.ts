@@ -69,7 +69,7 @@ export default async function () {
   } catch (error: any) {
     logError('Error occurred while initializing connector repository');
     logErrorBody(error.message);
-    return;
+    throw error;
   }
 }
 

@@ -10,6 +10,6 @@ export default async function (): Promise<void> {
   } catch (error: any) {
     logError('Error occurred while validating connector definition');
     logErrorBody(error.message);
-    return;
+    throw error;
   }
 }

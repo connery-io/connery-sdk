@@ -41,7 +41,7 @@ export default async function (): Promise<void> {
   } catch (error: any) {
     logError('Error occurred while adding action');
     logErrorBody(error.message);
-    return;
+    throw error;
   }
 }
 
