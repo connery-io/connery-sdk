@@ -6,7 +6,11 @@
 
 ## What is this?
 
+TODO
+
 ### Vision & Mission
+
+TODO?
 
 ### Three main components
 
@@ -67,3 +71,14 @@ Setting up your personal runner
 
 - Join us on Discord
 - Join us on Twitter
+
+---
+
+Quick start
+
+- How to start runner?
+- How to add connectors to the runner?
+- How to call connectors/actions from your runner?
+- How to develop your own connector?
+
+--> Link to the detailed pages from those sections

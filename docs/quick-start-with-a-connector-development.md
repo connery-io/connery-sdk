@@ -1,4 +1,4 @@
-# Quick start with a connector development
+# Quick start with a connector development (move to the main page)
 
 > In this guide you learn all the necessary steps to start with the connector development real quick **using only your browser**.
 
@@ -13,7 +13,7 @@ Once the codespace is created and loaded you should see a VS Code editor in your
 Run the following command in the terminal and follow the instructions. You will be asked a couple of questions needed for the connector repository initialization.
 
 ```
-npx connery@latest init
+npx connery init
 ```
 
 Once the repository initialized, you should see the new files added.
@@ -40,14 +40,14 @@ git add . && git commit -m "Init connector repository" && git push origin main
 
 ## 7. (Run your action on the runner)
 
-Link to the Runner configuration page
+(Link to the Runner configuration page)
 
 ## 8. Add a new action to the connector
 
 add new action
 
 ```
-npx connery@latest add-action
+npx connery add-action
 ```
 
 build
