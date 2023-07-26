@@ -21,7 +21,7 @@ export const ValidationSchema = zod.object({
 export const InputParameterSchema = zod.object({
   key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
   title: zod.string().min(1).max(100),
-  description: zod.string().min(1).max(2000).optional(),
+  description: zod.string().max(2000).optional(),
   type: zod.enum(['string']),
   validation: ValidationSchema.optional(),
 });
@@ -29,7 +29,7 @@ export const InputParameterSchema = zod.object({
 export const OutputParameterSchema = zod.object({
   key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
   title: zod.string().min(1).max(100),
-  description: zod.string().min(1).max(2000).optional(),
+  description: zod.string().max(2000).optional(),
   type: zod.enum(['string']),
   validation: ValidationSchema.optional(),
 });
@@ -42,7 +42,7 @@ export const JavaScriptOperationSchema = zod.object({
 export const ActionSchema = zod.object({
   key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
   title: zod.string().min(1).max(100),
-  description: zod.string().min(0).max(2000).optional(),
+  description: zod.string().max(2000).optional(),
   type: zod.enum(['create', 'read', 'update', 'delete']),
   inputParameters: zod
     .array(InputParameterSchema)
@@ -56,7 +56,7 @@ export const ActionSchema = zod.object({
 export const ConfigurationParameterSchema = zod.object({
   key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
   title: zod.string().min(1).max(100),
-  description: zod.string().min(1).max(2000).optional(),
+  description: zod.string().max(2000).optional(),
   type: zod.enum(['string']),
   validation: ValidationSchema.optional(),
 });
@@ -68,7 +68,7 @@ export const MaintainerSchema = zod.object({
 
 export const ConnectorSchema = zod.object({
   title: zod.string().min(1).max(100),
-  description: zod.string().min(0).max(2000).optional(),
+  description: zod.string().max(2000).optional(),
   actions: zod.array(ActionSchema).min(1).refine(uniqueKeysValidator, { message: 'Actions must have unique keys' }),
   configurationParameters: zod
     .array(ConfigurationParameterSchema)

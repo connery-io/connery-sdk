@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.16
+
+### Patch Changes
+
+- Update description configuration
+
 ## 0.0.15
 
 ### Patch Changes
