@@ -12,8 +12,7 @@ const content = `{
     "jest": "^29.6.1"
   },
   "scripts": {
-    "build": "jest && connery validate && connery build",
-    "test": "jest"
+    "build": "jest && connery validate && connery build"
   }
 }
 `;
