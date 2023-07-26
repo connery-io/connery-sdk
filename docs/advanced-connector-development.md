@@ -14,3 +14,5 @@
 ## /dist/connector.js
 
 ## How the Runner runs connector?
+
+## Install dependencies
