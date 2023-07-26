@@ -6,13 +6,12 @@ const content = `const {{key}} = require('../actions/{{key}}');
 
 // TODO: Rename the test suite below to match your use case.
 it('should verify if the {{key}} action works as expected', async () => {
-    // arrange
-    const inputParameters = {}; // TODO: Specify the input parameters here.
+    // TODO: Uncomment the line below and specify the input parameters for your test case.
+    // const inputParameters = {...};
 
-    // act
-    const result = await {{key}}.operation.handler({ inputParameters });
+    // TODO: Uncomment the line below to call your action.
+    // const result = await {{key}}.operation.handler({ inputParameters });
 
-    // assert
     // TODO: Uncomment the line below and specify the output parameter you want to test and the expected value.
     // expect(...).toBe(...);
 });

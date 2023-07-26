@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.17
+
+### Patch Changes
+
+- Update generator templates
+
 ## 0.0.16
 
 ### Patch Changes
