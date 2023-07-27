@@ -1,13 +1,15 @@
 import { ConfigService } from '@nestjs/config';
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { ApiKeyConfigType, InstalledConnectorConfigType, RunnerConfigType } from './types';
 
 @Injectable()
 export class LocalConfigService {
   constructor(private configService: ConfigService) {}
 
-  verifyAccess(apiKey: string): void {
+  verifyAccess(apiKey: string): boolean {
     let isAccessAllowed = false;
+
+    if (!apiKey) throw new UnauthorizedException('API key is not provided');
 
     this.configService.get<ApiKeyConfigType[]>('ApiKeys').forEach((item) => {
       if (item.ApiKey === apiKey) {
@@ -16,9 +18,9 @@ export class LocalConfigService {
       }
     });
 
-    if (!isAccessAllowed) {
-      throw new HttpException('API key is not valid.', HttpStatus.UNAUTHORIZED);
-    }
+    if (!isAccessAllowed) throw new UnauthorizedException('API key is not valid');
+
+    return isAccessAllowed;
   }
 
   getInstalledConnectors(): InstalledConnectorConfigType[] {

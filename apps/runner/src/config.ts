@@ -12,6 +12,15 @@ export default () => ({
   InstalledConnectors: [
     {
       RepoOwner: 'connery-io',
+      RepoName: 'connery-runner-administration',
+      RepoBranch: 'main',
+      ConfigurationParameters: {
+        RunenrUrl: 'http://localhost',
+        RunnerApiKey: process.env.API_KEY,
+      },
+    },
+    {
+      RepoOwner: 'connery-io',
       RepoName: 'amazon-ses-identity-verification',
       RepoBranch: 'main',
       ConfigurationParameters: {

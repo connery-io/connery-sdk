@@ -5,6 +5,8 @@ import { LocalConfigService } from './local-config.service';
 import { RequestService } from './request.service';
 import { Action } from './action';
 import { ConnectorsService } from './connectors.service';
+import { APP_GUARD } from '@nestjs/core';
+import { AuthGuard } from './auth.guard';
 
 @Module({
   imports: [ConfigModule],
@@ -12,6 +14,10 @@ import { ConnectorsService } from './connectors.service';
     LocalConfigService,
     RequestService,
     ConnectorsService,
+    {
+      provide: APP_GUARD,
+      useClass: AuthGuard,
+    },
     {
       provide: 'CURRENT_CONNECTOR',
       inject: [ConnectorsService, RequestService],

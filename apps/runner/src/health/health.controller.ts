@@ -1,3 +1,4 @@
+import { Public } from ':src/shared/auth.guard';
 import { Controller, Get } from '@nestjs/common';
 import { HealthCheckService, HealthCheck } from '@nestjs/terminus';
 
@@ -5,6 +6,7 @@ import { HealthCheckService, HealthCheck } from '@nestjs/terminus';
 export class HealthController {
   constructor(private health: HealthCheckService) {}
 
+  @Public()
   @Get()
   @HealthCheck()
   check() {
