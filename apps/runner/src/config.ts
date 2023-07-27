@@ -13,7 +13,7 @@ export default () => ({
     {
       RepoOwner: 'connery-io',
       RepoName: 'connery-runner-administration',
-      RepoBranch: 'main',
+      RepoBranch: 'v0.0.1',
       ConfigurationParameters: {
         RunenrUrl: 'http://localhost',
         RunnerApiKey: process.env.API_KEY,
