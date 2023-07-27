@@ -19,16 +19,5 @@ export default () => ({
         RunnerApiKey: process.env.API_KEY,
       },
     },
-    {
-      RepoOwner: 'connery-io',
-      RepoName: 'amazon-ses-identity-verification',
-      RepoBranch: 'main',
-      ConfigurationParameters: {
-        AwsRegion: process.env.SES_AWS_REGION,
-        AwsAccessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        AwsSecretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-        NotificationSnsTopic: process.env.NOTIFICATION_SNS_TOPIC,
-      },
-    },
   ],
 });
