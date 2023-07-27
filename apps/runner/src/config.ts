@@ -19,5 +19,15 @@ export default () => ({
         RunnerApiKey: process.env.API_KEY,
       },
     },
+    {
+      RepoOwner: 'connery-io',
+      RepoName: 'gmail',
+      RepoBranch: 'v0.0.1',
+      ConfigurationParameters: {
+        GmailEmailAddress: process.env.GMAIL_EMAIL_ADDRESS,
+        GmailAppPassword: process.env.GMAIL_APP_PASSWORD,
+        SenderName: process.env.GMAIL_SENDER_NAME,
+      },
+    },
   ],
 });
