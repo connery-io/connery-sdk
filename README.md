@@ -54,8 +54,11 @@ Setting up your personal runner
   - (installation link)
   - (Demo video)
 - Make App
+
   - (installation link)
   - (Demo video)
+
+  We endorse others to build clients on top of Connery
 
 ## Roadmap
 
