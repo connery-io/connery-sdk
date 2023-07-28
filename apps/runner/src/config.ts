@@ -15,7 +15,7 @@ export default () => ({
       RepoName: 'connery-runner-administration',
       RepoBranch: 'v0.0.1',
       ConfigurationParameters: {
-        RunenrUrl: 'http://localhost',
+        RunenrUrl: 'http://localhost:80',
         RunnerApiKey: process.env.API_KEY,
       },
     },

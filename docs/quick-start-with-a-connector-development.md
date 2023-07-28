@@ -24,25 +24,7 @@ Once the repository initialized, you should see the new files added.
 npm install
 ```
 
-## 5. Build connector
-
-```
-npm run build
-```
-
-## 6. Commit and push the files
-
-Run the following command in the terminal to commit and push the files to GitHub.
-
-```
-git add . && git commit -m "Init connector repository" && git push origin main
-```
-
-## 7. (Run your action on the runner)
-
-(Link to the Runner configuration page)
-
-## 8. Add a new action to the connector
+## 5. Add a new action to the connector
 
 add new action
 
@@ -53,7 +35,27 @@ npx connery add-action
 build
 commit
 
-## 9. Install the connector on the runner
+## Test your action
+
+how to test the action during development
+
+## 6. Build connector
+
+```
+npm run build
+```
+
+## 7. Commit and push the files
+
+Run the following command in the terminal to commit and push the files to GitHub.
+
+```
+git add . && git commit -m "Init connector repository" && git push origin main
+```
+
+NOTE: make sure you delete all the secrets you used during testing before pushing the changes to the repository
+
+## 8. Install the connector on the runner
 
 Link to the page here...
 
