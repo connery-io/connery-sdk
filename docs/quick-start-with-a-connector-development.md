@@ -39,11 +39,21 @@ commit
 
 how to test the action during development
 
+```
+npm run test
+```
+
 ## 6. Build connector
 
 ```
 npm run build
 ```
+
+The build process:
+
+- run tests
+- validate connector definition
+- build connector and dependencies in the way the runner can use
 
 ## 7. Commit and push the files
 
