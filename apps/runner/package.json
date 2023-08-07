@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "nest start --debug --watch",
     "build": "nest build",
+    "test": "jest",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "format": "prettier --write 'src/**/*.ts'",
-    "test": "jest",
     "start:prod": "node dist/main",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
