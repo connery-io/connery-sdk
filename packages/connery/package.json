@@ -12,12 +12,14 @@
     "webpack": "^5.88.0"
   },
   "devDependencies": {
+    "jest": "^29.6.2",
     "lib": "*",
     "tsconfig": "*",
     "tsup": "^7.1.0"
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts",
-    "dev": "npm run build -- --watch"
+    "dev": "npm run build -- --watch",
+    "test": "jest"
   }
 }

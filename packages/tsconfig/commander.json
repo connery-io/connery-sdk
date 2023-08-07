@@ -12,6 +12,8 @@
     "moduleResolution": "node16",
 
     "sourceMap": true,
-    "allowJs": true
+    "allowJs": true,
+
+    "strictNullChecks": false
   }
 }

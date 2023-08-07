@@ -15,8 +15,7 @@ export async function readConnectorDefinitionFileUsingRequire(fullConnectorDefin
 // Used in the CLI
 export async function readConnectorDefinitionFileUsingImport(fullConnectorDefinitionPath: string): Promise<string> {
   // TODO: Use timestamp as cache buster to clear import cache
-  //const cahseBuster = Date.now();
-  const connector = await import_(`${fullConnectorDefinitionPath}`); // ?cacheBuster=${cahseBuster}
+  const connector = await import_(`${fullConnectorDefinitionPath}`);
   return connector.default;
 }
 
@@ -27,4 +26,12 @@ export function parseAndValidateConnector(connector: string): ConnectorSchemaTyp
     const userFriendlyValidationError = fromZodError(error, { prefix: '', prefixSeparator: '' });
     throw new Error(userFriendlyValidationError.message);
   }
+}
+
+export function getAction(connector: ConnectorSchemaType, actionKey: string) {
+  const action = connector.actions.find((action) => action.key === actionKey);
+  if (!action) {
+    throw new Error(`Action '${actionKey}' not found.`);
+  }
+  return action;
 }

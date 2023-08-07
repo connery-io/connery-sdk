@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "dotenv -- turbo run dev",
     "build": "turbo run build",
-    "lint": "turbo run lint",
-    "format": "turbo run format",
+    "test": "turbo run test",
     "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "devDependencies": {
