@@ -64,11 +64,6 @@ const config = {
             label: 'Docs',
           },
           {
-            href: '/public-connectors',
-            label: 'Public Connectors',
-            position: 'left',
-          },
-          {
             href: 'https://github.com/connery-io/connery',
             label: 'GitHub',
             position: 'right',
