@@ -1,10 +1,12 @@
 import { input } from '@inquirer/prompts';
 import { initRepository } from './templates-generator';
-import { logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from './shared';
+import { logEmptyLine, logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from './shared';
 import * as fs from 'fs';
 
 export default async function () {
   try {
+    logEmptyLine();
+
     const answers = {
       connectorTitle: await input({
         message: styleQuestion('What is the connector title?', '(e.g.: My test connector)'),
@@ -66,6 +68,7 @@ export default async function () {
     });
 
     logSuccess('Connector repository is successfully initialized');
+    logEmptyLine();
   } catch (error: any) {
     logError('Error occurred while initializing connector repository');
     logErrorBody(error.message);

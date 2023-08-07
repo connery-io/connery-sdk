@@ -1,11 +1,11 @@
 import { getAction, parseAndValidateConnector, readConnectorDefinitionFileUsingImport } from 'lib';
 import {
-  addEmptyLine,
+  logEmptyLine,
   logError,
   logErrorBody,
   logInfo,
   logSuccess,
-  logTitle,
+  logQuestionSectionTitle,
   styleAnswer,
   styleError,
   styleQuestion,
@@ -26,21 +26,24 @@ export default async function (
     var configurationParameters = JSON.parse(options.configurationParameters);
     var inputParameters = JSON.parse(options.inputParameters);
 
+    logEmptyLine();
+
     // Collect action key if not provided
     if (!actionKey) {
-      addEmptyLine();
-
       actionKey = await select({
         message: styleQuestion('What action do you want to run?'),
         choices: connectorSchema.actions.map((action) => ({ name: action.key, value: action.key })),
       });
+
+      logEmptyLine();
     }
 
     const actionSchema = getAction(connectorSchema, actionKey);
 
     // Collect configuration parameters if not provided
     if (Object.keys(configurationParameters).length === 0 && connectorSchema.configurationParameters.length > 0) {
-      logTitle('Configuration parameters for the connector');
+      logQuestionSectionTitle('Specify configuration parameters for the connector');
+      logEmptyLine();
 
       for (const configurationParameter of connectorSchema.configurationParameters) {
         configurationParameters[configurationParameter.key] = await input({
@@ -54,11 +57,14 @@ export default async function (
           },
         });
       }
+
+      logEmptyLine();
     }
 
     // Collect input parameters if not provided
     if (Object.keys(inputParameters).length === 0 && actionSchema.inputParameters.length > 0) {
-      logTitle('Input parameters for the action');
+      logQuestionSectionTitle('Specify input parameters for the action');
+      logEmptyLine();
 
       for (const inputParameter of actionSchema.inputParameters) {
         inputParameters[inputParameter.key] = await input({
@@ -72,6 +78,7 @@ export default async function (
           },
         });
       }
+      logEmptyLine();
     }
 
     // Run the action
@@ -79,17 +86,19 @@ export default async function (
 
     logSuccess('Action is successfully executed with the following result');
     logInfo(JSON.stringify(result, null, 2));
-    addEmptyLine();
+    logEmptyLine();
 
     // If the bare command was used, show a note about how to run the action with parameters
     if (showFastRunCommand) {
-      logTitle('NOTE: You can run the action with all the data prefilled by using the following command');
+      logInfo('HINT: You can run the action with all the data prefilled by using the following command');
+      logEmptyLine();
+
       logInfo(
         `npx connery run-action ${actionSchema.key} --configuration-parameters '${JSON.stringify(
           configurationParameters,
         )}' --input-parameters '${JSON.stringify(inputParameters)}'`,
       );
-      addEmptyLine();
+      logEmptyLine();
     }
   } catch (error: any) {
     logError('Error occurred while running action');

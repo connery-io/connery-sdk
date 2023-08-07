@@ -25,11 +25,9 @@ export function styleError(message: string) {
   return chalk.reset.hex(errorColor)(message);
 }
 
-export function logTitle(message: string) {
-  const logMessage = chalk.reset.hex(infoColor).bold(message);
-  addEmptyLine();
-  console.log(`${logMessage}`);
-  addEmptyLine();
+export function logQuestionSectionTitle(message: string) {
+  const logMessage = chalk.reset.hex(questionColor).bold(message);
+  console.log(logMessage);
 }
 
 export function logInfo(message: string) {
@@ -39,16 +37,12 @@ export function logInfo(message: string) {
 
 export function logSuccess(message: string) {
   const logMessage = chalk.reset.hex(successColor).bold(message);
-  addEmptyLine();
   console.log(`✅ ${logMessage}`);
-  addEmptyLine();
 }
 
 export function logError(message: string) {
   const logMessage = chalk.reset.hex(errorColor).bold(message);
-  addEmptyLine();
   console.log(`🔴 ${logMessage}`);
-  addEmptyLine();
 }
 
 export function logErrorBody(message: string) {
@@ -56,6 +50,6 @@ export function logErrorBody(message: string) {
   console.log(logMessage);
 }
 
-export function addEmptyLine() {
+export function logEmptyLine() {
   console.log('');
 }

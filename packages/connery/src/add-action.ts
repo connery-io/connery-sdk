@@ -1,9 +1,11 @@
 import { input, select } from '@inquirer/prompts';
 import { addAction } from './templates-generator';
-import { logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from './shared';
+import { logEmptyLine, logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from './shared';
 
 export default async function (): Promise<void> {
   try {
+    logEmptyLine();
+
     const answers = {
       actionTitle: await input({
         message: styleQuestion('What is the new action title?', '(e.g.: My test action)?'),
@@ -38,6 +40,7 @@ export default async function (): Promise<void> {
     });
 
     logSuccess('Action is successfully added');
+    logEmptyLine();
   } catch (error: any) {
     logError('Error occurred while adding action');
     logErrorBody(error.message);
