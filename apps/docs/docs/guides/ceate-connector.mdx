@@ -2,52 +2,113 @@
 sidebar_position: 3
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 # Create connector
 
-:::info
-In this guide you learn all the necessary steps to start with the connector development real quick **using only your browser**.
-:::
+This guide will teach you how to create a new connector using a browser-based development environment provided by GitHub Codespaces.
+However, you can use any other development environment. The steps are the same.
 
-### 1. Create a new public repository in GitHub
+### 1. Create a new public GitHub repository
 
-### 2. Create a new Codespace for the repository
+The repository will be used to store the connector code and configuration.
 
-Once the codespace is created and loaded you should see a VS Code editor in your browser with a "Terminal" tab open.
+The connector will have an identification key that consists of your GitHub username, repository name, and branch name.
+For example: `<username>/<repository-name>@main`.
+
+<details>
+  <summary>Hint for beginners</summary>
+
+If you are not familiar with GitHub, you can follow the [Create a GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo?tool=webui) guide.
+
+</details>
+
+### 2. Create a new GitHub Codespace for the repository
+
+The Codespace will be used as a development environment for the connector.
+This is the easiest way to develop the connector without installing software on your machine.
+
+Once the Codespace is created and loaded, you should see a VS Code editor in your browser with a "Terminal" tab open.
+
+<details>
+  <summary>Hints for beginners and advanced users</summary>
+
+For beginners:
+
+- If you are not familiar with GitHub Codespaces, you can follow the
+  [Create a GitHub Codespace for arepository](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui)
+  guide.
+
+For advanced users:
+
+- If you prefer to use another development environment, you can skip this
+  step, clone the repository, open it in your favorite IDE, and continue with
+  the next steps. In this case, make sure you have the latest version of Node.js installed.
+
+</details>
 
 ### 3. Initialize the connector repository
 
-Run the following command in the terminal and follow the instructions. You will be asked a couple of questions needed for the connector repository initialization.
+To make it very easy to start with the connector development, we created a tool to initialize the connector repository for you.
+After you answer a couple of questions, the tool will generate all the files needed for the connector development in your repository.
+
+Run the following command in the terminal and follow the instructions.
+This command will install the latest version of Connery CLI and run the initialization process.
 
 ```
 npx connery@latest init
 ```
 
-Once the repository initialized, you should see the new files added.
+Once the initialization is finished, you should see the new files added to the repository.
+The newly initialized connector is fully functional.
+The entry point of the connector is the `./index.js` file.
+It contains the connector definition and a sample action defined in the `./actions/sample-action.js` file.
+The sample action sums up two numbers and returns the result.
+This is a good starting point for exploring and experimenting with the connector.
+You can remove the sample action when you don't need it.
 
-### 4. Install dependences
+<details>
+  <summary>Hint for advanced users</summary>
+
+You can also install the Connery CLI on your development environment and use it to initialize the connector repository:
+
+```
+npm install -g connery
+connery init
+```
+
+The same approach also works with the other Connery CLI commands that are described in this guide.
+
+</details>
+
+### 4. Install dependencies
+
+To continue with the connector development, you need to install all the dependencies that are required by the connector:
 
 ```
 npm install
 ```
 
+---
+
 ### 5. Add a new action to the connector
 
-add new action
+add new action file into the action folder, include the action in the connector definition file, add an empty test file into the test folder.
 
 ```
 npx connery@latest add-action
 ```
 
-build
-commit
-
-### 6. Test your action
+### 6. Test action
 
 how to test the action during development
 
 ```
 npx connery@latest run-action
 ```
+
+For advanced user: you can also test the action using uni tests. See more details in the advanced section.
 
 ### 6. Build connector
 
@@ -61,6 +122,8 @@ The build process:
 - validate connector definition
 - build connector and dependencies in the way the runner can use
 
+Build sources should be stored in the repository in the `./build` folder so the runner can use them immediately without the need to build the connector again.
+
 ### 7. Commit and push the files
 
 Run the following command in the terminal to commit and push the files to GitHub.
@@ -71,36 +134,20 @@ git add . && git commit -m "Init connector repository" && git push origin main
 
 NOTE: make sure you delete all the secrets you used during testing before pushing the changes to the repository
 
-### 8. Install the connector on the runner
-
-Link to the page here...
-
 ### Next steps
 
-Learn more details about the connector development on this page...
-
-Learn about the connector definition here...
-
-Connector examples...
+- Install the connector on the runner and start using it.
+- Here is more information about the connector development...
+- Connector examples (list of public connectors)...
 
 ### End of work
 
 When you finished your work on the connector, stop your codespace so you can use it longer for free.
 When you want to work on your connector again, you can start the codespace from your repository.
 
+- Auto stop after 30 minutes: https://docs.github.com/en/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces?tool=webui
+
 ### Related resources
 
-- [Create a repo](https://docs.github.com/en/get-started/quickstart/create-a-repo?tool=webui)
-- [Creating a codespace for a repository](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui)
-- [Stopping a codespace](https://docs.github.com/en/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui)
-- [About billing for GitHub Codespaces](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts)
-
----
-
-NOTES:
-
-Start with the quick guide how to create the connector in your browser...
-
-Here is more information about the connector development...
-
-Here is the liost of public connectors...
+- [Stop a GitHub codespace](https://docs.github.com/en/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui)
+- [About billing for GitHub codespaces](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts)
