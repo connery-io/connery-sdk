@@ -10,14 +10,18 @@ TODO: Add image "Connectors --> Runner --> Clients"
 
 ### Connector
 
-A connector is a collection of closely related actions in their meaning and function.
-For example, _Gmail_ is a connector with _Send Email_ and _Search Emails_ actions.
+A connector is a collection of closely related actions in meaning and function.
+The connector provides a shared configuration and connection management for all its actions.
+
+For example, the "Gmail" connector has "Send Email" and "Search Emails" actions.
+Also, it has "Gmail Email Address" and "Gmail App Password" configuration parameters
+provided during the connector installation and used by all the actions to access the Gmail account.
 
 You might already be familiar with the idea of a Connector.
 This idea has different names across various platforms.
-In ChatGPT, it's a _plugin_; In LangChain, it's called a _tool_; And in Make, Zapier, and Slack, it's termed an _app_.
+In ChatGPT, it's a "plugin"; In LangChain, it's called a "tool"; And in Make, Zapier, and Slack - "app".
 
-Each Connector is represented by a GitHub repository set up in a specific manner.
+Each connector is represented by a GitHub repository set up in a specific manner.
 It can be either public or private.
 To use a Connector, it must first be installed on a runner.
 Once installed, its actions can be run from any client.
@@ -27,8 +31,8 @@ Once installed, its actions can be run from any client.
 An action is a singular operation designed to perform a specific task.
 It can accept input parameters from the client and return output parameters upon execution.
 
-For example, the _Send Email_ action has _Recipient_, _Subject_, and _Body_ input parameters.
-Once the action is run by the client, it sends an email based on the provided input parameters and returns a _Status_ as a result.
+For example, the Send Email action has Recipient, Subject, and Body input parameters.
+Once the action is run by the client, it sends an email based on the provided input parameters and returns a Status as a result.
 
 ### Runner
 
