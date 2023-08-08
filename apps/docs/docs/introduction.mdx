@@ -4,25 +4,43 @@ sidebar_position: 1
 
 # Introduction
 
-test change
+TODO: Add image "Connectors --> Runner --> Clients"
 
 ## Terminology
 
-(Image: Connectors --> Runner --> Clients)
-
 ### Connector
 
+A connector is a collection of closely related actions in their meaning and function.
+For example, _Gmail_ is a connector with _Send Email_ and _Search Emails_ actions.
+
+You might already be familiar with the idea of a Connector.
+This idea has different names across various platforms.
+In ChatGPT, it's a _plugin_; In LangChain, it's called a _tool_; And in Make, Zapier, and Slack, it's termed an _app_.
+
+Each Connector is represented by a GitHub repository set up in a specific manner.
+It can be either public or private.
+To use a Connector, it must first be installed on a runner.
+Once installed, its actions can be run from any client.
+
 ### Action
+
+An action is a singular operation designed to perform a specific task.
+It can accept input parameters from the client and return output parameters upon execution.
+
+For example, the _Send Email_ action has _Recipient_, _Subject_, and _Body_ input parameters.
+Once the action is run by the client, it sends an email based on the provided input parameters and returns a _Status_ as a result.
 
 ### Runner
 
 ### Client
 
+Clients allows to call actions from the runner
+
+Clients are usually proxies.
+
 ---
 
-**Connector with actions**. _Connector_ is a set of simple _actions_ that a user can delegate to AI. For example "Send email" action in "Gmail" connector. Every connector is a separate open source GitHub reposotory using similar approach to GitHub Actions. Connectors have different names - plugins in ChatGPT, tools in LangChain, apps/integrations in Zapier.
-
-(Link: to sample connector repository - send GMAIL)
+NOTES:
 
 **Runner** is a personal server to host and run actions. Every company or individual configures their own isolated runner with a unique connector set and configuration.
 
