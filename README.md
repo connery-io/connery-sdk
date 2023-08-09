@@ -8,10 +8,6 @@
 
 TODO
 
-## Vision & Mission
-
-TODO
-
 ## What can this help with?
 
 TODO

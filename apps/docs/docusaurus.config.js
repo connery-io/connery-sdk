@@ -41,7 +41,7 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'introduction',
+            docId: 'introduction/index',
             label: 'Docs',
           },
           {

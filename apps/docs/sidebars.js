@@ -1,6 +1,19 @@
 const sidebars = {
   docsSidebar: [
-    'introduction',
+    {
+      type: "category",
+      label: "Introduction",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        'introduction/terminology',
+        'introduction/use-cases',
+      ],
+      link: {
+        type: 'doc',
+        id: 'introduction/index',
+      },
+    },
     {
       type: "category",
       label: "Getting strated",
