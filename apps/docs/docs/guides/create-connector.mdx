@@ -1,7 +1,3 @@
----
-sidebar_position: 3
----
-
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
@@ -16,13 +12,6 @@ The repository will be used to store the connector code and configuration.
 
 The connector will have an identification key that consists of your GitHub username, repository name, and branch name.
 For example: `<username>/<repository-name>@main`.
-
-<details>
-  <summary>Hint for beginners</summary>
-
-If you are not familiar with GitHub, you can follow the [Create a GitHub repository](https://docs.github.com/en/get-started/quickstart/create-a-repo?tool=webui) guide.
-
-</details>
 
 ### 2. Create a new GitHub Codespace for the repository
 
@@ -71,7 +60,7 @@ You can remove the sample action when you don't need it.
 <details>
   <summary>Hint for advanced users</summary>
 
-You can also install the Connery CLI on your development environment and use it to initialize the connector repository:
+You can also install the Connery CLI on your development environment and then use it to initialize the connector repository:
 
 ```
 npm install -g connery
@@ -84,7 +73,7 @@ The same approach also works with the other Connery CLI commands that are descri
 
 ### 4. Install dependencies
 
-To continue with the connector development, you need to install all the dependencies that are required by the connector:
+To continue with the connector development, you need to install all the dependencies of the connector:
 
 ```
 npm install
@@ -94,11 +83,26 @@ npm install
 
 ### 5. Add a new action to the connector
 
-add new action file into the action folder, include the action in the connector definition file, add an empty test file into the test folder.
+No the fun part starts. You can create your first action in the connector.
+To add a new epty action, use the following command from Connery CLI:
 
 ```
 npx connery@latest add-action
 ```
+
+you will be asked a couple of questions about the action you want to add.
+After that Connery CLI will add the action to the connector.
+It icludes:
+
+- add new action file into the `./actions` folder, 
+- include the action in the connector definition in the `./index.js` file, 
+- add a test file into the `./test` folder
+
+Now you can start implementing the action. The entry point of the action is the `./actions/<action-name>.js` file.
+Define input and output parameters of the action and implement the action logic in the `handler` function.
+
+You can access the action parameters in the `handler` function using the `inputParameters` property of the `context` object. 
+See examople in the sample action.
 
 ### 6. Test action
 
@@ -132,7 +136,9 @@ Run the following command in the terminal to commit and push the files to GitHub
 git add . && git commit -m "Init connector repository" && git push origin main
 ```
 
-NOTE: make sure you delete all the secrets you used during testing before pushing the changes to the repository
+:::caution
+Please make sure you delete all the secrets you used during testing before pushing the changes to the repository
+:::
 
 ### Next steps
 

@@ -8,30 +8,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Connery',
   tagline: 'Open source connector ecosystem for AI and No-Code.',
-
-  // Set the production url of your site here
   url: 'https://docs.connery.io',
-
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'connery-io', // Usually your GitHub org/user name.
-  projectName: 'connery', // Usually your repo name.
-
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
   presets: [
     [
       'classic',
@@ -39,8 +23,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl:
-            'https://github.com/connery-io/connery/tree/main/apps/docs/',
+          editUrl: 'https://github.com/connery-io/connery/tree/main/apps/docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -48,15 +31,31 @@ const config = {
       }),
     ],
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Connery Docs',
+        title: 'Connery',
         items: [
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'introduction',
+            label: 'Docs',
+          },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'clients/index',
+            label: 'Clients',
+          },
+          {
+            type: 'doc',
+            position: 'left',
+            docId: 'connectors',
+            label: 'Connectors',
+          },
           {
             href: 'https://github.com/connery-io/connery',
             label: 'GitHub',
