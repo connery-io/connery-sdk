@@ -1,33 +1,43 @@
-# Terminology
+# Core concepts
+
+Here you can find the the core concepts of Connery platform and their definitions.
 
 ## Connector
 
 A connector is a collection of closely related actions in meaning and function.
 The connector provides a shared configuration and connection management for all its actions.
-
-For example, the "Gmail" connector has "Send Email" and "Search Emails" actions.
-Also, it has "Gmail Email Address" and "Gmail App Password" configuration parameters
-provided during the connector installation and used by all the actions to access the Gmail account.
-
-You might already be familiar with the idea of a Connector.
-This concept has different names across various platforms:
-
-- **Plugin** in ChatGPT;
-- **Tool** in LangChain;
-- **App** in Make, Zapier, and Slack.
-
 Each connector is represented by a GitHub repository set up in a specific manner.
 It can be either public or private.
 To use a Connector, it must first be installed on a runner.
 Once installed, its actions can be run from any client.
+
+:::info Example
+
+[connery-io/gmail](https://github.com/connery-io/gmail) connector has SendEmail and SearchEmail actions.
+Also, it requires providing GmailEmailAddress and GmailAppPassword configuration parameters
+during the connector installation on the runner. 
+The actions use these parameters to establish a connection to the Gmail account.
+
+:::
+
+You might already be familiar with the concept of a connector.
+This idea has different names across various platforms:
+
+- **Plugin** in ChatGPT;
+- **Tool** in LangChain;
+- **App** in Make, Zapier, and Slack.
 
 ## Action
 
 An action is a singular operation designed to perform a specific task.
 It can accept input parameters from the client and return output parameters upon execution.
 
-For example, the Send Email action has Recipient, Subject, and Body input parameters.
+:::info Example
+
+The SendEmail action of the [connery-io/gmail](https://github.com/connery-io/gmail) connector has Recipient, Subject, and Body input parameters.
 Once the action is run by the client, it sends an email based on the provided input parameters and returns a Status as a result.
+
+:::
 
 ## Runner
 

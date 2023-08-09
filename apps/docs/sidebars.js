@@ -6,7 +6,7 @@ const sidebars = {
       collapsible: false,
       collapsed: false,
       items: [
-        'introduction/terminology',
+        'introduction/core-concepts',
         'introduction/use-cases',
       ],
       link: {
