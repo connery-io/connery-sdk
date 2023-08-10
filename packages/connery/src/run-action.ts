@@ -94,7 +94,7 @@ export default async function (
       logEmptyLine();
 
       logInfo(
-        `npx connery run-action ${actionSchema.key} --configuration-parameters '${JSON.stringify(
+        `npx connery@latest run-action ${actionSchema.key} --configuration-parameters '${JSON.stringify(
           configurationParameters,
         )}' --input-parameters '${JSON.stringify(inputParameters)}'`,
       );
