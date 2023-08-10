@@ -53,6 +53,7 @@ const sidebars = {
         'clients/slack',
         'clients/make',
         'clients/langchain',
+        'clients/api',
       ],
       link: {
         type: 'doc',
