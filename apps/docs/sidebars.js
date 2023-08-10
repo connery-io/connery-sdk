@@ -46,20 +46,21 @@ const sidebars = {
   clientsSidebar: [
     {
       type: "category",
-      label: "Clients",
+      label: "Native Clients",
       collapsible: false,
       collapsed: false,
       items: [
-        'clients/slack',
-        'clients/make',
-        'clients/langchain',
-        'clients/api',
+        'native-clients/slack',
+        'native-clients/make',
+        'native-clients/langchain',
+        'native-clients/api',
       ],
       link: {
         type: 'doc',
-        id: 'clients/index',
+        id: 'native-clients/index',
       },
     },
+    'third-party-clients',
   ]
 };
 

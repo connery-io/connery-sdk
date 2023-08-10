@@ -1,23 +1,21 @@
 # Core concepts
 
-Here you can find the the core concepts of Connery platform and their definitions.
+Here, you can find the core concepts of the Connery platform and their definitions.
+We highly recommend you read this section before diving into the documentation.
 
 ## Connector
 
-A connector is a collection of closely related actions in meaning and function.
-The connector provides a shared configuration and connection management for all its actions.
-Each connector is represented by a GitHub repository set up in a specific manner.
-It can be either public or private.
-To use a Connector, it must first be installed on a runner.
-Once installed, its actions can be run from any client.
+A connector is a collection of actions closely related by meaning and function.
+The connector provides a shared configuration for all its actions.
+Each connector is represented by a public or private GitHub repository configured in a specific way.
+Before a connector can be used, it must be installed on a runner.
+Once set up, its actions are accessible and can be run from any client.
 
 :::info Example
-
-[connery-io/gmail](https://github.com/connery-io/gmail) connector has SendEmail and SearchEmail actions.
-Also, it requires providing GmailEmailAddress and GmailAppPassword configuration parameters
-during the connector installation on the runner. 
-The actions use these parameters to establish a connection to the Gmail account.
-
+A [connery-io/gmail](https://github.com/connery-io/gmail) connector has a set of actions related to Gmail.
+For example, SendEmail is one of them.
+The connector requires GmailEmailAddress and GmailAppPassword configuration parameters
+during the installation on the runner, so the actions can establish a connection to the Gmail account using them.
 :::
 
 You might already be familiar with the concept of a connector.
@@ -29,28 +27,27 @@ This idea has different names across various platforms:
 
 ## Action
 
-An action is a singular operation designed to perform a specific task.
-It can accept input parameters from the client and return output parameters upon execution.
+An action is an atomic operation designed to perform a specific task.
+You can think of an action as a function with input and output parameters that can be called from many places (clients).
 
 :::info Example
-
-The SendEmail action of the [connery-io/gmail](https://github.com/connery-io/gmail) connector has Recipient, Subject, and Body input parameters.
-Once the action is run by the client, it sends an email based on the provided input parameters and returns a Status as a result.
-
+The [SendEmail](https://github.com/connery-io/gmail/blob/main/actions/SendEmail.js) action of
+the [connery-io/gmail](https://github.com/connery-io/gmail) connector has Recipient, Subject, and Body input parameters.
+Once a client runs the action, it sends an email based on the provided input parameters
+and returns a MessageId to the client as a result.
 :::
 
 ## Runner
 
+A runner is an open-source application to host and run actions.
+Every company or individual configures their own isolated runner with a unique connector set and configuration.
+Runner provides a security layer and access control for actions and their execution.
+
 ## Client
 
-Clients allows to call actions from the runner
+A client is an application that allows end users to run actions from the runner.
 
-Clients are usually proxies.
-
----
-
-NOTES:
-
-**Runner** is a personal server to host and run actions. Every company or individual configures their own isolated runner with a unique connector set and configuration.
-
-**Clients**. End users apply clients to automate their work in different ways. They are executing actions exposed by the runner based on the access configuration. For example, our Slack App for executing less frequent and manual actions. Or LangChain Tool for exposing actions to agents for frequent, fully automated tasks. There are many other clients and use cases possible.
+:::info Example
+[Connery Slack App](/docs/native-clients/slack) is a client that allows users to run actions from the runner right
+from the Slack workspace using natural language.
+:::

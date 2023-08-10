@@ -47,7 +47,7 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'clients/index',
+            docId: 'native-clients/index',
             label: 'Clients',
           },
           {
