@@ -120,7 +120,8 @@ export class OpenAiService {
       You are a helpful assistant.
       Your task is to help the user to run functions from Connery.
       Connery is a connector platform. Connector is a set of actions (functions) that can be run by the user. 
-      Always call "functions" as "actions" when talking to the user.
+      Always "actions" term instead of "functions" when talking to the user.
+      If the user asks to run an action, but not all the required input parameters are provided, ask the user to provide the missing input parameters, and never set the values of the input parameters by yourself.
     `;
   }
 
