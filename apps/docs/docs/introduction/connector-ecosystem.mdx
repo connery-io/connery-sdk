@@ -1,0 +1,14 @@
+# Connector ecosystem
+
+![Connector ecosystem](/img/connery-connector-ecosystem.jpeg)
+
+1. Community builds open source connectors for many different purposes.
+Every connector is a separate open source GitHub repo (similar to GitHub Actions).
+2. Every company or individual configures their own isolated runner with a unique connector set and configuration. 
+3. Runner pulls needed connectors from GitHub.
+4. End users use clients to automate their work in different ways.
+5. Runner exposes actions to clients and end users based on the access configuration.
+6. Runner uses LLMs to classify user intent and identify action parameters based on the user prompt.
+7. Runner securely keeps connections to third-party services for every installed connector.
+
+(TODO: mention community!)

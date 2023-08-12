@@ -7,7 +7,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Connery',
-  tagline: 'Open source connector ecosystem for AI and No-Code.',
   url: 'https://docs.connery.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',

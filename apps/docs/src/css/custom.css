@@ -28,3 +28,16 @@
   --ifm-color-primary-lightest: #c7c7ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.make-button {
+  padding: 10px 20px;
+  color: #fff;
+  background: radial-gradient(100.03% 140.18% at 0 85.53%,#f0f 0,#6d00cc 95.31%);
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.make-button:hover {
+  color: #fff;
+  text-decoration: none;
+}

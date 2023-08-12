@@ -14,8 +14,8 @@ The connector will have an identification key that consists of your GitHub usern
 For example: `<username>/<repository-name>@main`.
 
 :::tip
-We wholeheartedly encourage everyone to release their connectors as public and open-source.<br/>
-Let's empower the community together and make a lasting, positive impact 🙌
+We sincerely encourage making connectors public and open-source.<br/>
+Let's empower the community together and make a lasting, positive impact ❤️
 :::
 
 ### 2. Create a new GitHub Codespace for the repository
@@ -24,6 +24,16 @@ The Codespace will be used as a development environment for the connector.
 This is the easiest way to develop the connector without installing software on your machine.
 
 Once the Codespace is created and loaded, you should see a VS Code editor in your browser with a "Terminal" tab open.
+
+:::info
+
+The Codespace is [free of charge for 120 hours per month](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts) for personal accounts.
+
+GitHub Codespace will stop running after a period of inactivity to safe resources.
+[By default this period is 30 minutes.](https://docs.github.com/en/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces?tool=webui#about-the-idle-timeout)
+So don't forget to save your work before you leave the Codespace.
+
+:::
 
 <details>
   <summary>Hints for beginners and advanced users</summary>
@@ -133,18 +143,6 @@ Please make sure you delete all the secrets you used during testing before pushi
 
 ### Next steps
 
-- Install the connector on the runner and start using it.
-- Here is more information about the connector development...
-- Connector examples (list of public connectors)...
-
-### End of work
-
-When you finished your work on the connector, stop your codespace so you can use it longer for free.
-When you want to work on your connector again, you can start the codespace from your repository.
-
-- Auto stop after 30 minutes: https://docs.github.com/en/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces?tool=webui
-
-### Related resources
-
-- [Stop a GitHub codespace](https://docs.github.com/en/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui)
-- [About billing for GitHub codespaces](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts)
+1. Use the [existing open-source connectors](/docs/connectors) as an inspiration and example.
+2. [Install the connector on the runner.](/docs/getting-started/install-connector-on-the-runner)
+3. [Use clients](/docs/getting-started/use-clients-to-call-actions) to run actions from the connector.
