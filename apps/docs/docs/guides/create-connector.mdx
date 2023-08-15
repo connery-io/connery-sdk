@@ -14,8 +14,10 @@ The connector will have an identification key that consists of your GitHub usern
 For example: `<username>/<repository-name>@main`.
 
 :::tip
-We sincerely encourage making connectors public and open-source.<br/>
-Let's empower the community together and make a lasting, positive impact ❤️
+
+We sincerely encourage making connectors public and open-source under the MIT license 
+to make them available to the community and grow the [connector ecosystem](/docs/introduction/connector-ecosystem) together :heart:
+
 :::
 
 ### 2. Create a new GitHub Codespace for the repository
@@ -36,16 +38,11 @@ So don't forget to save your work before you leave the Codespace.
 :::
 
 <details>
-  <summary>Hints for beginners and advanced users</summary>
-
-For beginners:
+  <summary>Hints</summary>
 
 - If you are not familiar with GitHub Codespaces, you can follow the
   [Create a GitHub Codespace for arepository](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui)
   guide.
-
-For advanced users:
-
 - If you prefer to use another development environment, you can skip this
   step, clone the repository, open it in your favorite IDE, and continue with
   the next steps. In this case, make sure you have the latest version of Node.js installed.
@@ -80,30 +77,36 @@ To continue with the connector development, you need to install all the dependen
 npm install
 ```
 
----
-
 ### 5. Add a new action to the connector
 
-No the fun part starts. You can create your first action in the connector.
-To add a new epty action, use the following command from Connery CLI:
+And now, the fun part starts - creating your first action in the connector. 
+To add a new empty action, use the following command from Connery CLI:
 
 ```
 npx connery@latest add-action
 ```
 
-you will be asked a couple of questions about the action you want to add.
-After that Connery CLI will add the action to the connector.
-It icludes:
+You will be asked a couple of questions about the action you want to add.
+After all the necessary information is provided, Connery CLI will add the action to the connector 
+by making a couple of changes to the files of your repository:
 
-- add new action file into the `./actions` folder,
-- include the action in the connector definition in the `./index.js` file,
-- add a test file into the `./test` folder
+- A new action file will be added to the `./actions` folder.
+- The action will be included in the connector definition in the `./index.js` file.
+- A new test file will be added to the `./test` folder.
 
-Now you can start implementing the action. The entry point of the action is the `./actions/<action-name>.js` file.
-Define input and output parameters of the action and implement the action logic in the `handler` function.
+Now, you can implement the logic of the action. Open the action definition file `./actions/<action-name>.js`, 
+define input and output parameters of the action and implement the logic of the action in the `handler` function.
 
-You can access the action parameters in the `handler` function using the `inputParameters` property of the `context` object.
-See examople in the sample action.
+:::note Helpful resources 
+
+- Use the sample action as an example. 
+- Check the [connector definition schema](https://github.com/connery-io/connery/blob/main/packages/lib/src/connector.schema.ts) 
+to understand how the definition of the connector and action works.
+- Use the [existing open-source connectors](/docs/connectors) as an inspiration and example.
+
+:::
+
+---
 
 ### 6. Test action
 
@@ -115,7 +118,7 @@ npx connery@latest run-action
 
 For advanced user: you can also test the action using uni tests. See more details in the advanced section.
 
-### 6. Build connector
+### 7. Build connector
 
 ```
 npm run build
@@ -129,7 +132,7 @@ The build process:
 
 Build sources should be stored in the repository in the `./build` folder so the runner can use them immediately without the need to build the connector again.
 
-### 7. Commit and push the files
+### 8. Commit and push the files
 
 Run the following command in the terminal to commit and push the files to GitHub.
 
@@ -143,6 +146,5 @@ Please make sure you delete all the secrets you used during testing before pushi
 
 ### Next steps
 
-1. Use the [existing open-source connectors](/docs/connectors) as an inspiration and example.
 2. [Install the connector on the runner.](/docs/getting-started/install-connector-on-the-runner)
 3. [Use clients](/docs/getting-started/use-clients-to-call-actions) to run actions from the connector.

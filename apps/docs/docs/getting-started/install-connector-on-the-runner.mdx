@@ -1,1 +1,11 @@
 # Install connector on the runner
+
+Add connector Key with the version or branch to the runner configuration file.
+
+Provide required and optional configuration parameters for the connector.
+See connector definition file to see the configuration parameters for the connector.
+
+NOTE: You don't need to deploy the connector on the runner, the runner will download it automatically from the specified GitHub repository and the specified version or branch
+
+After you installed all the connectors you need, restart the runner so it uses the new configuration if you run it locally.
+Or re-deploy the runner if you run it in a cloud.
