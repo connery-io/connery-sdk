@@ -50,14 +50,14 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'native-clients/index',
-            label: 'Clients',
+            docId: 'connectors',
+            label: 'Connectors',
           },
           {
             type: 'doc',
             position: 'left',
-            docId: 'connectors',
-            label: 'Connectors',
+            docId: 'native-clients/index',
+            label: 'Clients',
           },
           {
             href: 'https://github.com/connery-io/connery',
