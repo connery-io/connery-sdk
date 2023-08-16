@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.26
+
+### Patch Changes
+
+- Update template for 'add-action' command
+
 ## 0.0.25
 
 ### Patch Changes
