@@ -84,7 +84,7 @@ async function getGenerator(key: string) {
         type: 'modify',
         path: 'index.js',
         pattern: /(^.*)/m, // Modify the first line
-        template: 'const {{key}} = require("./actions/{{key}}.js");\n$1',
+        template: 'const {{key}} = require("./actions/{{key}}");\n$1',
       },
       {
         type: 'append',

@@ -15,7 +15,7 @@ For example: `<username>/<repository-name>@main`.
 
 :::tip
 
-We sincerely encourage making connectors public and open-source under the MIT license 
+We sincerely encourage making connectors public and open-source under the MIT license
 to make them available to the community and grow the [connector ecosystem](/docs/introduction/connector-ecosystem) together :heart:
 
 :::
@@ -79,7 +79,7 @@ npm install
 
 ### 5. Add a new action to the connector
 
-And now, the fun part starts - creating your first action in the connector. 
+And now, the fun part starts - creating your first action in the connector.
 To add a new empty action, use the following command from Connery CLI:
 
 ```
@@ -87,21 +87,21 @@ npx connery@latest add-action
 ```
 
 You will be asked a couple of questions about the action you want to add.
-After all the necessary information is provided, Connery CLI will add the action to the connector 
+After all the necessary information is provided, Connery CLI will add the action to the connector
 by making a couple of changes to the files of your repository:
 
 - A new action file will be added to the `./actions` folder.
 - The action will be included in the connector definition in the `./index.js` file.
 - A new test file will be added to the `./test` folder.
 
-Now, you can implement the logic of the action. Open the action definition file `./actions/<action-name>.js`, 
+Now, you can implement the logic of the action. Open the action definition file `./actions/<action-name>.js`,
 define input and output parameters of the action and implement the logic of the action in the `handler` function.
 
-:::note Helpful resources 
+:::note Helpful resources
 
-- Use the sample action as an example. 
-- Check the [connector definition schema](https://github.com/connery-io/connery/blob/main/packages/lib/src/connector.schema.ts) 
-to understand how the definition of the connector and action works.
+- Use the sample action as an example.
+- Check the [connector definition schema](https://github.com/connery-io/connery/blob/main/packages/lib/src/connector.schema.ts)
+  to understand how the definition of the connector and action works.
 - Use the [existing open-source connectors](/docs/connectors) as an inspiration and example.
 
 :::
@@ -117,6 +117,10 @@ npx connery@latest run-action
 ```
 
 For advanced user: you can also test the action using uni tests. See more details in the advanced section.
+
+TODO: mention shortcut produced by CLI to run the action faster with the same paramnters next time
+
+Add gif
 
 ### 7. Build connector
 
@@ -148,3 +152,9 @@ Please make sure you delete all the secrets you used during testing before pushi
 
 2. [Install the connector on the runner.](/docs/getting-started/install-connector-on-the-runner)
 3. [Use clients](/docs/getting-started/use-clients-to-call-actions) to run actions from the connector.
+
+---
+
+TODO:
+
+- Mention that the user can use any NPM pachages.
