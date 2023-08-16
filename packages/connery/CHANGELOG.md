@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.28
+
+### Patch Changes
+
+- Update runner version to 0 (beta version)
+
 ## 0.0.27
 
 ### Patch Changes

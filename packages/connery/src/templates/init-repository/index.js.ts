@@ -14,7 +14,7 @@ module.exports = {
         }
     ],
     connery: {
-        runnerVersion: '1',
+        runnerVersion: '0',
     }
 };
 `;

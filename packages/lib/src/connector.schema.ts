@@ -88,7 +88,7 @@ export const MaintainerSchema = zod
 
 export const ConnerySchema = zod
   .object({
-    runnerVersion: zod.enum(['1']),
+    runnerVersion: zod.enum(['0']),
   })
   .strict();
 
