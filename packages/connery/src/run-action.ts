@@ -82,7 +82,12 @@ export default async function (
     }
 
     // Run the action
-    const result = await actionSchema.operation.handler({ configurationParameters, inputParameters }); // TODO: add connector and action to the handler context
+    const result = await actionSchema.operation.handler({
+      configurationParameters,
+      inputParameters,
+      connector: connectorSchema,
+      action: actionSchema,
+    });
 
     logSuccess('Action is successfully executed with the following result');
     logInfo(JSON.stringify(result, null, 2));

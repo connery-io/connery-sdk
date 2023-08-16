@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.27
+
+### Patch Changes
+
+- Add action and connector parameters to the run-action command
+
 ## 0.0.26
 
 ### Patch Changes
