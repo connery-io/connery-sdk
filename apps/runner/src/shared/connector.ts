@@ -8,8 +8,16 @@ import { Action } from './action';
 @Injectable()
 export class Connector {
   private _connectorSchema: ConnectorSchemaType;
+  private _repoOwner: string;
+  private _repoName: string;
+  private _repoBranch: string;
 
-  constructor(private installedConnectorConfig: InstalledConnectorConfigType, private runnerConfig: RunnerConfigType) {}
+  constructor(private installedConnectorConfig: InstalledConnectorConfigType, private runnerConfig: RunnerConfigType) {
+    const { repoOwner, repoName, repoBranch } = this.parseConnectorKey(this.installedConnectorConfig.Key);
+    this._repoOwner = repoOwner;
+    this._repoName = repoName;
+    this._repoBranch = repoBranch;
+  }
 
   async initialize() {
     if (!this.isConnectorDefinitionFileExist()) {
@@ -19,19 +27,19 @@ export class Connector {
   }
 
   get key(): string {
-    return `${this.repoOwner}/${this.repoName}@${this.repoBranch}`;
+    return this.installedConnectorConfig.Key;
   }
 
   get repoOwner(): string {
-    return this.installedConnectorConfig.RepoOwner;
+    return this._repoOwner;
   }
 
   get repoName(): string {
-    return this.installedConnectorConfig.RepoName;
+    return this._repoName;
   }
 
   get repoBranch(): string {
-    return this.installedConnectorConfig.RepoBranch;
+    return this._repoBranch;
   }
 
   get configurationParameters(): ConfigurationParametersObject {
@@ -64,12 +72,7 @@ export class Connector {
     const git = simpleGit();
 
     try {
-      await git.clone(this.repositoryUrl, this.localFolderPath, [
-        '--depth',
-        '1',
-        '--branch',
-        this.installedConnectorConfig.RepoBranch,
-      ]);
+      await git.clone(this.repositoryUrl, this.localFolderPath, ['--depth', '1', '--branch', this._repoBranch]);
 
       console.log(JSON.stringify({ type: 'system', message: `Connector '${this.key}' downloaded` }));
     } catch (error) {
@@ -102,11 +105,11 @@ export class Connector {
   private get repositoryUrl(): string {
     // if PAT is not provided, only public repositories are available
     const credentials = this.runnerConfig.GitHubPat ? `oauth2:${this.runnerConfig.GitHubPat}@` : '';
-    return `https://${credentials}github.com/${this.installedConnectorConfig.RepoOwner}/${this.installedConnectorConfig.RepoName}.git`;
+    return `https://${credentials}github.com/${this._repoOwner}/${this._repoName}.git`;
   }
 
   private get localFolderPath(): string {
-    return `connectors/${this.installedConnectorConfig.RepoOwner}/${this.installedConnectorConfig.RepoName}/${this.installedConnectorConfig.RepoBranch}`;
+    return `connectors/${this._repoOwner}/${this._repoName}/${this._repoBranch}`;
   }
 
   private get fullConnectorDefinitionPath(): string {
@@ -115,5 +118,11 @@ export class Connector {
 
   private get connectorDefinitionPath(): string {
     return `./${this.localFolderPath}/dist/connector.js`;
+  }
+
+  private parseConnectorKey(key: string): { repoOwner: string; repoName: string; repoBranch: string } {
+    const [repo, branch] = key.split('@');
+    const [owner, name] = repo.split('/');
+    return { repoOwner: owner, repoName: name, repoBranch: branch };
   }
 }

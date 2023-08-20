@@ -23,9 +23,7 @@ export type ApiKeyConfigType = {
 };
 
 export type InstalledConnectorConfigType = {
-  RepoOwner: string;
-  RepoName: string;
-  RepoBranch: string;
+  Key: string;
   ConfigurationParameters: ConfigurationParametersObject;
 };
 
