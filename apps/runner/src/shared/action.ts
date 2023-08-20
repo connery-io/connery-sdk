@@ -23,7 +23,7 @@ export class Action {
       return await this.schema.operation.handler(operationContext);
     } catch (error) {
       console.error(JSON.stringify(error));
-      throw new HttpException(`[Connector execution error] ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
+      throw new HttpException(`[Action execution error] ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
