@@ -5,7 +5,7 @@ import { Connector } from './connector';
 
 @Injectable()
 export class Action {
-  constructor(private actionSchema: ActionSchemaType, private connector: Connector) {}
+  constructor(private actionSchema: ActionSchemaType, private _connector: Connector) {}
 
   get key(): string {
     return this.actionSchema.key;
@@ -15,13 +15,17 @@ export class Action {
     return this.actionSchema;
   }
 
-  async runAction(inputParameters: InputParametersObject): Promise<any> {
+  get connector(): Connector {
+    return this._connector;
+  }
+
+  async runAction(inputParameters: InputParametersObject): Promise<{ [key: string]: string }> {
     this.checkIfRequiredInputsPresent(inputParameters);
     const operationContext = this.getOperationContext(inputParameters);
 
     try {
-      return await this.schema.operation.handler(operationContext);
-    } catch (error) {
+      return (await this.schema.operation.handler(operationContext)) as { [key: string]: string };
+    } catch (error: any) {
       console.error(JSON.stringify(error));
       throw new HttpException(`[Action execution error] ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
     }

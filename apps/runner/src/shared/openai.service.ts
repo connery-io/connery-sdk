@@ -4,13 +4,32 @@ import { ConnectorsService } from ':src/shared/connectors.service';
 import { ChatCompletionFunctions, Configuration, OpenAIApi } from 'openai';
 import { LocalConfigService } from ':src/shared/local-config.service';
 
+export type RunActionOutput = {
+  summary: string;
+  result?: {
+    [key: string]: string;
+  };
+  used: {
+    prompt: string;
+    connectorKey?: string;
+    actionKey?: string;
+    inputParameters?: {
+      [key: string]: string;
+    };
+  };
+};
+
 export class OpenAiService {
   constructor(
     @Inject(ConnectorsService) private connectorsService: ConnectorsService,
     private configService: LocalConfigService,
   ) {}
 
-  async runAction(prompt: string): Promise<string> {
+  async runAction(prompt: string): Promise<RunActionOutput> {
+    if (!prompt) {
+      throw new Error("Input parameter 'prompt' is required but the value is empty or not provided");
+    }
+
     console.log(JSON.stringify({ type: 'user_prompt_received', data: { prompt: prompt } }));
 
     const runnerConfig = this.configService.getRunnerConfig();
@@ -46,8 +65,8 @@ export class OpenAiService {
       let actionResult;
       try {
         actionResult = await action.runAction(actionArguments);
-      } catch (error) {
-        actionResult = error.message;
+      } catch (error: any) {
+        throw new Error(error.message);
       }
 
       console.log(JSON.stringify({ type: 'action_result', data: actionResult }));
@@ -75,11 +94,26 @@ export class OpenAiService {
 
       const result2 = completion2.data.choices[0];
       console.log(JSON.stringify({ type: 'openai_response_2', data: result2 }));
-      return result2.message.content;
+
+      return {
+        summary: result2.message.content,
+        result: actionResult,
+        used: {
+          prompt: prompt,
+          connectorKey: action.connector.key,
+          actionKey: action.key,
+          inputParameters: actionArguments,
+        },
+      };
     } else {
       // If OpenAI classified the user prompt as a regular message, return it to the user
 
-      return result1.message.content;
+      return {
+        summary: result1.message.content,
+        used: {
+          prompt: prompt,
+        },
+      };
     }
   }
 

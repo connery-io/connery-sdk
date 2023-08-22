@@ -7,11 +7,28 @@ export type RunActionWithPromptInput = {
 };
 
 export type RunActionOutput = {
-  result: any;
+  result: {
+    [key: string]: string;
+  };
   used: {
     connectorKey: string;
     actionKey: string;
     inputParameters: {
+      [key: string]: string;
+    };
+  };
+};
+
+export type RunActionWithPromptOutput = {
+  summary: string;
+  result?: {
+    [key: string]: string;
+  };
+  used: {
+    prompt: string;
+    connectorKey?: string;
+    actionKey?: string;
+    inputParameters?: {
       [key: string]: string;
     };
   };
@@ -55,7 +72,7 @@ export type ConnectorOutput = {
 
 export type PaginatedResponse<T> = {
   status: 'success' | 'error';
-  data?: T[];
+  data?: T;
   error?: {
     message: string;
   };

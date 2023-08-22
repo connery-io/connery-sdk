@@ -1,7 +1,7 @@
 import { fromZodError } from 'zod-validation-error';
 import { ConnectorSchema, ConnectorSchemaType } from './connector.schema';
 import { import_ } from '@brillout/import';
-import * as _ from 'lodash';
+import { find } from 'lodash';
 
 // Used in the Runner
 export async function readConnectorDefinitionFileUsingRequire(fullConnectorDefinitionPath: string): Promise<string> {
@@ -30,7 +30,7 @@ export function parseAndValidateConnector(connector: string): ConnectorSchemaTyp
 }
 
 export function getAction(connector: ConnectorSchemaType, actionKey: string) {
-  const action = _.find(connector.actions, { key: actionKey });
+  const action = find(connector.actions, { key: actionKey });
 
   if (!action) {
     throw new Error(`Action '${actionKey}' not found.`);

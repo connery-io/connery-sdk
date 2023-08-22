@@ -8,8 +8,7 @@ import {
   RunActionOutput,
 } from './types';
 import { ConnectorsService } from ':src/shared/connectors.service';
-import * as _ from 'lodash';
-import { Action } from ':src/shared/action';
+import { map } from 'lodash';
 
 @Controller('/v1/connectors')
 export class ConnectorsController {
@@ -22,12 +21,12 @@ export class ConnectorsController {
 
       return {
         status: 'success',
-        data: _.map(connectors, (connector) => {
+        data: map(connectors, (connector) => {
           return {
             key: connector.key,
             title: connector.schema.title,
             description: connector.schema.description,
-            actions: _.map(connector.getActions(), (action: Action) => {
+            actions: map(connector.getActions(), (action) => {
               return {
                 key: action.key,
                 title: action.schema.title,
@@ -35,12 +34,12 @@ export class ConnectorsController {
                 type: action.schema.type,
                 inputParameters: action.schema.inputParameters,
                 outputParameters: action.schema.outputParameters,
-              } as ActionOutput;
+              };
             }),
-          } as ConnectorOutput;
+          };
         }),
       };
-    } catch (error) {
+    } catch (error: any) {
       return {
         status: 'error',
         error: {
@@ -64,7 +63,7 @@ export class ConnectorsController {
           key: connector.key,
           title: connector.schema.title,
           description: connector.schema.description,
-          actions: _.map(connector.getActions(), (action: Action) => {
+          actions: map(connector.getActions(), (action) => {
             return {
               key: action.key,
               title: action.schema.title,
@@ -72,11 +71,11 @@ export class ConnectorsController {
               type: action.schema.type,
               inputParameters: action.schema.inputParameters,
               outputParameters: action.schema.outputParameters,
-            } as ActionOutput;
+            };
           }),
         },
       };
-    } catch (error) {
+    } catch (error: any) {
       return {
         status: 'error',
         error: {
@@ -107,7 +106,7 @@ export class ConnectorsController {
           outputParameters: action.schema.outputParameters,
         },
       };
-    } catch (error) {
+    } catch (error: any) {
       return {
         status: 'error',
         error: {
@@ -124,6 +123,29 @@ export class ConnectorsController {
     @Param('actionKey') actionKey: string,
     @Body() body: RunActionInput,
   ): Promise<ObjectResponse<RunActionOutput>> {
-    throw new Error('Not implemented');
+    try {
+      const connector = await this.connectorsService.getConnector(`${connectorKeyPart1}/${connectorKeyPart2}`);
+      const action = connector.getAction(actionKey);
+      const result = await action.runAction(body);
+
+      return {
+        status: 'success',
+        data: {
+          result: result,
+          used: {
+            connectorKey: connector.key,
+            actionKey: action.key,
+            inputParameters: body,
+          },
+        },
+      };
+    } catch (error: any) {
+      return {
+        status: 'error',
+        error: {
+          message: error.message,
+        },
+      };
+    }
   }
 }

@@ -3,7 +3,7 @@ import { LocalConfigService } from './local-config.service';
 import { Connector } from './connector';
 import { Inject } from '@nestjs/common';
 import { Action } from './action';
-import * as _ from 'lodash';
+import { find, filter } from 'lodash';
 
 export class ConnectorsService {
   private _connectors: Connector[] = [];
@@ -24,7 +24,7 @@ export class ConnectorsService {
       await this.initializeConnectors();
     }
 
-    const connector = _.find(this._connectors, { key: connectorKey });
+    const connector = find(this._connectors, { key: connectorKey });
 
     if (!connector) {
       throw new Error(`The connector '${connectorKey}' is not found on the runner.`);
@@ -39,7 +39,7 @@ export class ConnectorsService {
       await this.initializeConnectors();
     }
 
-    const actions = _.filter(this._actions, { key: actionKey });
+    const actions = filter(this._actions, { key: actionKey });
 
     if (actions.length === 0) {
       throw new Error(`The action '${actionKey}' is not found on the runner.`);
