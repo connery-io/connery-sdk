@@ -1,6 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { map } from 'lodash';
-import { RunInput } from ':src/openai/types';
 import { Action } from ':src/shared/action';
 import { ConnectorsService } from ':src/shared/connectors.service';
 
@@ -19,7 +18,7 @@ export class MakeService {
     });
   }
 
-  async runAction(actionKey: string, inputParameters: RunInput) {
+  async runAction(actionKey: string, inputParameters) {
     const action = await this.connectorsService.getAction(actionKey);
 
     return await action.runAction(inputParameters);

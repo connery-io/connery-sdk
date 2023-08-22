@@ -4,6 +4,7 @@ import { existsSync } from 'fs';
 import { ConnectorSchemaType, parseAndValidateConnector, readConnectorDefinitionFileUsingRequire } from 'lib';
 import { ConfigurationParametersObject, InstalledConnectorConfigType, RunnerConfigType } from './types';
 import { Action } from './action';
+import * as _ from 'lodash';
 
 @Injectable()
 export class Connector {
@@ -51,7 +52,7 @@ export class Connector {
   }
 
   getAction(actionKey: string): Action {
-    const actionSchema = this.schema.actions.find((a) => a.key === actionKey);
+    const actionSchema = _.find(this.schema.actions, { key: actionKey });
 
     if (!actionSchema) {
       throw new HttpException(

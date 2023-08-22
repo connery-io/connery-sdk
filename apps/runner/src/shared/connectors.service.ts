@@ -3,29 +3,13 @@ import { LocalConfigService } from './local-config.service';
 import { Connector } from './connector';
 import { Inject } from '@nestjs/common';
 import { Action } from './action';
+import * as _ from 'lodash';
 
 export class ConnectorsService {
   private _connectors: Connector[] = [];
   private _actions: Action[] = [];
 
   constructor(@Inject(LocalConfigService) private configService: LocalConfigService) {}
-
-  async getConnector(repoOwner: string, repoName: string, repoBranch: string): Promise<Connector> {
-    if (this._connectors.length === 0) {
-      await this.initializeConnectors();
-    }
-
-    const connector = this._connectors.find(
-      (connector) =>
-        connector.repoOwner === repoOwner && connector.repoName === repoName && connector.repoBranch === repoBranch,
-    );
-
-    if (!connector) {
-      throw new Error(`The connector '${repoOwner}/${repoName}@${repoBranch}' is not found on the runner.`);
-    }
-
-    return connector;
-  }
 
   async getConnectors(): Promise<Connector[]> {
     if (this._connectors.length === 0) {
@@ -35,20 +19,39 @@ export class ConnectorsService {
     return this._connectors;
   }
 
+  async getConnector(connectorKey: string): Promise<Connector> {
+    if (this._connectors.length === 0) {
+      await this.initializeConnectors();
+    }
+
+    const connector = _.find(this._connectors, { key: connectorKey });
+
+    if (!connector) {
+      throw new Error(`The connector '${connectorKey}' is not found on the runner.`);
+    }
+
+    return connector;
+  }
+
+  // Get action by key across all connectors on the runner
   async getAction(actionKey: string): Promise<Action> {
     if (this._actions.length === 0) {
       await this.initializeConnectors();
     }
 
-    const action = this._actions.find((action) => action.key === actionKey);
+    const actions = _.filter(this._actions, { key: actionKey });
 
-    if (!action) {
+    if (actions.length === 0) {
       throw new Error(`The action '${actionKey}' is not found on the runner.`);
+    } else if (actions.length > 1) {
+      // TODO: handle this case properly
+      throw new Error(`The action '${actionKey}' is found on multiple connectors on the runner.`);
+    } else {
+      return actions[0];
     }
-
-    return action;
   }
 
+  // Get actions across all connectors on the runner
   async getActions(): Promise<Action[]> {
     if (this._actions.length === 0) {
       await this.initializeConnectors();
