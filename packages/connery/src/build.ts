@@ -28,7 +28,7 @@ function build(): Promise<void> {
     mode: 'production',
     target: 'node',
     optimization: {
-      minimize: true,
+      minimize: false,
     },
     output: {
       library: {
