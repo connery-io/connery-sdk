@@ -6,7 +6,7 @@ export class ConnectorsController {
   constructor(private connectorsService: ConnectorsService) {}
 
   @Get('/refresh')
-  async refreshConnectorsCache() {
+  async refreshConnectorsCache(): Promise<void> {
     this.connectorsService.cleanConnectors();
     await this.connectorsService.initializeConnectors();
   }

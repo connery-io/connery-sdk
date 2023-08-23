@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { map } from 'lodash';
 import { Action } from ':src/shared/action';
 import { ConnectorsService } from ':src/shared/connectors.service';
+import { InputParametersObject } from './types';
 
 Injectable();
 export class MakeService {
@@ -18,7 +19,7 @@ export class MakeService {
     });
   }
 
-  async runAction(actionKey: string, inputParameters) {
+  async runAction(actionKey: string, inputParameters: InputParametersObject) {
     const action = await this.connectorsService.getAction(actionKey);
 
     return await action.runAction(inputParameters);

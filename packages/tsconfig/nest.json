@@ -12,7 +12,6 @@
     "sourceMap": true,
     "incremental": true,
     "skipLibCheck": true,
-    "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
