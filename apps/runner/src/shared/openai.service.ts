@@ -135,7 +135,7 @@ export class OpenAiService {
     return `
       [Instructions for the assistant, not for the user]
 
-      Instructuins about the result:
+      Instructions about the result:
       - Result is always a stringified JSON that should be unwrapped and converted to the readeable format for the user.
       - In case of error, show the exact error message text to the user.
       - Always respond to the user using the language that the user used in the prompt.
