@@ -80,17 +80,18 @@ export type ConnectorOutput = {
 };
 
 export type PaginatedResponse<T> = {
-  status: 'success' | 'error';
-  data?: T;
-  error?: {
-    message: string;
-  };
+  status: 'success';
+  data: T;
 };
 
 export type ObjectResponse<T> = {
-  status: 'success' | 'error';
-  data?: T;
-  error?: {
+  status: 'success';
+  data: T;
+};
+
+export type ErrorResponse = {
+  status: 'error';
+  error: {
     message: string;
   };
 };

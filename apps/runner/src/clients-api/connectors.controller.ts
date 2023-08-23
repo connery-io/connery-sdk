@@ -2,6 +2,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import {
   ActionOutput,
   ConnectorOutput,
+  ErrorResponse,
   ObjectResponse,
   PaginatedResponse,
   RunActionInput,
@@ -15,7 +16,7 @@ export class ConnectorsController {
   constructor(private connectorsService: ConnectorsService) {}
 
   @Get('/')
-  async getConnectors(): Promise<PaginatedResponse<ConnectorOutput[]>> {
+  async getConnectors(): Promise<PaginatedResponse<ConnectorOutput[]> | ErrorResponse> {
     try {
       const connectors = await this.connectorsService.getConnectors();
 
@@ -53,7 +54,7 @@ export class ConnectorsController {
   async getConnector(
     @Param('connectorKeyPart1') connectorKeyPart1: string,
     @Param('connectorKeyPart2') connectorKeyPart2: string,
-  ): Promise<ObjectResponse<ConnectorOutput>> {
+  ): Promise<ObjectResponse<ConnectorOutput> | ErrorResponse> {
     try {
       const connector = await this.connectorsService.getConnector(`${connectorKeyPart1}/${connectorKeyPart2}`);
 
@@ -90,7 +91,7 @@ export class ConnectorsController {
     @Param('connectorKeyPart1') connectorKeyPart1: string,
     @Param('connectorKeyPart2') connectorKeyPart2: string,
     @Param('actionKey') actionKey: string,
-  ): Promise<ObjectResponse<ActionOutput>> {
+  ): Promise<ObjectResponse<ActionOutput> | ErrorResponse> {
     try {
       const connector = await this.connectorsService.getConnector(`${connectorKeyPart1}/${connectorKeyPart2}`);
       const action = connector.getAction(actionKey);
@@ -122,7 +123,7 @@ export class ConnectorsController {
     @Param('connectorKeyPart2') connectorKeyPart2: string,
     @Param('actionKey') actionKey: string,
     @Body() body: RunActionInput,
-  ): Promise<ObjectResponse<RunActionOutput>> {
+  ): Promise<ObjectResponse<RunActionOutput> | ErrorResponse> {
     try {
       const connector = await this.connectorsService.getConnector(`${connectorKeyPart1}/${connectorKeyPart2}`);
       const action = connector.getAction(actionKey);

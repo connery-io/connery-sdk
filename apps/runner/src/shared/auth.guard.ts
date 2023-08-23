@@ -1,4 +1,4 @@
-import { CanActivate, ExecutionContext, Injectable, SetMetadata } from '@nestjs/common';
+import { CanActivate, ExecutionContext, HttpException, HttpStatus, Injectable, SetMetadata } from '@nestjs/common';
 import { LocalConfigService } from './local-config.service';
 import { Reflector } from '@nestjs/core';
 
@@ -19,7 +19,35 @@ export class AuthGuard implements CanActivate {
     // Check API key for private routes
     const request = context.switchToHttp().getRequest();
     const apiKey = request.headers['x-api-key'];
-    return this.configService.verifyAccess(apiKey);
+
+    let isAccessAllowed = false;
+    try {
+      isAccessAllowed = this.configService.verifyAccess(apiKey);
+    } catch (e: any) {
+      throw new HttpException(
+        {
+          status: 'error',
+          error: {
+            message: e.message,
+          },
+        },
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
+
+    if (isAccessAllowed) {
+      return true;
+    } else {
+      throw new HttpException(
+        {
+          status: 'error',
+          error: {
+            message: 'Unauthorized',
+          },
+        },
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
   }
 }
 

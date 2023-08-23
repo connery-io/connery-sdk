@@ -1,6 +1,7 @@
 import { OpenAiService } from ':src/shared/openai.service';
 import { Body, Controller, Post } from '@nestjs/common';
 import {
+  ErrorResponse,
   ObjectResponse,
   RunActionWithPromptInput,
   RunActionWithPromptOutput1,
@@ -14,7 +15,7 @@ export class ActionsController {
   @Post('/run')
   async runAction(
     @Body() body: RunActionWithPromptInput,
-  ): Promise<ObjectResponse<RunActionWithPromptOutput1> | ObjectResponse<RunActionWithPromptOutput2>> {
+  ): Promise<ObjectResponse<RunActionWithPromptOutput1> | ObjectResponse<RunActionWithPromptOutput2> | ErrorResponse> {
     try {
       const result = await this.openAiService.runAction(body.prompt);
 
