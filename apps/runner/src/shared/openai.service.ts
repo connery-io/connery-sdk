@@ -5,7 +5,7 @@ import { ChatCompletionFunctions, Configuration, OpenAIApi } from 'openai';
 import { LocalConfigService } from ':src/shared/local-config.service';
 
 export type RunActionOutput = {
-  summary: string;
+  response: string;
   result?: {
     [key: string]: string;
   };
@@ -96,7 +96,7 @@ export class OpenAiService {
       console.log(JSON.stringify({ type: 'openai_response_2', data: result2 }));
 
       return {
-        summary: result2.message.content,
+        response: result2.message.content,
         result: actionResult,
         used: {
           prompt: prompt,
@@ -109,7 +109,7 @@ export class OpenAiService {
       // If OpenAI classified the user prompt as a regular message, return it to the user
 
       return {
-        summary: result1.message.content,
+        response: result1.message.content,
         used: {
           prompt: prompt,
         },

@@ -131,7 +131,7 @@ export class ConnectorsController {
       return {
         status: 'success',
         data: {
-          result: result,
+          output: result,
           used: {
             connectorKey: connector.key,
             actionKey: action.key,

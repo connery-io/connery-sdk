@@ -7,7 +7,7 @@ export type RunActionWithPromptInput = {
 };
 
 export type RunActionOutput = {
-  result: {
+  output: {
     [key: string]: string;
   };
   used: {
@@ -19,18 +19,27 @@ export type RunActionOutput = {
   };
 };
 
-export type RunActionWithPromptOutput = {
-  summary: string;
-  result?: {
+// Object of this type is returned when the action was run with the prompt
+export type RunActionWithPromptOutput1 = {
+  response: string;
+  output: {
     [key: string]: string;
   };
   used: {
     prompt: string;
-    connectorKey?: string;
-    actionKey?: string;
-    inputParameters?: {
+    connectorKey: string;
+    actionKey: string;
+    inputParameters: {
       [key: string]: string;
     };
+  };
+};
+
+// Object of this type is returned when the action was not run with the prompt.
+export type RunActionWithPromptOutput2 = {
+  response: string;
+  used: {
+    prompt: string;
   };
 };
 
