@@ -6,7 +6,6 @@ import { ConnectorsService } from './connectors.service';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth.guard';
 import { OpenAiService } from './openai.service';
-import { MakeService } from './make.service';
 
 @Module({
   imports: [ConfigModule],
@@ -19,8 +18,7 @@ import { MakeService } from './make.service';
       useClass: AuthGuard,
     },
     OpenAiService,
-    MakeService,
   ],
-  exports: [ConnectorsService, RequestService, LocalConfigService, OpenAiService, MakeService],
+  exports: [ConnectorsService, RequestService, LocalConfigService, OpenAiService],
 })
 export class SharedModule {}
