@@ -11,12 +11,15 @@ export class LocalConfigService {
 
     if (!apiKey) throw new UnauthorizedException('API key is not provided');
 
-    this.configService.get<ApiKeyConfigType[]>('ApiKeys').forEach((item) => {
-      if (item.ApiKey === apiKey) {
-        isAccessAllowed = true;
-        return;
-      }
-    });
+    const apiKeys = this.configService.get<ApiKeyConfigType[]>('ApiKeys');
+    if (apiKeys) {
+      apiKeys.forEach((item) => {
+        if (item.ApiKey === apiKey) {
+          isAccessAllowed = true;
+          return;
+        }
+      });
+    }
 
     if (!isAccessAllowed) throw new UnauthorizedException('API key is not valid');
 
@@ -24,10 +27,17 @@ export class LocalConfigService {
   }
 
   getInstalledConnectors(): InstalledConnectorConfigType[] {
-    return this.configService.get<InstalledConnectorConfigType[]>('InstalledConnectors');
+    const installedConnectors = this.configService.get<InstalledConnectorConfigType[]>('InstalledConnectors');
+    return installedConnectors ?? [];
   }
 
   getRunnerConfig(): RunnerConfigType {
-    return this.configService.get<RunnerConfigType>('RunnerConfig');
+    const runnerConfig = this.configService.get<RunnerConfigType>('RunnerConfig');
+
+    if (!runnerConfig) {
+      throw new Error('RunnerConfig is not defined in the configuration');
+    }
+
+    return runnerConfig;
   }
 }

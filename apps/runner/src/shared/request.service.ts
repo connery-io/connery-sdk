@@ -14,7 +14,7 @@ export class RequestService {
   private _inputParameters: InputParametersObject;
 
   constructor(@Inject(REQUEST) request: Request) {
-    this._apiKey = trim(request.headers['x-api-key'][0]);
+    this._apiKey = trim(request.headers['x-api-key']?.[0]);
     this._repoOwner = trim(request.params.repoOwner);
     this._repoName = trim(request.params.repoName);
     this._repoBranch = trim(request.params.repoBranch);

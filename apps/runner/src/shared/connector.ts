@@ -8,7 +8,7 @@ import { find } from 'lodash';
 
 @Injectable()
 export class Connector {
-  private _connectorSchema: ConnectorSchemaType;
+  private _connectorSchema!: ConnectorSchemaType;
   private _repoOwner: string;
   private _repoName: string;
   private _repoBranch: string;

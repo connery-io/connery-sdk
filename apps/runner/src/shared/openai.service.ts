@@ -53,7 +53,11 @@ export class OpenAiService {
 
     console.log(JSON.stringify({ type: 'openai_response_1', data: result1 }));
 
-    if (result1.finish_reason === 'function_call') {
+    if (
+      result1.finish_reason === 'function_call' &&
+      result1.message?.function_call?.name &&
+      result1.message?.function_call?.arguments
+    ) {
       // If OpenAI classified the user prompt as a function call, run the action
 
       const actionKey = result1.message.function_call.name;
@@ -96,7 +100,7 @@ export class OpenAiService {
       console.log(JSON.stringify({ type: 'openai_response_2', data: result2 }));
 
       return {
-        response: result2.message.content,
+        response: result2.message?.content ?? '',
         result: actionResult,
         used: {
           prompt: prompt,
@@ -109,7 +113,7 @@ export class OpenAiService {
       // If OpenAI classified the user prompt as a regular message, return it to the user
 
       return {
-        response: result1.message.content,
+        response: result1.message?.content ?? '',
         used: {
           prompt: prompt,
         },
@@ -118,7 +122,7 @@ export class OpenAiService {
   }
 
   private getResultInstructions(actionSchema: ActionSchemaType, actionResult: object): string {
-    const parametersInfo = [];
+    const parametersInfo: string[] = [];
 
     for (const outputParameter of actionSchema.outputParameters) {
       parametersInfo.push(`
@@ -160,7 +164,7 @@ export class OpenAiService {
   }
 
   private async getExposedActionsJsonSchema(): Promise<ChatCompletionFunctions[]> {
-    const exposedActions = [];
+    const exposedActions: ChatCompletionFunctions[] = [];
 
     const actions = await this.connectorsService.getActions();
 
@@ -172,16 +176,12 @@ export class OpenAiService {
     return exposedActions;
   }
 
-  private convertActionToJsonSchema(action: ActionSchemaType): object {
-    const actionJsonSchema = {
+  private convertActionToJsonSchema(action: ActionSchemaType): ChatCompletionFunctions {
+    const actionJsonSchema: ChatCompletionFunctions = {
       name: action.key,
       description: action.description,
-      parameters: {
-        type: 'object',
-        properties: {},
-        required: [],
-      },
     };
+    actionJsonSchema.parameters = { type: 'object', properties: {}, required: [] };
 
     for (const inputParameter of action.inputParameters) {
       actionJsonSchema.parameters.properties[inputParameter.key] = {

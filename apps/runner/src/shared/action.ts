@@ -45,7 +45,7 @@ export class Action {
     const inputParametersFromUser = inputParameters;
 
     inputParametersSchema.forEach((inputSchema) => {
-      if (inputSchema.validation.required && !inputParametersFromUser[inputSchema.key]) {
+      if (inputSchema.validation && inputSchema.validation.required && !inputParametersFromUser[inputSchema.key]) {
         throw new HttpException(
           `Input parameter '${inputSchema.key}' is required but the value is empty or not provided.`,
           HttpStatus.BAD_REQUEST,

@@ -32,7 +32,7 @@ export class MakeService {
         name: inputParameter.key,
         label: inputParameter.title,
         type: inputParameter.type === 'string' ? 'text' : inputParameter.type,
-        required: !!inputParameter.validation.required,
+        required: inputParameter.validation && !!inputParameter.validation.required,
         help: inputParameter.description,
       };
     });
