@@ -3,8 +3,8 @@ import nodePlop from 'node-plop';
 // init-repository
 import readmeTemplate from './templates/init-repository/README.md';
 import buildConnectorWorkflowTemplate from './templates/init-repository/.github/workflows/build-connector.yml';
-import sampleActionTemplate from './templates/init-repository/actions/sample-action.js';
-import sampleActionTestTemplate from './templates/init-repository/tests/SampleAction.test.js';
+import sampleActionTemplate from './templates/init-repository/actions/SampleAction.js.js';
+import sampleActionTestTemplate from './templates/init-repository/tests/actions/SampleAction.test.js';
 import packageJsonTemplate from './templates/init-repository/package.json';
 import indexJsTemplate from './templates/init-repository/index.js';
 import gitignoreTemplate from './templates/init-repository/.gitignore';
@@ -36,7 +36,7 @@ async function getGenerator(key: string) {
       },
       {
         type: 'add',
-        path: 'tests/SampleAction.test.js',
+        path: 'tests/actions/SampleAction.test.js',
         template: sampleActionTestTemplate,
       },
       {
@@ -77,7 +77,7 @@ async function getGenerator(key: string) {
       },
       {
         type: 'add',
-        path: 'tests/{{key}}.test.js',
+        path: 'tests/actions/{{key}}.test.js',
         template: actionTestTemplate,
       },
       {

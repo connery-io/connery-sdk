@@ -1,20 +1,31 @@
-const content = `module.exports = {
+const content = `const action = {
   key: "{{key}}",
   title: "{{title}}",
   description: "{{description}}",
   type: "{{type}}",
-  inputParameters: [], // TODO: Add input parameters here.
+  inputParameters: [], // TODO: Add input parameters.
   operation: {
     type: "js",
     handler,
   },
-  outputParameters: [], // TODO: Add output parameters here.
+  outputParameters: [], // TODO: Add output parameters.
 };
 
 async function handler({ inputParameters, configurationParameters }) {
-  // TODO: Implement the action logic here.
+  
+  // TODO: Implement the action logic.
 
   return {};
+}
+
+// Expose internal functions for unit testing in the test environment.
+// Otherwise, export the action definition.
+if (process.env.NODE_ENV === 'test') {
+  module.exports = {
+    handler,
+  };
+} else {
+  module.exports = action;
 }
 `;
 

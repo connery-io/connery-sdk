@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.30
+
+### Patch Changes
+
+- Update CLI generator templates
+
 ## 0.0.29
 
 ### Patch Changes

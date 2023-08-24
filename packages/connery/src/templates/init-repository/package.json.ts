@@ -12,8 +12,8 @@ const content = `{
     "jest": "^29.6.1"
   },
   "scripts": {
-    "test": "jest --passWithNoTests",
-    "build": "jest --passWithNoTests && connery validate && connery build"
+    "test": "NODE_ENV=test jest --passWithNoTests",
+    "build": "npm run test && connery validate && connery build"
   }
 }
 `;

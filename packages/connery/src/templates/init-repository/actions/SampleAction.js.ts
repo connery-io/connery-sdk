@@ -1,6 +1,6 @@
 const content = `// TODO: Remove this sample action when you add your own actions to the connector.
 
-module.exports = {
+const action = {
   key: "SampleAction",
   title: "Sample action",
   description:
@@ -49,6 +49,16 @@ async function handler({ inputParameters }) {
   return {
     Sum: sum,
   };
+}
+
+// Expose internal functions for unit testing in the test environment.
+// Otherwise, export the action definition.
+if (process.env.NODE_ENV === 'test') {
+  module.exports = {
+    handler,
+  };
+} else {
+  module.exports = action;
 }
 `;
 
