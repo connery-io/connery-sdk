@@ -54,7 +54,7 @@ export class Action {
       // Validate if all required input parameters are present
       if (inputSchema.validation && inputSchema.validation.required && !input[inputSchema.key]) {
         throw new HttpException(
-          `Input parameter '${inputSchema.key}' is required but the value is empty or not provided.`,
+          `Input parameter '${inputSchema.key}' is required, but the value is empty or not provided.`,
           HttpStatus.BAD_REQUEST,
         );
       }
@@ -62,9 +62,9 @@ export class Action {
       // Validate if the type of the input parameter is correct
       if (inputSchema.type !== typeof input[inputSchema.key]) {
         throw new HttpException(
-          `Input parameter '${inputSchema.key}' has incorrect type. Expected type is '${
+          `The input parameter '${inputSchema.key}' has incorrect type. The expected type is '${
             inputSchema.type
-          }' but the actual type is '${typeof input[inputSchema.key]}'.`,
+          }', but the actual value has the type '${typeof input[inputSchema.key]}'.`,
           HttpStatus.BAD_REQUEST,
         );
       }
