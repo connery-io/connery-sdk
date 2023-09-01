@@ -4,9 +4,11 @@ import { ConnectorsService } from ':src/shared/connectors.service';
 import { ChatCompletionFunctions, Configuration, OpenAIApi } from 'openai';
 import { LocalConfigService } from ':src/shared/local-config.service';
 
+// TODO: replace with the shared type(s),
+// the same that is used in the API response
 export type RunActionOutput = {
   response: string;
-  result?: {
+  output?: {
     [key: string]: string;
   };
   used: {
@@ -101,7 +103,7 @@ export class OpenAiService {
 
       return {
         response: result2.message?.content ?? '',
-        result: actionResult,
+        output: actionResult,
         used: {
           prompt: prompt,
           connectorKey: action.connector.key,

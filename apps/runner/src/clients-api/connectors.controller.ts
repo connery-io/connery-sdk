@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
 import {
   ActionOutput,
   ConnectorOutput,
@@ -141,12 +141,16 @@ export class ConnectorsController {
         },
       };
     } catch (error: any) {
-      return {
-        status: 'error',
-        error: {
-          message: error.message,
+      // TODO: Replace with proper solution
+      throw new HttpException(
+        {
+          status: 'error',
+          error: {
+            message: error.message,
+          },
         },
-      };
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
   }
 }

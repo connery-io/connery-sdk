@@ -1,5 +1,5 @@
 import { OpenAiService } from ':src/shared/openai.service';
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, HttpException, HttpStatus, Post } from '@nestjs/common';
 import {
   ErrorResponse,
   ObjectResponse,
@@ -24,12 +24,16 @@ export class ActionsController {
         data: result,
       };
     } catch (error: any) {
-      return {
-        status: 'error',
-        error: {
-          message: error.message,
+      // TODO: Replace with proper solution
+      throw new HttpException(
+        {
+          status: 'error',
+          error: {
+            message: error.message,
+          },
         },
-      };
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
     }
   }
 }
