@@ -103,12 +103,12 @@ export class OpenAiService {
 
       return {
         response: result2.message?.content ?? '',
-        output: actionResult,
+        output: actionResult.output,
         used: {
           prompt: prompt,
-          connectorKey: action.connector.key,
-          actionKey: action.key,
-          inputParameters: actionArguments,
+          connectorKey: actionResult.usedConnectorKey,
+          actionKey: actionResult.usedActionKey,
+          inputParameters: actionResult.usedInputParameters,
         },
       };
     } else {

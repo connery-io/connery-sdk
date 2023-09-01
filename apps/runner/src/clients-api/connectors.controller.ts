@@ -127,16 +127,16 @@ export class ConnectorsController {
     try {
       const connector = await this.connectorsService.getConnector(`${connectorKeyPart1}/${connectorKeyPart2}`);
       const action = connector.getAction(actionKey);
-      const result = await action.runAction(body);
+      const actionResult = await action.runAction(body);
 
       return {
         status: 'success',
         data: {
-          output: result,
+          output: actionResult.output,
           used: {
-            connectorKey: connector.key,
-            actionKey: action.key,
-            inputParameters: body,
+            connectorKey: actionResult.usedConnectorKey,
+            actionKey: actionResult.usedActionKey,
+            inputParameters: actionResult.usedInputParameters,
           },
         },
       };

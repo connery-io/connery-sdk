@@ -12,6 +12,13 @@ export type OutputParametersObject = {
   [key: string]: string;
 };
 
+export type RunActionOutputType = {
+  output: OutputParametersObject;
+  usedConnectorKey: string;
+  usedActionKey: string;
+  usedInputParameters: InputParametersObject;
+};
+
 export type OperationContext = {
   connector: ConnectorSchemaType;
   action: ActionSchemaType;

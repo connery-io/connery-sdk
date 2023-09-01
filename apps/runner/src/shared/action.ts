@@ -1,7 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { InputParametersObject, OperationContext, OutputParametersObject } from './types';
+import { InputParametersObject, OperationContext, OutputParametersObject, RunActionOutputType } from './types';
 import { ActionSchemaType } from 'lib';
 import { Connector } from './connector';
+import { trim, forEach } from 'lodash';
 
 @Injectable()
 export class Action {
@@ -20,20 +21,26 @@ export class Action {
   }
 
   // TODO: Move to the shared library
-  async runAction(inputParameters: InputParametersObject): Promise<OutputParametersObject> {
-    this.validateInput(inputParameters);
+  async runAction(inputParameters: InputParametersObject): Promise<RunActionOutputType> {
+    const trimmedInputParameters = this.trimInput(inputParameters);
+    this.validateInput(trimmedInputParameters);
 
-    let output: OutputParametersObject;
-    const operationContext = this.getOperationContext(inputParameters);
+    const result: RunActionOutputType = {
+      output: {},
+      usedActionKey: this.key,
+      usedConnectorKey: this.connector.key,
+      usedInputParameters: trimmedInputParameters,
+    };
+    const operationContext = this.getOperationContext(trimmedInputParameters);
     try {
-      output = (await this.schema.operation.handler(operationContext)) as OutputParametersObject;
+      result.output = (await this.schema.operation.handler(operationContext)) as OutputParametersObject;
     } catch (error: any) {
       console.error(JSON.stringify(error));
       throw new HttpException(`[Action execution error] ${error.message}`, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    this.validateOutput(output);
-    return output;
+    this.validateOutput(result.output);
+    return result;
   }
 
   // TODO: Move to the shared library
@@ -44,6 +51,17 @@ export class Action {
       inputParameters: inputParameters,
       configurationParameters: this.connector.configurationParameters,
     };
+  }
+
+  // TODO: Move to the shared library
+  private trimInput(input: InputParametersObject): InputParametersObject {
+    const trimmedInput: InputParametersObject = {};
+
+    forEach(input, (value, key) => {
+      trimmedInput[key] = trim(value);
+    });
+
+    return trimmedInput;
   }
 
   // TODO: Move to the shared library
