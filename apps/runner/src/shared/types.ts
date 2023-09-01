@@ -8,6 +8,10 @@ export type InputParametersObject = {
   [key: string]: string;
 };
 
+export type OutputParametersObject = {
+  [key: string]: string;
+};
+
 export type OperationContext = {
   connector: ConnectorSchemaType;
   action: ActionSchemaType;
