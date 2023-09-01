@@ -11,7 +11,7 @@ import {
 import { ConnectorsService } from ':src/shared/connectors.service';
 import { map } from 'lodash';
 
-@Controller('/v1/connectors')
+@Controller('/connectors')
 export class ConnectorsController {
   constructor(private connectorsService: ConnectorsService) {}
 

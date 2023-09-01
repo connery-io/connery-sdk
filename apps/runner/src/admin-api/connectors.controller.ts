@@ -1,7 +1,7 @@
 import { Controller, Get, HttpException, HttpStatus } from '@nestjs/common';
 import { ConnectorsService } from '../shared/connectors.service';
 
-@Controller('/v1/admin/connectors')
+@Controller('/admin/connectors')
 export class ConnectorsController {
   constructor(private connectorsService: ConnectorsService) {}
 

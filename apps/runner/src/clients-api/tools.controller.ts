@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { ErrorResponse } from './types';
 
-@Controller('/v1')
+@Controller()
 export class ToolsController {
   @Get('/verify-access')
   verifyAccess(): void | ErrorResponse {

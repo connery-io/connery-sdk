@@ -8,7 +8,7 @@ import {
   RunActionWithPromptOutput2,
 } from './types';
 
-@Controller('/v1/actions')
+@Controller('/actions')
 export class ActionsController {
   constructor(private openAiService: OpenAiService) {}
 
