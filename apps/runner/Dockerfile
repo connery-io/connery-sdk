@@ -21,4 +21,4 @@ FROM base AS runner
 WORKDIR /app
 COPY --from=installer ./app .
 ENV NODE_ENV production
-CMD [ "node", "apps/runner/dist/main" ]
+CMD [ "node", "apps/runner/dist/src/main" ]
