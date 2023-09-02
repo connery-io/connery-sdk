@@ -4,13 +4,34 @@ import { ConnectorsService } from ':src/shared/connectors.service';
 import { ChatCompletionFunctions, Configuration, OpenAIApi } from 'openai';
 import { LocalConfigService } from ':src/shared/local-config.service';
 
+// TODO: replace with the shared type(s),
+// the same that is used in the API response
+export type RunActionOutput = {
+  response: string;
+  output?: {
+    [key: string]: string;
+  };
+  used: {
+    prompt: string;
+    connectorKey?: string;
+    actionKey?: string;
+    inputParameters?: {
+      [key: string]: string;
+    };
+  };
+};
+
 export class OpenAiService {
   constructor(
     @Inject(ConnectorsService) private connectorsService: ConnectorsService,
     private configService: LocalConfigService,
   ) {}
 
-  async runAction(prompt: string): Promise<string> {
+  async runAction(prompt: string): Promise<RunActionOutput> {
+    if (!prompt) {
+      throw new Error("Input parameter 'prompt' is required but the value is empty or not provided");
+    }
+
     console.log(JSON.stringify({ type: 'user_prompt_received', data: { prompt: prompt } }));
 
     const runnerConfig = this.configService.getRunnerConfig();
@@ -34,7 +55,11 @@ export class OpenAiService {
 
     console.log(JSON.stringify({ type: 'openai_response_1', data: result1 }));
 
-    if (result1.finish_reason === 'function_call') {
+    if (
+      result1.finish_reason === 'function_call' &&
+      result1.message?.function_call?.name &&
+      result1.message?.function_call?.arguments
+    ) {
       // If OpenAI classified the user prompt as a function call, run the action
 
       const actionKey = result1.message.function_call.name;
@@ -46,8 +71,8 @@ export class OpenAiService {
       let actionResult;
       try {
         actionResult = await action.runAction(actionArguments);
-      } catch (error) {
-        actionResult = error.message;
+      } catch (error: any) {
+        throw new Error(error.message);
       }
 
       console.log(JSON.stringify({ type: 'action_result', data: actionResult }));
@@ -75,16 +100,31 @@ export class OpenAiService {
 
       const result2 = completion2.data.choices[0];
       console.log(JSON.stringify({ type: 'openai_response_2', data: result2 }));
-      return result2.message.content;
+
+      return {
+        response: result2.message?.content ?? '',
+        output: actionResult.output,
+        used: {
+          prompt: prompt,
+          connectorKey: actionResult.usedConnectorKey,
+          actionKey: actionResult.usedActionKey,
+          inputParameters: actionResult.usedInputParameters,
+        },
+      };
     } else {
       // If OpenAI classified the user prompt as a regular message, return it to the user
 
-      return result1.message.content;
+      return {
+        response: result1.message?.content ?? '',
+        used: {
+          prompt: prompt,
+        },
+      };
     }
   }
 
   private getResultInstructions(actionSchema: ActionSchemaType, actionResult: object): string {
-    const parametersInfo = [];
+    const parametersInfo: string[] = [];
 
     for (const outputParameter of actionSchema.outputParameters) {
       parametersInfo.push(`
@@ -97,7 +137,7 @@ export class OpenAiService {
     return `
       [Instructions for the assistant, not for the user]
 
-      Instructuins about the result:
+      Instructions about the result:
       - Result is always a stringified JSON that should be unwrapped and converted to the readeable format for the user.
       - In case of error, show the exact error message text to the user.
       - Always respond to the user using the language that the user used in the prompt.
@@ -126,7 +166,7 @@ export class OpenAiService {
   }
 
   private async getExposedActionsJsonSchema(): Promise<ChatCompletionFunctions[]> {
-    const exposedActions = [];
+    const exposedActions: ChatCompletionFunctions[] = [];
 
     const actions = await this.connectorsService.getActions();
 
@@ -138,16 +178,12 @@ export class OpenAiService {
     return exposedActions;
   }
 
-  private convertActionToJsonSchema(action: ActionSchemaType): object {
-    const actionJsonSchema = {
+  private convertActionToJsonSchema(action: ActionSchemaType): ChatCompletionFunctions {
+    const actionJsonSchema: ChatCompletionFunctions = {
       name: action.key,
       description: action.description,
-      parameters: {
-        type: 'object',
-        properties: {},
-        required: [],
-      },
     };
+    actionJsonSchema.parameters = { type: 'object', properties: {}, required: [] };
 
     for (const inputParameter of action.inputParameters) {
       actionJsonSchema.parameters.properties[inputParameter.key] = {

@@ -5,15 +5,10 @@
     "lib": ["es2022"],
     "module": "Node16",
     "target": "es2022",
-
     "strict": true,
     "esModuleInterop": true,
-
     "moduleResolution": "node16",
-
     "sourceMap": true,
-    "allowJs": true,
-
-    "strictNullChecks": false
+    "allowJs": true
   }
 }

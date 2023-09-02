@@ -4,10 +4,11 @@ import { existsSync } from 'fs';
 import { ConnectorSchemaType, parseAndValidateConnector, readConnectorDefinitionFileUsingRequire } from 'lib';
 import { ConfigurationParametersObject, InstalledConnectorConfigType, RunnerConfigType } from './types';
 import { Action } from './action';
+import { find } from 'lodash';
 
 @Injectable()
 export class Connector {
-  private _connectorSchema: ConnectorSchemaType;
+  private _connectorSchema!: ConnectorSchemaType;
   private _repoOwner: string;
   private _repoName: string;
   private _repoBranch: string;
@@ -51,7 +52,7 @@ export class Connector {
   }
 
   getAction(actionKey: string): Action {
-    const actionSchema = this.schema.actions.find((a) => a.key === actionKey);
+    const actionSchema = find(this.schema.actions, { key: actionKey });
 
     if (!actionSchema) {
       throw new HttpException(
@@ -75,7 +76,7 @@ export class Connector {
       await git.clone(this.repositoryUrl, this.localFolderPath, ['--depth', '1', '--branch', this._repoBranch]);
 
       console.log(JSON.stringify({ type: 'system', message: `Connector '${this.key}' downloaded` }));
-    } catch (error) {
+    } catch (error: any) {
       // ignore error if the connector is already downloaded
       if (error.message.includes('already exists')) {
         console.log(JSON.stringify({ type: 'system', message: `Connector '${this.key}' is already exist in cache` }));
@@ -94,7 +95,7 @@ export class Connector {
       const connector = await readConnectorDefinitionFileUsingRequire(this.fullConnectorDefinitionPath);
       const connectorSchema = parseAndValidateConnector(connector);
       return connectorSchema;
-    } catch (error) {
+    } catch (error: any) {
       throw new HttpException(
         `Connector definition validation error: ${error.message}`,
         HttpStatus.INTERNAL_SERVER_ERROR,
