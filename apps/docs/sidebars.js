@@ -8,7 +8,6 @@ const sidebars = {
       items: [
         'introduction/core-concepts',
         'introduction/connector-ecosystem',
-        'introduction/runner-features',
         'introduction/use-cases',
       ],
       link: {
