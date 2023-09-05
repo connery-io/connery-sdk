@@ -11,7 +11,7 @@ const content = `const action = {
   outputParameters: [], // TODO: Add output parameters.
 };
 
-async function handler({ inputParameters, configurationParameters }) {
+async function handler({ inputParameters, configurationParameters, connector, action }) {
   
   // TODO: Implement the action logic.
 

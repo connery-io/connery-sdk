@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.31
+
+### Patch Changes
+
+- Update generator template for the new action
+
 ## 0.0.30
 
 ### Patch Changes

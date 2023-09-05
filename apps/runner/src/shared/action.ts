@@ -46,10 +46,10 @@ export class Action {
   // TODO: Move to the shared library
   private getOperationContext(inputParameters: InputParametersObject): OperationContext {
     return {
-      connector: this.connector.schema,
-      action: this.actionSchema,
       inputParameters: inputParameters,
       configurationParameters: this.connector.configurationParameters,
+      connector: this.connector.schema,
+      action: this.actionSchema,
     };
   }
 
