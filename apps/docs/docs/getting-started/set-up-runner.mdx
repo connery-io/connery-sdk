@@ -1,13 +1,111 @@
 # Set up runner
 
----
+In this guide we will set up the runner on your local machine.
 
-TODO:
+## 1. Clone repository
 
-- This guide about setting up runner on local machine
-  - ngrok
-- Clone repository
-- Configure ENV variables for the runner
-- Start runner with preconfigured connectors
-- Call API to run action OR use one of the Clients
-- Use Dockerfile to deploy the runner to cloud
+Use terminal to clone the repository to your local machine:
+
+```
+git clone git@github.com:connery-io/connery.git
+```
+
+Go to the project directory:
+
+```
+cd connery
+```
+
+## 2. Open the project in your IDE
+
+If you use VSCode, you can open the project by running the following command in the terminal:
+
+```
+code .
+```
+
+## 3. Configure ENV variables
+
+In the root directory, copy the `.env.example` file and rename it to `.env`.
+
+The only required variable that has to be configured in the `.env` file is `CONNERY_RUNNER_API_KEY`.
+This is the key which the runner uses to protect the API. You can put any string here, but it's recommended to use a long, random string.
+You will use it later to configure clients to work with the runner.
+
+Also we recommend to configure the `OPENAI_API_KEY` variable so that you an test the full functionality of the runner.
+This is the key which the runner uses to access the OpenAI API. You can get it from [your OpenAI account](https://platform.openai.com/account/api-keys).
+
+:::note
+To learn how the ENV variables are used and for what purpose, see the runner configuration file `./apps/runner/connery-runner.config.ts`.
+:::
+
+## 4. Install dependencies
+
+In the root directory, run the following command to install dependencies:
+
+```
+yarn install
+```
+
+## 5. Start runner
+
+In the root directory, run the following command to start the runner:
+
+```
+yarn start
+```
+
+It will start the runner on port 4201 with the default list of connectors.
+
+## 6. Test if runner is up and running
+
+To check if the runner is up and running, use the following command in the terminal:
+
+```
+curl -I 'http://localhost:4201/health'
+```
+
+If you see `200 OK` status, it means that the runner is up and running.
+
+To check if you can access the protected API use the following command in the terminal:
+
+```
+curl -I 'http://localhost:4201/verify-access' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>'
+```
+
+Replace `<CONNERY_RUNNER_API_KEY>` with the value of the `CONNERY_RUNNER_API_KEY` variable from the `.env` file.
+
+If you see `200 OK` status, it means that you can access the protected API.
+
+## 7. Expose runner to the internet
+
+At the moment the runner is running on your local machine and is not accessible from the internet.
+On the next steps of this guide we will configure clients to call action from your runner. To do that, the runner has to be accessible from the internet.
+
+To expose the runner to the internet, we will use [ngrok](https://ngrok.com/).
+
+Open a new terminal window and run the following command:
+
+```
+npx ngrok http 4201
+```
+
+This will automatically download and start ngrok and the runner will be accessible from the internet.
+You will see you a public URL that you can use to access the runner from the internet.
+
+NOTE: The runner process has to be running in the terminal window where you started it. If you close that terminal window, the runner will stop.
+
+To verify that the runner is accessible from the internet, use the following command in the terminal:
+
+```
+curl -I '<NGROK_URL>/health'
+```
+
+Replace `<NGROK_URL>` with the URL that you got from ngrok.
+
+If you see `200 OK` status, it means that the runner is accessible from the internet.
+
+## Next steps
+
+Now, when you have the runner up and running, let's [install connector](/docs/getting-started/install-connector-on-the-runner) on it.
