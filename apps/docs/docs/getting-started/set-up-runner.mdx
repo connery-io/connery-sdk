@@ -2,6 +2,15 @@
 
 In this guide we will set up the runner on your local machine.
 
+## Prerequisites
+
+You need to have the following software installed on your local machine to be able to set up the runner:
+
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) (the latest version)
+- [Node.js](https://nodejs.org/en/download) (version 18.x)
+- [Yarn](https://classic.yarnpkg.com/lang/en/docs/install) (version 1.x)
+- [VSCode](https://code.visualstudio.com/) (recommended)
+
 ## 1. Clone repository
 
 Use terminal to clone the repository to your local machine:
@@ -29,7 +38,14 @@ code .
 In the root directory, copy the `.env.example` file and rename it to `.env`.
 
 The only required variable that has to be configured in the `.env` file is `CONNERY_RUNNER_API_KEY`.
-This is the key which the runner uses to protect the API. You can put any string here, but it's recommended to use a long, random string.
+This is the key which the runner uses to protect the API.
+
+Use the following command to generate a random string and set it as the value of the `CONNERY_RUNNER_API_KEY` variable:
+
+```
+openssl rand -base64 32
+```
+
 You will use it later to configure clients to work with the runner.
 
 Also we recommend to configure the `OPENAI_API_KEY` variable so that you an test the full functionality of the runner.
@@ -99,10 +115,10 @@ NOTE: The runner process has to be running in the terminal window where you star
 To verify that the runner is accessible from the internet, use the following command in the terminal:
 
 ```
-curl -I '<NGROK_URL>/health'
+curl -I <HTTPS_NGROK_URL>/health
 ```
 
-Replace `<NGROK_URL>` with the URL that you got from ngrok.
+Replace `<HTTPS_NGROK_URL>` with the HTTPS URL that you got from ngrok.
 
 If you see `200 OK` status, it means that the runner is accessible from the internet.
 

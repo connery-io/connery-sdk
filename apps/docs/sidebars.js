@@ -61,7 +61,7 @@ const sidebars = {
         id: 'native-clients/index',
       },
     },
-    'third-party-clients',
+    'community-clients',
   ]
 };
 
