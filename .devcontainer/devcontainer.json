@@ -29,12 +29,11 @@
         "workbench.colorTheme": "Quiet Light",
         "editor.fontSize": 13,
         "terminal.integrated.fontSize": 13,
-        "editor.formatOnSave": true
-	    },
-	    "extensions": [
-		    "GitHub.copilot",
-		    "esbenp.prettier-vscode"
-	    ]
+        "editor.formatOnType": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+      },
+      "extensions": ["GitHub.copilot", "esbenp.prettier-vscode"]
     }
   }
 }
