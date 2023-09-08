@@ -1,0 +1,5 @@
+{
+  "name": "Connery Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node",
+  "postStartCommand": "yarn install && yarn run dev"
+}
