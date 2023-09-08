@@ -20,5 +20,12 @@
       "label": "Application",
       "onAutoForward": "silent"
     }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "git.autofetch": true
+      }
+    }
   }
 }
