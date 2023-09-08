@@ -2,6 +2,7 @@
   "name": "Connery Dev Container",
   "image": "mcr.microsoft.com/devcontainers/typescript-node",
   "postStartCommand": "yarn install && yarn run build",
+  "forwardPorts": [4201, 4202, 9229],
   "portsAttributes": {
     "4201": {
       "label": "Runner",
