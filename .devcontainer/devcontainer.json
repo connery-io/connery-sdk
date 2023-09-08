@@ -25,7 +25,10 @@
     "vscode": {
       "settings": {
         "git.autofetch": true,
-        "git.confirmSync": false
+        "git.confirmSync": false,
+        "workbench.colorTheme": "Quiet Light",
+        "editor.fontSize": 13,
+        "terminal.integrated.fontSize": 13
       }
     }
   }
