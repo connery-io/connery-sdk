@@ -1,16 +1,19 @@
 {
   "name": "Connery Dev Container",
   "image": "mcr.microsoft.com/devcontainers/typescript-node",
-  "postStartCommand": "yarn install && yarn run dev",
+  "postStartCommand": "yarn install && yarn run build",
   "portsAttributes": {
     "4201": {
-      "label": "Runner"
+      "label": "Runner",
+      "onAutoForward": "silent"
     },
     "4202": {
-      "label": "Docs"
+      "label": "Docs",
+      "onAutoForward": "openBrowserOnce"
     },
     "9229": {
-      "label": "Runner Debugger"
+      "label": "Runner Debugger",
+      "onAutoForward": "silent"
     },
     "default": {
       "label": "Application",
