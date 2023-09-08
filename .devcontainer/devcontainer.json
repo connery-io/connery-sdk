@@ -9,7 +9,7 @@
     },
     "4202": {
       "label": "Docs",
-      "onAutoForward": "openBrowserOnce"
+      "onAutoForward": "openBrowser"
     },
     "9229": {
       "label": "Runner Debugger",
