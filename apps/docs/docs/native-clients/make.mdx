@@ -1,10 +1,6 @@
 # Make App
 
-Use your actions from the no-code platform [Make](https://www.make.com/).
-
-## Demo
-
-(DOTO: add demo video)
+Run actions from the no-code platform [Make](https://www.make.com/) using them in your workflows and combining them with the other apps and capabilities of Make.
 
 ## Information
 
@@ -12,22 +8,30 @@ The advantage of using the Make app is that you can use actions from your runner
 
 The Make App has the followign actions:
 
-| Action                            | Description                                                                                                             |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Run action                        | Let you select action from the runner, specify input parameters and run it.                                             |
-| Run action using natural language | Let you run action using natural language, similar to how the [Connery app in Slack](/docs/native-clients/slack) works. |
+| Make action (module)              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Run action                        | This Make action lets you select an action from the runner, specify input parameters, and run it.<br/><br/>This action does not use OpenAI API and runs actions directly from the runner.                                                                                                                                                                                                                                                                                                             |
+| Run action using natural language | This Make action lets you run action from the runner using natural language, similar to how the [Connery app in Slack](/docs/native-clients/slack#information) works using OpenAI API for classification.<br/><br/>To use the app, you have to configure `OPENAI_API_KEY` in the [runner configuration](http://localhost:4202/docs/getting-started/set-up-runner#3-configure-env-variables) so the Runner can use OpenAI API to classify the user intent and identify input parameters from messages. |
 
 :::info Tricky terminology
 
-Please note that Make also uses the term "action" to describe a simple operation.
+Please note that Make also uses the term "action" to describe a simple operation. Sometimes they also call it a "module", though.
+
 The Make actions listed in the table above are proxies that allow you to call actions from your Connery runner.
-That's why the Make App has an action called "Run action" 🤭
+That's why the app has an action called "Run action" 🤭
 
 :::
 
-## Installation & configuration
+## Installation
 
-Use the button below to install the app to your Make organization:
+:::caution
+
+Currently, the app is not yet published in the Make App Store.
+So, you need explicitly install it to your Make organization using the invitation link behind the button.
+
+:::
+
+Use the button below to install the app to your Make organization.
 
 <a
   href="https://eu1.make.com/app/invite/399f91c41db5ab0d153fbfd0d35144ad"
@@ -38,16 +42,13 @@ Use the button below to install the app to your Make organization:
 <br />
 <br />
 
-:::caution
-
-Currently, the app is not yet published in the Make App Store.
-So, you need explicitly install it to your Make organization using the invitation link behind the button.
-
-:::
-
 After the installation, you can find the app in the list of apps in a scenario.
 
+## Configuration
+
 To call actions from your runner you need to configure the connection to Connery by providing the Runner URL and the API Key.
+
+## Usage
 
 ---
 
@@ -56,4 +57,3 @@ TODO:
 - Add setup guide
 - How to configure connection
 - How to call actions
-- Add demo video
