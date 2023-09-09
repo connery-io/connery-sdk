@@ -8,6 +8,10 @@
     9229
   ],
   "portsAttributes": {
+    "4040": {
+      "label": "ngrok",
+      "onAutoForward": "silent"
+    },
     "4201": {
       "label": "Runner",
       "onAutoForward": "silent"
