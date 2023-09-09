@@ -1,5 +1,5 @@
 {
-  "name": "Connery Dev Container",
+  "name": "Connery",
   "image": "mcr.microsoft.com/devcontainers/typescript-node",
   "postStartCommand": "yarn install && yarn run build",
   "forwardPorts": [
@@ -30,9 +30,6 @@
       "settings": {
         "git.autofetch": true,
         "git.confirmSync": false,
-        "workbench.colorTheme": "Quiet Light",
-        "terminal.integrated.fontSize": 13,
-        "editor.fontSize": 13,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "[jsonc]": {
           "editor.defaultFormatter": "vscode.json-language-features"
@@ -42,8 +39,9 @@
         "editor.formatOnPaste": true
       },
       "extensions": [
-        "GitHub.copilot",
-        "esbenp.prettier-vscode"
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "GitHub.copilot"
       ]
     }
   }
