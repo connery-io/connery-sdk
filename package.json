@@ -7,7 +7,6 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "yarn run dev",
     "dev": "dotenv -- turbo run dev",
     "expose:runner": "ngrok http 4201",
     "build": "turbo run build",
