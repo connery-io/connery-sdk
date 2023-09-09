@@ -1,8 +1,20 @@
+import { Public } from ':src/shared/auth.guard';
 import { Controller, Get } from '@nestjs/common';
 import { ErrorResponse, ObjectResponse } from './types';
 
 @Controller()
 export class ToolsController {
+  @Public()
+  @Get('/')
+  get(): ObjectResponse<{ message: string }> | ErrorResponse {
+    return {
+      status: 'success',
+      data: {
+        message: 'Welcome to the Connery Runner API 👋',
+      },
+    };
+  }
+
   @Get('/verify-access')
   verifyAccess(): ObjectResponse<undefined> | ErrorResponse {
     // By default every API endpoint is protected by the AuthGuard. Including this one.
