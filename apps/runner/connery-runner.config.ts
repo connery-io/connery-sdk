@@ -10,11 +10,12 @@ export default () => ({
     OpenAiApiKey: process.env.OPENAI_API_KEY,
   },
 
-  // We recommend using a separate API key for each client.
+  // We recommend creating a separate API key for each client.
   ApiKeys: [
     {
-      // This API key is used for internal purposes of the runner.
-      // For example by the connery-io/connery-runner-administration connector.
+      // This is a default API key.
+      // You can use it for testing purposes. But it is also used for the internal purposes of the runner.
+      // For example, by the pre-installed connery-io/connery-runner-administration connector (see below).
       Title: 'Connery Runner API Key',
       ApiKey: process.env.CONNERY_RUNNER_API_KEY,
     },
@@ -23,19 +24,11 @@ export default () => ({
   // List of connectors installed on the runner.
   InstalledConnectors: [
     {
-      // Use this connector for runner administration.
+      // This is a pre-installed connector for runner administration.
       Key: 'connery-io/connery-runner-administration@main',
       ConfigurationParameters: {
         RunenrUrl: 'http://localhost:80',
         RunnerApiKey: process.env.CONNERY_RUNNER_API_KEY, // This API key is used by the connector to access the runner's API.
-      },
-    },
-    {
-      Key: 'connery-io/gmail@main',
-      ConfigurationParameters: {
-        GmailEmailAddress: process.env.GMAIL_EMAIL_ADDRESS,
-        GmailAppPassword: process.env.GMAIL_APP_PASSWORD,
-        SenderName: process.env.GMAIL_SENDER_NAME,
       },
     },
   ],

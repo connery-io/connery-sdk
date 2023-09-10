@@ -1,0 +1,52 @@
+{
+  "name": "Connery",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node",
+  "postStartCommand": "yarn install && yarn run build",
+  "forwardPorts": [
+    4201,
+    4202,
+    9229
+  ],
+  "portsAttributes": {
+    "4040": {
+      "label": "ngrok",
+      "onAutoForward": "silent"
+    },
+    "4201": {
+      "label": "Runner",
+      "onAutoForward": "silent"
+    },
+    "4202": {
+      "label": "Docs",
+      "onAutoForward": "silent"
+    },
+    "9229": {
+      "label": "Runner Debugger",
+      "onAutoForward": "silent"
+    },
+    "default": {
+      "label": "Application",
+      "onAutoForward": "silent"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "git.autofetch": true,
+        "git.confirmSync": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[jsonc]": {
+          "editor.defaultFormatter": "vscode.json-language-features"
+        },
+        "editor.formatOnType": true,
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "GitHub.copilot"
+      ]
+    }
+  }
+}

@@ -6,16 +6,17 @@ We highly recommend you read this section before diving into the documentation.
 ## Connector
 
 A connector is a collection of actions closely related by meaning and function.
-The connector provides a shared configuration for all its actions.
-Each connector is represented by a public or private GitHub repository configured in a specific way.
 Before a connector can be used, it must be installed on a runner.
-Once set up, its actions are accessible and can be run from any client.
+Once installed, its actions are accessible and can be run from any client.
+
+Each connector is represented by a GitHub repository with a specific structure.
+GitHub is an excellent infrastructure for connectors that provides all the necessary tools
+for the development and maintenance: version control, collaboration, automation, and more.
 
 :::info Example
 A [connery-io/gmail](https://github.com/connery-io/gmail) connector has a set of actions related to Gmail.
-For example, SendEmail is one of them.
 The connector requires GmailEmailAddress and GmailAppPassword configuration parameters
-during the installation on the runner, so the actions can establish a connection to the Gmail account using them.
+during the installation on the runner, so the actions has access to the Gmail account.
 :::
 
 You might already be familiar with the concept of a connector.
@@ -31,9 +32,9 @@ An action is an atomic operation designed to perform a specific task.
 You can think of an action as a function with input and output parameters that can be called from many places (clients).
 
 :::info Example
-The [SendEmail](https://github.com/connery-io/gmail/blob/main/actions/SendEmail.js) action of
-the [connery-io/gmail](https://github.com/connery-io/gmail) connector has Recipient, Subject, and Body input parameters.
-Once a client runs the action, it sends an email based on the provided input parameters
+[SendEmail](https://github.com/connery-io/gmail/blob/main/actions/SendEmail.js) is an action in
+the [connery-io/gmail](https://github.com/connery-io/gmail) connector. It has Recipient, Subject, and Body input parameters.
+Once the action is run by the client, it sends an email based on the provided input parameters
 and returns a MessageId to the client as a result.
 :::
 
@@ -51,9 +52,3 @@ A client is an application that allows end users to run actions from the runner.
 [Connery Slack App](/docs/native-clients/slack) is a client that allows users to run actions from the runner right
 from the Slack workspace using natural language.
 :::
-
----
-
-TODO:
-
-- Mention that GitHub is a great infrastructure for connectors (docs, CI/CD, issues, PRs and change management, etc.)

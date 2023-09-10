@@ -4,6 +4,6 @@ services:
       context: .
       dockerfile: ./apps/runner/Dockerfile
     ports:
-      - 6001:80
+      - 4301:4201
     env_file:
       - .env

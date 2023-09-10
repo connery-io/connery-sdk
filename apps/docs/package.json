@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "docusaurus start --no-open",
+    "dev": "docusaurus start --no-open --port 4202",
     "build": "docusaurus build",
     "docusaurus": "docusaurus",
     "swizzle": "docusaurus swizzle",

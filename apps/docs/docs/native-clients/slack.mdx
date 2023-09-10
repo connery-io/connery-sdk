@@ -1,25 +1,33 @@
 # Slack App
 
-Use natural language to run your actions using the Connery app in Slack.
-
-## Demo
-
-(DOTO: add demo video)
+Use natural language to run actions right in your [Slack](https://slack.com/) workspace collaborating with your team.
 
 ## Information
 
-Under the hood, the chatbot uses Connery API, which
+You can use the app by sending it direct messages or in any channel where the app is invited.
+In the channels, the app can see and respond only to the messages where the app is mentioned.
+
+The app does not
+
+For every message to the app, it calls Connery API, which
 utilizes [OpenAI function calling](https://platform.openai.com/docs/guides/gpt/function-calling)
-to classify the user intent, identify input parameters from the message,
-and run the appropriate action from the runner.
+to classify the user intent and identify input parameters from the message.
+After classifying the intent, the app sends a request to the Connery API to run the specific action with the identified parameters and respond to the user with the result.
 
-You can use the app by sending it direct messages or in any channel
-where the app is invited. In the channels, the app can see and respond
-only to messages where the app is mentioned.
+To use the app, you have to configure `OPENAI_API_KEY` in the [runner configuration](http://localhost:4202/docs/getting-started/set-up-runner#3-configure-env-variables) so the Runner can use OpenAI API to classify the user intent and identify input parameters from messages.
 
-## Installation & configuration
+To use the app, you need to install it in your Slack workspace and configure it to connect to your Runner.
 
-Use the button below to install the app in your Slack workspace:
+## Installation
+
+:::caution
+
+Currently, the app is not yet published in the Slack App Directory.
+So you can see the "This app is not approved by Slack" warning during installation.
+
+:::
+
+Use the button below to install the app into your Slack workspace.
 
 <a href="https://slack.com/oauth/v2/authorize?client_id=3356092902903.5117490865059&scope=chat:write,im:history,app_mentions:read&user_scope=">
   <img
@@ -31,19 +39,29 @@ Use the button below to install the app in your Slack workspace:
   />
 </a>
 <br />
-<br />
 
-:::caution
+## Configuration
 
-Currently, the app is not yet published in the Slack App Directory.
-So you can see the "This app is not approved by Slack" warning during installation.
+1. Open the Connery app in the sidebar.
+2. Open the "Home" tab in the app.
+3. Click the "Connect to Connery Runner" button.
 
-:::
+![Slack App Configuration](/img/slack/configure-app-1.png)
 
----
+4. Enter your Runner URL.
+5. Enter your API Key.
+6. Click the "Connect" button.
 
-TODO:
+![Slack App Configuration](/img/slack/configure-app-2.png)
 
-- Add demo video
-- How to configure the app and connection to the runner
-- ...in the familiar Slack interface...
+If the connection is successful, you will see the updated "Home" tab with the list of available actions from your Runner.
+
+![Slack App Configuration](/img/slack/configure-app-3.png)
+
+## Usage
+
+To use the app, you need to mention it in a channel or send it a direct message.
+
+Below is an example of running actions using direct messages to the app.
+
+![Slack App Configuration](/img/slack/configure-app-4.png)
