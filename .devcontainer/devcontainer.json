@@ -1,7 +1,7 @@
 {
   "name": "Connery",
   "image": "ghcr.io/connery-io/connery/dev-container:latest",
-  "postStartCommand": "./.devcontainer/restore-cache.sh && yarn install && yarn run build",
+  "postStartCommand": "./.devcontainer/restore-cache.sh && ./.devcontainer/create-dot-env.sh && yarn install && yarn run build",
   "forwardPorts": [
     4040,
     4201,
