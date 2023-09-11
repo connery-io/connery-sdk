@@ -1,8 +1,9 @@
 {
   "name": "Connery",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node",
-  "postStartCommand": "yarn install && yarn run build",
+  "image": "ghcr.io/connery-io/connery/dev-container:latest",
+  "postStartCommand": "./.devcontainer/restore-cache.sh && ./.devcontainer/create-dot-env.sh && yarn install && yarn run build",
   "forwardPorts": [
+    4040,
     4201,
     4202,
     9229

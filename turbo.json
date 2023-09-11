@@ -4,8 +4,7 @@
   "pipeline": {
     "dev": {
       "cache": false,
-      "persistent": true,
-      "dependsOn": ["build"]
+      "persistent": true
     },
     "build": {
       "dependsOn": ["^build"],
