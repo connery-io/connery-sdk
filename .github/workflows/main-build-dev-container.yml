@@ -3,7 +3,7 @@ name: (main) Build Dev Container
 on:
   push:
     branches:
-      - dev-container # TODO: Change to main
+      - main
 
 jobs:
   build:
