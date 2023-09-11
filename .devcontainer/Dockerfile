@@ -6,6 +6,9 @@ FROM mcr.microsoft.com/devcontainers/typescript-node:18-bullseye as build-stage
 
 WORKDIR /workspace
 
+# specify yarn cache location
+ENV YARN_CACHE_FOLDER=/workspace/.yarn-cache
+
 COPY package.json yarn.lock ./
 
 COPY apps/docs/package.json ./apps/docs/package.json
@@ -32,6 +35,9 @@ RUN yarn run build
 FROM mcr.microsoft.com/devcontainers/typescript-node:18-bullseye
 
 WORKDIR /cache
+
+# yarn cache
+COPY --from=build-stage /workspace/.yarn-cache ./.yarn-cache
 
 # Root
 COPY --from=build-stage /workspace/node_modules ./node_modules
