@@ -1,6 +1,6 @@
 {
   "name": "Connery",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node",
+  "image": "ghcr.io/connery-io/connery/dev-container:latest",
   "postStartCommand": "yarn install && yarn run build",
   "forwardPorts": [
     4040,
