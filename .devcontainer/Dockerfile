@@ -12,6 +12,7 @@ COPY . .
 RUN ls -la
 RUN which yarn
 RUN yarn --version
+RUN ls -al ./node_modules/.bin
 # end debug
 
 RUN yarn run build
