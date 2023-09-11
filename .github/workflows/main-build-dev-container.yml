@@ -3,7 +3,7 @@ name: (main) Build Dev Container
 on:
   push:
     branches:
-      - dev-container # TODO replace with main 1
+      - main
 
 jobs:
   build:
@@ -33,4 +33,3 @@ jobs:
           tags: ghcr.io/${{ github.repository }}/dev-container:latest
           cache-from: type=gha,scope=${{ github.repository }}
           cache-to: type=gha,scope=${{ github.repository }},mode=max
-
