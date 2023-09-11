@@ -7,7 +7,7 @@ FROM mcr.microsoft.com/devcontainers/typescript-node:18-bullseye as build-stage
 WORKDIR /workspace
 
 # specify yarn cache location
-ENV YARN_CACHE_FOLDER=/workspace/.yarn-cache
+ENV YARN_CACHE_FOLDER=/workspace/yarn-cache
 
 COPY package.json yarn.lock ./
 
@@ -27,46 +27,42 @@ COPY . .
 RUN yarn run build
 
 #
-# Final stage
-#
-# Copy node_modules and build artifacts to prepre the cache image for the devcontainer
+# Final stage - Prepre the cache image for the devcontainer
 #
 
 FROM mcr.microsoft.com/devcontainers/typescript-node:18-bullseye
 
-WORKDIR /cache
+WORKDIR /
 
-# yarn cache
-COPY --from=build-stage /workspace/.yarn-cache ./.yarn-cache
+# Copy yarn cache to the /yarn-cache folder
 
-# Root
-COPY --from=build-stage /workspace/node_modules ./node_modules
+COPY --from=build-stage /workspace/yarn-cache ./yarn-cache
+
+# Copy node_modules and build artifacts to the /cache folder
+
+# project root
+COPY --from=build-stage /workspace/node_modules ./cache/node_modules
 
 # docs
-
-COPY --from=build-stage /workspace/apps/docs/.docusaurus ./apps/docs/.docusaurus
-COPY --from=build-stage /workspace/apps/docs/.turbo ./apps/docs/.turbo
-COPY --from=build-stage /workspace/apps/docs/build ./apps/docs/build
-COPY --from=build-stage /workspace/apps/docs/node_modules ./apps/docs/node_modules
+COPY --from=build-stage /workspace/apps/docs/.docusaurus ./cache/apps/docs/.docusaurus
+COPY --from=build-stage /workspace/apps/docs/.turbo ./cache/apps/docs/.turbo
+COPY --from=build-stage /workspace/apps/docs/build ./cache/apps/docs/build
+COPY --from=build-stage /workspace/apps/docs/node_modules ./cache/apps/docs/node_modules
 
 # runner
-
-COPY --from=build-stage /workspace/apps/runner/.turbo ./apps/runner/.turbo
-COPY --from=build-stage /workspace/apps/runner/dist ./apps/runner/dist
-COPY --from=build-stage /workspace/apps/runner/node_modules ./apps/runner/node_modules
+COPY --from=build-stage /workspace/apps/runner/.turbo ./cache/apps/runner/.turbo
+COPY --from=build-stage /workspace/apps/runner/dist ./cache/apps/runner/dist
+COPY --from=build-stage /workspace/apps/runner/node_modules ./cache/apps/runner/node_modules
 
 # connery
-
-COPY --from=build-stage /workspace/packages/connery/.turbo ./packages/connery/.turbo
-COPY --from=build-stage /workspace/packages/connery/dist ./packages/connery/dist
-COPY --from=build-stage /workspace/packages/connery/node_modules ./packages/connery/node_modules
+COPY --from=build-stage /workspace/packages/connery/.turbo ./cache/packages/connery/.turbo
+COPY --from=build-stage /workspace/packages/connery/dist ./cache/packages/connery/dist
+COPY --from=build-stage /workspace/packages/connery/node_modules ./cache/packages/connery/node_modules
 
 # eslint-config-custom
-
-COPY --from=build-stage /workspace/packages/eslint-config-custom/node_modules ./packages/eslint-config-custom/node_modules
+COPY --from=build-stage /workspace/packages/eslint-config-custom/node_modules ./cache/packages/eslint-config-custom/node_modules
 
 # lib
-
-COPY --from=build-stage /workspace/packages/lib/.turbo ./packages/lib/.turbo
-COPY --from=build-stage /workspace/packages/lib/dist ./packages/lib/dist
-COPY --from=build-stage /workspace/packages/lib/node_modules ./packages/lib/node_modules
+COPY --from=build-stage /workspace/packages/lib/.turbo ./cache/packages/lib/.turbo
+COPY --from=build-stage /workspace/packages/lib/dist ./cache/packages/lib/dist
+COPY --from=build-stage /workspace/packages/lib/node_modules ./cache/packages/lib/node_modules
