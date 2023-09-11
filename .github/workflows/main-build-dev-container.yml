@@ -31,6 +31,6 @@ jobs:
           file: ./.devcontainer/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}/dev-container:latest
-          #cache-from: type=gha,scope=${{ github.repository }}
-          #cache-to: type=gha,scope=${{ github.repository }},mode=max
+          cache-from: type=gha,scope=${{ github.repository }}
+          cache-to: type=gha,scope=${{ github.repository }},mode=max
           platforms: linux/arm64 #linux/amd64,linux/arm64
