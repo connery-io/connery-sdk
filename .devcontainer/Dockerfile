@@ -15,5 +15,3 @@ RUN yarn --version
 # end debug
 
 RUN yarn run build
-
-SHELL ["/bin/bash", "-c"]
