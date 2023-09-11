@@ -8,6 +8,12 @@ RUN yarn install
 
 COPY . .
 
+# debug
+RUN ls -la
+RUN which yarn
+RUN yarn --version
+# end debug
+
 RUN yarn run build
 
 SHELL ["/bin/bash", "-c"]
