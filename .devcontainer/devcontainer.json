@@ -2,7 +2,7 @@
   "name": "Connery",
   "image": "ghcr.io/connery-io/connery/dev-container:latest",
   "runArgs": [
-    "--platform", "linux/arm64" // This is required for M1 Macs and other ARM64 machines
+    "--platform=linux/amd64" // This is required for M1 Macs and other ARM64 machines
   ],
   "postStartCommand": "./.devcontainer/restore-cache.sh && ./.devcontainer/create-dot-env.sh && yarn install && yarn run build",
   "forwardPorts": [
