@@ -16,7 +16,7 @@ COPY packages/eslint-config-custom/package.json ./packages/eslint-config-custom/
 COPY packages/lib/package.json ./packages/lib/package.json
 COPY packages/tsconfig/package.json ./packages/tsconfig/package.json
 
-RUN yarn install
+RUN yarn install --frozen-lock-file --network-timeout 1000000 
 
 COPY . .
 
