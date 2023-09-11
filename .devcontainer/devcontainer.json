@@ -1,12 +1,7 @@
 {
   "name": "Connery",
   "image": "ghcr.io/connery-io/connery/dev-container:latest",
-  "postStartCommand": [
-    "chmod +x .devcontainer/restore-cache.sh",
-    ".devcontainer/restore-cache.sh",
-    "yarn install",
-    "yarn run build"
-  ],
+  "postStartCommand": "chmod +x .devcontainer/restore-cache.sh && .devcontainer/restore-cache.sh && yarn install && yarn run build",
   "forwardPorts": [
     4040,
     4201,
