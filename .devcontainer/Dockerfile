@@ -16,7 +16,8 @@ COPY packages/eslint-config-custom/package.json ./packages/eslint-config-custom/
 COPY packages/lib/package.json ./packages/lib/package.json
 COPY packages/tsconfig/package.json ./packages/tsconfig/package.json
 
-RUN yarn install --frozen-lock-file --network-timeout 1000000 
+# --network-timeout 1000000 is a workaround for building linux/arm64 images on ubuntu-latest GitHub runners
+RUN yarn install --frozen-lock-file --network-timeout 1000000
 
 COPY . .
 
