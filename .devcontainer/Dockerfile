@@ -32,7 +32,7 @@ RUN yarn run build
 
 FROM mcr.microsoft.com/devcontainers/typescript-node:18-bullseye
 
-WORKDIR /cache
+WORKDIR /connery-cache
 
 # Copy yarn cache to the /cache/yarn folder
 
