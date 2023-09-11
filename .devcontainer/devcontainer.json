@@ -1,7 +1,10 @@
 {
   "name": "Connery",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node",
-  "postStartCommand": "yarn install && yarn run build",
+  "image": "ghcr.io/connery-io/connery/dev-container:latest",
+  "runArgs": [
+    "--platform=linux/amd64" // This is required for M1 Macs and other ARM64 machines
+  ],
+  "postStartCommand": "./.devcontainer/restore-cache.sh && ./.devcontainer/create-dot-env.sh && yarn install && yarn run build",
   "forwardPorts": [
     4040,
     4201,
