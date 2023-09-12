@@ -35,6 +35,11 @@ export class OpenAiService {
     console.log(JSON.stringify({ type: 'user_prompt_received', data: { prompt: prompt } }));
 
     const runnerConfig = this.configService.getRunnerConfig();
+
+    if (!runnerConfig.OpenAiApiKey) {
+      throw new Error('The OPENAI_API_KEY is not configured on the runner.');
+    }
+
     const configuration = new Configuration({
       apiKey: runnerConfig.OpenAiApiKey,
     });
