@@ -1,14 +1,36 @@
-# Introduction
+# 🤙🏼👁️ Introduction
 
-## What is this?
+Connery is an **open source connector platform and ecosystem** for developers. Its main purpose is to provide infrastructure and pre-built components to enable AI agents and no-code automations to access real-world applications.
 
-## Mission and vision
+### 📦 Value proposition
 
-- One action - multiple opportunities.
-- "Connector first" approach
-- Show the problem that every platform nowadays build their own connectors platform.
-  Closed source, not extensible, not customizable, not shareable.
-  And there is no way to share one connector between different platforms.
-  But also there is no connector economy where you can grab existing connector, customize it and use it for your own needs.
+- **Standard framework** to create and control connectors and actions between third party applications and AI models
+- **Open source infrastructure and pre-built components** to speed-up development
+- **Security and protection processes** to reduce unwanted outcomes when using AI
+- **Free ecosystem for sharing and reusing** connectors with a broader audience across different AI models and platforms
 
-....???
+### 🎯 Our mission: creating a fully automated world run by humans
+
+We believe that there will be a myriad of autonomous AI agents for tens of thousands of specific purposes. Building performant agents requires:
+
+1. A **standard** for AI agent development and automation
+2. **Interoperability** with agent development and automation platforms
+3. **Testing** and controlling capabilities
+
+### 🌍 Open source
+
+We believe the only way to achieve our mission is to share and reuse development as much as possible. Therefore, we built Connery as an open source platform.
+
+### 🛠️ Platform components
+
+![Connector ecosystem](/img/connery-connector-ecosystem.png)
+
+**Details**
+
+1. Open-source **Connectors** built by the community for many different purposes. Every connector is a separate open-source GitHub repository maintained by the community.
+2. Companies or individuals configure their own isolated **Runner** with a unique connector set and configuration. You may also start with pre-built runners.
+3. The **Runner pulls connectors** from GitHub based on the runner configuration.
+4. The **Runner exposes actions** to clients and end users based on access configurations.
+5. End users use **clients** to automate their work in different ways from different places. Additionally, anyone can build their own clients based on the runner API.
+6. The Runner establishes secure and persistent connections to **third-party services** for every installed connector.
+7. (optional) The Runner uses Large Language Models (LLM) to **support Natural Language Actions**. LLM can enable the Runner to classify user intent, identify input parameters and run actions based on user prompt. This is optional. Any Runner can also be used without LLM.
