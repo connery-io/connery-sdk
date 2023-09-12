@@ -27,7 +27,7 @@ export default () => ({
       // This is a pre-installed connector for runner administration.
       Key: 'connery-io/connery-runner-administration@main',
       ConfigurationParameters: {
-        RunenrUrl: 'http://localhost:80',
+        RunenrUrl: 'http://localhost:4201',
         RunnerApiKey: process.env.CONNERY_RUNNER_API_KEY, // This API key is used by the connector to access the runner's API.
       },
     },
