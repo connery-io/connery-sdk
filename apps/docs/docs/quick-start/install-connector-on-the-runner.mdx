@@ -75,19 +75,24 @@ configurationParameters: [
 ...
 ```
 
-Replace the `<GMAIL_EMAIL_ADRESS>`, `<GMAIL_APP_PASSWORD>` and `<SENDER_NAME>` placeholders with the actual values.
-
+Replace the `<GMAIL_EMAIL_ADRESS>`, `<GMAIL_APP_PASSWORD>` and `<SENDER_NAME>` placeholders with the actual values.<br/>
 Check the [Sign in with app passwords](https://support.google.com/accounts/answer/185833?hl=en) article from Google Support to learn how to generate the app password for your Gmail account.
 
 If the runner is still running in your codespace, the configuration will be automatically applied after sving the file.
-On the next API request to the runner, the runner will download the connector from the GitHub repository and cache it.
+On the next API request to the runner, it will download the connector from the GitHub repository and cache it.
 
----
+:::info
 
-TODO:
+If you want to install connector from the private GitHub repository, you need to configure the Personal Access Token (`GITHUB_PAT`) in the `.env` file.
+So the runner can access the private repository and can download the connector.
 
-- Once the connector is installed ion the runner, you don't need to re-deploy it after each change in the connector. Just use the standard connector preinstalled on the runner to clear connector cache and download the new version of your connector from the sspecified branch or tag.
+:::
 
-- Runner will automatically restarted after the configuration file is changed. Not after .env file is changed.
-  - After you installed all the connectors you need, restart the runner so it uses the new configuration if you run it locally.
-    Or re-deploy the runner if you run it in a cloud.
+If you want to update the installed connectors with the latest changes from their repositories,
+run the `ClearConnectorCache` action of the `connery-io/connery-runner-administration@main` connector as was shown [on the previous page](/docs/quick-start/set-up-runner#run-action-using-api).
+This will clean the connectors cache on the runner and download the latest version of the connectors from the specified branch or tag.
+You don't need to restart the runner after that.
+
+## Next steps
+
+Now, when you have the runner configured and the connectors installed, you can learn how to [use clients](/docs/quick-start/use-clients-to-call-actions) to call actions from the connectors.
