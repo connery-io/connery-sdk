@@ -1,0 +1,128 @@
+# Set up runner
+
+On this page you will learn how to set up runner using GitHub Codespaces.
+
+:::note Helpful resources
+
+- [What is a runner?](/docs/introduction/core-concepts#runner)
+
+:::
+
+## 1. Create a codespace
+
+:::info
+
+The GitHub Codespaces are free up to a fixed amount of usage every month.
+Learn more about [billing for GitHub Codespaces](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
+
+:::
+
+Use the link below to create a new GitHub Codespace from the [connery-io/connery](https://github.com/connery-io/connery) repository.
+It takes around 2 minutes to create a new codespace, install dependencies, build the project, and prepare everything you need to start the runner.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/connery-io/connery?quickstart=1)
+
+Also, you can use the green "Code" button in the top right corner of the repository, then open "Codespaces" tab and click "Create codespace on main".
+
+## 2. Configure ENV variables
+
+After the codespace is created, you will see that the `.env` file in the root folder of the repository is already precreated with a unique `CONNERY_RUNNER_API_KEY`.
+This is the key which the runner uses to protect the API.
+You will use it later to configure clients to work with the runner.
+
+We also recommend to configure the `OPENAI_API_KEY` variable in the `.env` file.
+Runner uses it for the Natural Language Actions feature to access the OpenAI API and classify the user intent.
+You can get it from [your OpenAI account](https://platform.openai.com/account/api-keys).
+This variable is not required to start the runner, however some clients that are completely based on natural language like [Slack App](/docs/native-clients/slack) won't work without it.
+
+## 3. Start runner
+
+Open a new terminal window and run the following command to start the runner.
+
+```
+yarn start
+```
+
+It will start the runner on port 4201.
+
+## 4. Expose the runner to the internet
+
+At the moment the runner is running in your codespace and accessible only for you.
+On the next steps of this guide we're going to configure clients to call action from your runner.
+To make it possible, the runner has to be accessible from the internet.
+
+:::info
+Codespaces have a possibility to expose ports to the internet using the [**Sharing a port**](https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port) feature.
+:::
+
+To expose the runner to the internet, follow the steps:
+
+1. Open the terminal in your codespace.
+2. Click the **PORTS** tab.
+3. Right-click the **Runner (4201)**.
+4. Click the **Port Visibility**, then click **Public**.
+
+![Change Port Visibility](/img/set-up-runner/change-port-visibility.png)
+
+5. Click the copy icon to copy the public URL of your runner to the clipboard.
+
+![Change Port Visibility](/img/set-up-runner/copy-public-runner-url.png)
+
+## 6. Test the runner
+
+Let's test the runner to make sure that it's up and running and accessible from the internet.
+
+### List installed connectors
+
+Open a new terminal in your codespace and run the following command:
+
+```
+curl '<PUBLIC_RUNNER_URL>connectors' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>' | jq .
+```
+
+Replace `<PUBLIC_RUNNER_URL>` with the URL that you copied on the previous step,
+and `<CONNERY_RUNNER_API_KEY>` with the value of the `CONNERY_RUNNER_API_KEY` variable from the `.env` file.
+
+You should receive a successful response with the list of installed connectors and their actions on the runner.
+
+:::info
+By default the [connery-io/connery-runner-administration](https://github.com/connery-io/connery-runner-administration) connector is preinstalled on the runner.
+:::
+
+### Run action using natural language
+
+Here is an example of how to use Natural Language Actions API to run the `RefreshConnectorsCache` action from the `connery-io/connery-runner-administration` connector.
+
+:::info
+The `OPENAI_API_KEY` is required for the Natural Language Actions feature to work.
+If you configure it just now, you have to restart the runner to apply the changes.
+:::
+
+```
+curl '<PUBLIC_RUNNER_URL>actions/run' \
+-H 'Content-Type: application/json' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
+-d '{
+    "prompt": "please clean connectors cache on the runner"
+}' | jq .
+```
+
+You should receive a natural language response from the runner.
+
+### Run action using API
+
+Here is an example of how to run the `RefreshConnectorsCache` action using API.
+
+```
+curl '<PUBLIC_RUNNER_URL>connectors/connery-io/connery-runner-administration@main/actions/RefreshConnectorsCache/run' \
+-H 'Content-Type: application/json' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
+-d '{}' | jq .
+```
+
+In this particular case the action does not require any input parameters and does not return any output parameters.
+
+## Next steps
+
+Now, when you have the runner up and running, let's learn how to [install connector](/docs/quick-start/install-connector-on-the-runner) on it.

@@ -17,17 +17,17 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Getting strated",
+      label: "Quick start",
       collapsible: false,
       collapsed: false,
       items: [
-        'getting-started/set-up-runner',
-        'getting-started/install-connector-on-the-runner',
-        'getting-started/use-clients-to-call-actions',
+        'quick-start/set-up-runner',
+        'quick-start/install-connector-on-the-runner',
+        'quick-start/use-clients-to-call-actions',
       ],
       link: {
         type: 'doc',
-        id: 'getting-started/index',
+        id: 'quick-start/index',
       },
     },
     {

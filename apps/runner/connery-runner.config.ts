@@ -1,3 +1,11 @@
+// ###### NOTE ######
+// The ENV variables used in this configuration file are pulled
+// from the .env file in the root of the repository. For example,
+// the process.env.CONNERY_RUNNER_API_KEY is pulled
+// from the CONNERY_RUNNER_API_KEY variable in the.env file.
+// The .env file is not committed to the repository for security reasons.
+// ##################
+
 export default () => ({
   RunnerConfig: {
     // GitHub Personal Access Token is used to access connectors in private repositories.
@@ -10,11 +18,14 @@ export default () => ({
     OpenAiApiKey: process.env.OPENAI_API_KEY,
   },
 
-  // We recommend creating a separate API key for each client.
+  // We recommend using a separate API key for each client.
   ApiKeys: [
     {
       // This is a default API key.
-      // You can use it for testing purposes. But it is also used for the internal purposes of the runner.
+      // Runner uses this key to protect the API.
+      // Use it in the clients to configure connection to the runner.
+      //
+      // This key is also used for the internal purposes of the runner.
       // For example, by the pre-installed connery-io/connery-runner-administration connector (see below).
       Title: 'Connery Runner API Key',
       ApiKey: process.env.CONNERY_RUNNER_API_KEY,
