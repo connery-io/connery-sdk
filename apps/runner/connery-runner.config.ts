@@ -14,7 +14,10 @@ export default () => ({
   ApiKeys: [
     {
       // This is a default API key.
-      // You can use it for testing purposes. But it is also used for the internal purposes of the runner.
+      // Runner uses this key to protect the API.
+      // Use it in the clients to configure connection to the runner.
+      //
+      // This key is also used for the internal purposes of the runner.
       // For example, by the pre-installed connery-io/connery-runner-administration connector (see below).
       Title: 'Connery Runner API Key',
       ApiKey: process.env.CONNERY_RUNNER_API_KEY,
