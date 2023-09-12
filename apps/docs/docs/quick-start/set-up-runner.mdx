@@ -23,41 +23,23 @@ This is the key which the runner uses to protect the API.
 You will use it later to configure clients to work with the runner.
 
 We also recommend to configure the `OPENAI_API_KEY` variable in the `.env` file.
-This is the key which the runner uses for the Natural Language Actions feature to access the OpenAI API and classify the user intent. You can get it from [your OpenAI account](https://platform.openai.com/account/api-keys).
-This is not required to start the runner, however some clients that are completely based on natural language like [Slack App](/docs/native-clients/slack) won't work without it.
+Runner uses it for the Natural Language Actions feature to access the OpenAI API and classify the user intent.
+You can get it from [your OpenAI account](https://platform.openai.com/account/api-keys).
+This variable is not required to start the runner, however some clients that are completely based on natural language like [Slack App](/docs/native-clients/slack) won't work without it.
 
 ## 3. Start runner
 
-In the root directory, run the following command to start the runner:
+Open a new terminal window and run the following command to start the runner.
 
 ```
 yarn start
 ```
 
-It will start the runner on port 4201 with the default list of connectors.
+It will start the runner on port 4201.
 
-## 6. Test if runner is up and running
+## 4. Expose the runner to the internet
 
-To check if the runner is up and running, use the following command in the terminal:
-
-```
-curl -I 'http://localhost:4201/health'
-```
-
-If you see `200 OK` status, it means that the runner is up and running.
-
-To check if you can access the protected API use the following command in the terminal:
-
-```
-curl -I 'http://localhost:4201/verify-access' \
--H 'x-api-key: <CONNERY_RUNNER_API_KEY>'
-```
-
-Replace `<CONNERY_RUNNER_API_KEY>` with the value of the `CONNERY_RUNNER_API_KEY` variable from the `.env` file.
-
-If you see `200 OK` status, it means that you can access the protected API.
-
-## 7. Expose runner to the internet
+![Change Port Visibility](/img/set-up-runner/change-port-visibility.png)
 
 At the moment the runner is running on your local machine and is not accessible from the internet.
 On the next steps of this guide we will configure clients to call action from your runner. To do that, the runner has to be accessible from the internet.
@@ -84,6 +66,27 @@ curl -I <HTTPS_NGROK_URL>/health
 Replace `<HTTPS_NGROK_URL>` with the HTTPS URL that you got from ngrok.
 
 If you see `200 OK` status, it means that the runner is accessible from the internet.
+
+## 6. Test if runner is up and running
+
+To check if the runner is up and running, use the following command in the terminal:
+
+```
+curl -I 'http://localhost:4201/health'
+```
+
+If you see `200 OK` status, it means that the runner is up and running.
+
+To check if you can access the protected API use the following command in the terminal:
+
+```
+curl -I 'http://localhost:4201/verify-access' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>'
+```
+
+Replace `<CONNERY_RUNNER_API_KEY>` with the value of the `CONNERY_RUNNER_API_KEY` variable from the `.env` file.
+
+If you see `200 OK` status, it means that you can access the protected API.
 
 ## Next steps
 
