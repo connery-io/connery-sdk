@@ -18,7 +18,7 @@ export default () => ({
     OpenAiApiKey: process.env.OPENAI_API_KEY,
   },
 
-  // We recommend creating a separate API key for each client.
+  // We recommend using a separate API key for each client.
   ApiKeys: [
     {
       // This is a default API key.
