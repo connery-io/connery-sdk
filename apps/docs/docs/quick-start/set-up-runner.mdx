@@ -2,7 +2,7 @@
 
 On this page you will learn how to set up runner using GitHub Codespaces.
 
-:::note
+:::info
 The GitHub Codespaces are free up to a fixed amount of usage every month.
 Learn more about [billing for GitHub Codespaces](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 :::
@@ -18,7 +18,7 @@ Also, you can use the green "Code" button in the top right corner of the reposit
 
 ## 2. Configure ENV variables
 
-After the codespace is created, you will see that the `.env` file is already precreated with a unique `CONNERY_RUNNER_API_KEY`.
+After the codespace is created, you will see that the `.env` file in the root folder of the repository is already precreated with a unique `CONNERY_RUNNER_API_KEY`.
 This is the key which the runner uses to protect the API.
 You will use it later to configure clients to work with the runner.
 
@@ -43,7 +43,7 @@ At the moment the runner is running in your codespace and accessible only for yo
 On the next steps of this guide we're going to configure clients to call action from your runner.
 To make it possible, the runner has to be accessible from the internet.
 
-:::note
+:::info
 Codespaces have a possibility to expose ports to the internet using the [**Sharing a port**](https://docs.github.com/en/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace#sharing-a-port) feature.
 :::
 
@@ -78,15 +78,15 @@ and `<CONNERY_RUNNER_API_KEY>` with the value of the `CONNERY_RUNNER_API_KEY` va
 
 You should receive a successful response with the list of installed connectors and their actions on the runner.
 
-:::note
+:::info
 By default the [connery-io/connery-runner-administration](https://github.com/connery-io/connery-runner-administration) connector is preinstalled on the runner.
 :::
 
 ### Run action using natural language
 
-Let's use Natural Language Actions API to run the `RefreshConnectorsCache` from the `connery-io/connery-runner-administration` connector.
+Here is an example of how to use Natural Language Actions API to run the `RefreshConnectorsCache` action from the `connery-io/connery-runner-administration` connector.
 
-:::note
+:::info
 The `OPENAI_API_KEY` is required for the Natural Language Actions feature to work.
 If you configure it just now, you have to restart the runner to apply the changes.
 :::
@@ -100,7 +100,20 @@ curl '<PUBLIC_RUNNER_URL>actions/run' \
 }' | jq .
 ```
 
-You should receive a successful response with the result of the action execution and a natural language response.
+You should receive a natural language response from the runner.
+
+### Run action using API
+
+Here is an example of how to run the `RefreshConnectorsCache` action using API.
+
+```
+curl '<PUBLIC_RUNNER_URL>connectors/connery-io/connery-runner-administration@main/actions/RefreshConnectorsCache/run' \
+-H 'Content-Type: application/json' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
+-d '{}' | jq .
+```
+
+In this particular case the action does not require any input parameters and does not return any output parameters.
 
 ## Next steps
 

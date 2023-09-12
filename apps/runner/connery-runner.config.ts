@@ -1,3 +1,11 @@
+// ###### NOTE ######
+// The ENV variables used in this configuration file are pulled
+// from the .env file in the root of the repository. For example,
+// the process.env.CONNERY_RUNNER_API_KEY is pulled
+// from the CONNERY_RUNNER_API_KEY variable in the.env file.
+// The .env file is not committed to the repository for security reasons.
+// ##################
+
 export default () => ({
   RunnerConfig: {
     // GitHub Personal Access Token is used to access connectors in private repositories.

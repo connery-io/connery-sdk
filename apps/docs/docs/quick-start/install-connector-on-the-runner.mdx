@@ -1,27 +1,93 @@
 # Install connector on the runner
 
+:::note Helpful resources
+
+- [What is a connector?](/docs/introduction/core-concepts#connector)
+
+:::
+
+## 1. Open and understand the configuration file
+
+Open the runner configuration file `./apps/runner/connery-runner.config.ts` in the codespace.
+
+Among the other configuration parameters, you can see the `InstalledConnectors` section.
+`InstalledConnectors` is an array of connector configurations which already contains one connector: `connery-io/connery-runner-administration@main`.
+This connector is used to manage the runner and it's preinstalled on the runner by default.
+
+```ts
+...
+InstalledConnectors: [
+  {
+    Key: 'connery-io/connery-runner-administration@main',
+    ConfigurationParameters: {
+      RunenrUrl: 'http://localhost:4201',
+      RunnerApiKey: process.env.CONNERY_RUNNER_API_KEY,
+    },
+  },
+],
+...
+```
+
+Every connector configuration has the `Key` and `ConfigurationParameters` properties.
+
+The `Key` is a unique identifier of the connector which has the following format: `owner/repository@branch`.
+As you can see it has a direct relation to the GitHub repository where the connector is stored.
+For example, the `connery-io/connery-runner-administration@main` connector is stored
+in the https://github.com/connery-io/connery-runner-administration GitHub repository and uses the code from the `main` branch.
+The branch is used for versioning and can be replaced with a tag.
+
+The `ConfigurationParameters` is a flat key-value object that contains the configuration parameters for the connector.
+Configuration parameters are specific for each connector and you can find them in the connector definition file in the related GitHub repository.
+For example the `connery-io/connery-runner-administration@main` connector has the configuration parameters
+defined in the `configurationParameters` section of its definition file [index.js](https://github.com/connery-io/connery-runner-administration/blob/main/index.js) in the root of the GitHub repository.
+From the definition file you can see that both `RunenrUrl` and `RunnerApiKey` configuration parameters are required, so they must be provided in the connector configuration.
+
+The configuration parameters are used by the actions of this connector to perform their tasks.
+
+## 2. Add connector configuration
+
+Let's now install the [connery-io/gmail@main](https://github.com/connery-io/gmail/tree/main) connector on the runner.
+It has an action that sends an email using the Gmail API.
+
+First of all we need to check the connector definition file [index.js](https://github.com/connery-io/gmail/blob/main/index.js) and find the configuration parameters we need to provide.
+Based on the definition file the configuration parameters are:
+
+- `GmailEmailAddress` (required)
+- `GmailAppPassword` (required)
+- `SenderName` (optional)
+
+So let's add the connector configuration to the end of the `InstalledConnectors` array in the runner configuration file like the following:
+
+```ts
+...
+configurationParameters: [
+  ...
+  {
+    Key: 'connery-io/gmail@main',
+    ConfigurationParameters:
+    {
+      GmailEmailAddress: '<GMAIL_EMAIL_ADRESS>',
+      GmailAppPassword: '<GMAIL_APP_PASSWORD>',
+      SenderName: '<SENDER_NAME>'
+    }
+  }
+],
+...
+```
+
+Replace the `<GMAIL_EMAIL_ADRESS>`, `<GMAIL_APP_PASSWORD>` and `<SENDER_NAME>` placeholders with the actual values.
+
+Check the [Sign in with app passwords](https://support.google.com/accounts/answer/185833?hl=en) article from Google Support to learn how to generate the app password for your Gmail account.
+
+If the runner is still running in your codespace, the configuration will be automatically applied after sving the file.
+On the next API request to the runner, the runner will download the connector from the GitHub repository and cache it.
+
 ---
 
 TODO:
 
-Add connector Key with the version or branch to the runner configuration file.
+- Once the connector is installed ion the runner, you don't need to re-deploy it after each change in the connector. Just use the standard connector preinstalled on the runner to clear connector cache and download the new version of your connector from the sspecified branch or tag.
 
-Provide required and optional configuration parameters for the connector.
-See connector definition file to see the configuration parameters for the connector.
-
-NOTE: You don't need to deploy the connector on the runner, the runner will download it automatically from the specified GitHub repository and the specified version or branch
-
-After you installed all the connectors you need, restart the runner so it uses the new configuration if you run it locally.
-Or re-deploy the runner if you run it in a cloud.
-
-Once the connector is installed ion the runner, you don't need to re-deploy it after each change in the connector. Just use the standard connector preinstalled on the runner to clear connector cache and download the new version of your connector from the sspecified branch or tag.
-
-Mention default pre-installed connectors. You can see the list of connectors in the runner configuration file `./apps/runner/connery-runner.config.ts`.
-
-- Recommendation regarding versioning (use specific version instead of main if possible)
-
----
-
-TODO:
-
-- when in config, mention that secrets are pulled from .env file
+- Runner will automatically restarted after the configuration file is changed. Not after .env file is changed.
+  - After you installed all the connectors you need, restart the runner so it uses the new configuration if you run it locally.
+    Or re-deploy the runner if you run it in a cloud.
