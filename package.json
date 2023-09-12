@@ -7,6 +7,7 @@
     "packages/*"
   ],
   "scripts": {
+    "start": "dotenv -- turbo run start --filter=runner --no-daemon",
     "dev": "dotenv -- turbo run dev",
     "expose:runner": "ngrok http 4201",
     "build": "turbo run build",
