@@ -1,43 +1,40 @@
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-
 # Create connector
 
-This guide will teach you how to create a new connector using a browser-based development environment provided by GitHub Codespaces.
+This guide will teach you how to create a new connector using GitHub Codespaces.
 However, you can use any other development environment. The steps are the same.
 
-### 1. Create a new public GitHub repository
+### 1. Create a new GitHub repository
 
 The repository will be used to store the connector code and configuration.
 
----
+Open the [GitHub repository creation page](https://github.com/new) and follow the instructions below.
 
-TODO:
+1. Select the **Owner** of the repository.
+2. Enter the **Repository name**. This is also the name of your future connector.
+   We recommend using the snake case naming convention.
+   For example, if you decide to call your connector **My first connector**, the repository name should be `my-first-connector`.
 
-Steps:
-
-- Create a new repository.
-- Name repository with the name of your future connector. We recommend using the snake case naming convention.
-  For example: `my-connector` repository name for `My Connector` connector.
-- Make the repository public.
-- Select "Add a README file" option to initialize the repository with a README file and create a new branch.
-  Please make sure the branch name is `main` as it is used across the docs.
-- Create a new branch for the connector development. We recommend using the `main` branch as the default branch.
-  If the new branch is master, make sure you use the `master` branch name across the docs instead of main
-
----
-
-The connector will have an identification key that consists of your GitHub username, repository name, and branch name.
+:::info
+The connector will have an identification key comprising your GitHub username, repository name, and branch name.
 For example: `<username>/<repository-name>@main`.
-
-:::tip
-
-We sincerely encourage making connectors public and open-source under the MIT license
-to make them available to the community and grow the [connector ecosystem](/docs/introduction/connector-ecosystem) together :heart:
-
 :::
 
-### 2. Create a new GitHub Codespace for the repository
+![Slack App Configuration](/img/create-connector/create-repository.png)
+
+3. Select the **Public** repository visibility.
+4. Select the **Add a README file** option to initialize the repository with a README file.
+   It will also create a new branch default for the repository.
+5. Choose the **MIT License** as the license for the repository.
+6. Please ensure the branch name is `main` as it is used across the docs.
+   You can use any branch name but must be aware of it when following the docs.
+7. Click the **Create repository** button.
+
+:::tip
+We sincerely encourage making connectors public and open-source under the MIT license
+to make them available to the community and grow the [connector ecosystem](/docs/introduction/connector-ecosystem) together :heart:
+:::
+
+### 2. Create a codespace
 
 The Codespace will be used as a development environment for the connector.
 This is the easiest way to develop the connector without installing software on your machine.
@@ -45,13 +42,9 @@ This is the easiest way to develop the connector without installing software on 
 Once the Codespace is created and loaded, you should see a VS Code editor in your browser with a "Terminal" tab open.
 
 :::info
-
-The Codespace is [free of charge for 120 hours per month](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts) for personal accounts.
-
-GitHub Codespace will stop running after a period of inactivity to safe resources.
-[By default this period is 30 minutes.](https://docs.github.com/en/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces?tool=webui#about-the-idle-timeout)
-So don't forget to save your work before you leave the Codespace.
-
+GitHub Codespaces are [free of charge for 120 hours per month](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts) for personal accounts.
+The codespace will stop running after a period of inactivity to safe resources.
+[By default, this period is 30 minutes.](https://docs.github.com/en/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces?tool=webui#about-the-idle-timeout)
 :::
 
 <details>
