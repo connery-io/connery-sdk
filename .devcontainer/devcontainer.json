@@ -41,12 +41,18 @@
         },
         "editor.formatOnType": true,
         "editor.formatOnSave": true,
-        "editor.formatOnPaste": true
+        "editor.formatOnPaste": true,
+        "grammarly.files.include": [
+          "**/*.md",
+          "**/*.mdx",
+          "**/*.txt"
+        ]
       },
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "GitHub.copilot"
+        "GitHub.copilot",
+        "znck.grammarly"
       ]
     }
   }
