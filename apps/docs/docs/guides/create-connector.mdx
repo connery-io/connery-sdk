@@ -36,10 +36,12 @@ to make them available to the community and grow the [connector ecosystem](/docs
 
 ### 2. Create a codespace
 
-The Codespace will be used as a development environment for the connector.
-This is the easiest way to develop the connector without installing software on your machine.
+Codespace will be used as a development environment for the connector.
+This is the fastest way to start connector development without installing software on your machine.
 
-Once the Codespace is created and loaded, you should see a VS Code editor in your browser with a "Terminal" tab open.
+Use the green **Code** button in the top right corner of your repository.
+Then open the **Codespaces** tab and click **Create codespace on main**.
+It will start the codespace creation process.
 
 :::info
 GitHub Codespaces are [free of charge for 120 hours per month](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts) for personal accounts.
@@ -47,25 +49,17 @@ The codespace will stop running after a period of inactivity to safe resources.
 [By default, this period is 30 minutes.](https://docs.github.com/en/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces?tool=webui#about-the-idle-timeout)
 :::
 
-<details>
-  <summary>Hints</summary>
-
-- If you are not familiar with GitHub Codespaces, you can follow the
-  [Create a GitHub Codespace for arepository](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui)
-  guide.
-- If you prefer to use another development environment, you can skip this
-  step, clone the repository, open it in your favorite IDE, and continue with
-  the next steps. In this case, make sure you have the latest version of Node.js installed.
-
-</details>
+If you prefer another development environment, skip this
+step, clone the repository, open it in your favorite IDE, and continue with
+the next steps. In this case, ensure you have the latest stable version of Node.js installed.
 
 ### 3. Initialize the connector repository
 
-To make it very easy to start with the connector development, we created a tool to initialize the connector repository for you.
-After you answer a couple of questions, the tool will generate all the files needed for the connector development in your repository.
+To make it very easy to start with the connector development, we created a CLI tool to initialize the connector repository for you.
+After you answer a couple of questions, the CLI tool will generate everything needed for the connector development.
 
 Run the following command in the terminal and follow the instructions.
-This command will install the latest version of Connery CLI and run the initialization process.
+This command will download the latest version of Connery CLI and run the initialization process.
 
 ```
 npx connery@latest init
@@ -73,24 +67,35 @@ npx connery@latest init
 
 Once the initialization is finished, you should see the new files added to the repository.
 The newly initialized connector is fully functional.
-The entry point of the connector is the `./index.js` file.
-It contains the connector definition and a sample action defined in the `./actions/sample-action.js` file.
+The entry point of the connector is the `./index.js` file that contains the connector definition.
+Also, you can find the sample action defined in the `./actions/sample-action.js` file.
 The sample action sums up two numbers and returns the result.
-This is a good starting point for exploring and experimenting with the connector.
-You can remove the sample action when you don't need it.
+It is a good starting point for exploring and experimenting with the connector.
+Remove the sample action when you don't need it anymore.
 
 ### 4. Install dependencies
 
-To continue with the connector development, you need to install all the dependencies of the connector:
+To continue the connector development, you must install all the dependencies defined in the `./package.json` file.
+Run the following command in the terminal to install the dependencies.
 
 ```
 npm install
 ```
 
+During the development of the connector, you may need to install additional dependencies.
+For example, the `axios` package to make HTTP requests to external services.
+To install it and add it to the `package.json` file, run the following command:
+
+```
+npm install axios --save
+```
+
+In the same way, you can install any other NPM package.
+
 ### 5. Add a new action to the connector
 
-And now, the fun part starts - creating your first action in the connector.
-To add a new empty action, use the following command from Connery CLI:
+And now, the fun part starts: creating your first action in the connector.
+To add a new empty action, use the following command from the Connery CLI:
 
 ```
 npx connery@latest add-action
@@ -101,8 +106,8 @@ After all the necessary information is provided, Connery CLI will add the action
 by making a couple of changes to the files of your repository:
 
 - A new action file will be added to the `./actions` folder.
-- The action will be included in the connector definition in the `./index.js` file.
-- A new test file will be added to the `./test` folder.
+- The new action will be included in the connector definition in the `./index.js` file.
+- A new test file will be added to the `./tests/actions` folder.
 
 Now, you can implement the logic of the action. Open the action definition file `./actions/<action-name>.js`,
 define input and output parameters of the action and implement the logic of the action in the `handler` function.
@@ -116,61 +121,53 @@ define input and output parameters of the action and implement the logic of the 
 
 :::
 
----
-
 ### 6. Test action
 
-how to test the action during development
+To test the action, you can use the Connery CLI as well.
+Run the following command in the terminal to run the action.
+You will be asked to select the action you want to run, provide configuration parameters for the connector, and input parameters for the action.
 
 ```
 npx connery@latest run-action
 ```
 
-For advanced user: you can also test the action using uni tests. See more details in the advanced section.
+:::info
 
----
+After the action is successfully run, the CLI will give you a shortcut command to run the action with all the parameters you provided.
+It will save you time, especially during the intensive development and testing.
 
-TODO:
-
-- mention shortcut produced by CLI to run the action faster with the same paramnters next time
-- Add gif
-
----
+:::
 
 ### 7. Build connector
+
+To install the connector on the runner, you must build it first.
+The build process validates the connector definition, runs tests,
+and builds the connector and its dependencies together in a way the runner can use.
+
+To build the connector, run the following command in the terminal:
 
 ```
 npm run build
 ```
 
-The build process:
-
-- run tests
-- validate connector definition
-- build connector and dependencies in the way the runner can use
-
-Build sources should be stored in the repository in the `./build` folder so the runner can use them immediately without the need to build the connector again.
+The build process will create a new `./dist/connector.js` file that contains all the connector code and dependencies.
+This file must be committed to the repository so the runner can download and use it.
 
 ### 8. Commit and push the files
 
-Run the following command in the terminal to commit and push the files to GitHub.
+Run the following command in the terminal to commit and push all the files to GitHub.
 
 ```
 git add . && git commit -m "Init connector repository" && git push origin main
 ```
 
 :::caution
-Please make sure you delete all the secrets you used during testing before pushing the changes to the repository
+Please make sure you delete all the secrets you used during testing before pushing the changes to the repository.
 :::
 
 ### Next steps
 
+Now, you have a fully functional connector that can be installed on the runner and used by any client.
+
 2. [Install the connector on the runner.](/docs/quick-start/install-connector-on-the-runner)
 3. [Use clients](/docs/quick-start/use-clients-to-call-actions) to run actions from the connector.
-
----
-
-TODO:
-
-- Mention that the user can use any NPM pachages.
-- Ask user to crete repo with the branch name 'main', not `master` as it the main branch name is used across the docs.
