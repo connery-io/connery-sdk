@@ -1,7 +1,7 @@
 {
   "name": "Connery",
   "image": "ghcr.io/connery-io/connery/dev-container:latest",
-  "postStartCommand": "./.devcontainer/post-start-command.sh",
+  "postStartCommand": "./.devcontainer/post-start-commands.sh",
   "forwardPorts": [
     4040,
     4201,
