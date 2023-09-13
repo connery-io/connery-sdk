@@ -4,14 +4,14 @@ Run actions from the no-code platform [Make](https://www.make.com/) using them i
 
 ## Information
 
-The advantage of using the Make app is that you can use actions from your runner as a part of no-code workflows and combining with the other apps and capabilities of Make.
+The advantage of using the Make app is that you can use actions from your runner as a part of no-code workflows and combine them with the other apps and capabilities of Make.
 
-The Make App has the followign actions:
+The Make App has the following actions:
 
-| Make action (module)              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Run action                        | This Make action lets you select an action from the runner, specify input parameters, and run it.<br/><br/>This action does not use OpenAI API and runs actions directly from the runner.                                                                                                                                                                                                                                                                                                         |
-| Run action using natural language | This Make action lets you run action from the runner using natural language, similar to how the [Connery app in Slack](/docs/native-clients/slack#information) works using OpenAI API for classification.<br/><br/>To use the app, you have to configure `OPENAI_API_KEY` in the [runner configuration](http://localhost:4202/docs/quick-start/set-up-runner#3-configure-env-variables) so the runner can use OpenAI API to classify the user intent and identify input parameters from messages. |
+| Make action (module)              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Run action                        | This Make action lets you select an action from the runner, specify input parameters, and run it.<br/><br/>This action does not use OpenAI API and runs actions directly from the runner.                                                                                                                                                                                                                                                                                                      |
+| Run action using natural language | This Make action lets you run action from the runner using natural language, similar to how the [Connery app in Slack](/docs/native-clients/slack#information) works using OpenAI API for classification.<br/><br/>To use the app, you must configure `OPENAI_API_KEY` in the [runner configuration](http://localhost:4202/docs/quick-start/set-up-runner#3-configure-env-variables) so the runner can use OpenAI API to classify the user intent and identify input parameters from messages. |
 
 :::info Tricky terminology
 
@@ -27,7 +27,7 @@ That's why the app has an action called "Run action" 🤭
 :::caution
 
 Currently, the app is not yet published in the Make App Store.
-So, you need explicitly install it to your Make organization using the invitation link behind the button.
+So, you need to explicitly install it to your Make organization using the invitation link behind the button.
 
 :::
 
@@ -42,7 +42,7 @@ Use the button below to install the app to your Make organization.
 <br />
 <br />
 
-After clicking the button, you will be redirected to the Make website where you can install the app to your organization.
+After clicking the button, you will be redirected to the Make website, to install the app for your organization.
 
 ![Slack App Configuration](/img/make/install-make-app1.png)
 
@@ -53,13 +53,13 @@ After clicking the button, you will be redirected to the Make website where you 
 2. Select the organization where you want to install the app.
 3. Click the **Install** button to install the app to your organization.
 
-After the succesfull installation, you can find the app in the **Installed Apps** section of your organization.
+After the successful installation, you can find the app in the **Installed Apps** section of your organization.
 
 ![Slack App Configuration](/img/make/installed-make-app.png)
 
 ## Configuration
 
-To call actions from your runner you need to create a new scenario in Make and
+To call actions from your runner, you need to create a new scenario in Make and
 configure the connection to the runner by providing the Runner URL and the API Key.
 
 Follow the steps below to configure the connection:
@@ -68,7 +68,7 @@ Follow the steps below to configure the connection:
 
 ![Slack App Configuration](/img/make/create-scenario1.png)
 
-2. Search for **Connery** in search field.
+2. Search for **Connery** in the search field.
 3. Select the **Connery** app in the list.
 
 ![Slack App Configuration](/img/make/create-scenario2.png)
@@ -88,15 +88,15 @@ Once the connection is created, you can start using actions from your runner in 
 
 ## Usage
 
-In the example below we will use the **Send email** action from the **Gmail** connector from the runner.
+In the example below, we will use the **Send email** action from the **Gmail** connector from the runner.
 
-Once you crate the connection, it will be automatically selected as an active connection for the action.
-After you select **Gmail** connector and **Send email** action,
-the form will reload and you will see all the input parameters for the action.
+Once you create the connection, it will be automatically selected as an active connection for the action.
+After you choose **Gmail** connector and **Send email** action,
+the form will reload, and you will see all the input parameters for the action.
 
 Let's fill in the form and run the action.
 
-1. Specify the **Email Recepient**.
+1. Specify the **Email Recipient**.
 2. Specify the **Email Subject**.
 3. Specify the **Email Body**.
 4. Press the **OK** button to save the action.
@@ -104,22 +104,22 @@ Let's fill in the form and run the action.
 ![Slack App Configuration](/img/make/create-scenario5.png)
 
 5. Press the **Run once** button to run the scenario.
-6. Press the buble to see the result of the action execution.
+6. Press the bubble to see the result of the action execution.
 
 ![Slack App Configuration](/img/make/create-scenario6.png)
 
-In the result execution you will see the **Message ID** output parameter of the action.
-Also you can see all the input parameters that were used to run the action.
-You can use the output parameters of the action in the next steps of your workflow if you need.
+In the result execution, you will see the **Message ID** output parameter of the action.
+Also, you can see all the input parameters used to run the action.
+You can use the output parameters of the action in the next steps of your workflow if you need to.
 
 ![Slack App Configuration](/img/make/create-scenario7.png)
 
-Also you can use the Connery app in combination with the thousands of other apps in Make.
-For example, in tis particular case you can read data about email recepients from Google Sheets and use it as input parameters for the **Send email** action.
-So when you run the scenario, the action will send emails to all the recepients from the Google Sheets.
+Also, you can use the Connery app in combination with the thousands of other apps in Make.
+For example, in this case you can read data about email recipients from Google Sheets and use it as input parameters for the **Send email** action.
+So when you run the scenario, the action will send emails to all the recipients from the Google Sheets.
 
 ![Slack App Configuration](/img/make/create-scenario8.png)
 
-Below you can see the example how the **Send email** action is using the input parameters from the Google Sheets.
+Below, you can see how the **Send email** action uses the input parameters from the Google Sheets.
 
 ![Slack App Configuration](/img/make/create-scenario9.png)
