@@ -3,7 +3,7 @@
 Here, you can find the core concepts of the Connery platform and their definitions.
 We highly recommend you read this section before diving into the documentation.
 
-## 📡 Connector
+## Connector
 
 A connector is a collection of actions closely related by meaning and function.
 Before a connector can be used, it must be installed on a runner.
@@ -11,12 +11,12 @@ Once installed, its actions are accessible and can be run from any client.
 
 Each connector is represented by a GitHub repository with a specific structure.
 GitHub is an excellent infrastructure for connectors that provides all the necessary tools
-for the development and maintenance: version control, collaboration, automation, and more.
+for development and maintenance: version control, collaboration, automation, and more.
 
 :::info Example
 A [connery-io/gmail](https://github.com/connery-io/gmail) connector has a set of actions related to Gmail.
 The connector requires GmailEmailAddress and GmailAppPassword configuration parameters
-during the installation on the runner, so the actions has access to the Gmail account.
+during the installation on the runner so the actions have access to the Gmail account.
 :::
 
 You might already be familiar with the concept of a connector.
@@ -26,7 +26,7 @@ This idea has different names across various platforms:
 - **Tool** in LangChain;
 - **App** in Make, Zapier, and Slack.
 
-## 🎬 Action
+## Action
 
 An action is an atomic operation designed to perform a specific task.
 You can think of an action as a function with input and output parameters that can be called from many places (clients).
@@ -38,13 +38,13 @@ Once the action is run by the client, it sends an email based on the provided in
 and returns a MessageId to the client as a result.
 :::
 
-## 🏃🏻 Runner
+## Runner
 
-A runner is an open-source application to host and run actions.
+A runner is an open-source application that hosts and runs actions.
 Every company or individual configures their own isolated runner with a unique connector set and configuration.
 Runner provides a security layer and access control for actions and their execution.
 
-## 📲 Client
+## Client
 
 A client is an application that allows end users to run actions from the runner.
 
