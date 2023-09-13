@@ -1,7 +1,13 @@
-name: (manual) Build Dev Container
+# This workflow will build and push a new version of the dev container image
+# to GitHub Packages every day at 1am UTC.
+# This is useful to ensure that the dev container image is always up to date
+# and that the cache is always fresh.
+
+name: Build Dev Container
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: "0 1 * * *" # Every day at 1am UTC
 
 jobs:
   build:
