@@ -1,7 +1,6 @@
-# This workflow will build and push a new version of the dev container image
-# to GitHub Packages every day at 1am UTC.
-# This is useful to ensure that the dev container image is always up to date
-# and that the cache is always fresh.
+# This workflow builds and pushes a new version of the Dev Container
+# image to GitHub Packages every day at 1am UTC.
+# It ensures that the dev container image is constantly updated and the cache is always fresh.
 
 name: Build Dev Container
 
