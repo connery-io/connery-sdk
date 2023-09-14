@@ -83,14 +83,20 @@ async function getGenerator(key: string) {
       {
         type: 'modify',
         path: 'index.js',
-        pattern: /(^.*)/m, // Modify the first line
+        pattern: /(^.*)/m, // Import the new action and att it to the first line of the file
         template: 'const {{key}} = require("./actions/{{key}}");\n$1',
       },
       {
         type: 'append',
         path: 'index.js',
-        pattern: /(actions:\s*\[)/g, // Append the action to the beginning of the actions array
+        pattern: /(actions:\s*\[)/g, // Add the new action to the beginning of the actions array
         template: '\t\t{{key}},',
+      },
+      {
+        type: 'modify',
+        path: 'README.md',
+        pattern: /(Description\s*\|\s*.*?\|(\r?\n))/g, // Add the new action to the beginning of the table
+        template: '$1| [{{title}}](/actions/{{key}}.js) | {{description}} |\n',
       },
     ],
   });

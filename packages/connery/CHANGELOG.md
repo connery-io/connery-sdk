@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.32
+
+### Patch Changes
+
+- Update README template
+
 ## 0.0.31
 
 ### Patch Changes

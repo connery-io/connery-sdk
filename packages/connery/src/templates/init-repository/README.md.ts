@@ -4,9 +4,9 @@ const content = `# {{connector.title}}
 
 ## Available actions
 
-| Action | Description |
-| ------ | ----------- |
-|        |             |
+| Action                                    | Description                           |
+| ----------------------------------------- | ------------------------------------- |
+| [Sample action](/actions/SampleAction.js) | A sample action that adds two numbers |
 
 ## Repository structure
 
