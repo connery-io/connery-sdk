@@ -48,8 +48,18 @@ The actions of this connector use the configuration parameters to perform their 
 
 ## 2. Add connector configuration
 
-Let's install the [connery-io/gmail@main](https://github.com/connery-io/gmail/tree/main) connector on the runner.
+Let's install the [connery-io/gmail](https://github.com/connery-io/gmail) connector on the runner.
 It has an action that sends an email using the Gmail API.
+
+:::info Connectior versioning
+You can install the connector from the `main` branch, so you always use the newest connector code from the main branch.
+However, this won't be as stable as the tagged versions. The connector can be in the development stage on the `main` branch.
+When on the tagged version, the code is stable, and once the new version tag is released, the code won't be changed anymore for this version.
+You can find the latest version of the connector in it's repository.
+
+For example, for the `connery-io/gmail` connector, the latest version is `v1.0.0` on the date of writing this article.
+We will use this version in the example below.
+:::
 
 First, we need to check the connector definition file [index.js](https://github.com/connery-io/gmail/blob/main/index.js) and find the configuration parameters we need to provide.
 Based on the definition file, the configuration parameters are:
@@ -65,7 +75,7 @@ So let's add the connector configuration to the end of the `InstalledConnectors`
 configurationParameters: [
   ...
   {
-    Key: 'connery-io/gmail@main',
+    Key: 'connery-io/gmail@v1.0.0', // NOTE: We use the tagged version v1.0.0 here. However, you can use any other tagged version or the branch name here.
     ConfigurationParameters:
     {
       GmailEmailAddress: '<GMAIL_EMAIL_ADRESS>',
