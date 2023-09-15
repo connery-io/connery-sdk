@@ -33,3 +33,4 @@ We would love your feedback and are happy to help. You can reach us via the foll
 
 - [Discussions](https://github.com/connery-io/connery/discussions) - for feedback, questions, and discussions.
 - [Issues](https://github.com/connery-io/connery/issues) - for bug reports and feature requests.
+- [Twitter](https://twitter.com/connery_io) - for updates and announcements.
