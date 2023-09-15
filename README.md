@@ -19,7 +19,7 @@ Below are manually curated lists of connectors and clients available for Connery
 - [Native Clients](https://docs.connery.io/docs/native-clients/)
 - [Community Clients](https://docs.connery.io/docs/community-clients)
 
-If you have a connector or client you would like to add, please open a PR.
+If you have a connector or client you would like to add, please open a PR to update the [docs](https://github.com/connery-io/connery/tree/main/apps/docs/docs) app in this repository.
 
 ## Documentation
 
