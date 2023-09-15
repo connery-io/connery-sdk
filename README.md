@@ -27,7 +27,7 @@ Check out the [Connery Documentation](https://docs.connery.io).
 
 We recommend starting with the [Introduction](https://docs.connery.io/docs/introduction) to understand the core concepts of Connery and then moving on to [Quickstart](https://docs.connery.io/docs/quick-start/) to learn how to use Connery.
 
-## Support & Feedback
+## Feedback & Support
 
 We would love your feedback and are happy to help. You can reach us via the following channels:
 
