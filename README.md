@@ -11,9 +11,15 @@ TODO
 
 TODO
 
+## Connectors & Clients
+
+- [Connectors](https://docs.connery.io/docs/connectors)
+- [Native Clients](https://docs.connery.io/docs/native-clients/)
+- [Community Clients](https://docs.connery.io/docs/community-clients)
+
 ## Documentation
 
-To learn more about Connery, see the [documentation](https://docs.connery.io).
+Check out the [Connery Documentation](https://docs.connery.io).
 
 We recommend starting with the [Introduction](https://docs.connery.io/docs/introduction) to understand the core concepts of Connery and then moving on to [Quickstart](https://docs.connery.io/quick-start) to learn how to use Connery.
 
