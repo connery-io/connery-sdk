@@ -11,6 +11,10 @@ TODO
 
 TODO
 
+## Support us and stay up to date
+
+TODO
+
 ## Connectors & Clients
 
 Below are manually curated lists of connectors and clients available for Connery.
