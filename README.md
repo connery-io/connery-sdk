@@ -13,9 +13,13 @@ TODO
 
 ## Connectors & Clients
 
+Below are manually curated lists of connectors and clients available for Connery.
+
 - [Connectors](https://docs.connery.io/docs/connectors)
 - [Native Clients](https://docs.connery.io/docs/native-clients/)
 - [Community Clients](https://docs.connery.io/docs/community-clients)
+
+If you have a connector or client you would like to add, please open a PR.
 
 ## Documentation
 
