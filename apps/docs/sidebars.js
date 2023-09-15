@@ -17,7 +17,7 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Quick start",
+      label: "Quickstart",
       collapsible: false,
       collapsed: false,
       items: [
