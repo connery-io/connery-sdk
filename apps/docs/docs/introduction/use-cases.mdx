@@ -1,74 +1,131 @@
-# Use cases
+# Use Cases
 
-> One action - multiple opportunities.
+Connecting AI, workflow automation and real-world applications can serve many different use cases. Here is how we structure it.
 
-## Run actions using natural language
+Remember, the Connery approach is always the same:
 
-- Internal operations
-- Customer support (L1, L2)
-- Call center
+1. **Get your custom connector**
+   1. EITHER find a pre-built connector matching your task provided by the community
+   2. OR build an own connector for your specific needs
+2. Keep all your connector configuration in one place (on the runner) and **execute from any client**
+   1. EITHER find a pre-built client matching your tooling provided by the community
+   2. OR build your own client
 
-:::note Related clients
+## Run actions from multiple platforms
 
-- [Slack App](/docs/native-clients/slack)
+Connery is all about running actions. Once a connector and its actions become available in Connery they are exposed to several platforms. Our current strategy includes AI agent & chatbot platforms, Communication tooling and No-code automation platforms.
 
-:::
+![Connector exposure](/img/connector-exposure.png)
 
----
+### AI agents and chatbots
 
-Slack is the natural environment where most of communication happen.
+Run your actions from any AI agent or chatbot platform. Connery currently provides a native client for LangChain Tool and is accessible through the Connery API. We plan to add more clients for other AI agent platforms.
 
-Automate frequent tasks or operations and save time for everyone:
+:::info Related Clients
 
-- Let the team run the atumations in Slack instead of asking you to do it for them
-- Save time and effort for the team on switching to another tools and learning how to use them
-
-Collaborate with your team and run actions right from Slack using Connery App in Slack.
-No need to learn a new tool and remind where the action is located, just ask Connery to do it for you using natural language and it's done.
-
-## Run actions as a part of workflow in no-code tools
-
-Like Make and Zapier
-
-Actions are a part of workflows
-
---> Automations
---> Integrations
-
-:::note Related clients
-
-- [Make App](/docs/native-clients/make)
+- [LangChain Tool](/docs/native-clients/langchain.mdx)
+- [API](/docs/native-clients/api.mdx)
 
 :::
 
-## Give AI chatbots and agents access to your actions
+### Communication tooling
 
-We're open
-Conenctor infrastructure for chat bots and AI agents
+Enable your team to run actions directly using natural language. Connery provides clients for communication tools. Currently available is our Slack Client. MS-Teams, Notion, Discord and others are likely to follow. You can always build your own client.
 
-Using LangChain or API
+Automate frequent tasks and/or make multiple Apps accessible via direct communication.
 
-:::note Related clients
+- **Skill-enhancement**: Equip a less-skilled workforce to execute complex tasks without hand-over to specialized workforce, e.g. developers.
+- **Scope broadening**: Enable workforce to perform more tasks across more tooling without learning new processes and tools.
+- **Efficiency improvement**: Increase throughput by automating repetitive tasks.
 
-- [LangChain Tool](/docs/native-clients/langchain)
-- [API](/docs/native-clients/api)
+:::info Related Clients
+
+- [Slack App](/docs/native-clients/slack.mdx)
 
 :::
 
----
+### No-code automation
 
-- Connector first approach
+Automate more tasks by exposing customized actions to No-code platforms. Actions can be customized and simplified for optimal access from no-code users. Currently available is our Make (former Integromat) client. Zapier and other platforms are likely to follow. You can always build your own client.
 
-Automate your work efficiently
+:::info Related Clients
 
-- Find connector for your task among many connectors built by the community
-- Build your own connector for your specific needs
-- Keep all your connector configuration in one place (on runner), and use them from any client
+- [Make App](/docs/native-clients/make.mdx)
 
-TODO:
+:::
 
-- Rename to "Clients and use cases"?
-- enable not technical peopele
-- enable clients/customers/partners
-- enable chatbots
-- automate your work
+## Use case examples
+
+Most uses cases combine tools without knowing how they work or without changing the medium. While there is a myriad of potential use cases, find here a selection of use cases that inspired the Connery platform.
+
+### Log HR absence, vacation or attendance and approvals via Slack
+
+An employee logs a planned vacation, sick leave or attendance hours through Slack (or MS-Teams) that automatically triggers the absence logging and approval process via Personio or other HR tools.
+
+This saves time and reduces friction for the employee and likely increases process accuracy.
+
+### Chatbot to schedule meetings or hiring interviews
+
+An Slack (or MS-Teams) chatbot can schedule meetings interviews by checking the availability of participants on Google Calendar and sends invites via Email.
+
+Streamlines the scheduling process and ensures that everyone is on the same page.
+
+### Customer Support Chatbot with Salesforce Integration
+
+A customer support chatbot can automatically pull up customer records from Salesforce when a customer initiates a support request.
+
+Agents can have all the necessary information at their fingertips, leading to quicker resolution times.
+
+### Project Management Chatbot with Jira Integration
+
+A chatbot can create, update, or close Jira tickets based on project updates provided in a team meeting.
+
+Keeps the project management tool updated in real-time, reducing manual entry.
+
+### Sales Chatbot with Gmail and Salesforce Integration
+
+A sales chatbot can send follow-up emails through Gmail and log the interaction in Salesforce.
+
+Automates the follow-up process and ensures that the CRM is always up-to-date.
+
+### Personal Assistant Chatbot with Notion and Calendar Integration
+
+A personal assistant chatbot can create to-do lists in Notion and schedule reminders in Google Calendar.
+
+Helps in personal productivity by keeping track of tasks and schedules.
+
+### Finance Chatbot with QuickBooks Integration
+
+A finance chatbot can generate invoices in QuickBooks based on orders placed through the chat interface.
+
+Streamlines the invoicing process and reduces manual errors.
+
+### Accounting service to remind employees of missing expense receipts
+
+An expense bot can check missing expense filings and remind employees via Slack, MS-Teams or by Email.
+
+Saves accounting personnel significant time and nerves every month.
+
+### Marketing Chatbot with Mailchimp Integration
+
+A marketing chatbot can add new leads to a Mailchimp email list and trigger a welcome email series.
+
+Automates lead nurturing and ensures timely communication.
+
+### IT Support Chatbot with Zendesk Integration
+
+An IT support chatbot can create support tickets in Zendesk based on issues reported via chat.
+
+Ensures that all IT issues are logged and tracked efficiently.
+
+### Event Planning Chatbot with Event Registration Integration
+
+An event planning chatbot can handle registrations through chat and send tickets via Eventbrite or doo.
+
+Simplifies the registration process and enhances the attendee experience.
+
+### Learning and Development Chatbot with LinkedIn Learning Integration
+
+A chatbot can recommend courses from LinkedIn Learning based on an employee's career development goals.
+
+Personalizes learning and development initiatives for employees.
