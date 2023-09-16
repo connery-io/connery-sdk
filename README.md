@@ -5,6 +5,37 @@
 
 ## What is this?
 
+There are many platforms around that allow you connect different services together and build automation workflows. For example no-code platforms like Zapier and Make. And now we also have AI powered applications that is gaining momentom on the market. Next we will reference all of them as "platforms". All of them need to be connected to the third party services to provide the integration and automation capabilities to the end user. API is not enough for that nowadays as it always should be wrapped into the native app following requirements of each platform. This is where Connery comes into play.
+
+Connery is a middle layer between API and the platforms. It allows to wrap any API into connector written in JavaScript and then use it from any platform and AI powered application.
+
+To make it possible Connery provides three things:
+
+### Connectors
+
+Connector is a piece confioguration and JavaScript code that wraps any API and helps to standartize it for any of the platforms. We provide a way how to easily create your own connectors.
+
+You might already be familiar with the concept of a connector. This idea has different names across various platforms:
+
+- Plugin in ChatGPT;
+- Tool in LangChain;
+- App in Make, Zapier, and Slack.
+
+### Runner
+
+Runner - an open-source application that knows how to run connectors and provide a standartized API as an output.
+Also it provides many important features like Authentication and authorization, Access Management, Secret Management, Audit Logs, Natural Language Actions, Manual Approval and many more.
+
+### Clients
+
+Client is a native applications on the platforms that consumes the API provided by the runner and allows to use connectors.
+
+## Example
+
+(Gmail connector)
+
+(Example how to run in from Make and Slack with screens)
+
 TODO
 
 ## What can this help with?
