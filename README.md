@@ -5,6 +5,10 @@
 
 ## 🤔 What is this?
 
+**Connery is a middle layer between APIs and platforms.
+It allows wrapping any API into a connector written in JavaScript, standardizing it,
+and then using the connector from any platform.**
+
 There are many platforms around that allow you to connect different services together and build automation workflows.
 For example, no-code platforms like Zapier and Make.
 Also, many AI-powered platforms are gaining momentum on the market — for instance, ChatGPT with its plugins,
@@ -14,10 +18,6 @@ All of them must be connected to third-party services to provide integration and
 API is not enough for that nowadays, as it should always be wrapped into the native app following
 the requirements of each platform.
 This is where Connery comes into play.
-
-**Connery is a middle layer between API and the platforms.
-It allows wrapping any API into a connector written in JavaScript and then using the connector
-from any platform and AI-powered application.**
 
 To make it possible, Connery provides three things:
 
