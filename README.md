@@ -13,7 +13,7 @@ Connery is a middle layer between API and the platforms. It allows wrapping any 
 
 To make it possible, Connery provides three things:
 
-### Connectors
+### 1. Connectors
 
 Connector is a piece confioguration and JavaScript code that wraps any API and helps to standartize it for any of the platforms. We provide a way how to easily create your own connectors.
 
@@ -23,12 +23,12 @@ You might already be familiar with the concept of a connector. This idea has dif
 - Tool in LangChain;
 - App in Make, Zapier, and Slack.
 
-### Runner
+### 2. Runner
 
 Runner is an open-source application that knows how to run connectors and provide a standartized API as an output.
 Also it provides many important features like Authentication and authorization, Access Management, Secret Management, Audit Logs, Natural Language Actions, Manual Approval and many more.
 
-### Clients
+### 3. Clients
 
 Client is a native applications on the platforms that consumes the API provided by the runner and allows to use connectors.
 
