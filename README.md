@@ -7,11 +7,11 @@
 
 There are many platforms around that allow you to connect different services together and build automation workflows.
 For example, no-code platforms like Zapier and Make.
-Also, many AI-powered applications are gaining momentum on the market.
+Also, many AI-powered platforms are gaining momentum on the market. For example, ChatGPT with its plugins, AI-powered chatbots, and agents.
 
-All of them must be connected to third-party services to provide integration and automation capabilities to the end user.
+All of them must be connected to third-party services to provide integration and automation capabilities to the end users.
 API is not enough for that nowadays, as it should always be wrapped into the native app following
-the requirements of each platform or application.
+the requirements of each platform.
 This is where Connery comes into play.
 
 Connery is a middle layer between API and the platforms.
@@ -23,15 +23,15 @@ To make it possible, Connery provides three things:
 ### 1. Connectors
 
 The connector is a piece of configuration and JavaScript code that wraps any API
-and helps standardize it for any platform or app.
+and helps standardize it for any platform.
 We provide a way to create your own connectors easily.
 
 You might already be familiar with the concept of a connector.
 This idea has different names across various platforms:
 
+- App in Make, Zapier, and Slack;
 - Plugin in ChatGPT;
-- Tool in LangChain;
-- App in Make, Zapier, and Slack.
+- Tool in LangChain.
 
 ### 2. Runner
 
@@ -42,8 +42,8 @@ Natural Language Actions, Manual Approval, and many more.
 
 ### 3. Clients
 
-The client is a native application on the platforms that consumes the API provided
-by the runner and allows to use connectors.
+The client is a native application on every platform that consumes the API provided
+by the runner and lets the end users use connectors without technical knowledge.
 
 ## Real example
 
@@ -64,6 +64,10 @@ Use cases:
 - Once, during the vacations, the customer was able to run the action from his Apple Watch using Siri.
 
 And the most beautiful thing is that once the connector is created by the developer, any non-technical person can use it from any of the platforms without any additional effort.
+
+## Ecosystem
+
+TODO
 
 ## Support us and stay up to date
 
