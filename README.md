@@ -5,7 +5,7 @@
 
 ## What is this?
 
-There are many platforms around that allow you connect different services together and build automation workflows. For example no-code platforms like Zapier and Make. And now we also have AI powered applications that is gaining momentom on the market. Next we will reference all of them as "platforms". All of them need to be connected to the third party services to provide the integration and automation capabilities to the end user. API is not enough for that nowadays as it always should be wrapped into the native app following requirements of each platform. This is where Connery comes into play.
+There are many platforms around that allow you connect different services together and build automation workflows. For example no-code platforms like Zapier and Make. And now we also have AI powered applications that is gaining momentom on the market. Next we will reference all of them as "platforms". All of the platforms need to be connected to the third party services to provide the integration and automation capabilities to the end user. API is not enough for that nowadays as it always should be wrapped into the native app following requirements of each platform. This is where Connery comes into play.
 
 Connery is a middle layer between API and the platforms. It allows to wrap any API into connector written in JavaScript and then use it from any platform and AI powered application.
 
@@ -23,28 +23,38 @@ You might already be familiar with the concept of a connector. This idea has dif
 
 ### Runner
 
-Runner - an open-source application that knows how to run connectors and provide a standartized API as an output.
+Runner is an open-source application that knows how to run connectors and provide a standartized API as an output.
 Also it provides many important features like Authentication and authorization, Access Management, Secret Management, Audit Logs, Natural Language Actions, Manual Approval and many more.
 
 ### Clients
 
 Client is a native applications on the platforms that consumes the API provided by the runner and allows to use connectors.
 
-## Example
+## Real example
 
-(Gmail connector)
+- Customer
+- AWS Scaling
 
-(Example how to run in from Make and Slack with screens)
+Can be run from many places:
 
-TODO
+- Make
+- Slack
+- Event apple watch using Siri + Apple Shortcuts connected by API to the Runner
 
-## What can this help with?
+Use cases:
 
-TODO
+- Smart scaling scenario in Make based on the input from other services connected to Make.
+- Sceduled scaling scenario in Make based on the time of the day.
+- Manual scaling directly form Slack channel using natural language.
+- Once, during the vacations, the customer was able to run the action from his Apple Watch using Siri.
+
+And the most beautiful thing is that once the connector is created by the developer, any non-technical person can use it from any of the platforms without any additional effort.
 
 ## Support us and stay up to date
 
-TODO
+Give us a star to support the project and stay up to date with the latest news.
+
+![Give us a star](/apps/docs/static/img/repo/give-us-a-star.png)
 
 ## Connectors & Clients
 
