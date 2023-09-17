@@ -15,9 +15,9 @@ API is not enough for that nowadays, as it should always be wrapped into the nat
 the requirements of each platform.
 This is where Connery comes into play.
 
-Connery is a middle layer between API and the platforms.
+**Connery is a middle layer between API and the platforms.
 It allows wrapping any API into a connector written in JavaScript and then using the connector
-from any platform and AI-powered application.
+from any platform and AI-powered application.**
 
 To make it possible, Connery provides three things:
 
