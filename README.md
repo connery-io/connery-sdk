@@ -76,7 +76,9 @@ non-technical people can easily use it from any platform that covers their needs
 
 Please give us a star to support the project and stay up-to-date with the latest news.
 
-<img src="/apps/docs/static/img/repo/give-us-a-star.png" width="300">
+<a href="https://github.com/connery-io/connery">
+   <img src="/apps/docs/static/img/repo/give-us-a-star.png" alt="Give us a star" width="300">
+</a>
 
 ## 🎁 Connectors & Clients
 
