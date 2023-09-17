@@ -7,7 +7,8 @@
 
 There are many platforms around that allow you to connect different services together and build automation workflows.
 For example, no-code platforms like Zapier and Make.
-Also, many AI-powered platforms are gaining momentum on the market. For example, ChatGPT with its plugins, AI-powered chatbots, and agents.
+Also, many AI-powered platforms are gaining momentum on the market — for instance, ChatGPT with its plugins,
+AI-powered chatbots, and agents.
 
 All of them must be connected to third-party services to provide integration and automation capabilities to the end users.
 API is not enough for that nowadays, as it should always be wrapped into the native app following
@@ -70,11 +71,11 @@ It enabled the customer to use the connector from Make scenarios and Slack chatb
    with Siri using preconfigured Apple Shortcuts connected by API to the runner.
 
 The most beautiful thing is that once the connector is implemented by the developer and hosted on the runner,
-any non-technical people can use it easily from any platform that covers their needs.
+non-technical people can easily use it from any platform that covers their needs.
 
-## Support us and stay up to date
+## Support us and stay up-to-date
 
-Give us a star to support the project and stay up to date with the latest news.
+Please give us a star to support the project and stay up-to-date with the latest news.
 
 <img src="/apps/docs/static/img/repo/give-us-a-star.png" width="300">
 
