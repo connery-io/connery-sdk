@@ -3,7 +3,7 @@
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery?quickstart=1)
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
 
-## What is this?
+## 🤔 What is this?
 
 There are many platforms around that allow you to connect different services together and build automation workflows.
 For example, no-code platforms like Zapier and Make.
@@ -46,7 +46,7 @@ Natural Language Actions, Manual Approval, and many more.
 The client is a native application on every platform that consumes the API provided
 by the runner and lets the end users use connectors without technical knowledge.
 
-## Real example
+## 📍 Real example
 
 Let's consider a real example from our customer.
 
@@ -73,13 +73,13 @@ It enabled the customer to use the connector from Make scenarios and Slack chatb
 The most beautiful thing is that once the connector is implemented by the developer and hosted on the runner,
 non-technical people can easily use it from any platform that covers their needs.
 
-## Support us and stay up-to-date
+## 🌟 Support us and stay up-to-date
 
 Please give us a star to support the project and stay up-to-date with the latest news.
 
 <img src="/apps/docs/static/img/repo/give-us-a-star.png" width="300">
 
-## Connectors & Clients
+## 🎁 Connectors & Clients
 
 Below are manually curated lists of connectors and clients available for Connery.
 
@@ -90,7 +90,7 @@ Below are manually curated lists of connectors and clients available for Connery
 If you have a connector or client you would like to add, please open a PR
 to update the [docs](https://github.com/connery-io/connery/tree/main/apps/docs/docs) app in this repository.
 
-## Documentation
+## 📖 Documentation
 
 Check out the [Connery Documentation](https://docs.connery.io) to learn more.
 
@@ -98,7 +98,7 @@ We recommend starting with the [Introduction](https://docs.connery.io/docs/intro
 to understand the core concepts of Connery and then moving on to [Quickstart](https://docs.connery.io/docs/quick-start/)
 to learn how to use Connery.
 
-## Feedback & Support
+## 💬 Feedback & Support
 
 We would love your feedback and are happy to help. You can reach us via the following channels:
 
