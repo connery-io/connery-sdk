@@ -47,33 +47,23 @@ by the runner and lets the end users use connectors without technical knowledge.
 
 ## Real example
 
-Let's consider a real example from our customer to make it more clear.
+Let's consider a real example from our customer.
 
 ### Problem
 
-One of our customers needed to scale their application on AWS based on several business factors and events and be able to scale it manually when required. The scaling must be managed by non-technical people who know a business domain but don't know anything about AWS and the application infrastructure, which is managed by the engineering team.
+One of our customers needed to scale their application on AWS based on several business factors and events and be able to scale it manually when required. The scaling must be managed by non-technical people who know a business domain but don't know anything about AWS and the application infrastructure governed by the engineering team.
 
 ### Solution
 
----
-
-- Customer
-- AWS Scaling
-
-Can be run from many places:
-
-- Make
-- Slack
-- Event apple watch using Siri + Apple Shortcuts connected by API to the Runner
-
-Use cases:
+The customer created a connector with two actions that allow to scale up and down the compute resources of the app in AWS.
+The connector uses AWS SDK for JavaScript to communicate with AWS. Then, the customer set up the runner and installed the connector on it. It enabled the customer to use the connector from Make and Slack chatbot in the following ways:
 
 - Smart scaling scenario in Make based on the input from other services connected to Make.
-- Sceduled scaling scenario in Make based on the time of the day.
-- Manual scaling directly form Slack channel using natural language.
-- Once, during the vacations, the customer was able to run the action from his Apple Watch using Siri.
+- Scheduled scaling scenario in Make based on the time of the day.
+- Manual scaling directly from Slack channel using natural language.
+- Once the customer scaled the app on the go from their Apple Watch using Siri using preconfigured Apple Shortcuts connected by API to the runner.
 
-And the most beautiful thing is that once the connector is created by the developer, any non-technical person can use it from any of the platforms without any additional effort.
+The most beautiful thing is that once the connector is created by the developer, any non-technical person can use it from any of the platforms without any additional effort.
 
 ## Ecosystem
 
