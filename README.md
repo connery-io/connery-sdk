@@ -17,9 +17,8 @@ AI-powered chatbots, and agents.
 All of them must be connected to third-party services to provide integration and automation capabilities to the end users.
 API is not enough for that nowadays, as it should always be wrapped into the native app following
 the requirements of each platform.
-This is where Connery comes into play.
 
-To make it possible, Connery provides three things:
+This is where Connery comes into play using three concepts:
 
 ### 1. Connectors
 
