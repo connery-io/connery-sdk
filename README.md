@@ -5,11 +5,13 @@
 
 ## What is this?
 
-There are many platforms around that allow you connect different services together and build automation workflows. For example no-code platforms like Zapier and Make. And now we also have AI powered applications that is gaining momentom on the market. Next we will reference all of them as "platforms". All of the platforms need to be connected to the third party services to provide the integration and automation capabilities to the end user. API is not enough for that nowadays as it always should be wrapped into the native app following requirements of each platform. This is where Connery comes into play.
+There are many platforms around that allow you to connect different services together and build automation workflows. For example, no-code platforms like Zapier and Make. Also, many AI-powered applications are gaining momentum on the market.
 
-Connery is a middle layer between API and the platforms. It allows to wrap any API into connector written in JavaScript and then use it from any platform and AI powered application.
+All of them must be connected to third-party services to provide integration and automation capabilities to the end user. API is not enough for that nowadays, as it should always be wrapped into the native app following the requirements of each platform or application. This is where Connery comes into play.
 
-To make it possible Connery provides three things:
+Connery is a middle layer between API and the platforms. It allows wrapping any API into a connector written in JavaScript and then using the connector from any platform and AI-powered application.
+
+To make it possible, Connery provides three things:
 
 ### Connectors
 
