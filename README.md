@@ -70,7 +70,7 @@ If you have a connector or client you would like to add, please open a PR to upd
 
 ## Documentation
 
-Check out the [Connery Documentation](https://docs.connery.io).
+Check out the [Connery Documentation](https://docs.connery.io) to learn more.
 
 We recommend starting with the [Introduction](https://docs.connery.io/docs/introduction) to understand the core concepts of Connery and then moving on to [Quickstart](https://docs.connery.io/docs/quick-start/) to learn how to use Connery.
 
