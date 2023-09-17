@@ -54,6 +54,10 @@ And the most beautiful thing is that once the connector is created by the develo
 
 Give us a star to support the project and stay up to date with the latest news.
 
+<p align="center">
+  <img src="/apps/docs/static/img/repo/give-us-a-star.png" width="300">
+</p>
+
 ![Give us a star](/apps/docs/static/img/repo/give-us-a-star.png)
 
 ## Connectors & Clients
