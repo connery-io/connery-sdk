@@ -47,6 +47,16 @@ by the runner and lets the end users use connectors without technical knowledge.
 
 ## Real example
 
+Let's consider a real example from our customer to make it more clear.
+
+### Problem
+
+One of our customers needed to scale their application on AWS based on several business factors and events and be able to scale it manually when required. The scaling must be managed by non-technical people who know a business domain but don't know anything about AWS and the application infrastructure, which is managed by the engineering team.
+
+### Solution
+
+---
+
 - Customer
 - AWS Scaling
 
