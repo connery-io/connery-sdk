@@ -65,10 +65,6 @@ The connector uses AWS SDK for JavaScript to communicate with AWS. Then, the cus
 
 The most beautiful thing is that once the connector is created by the developer, any non-technical person can use it from any of the platforms without any additional effort.
 
-## Ecosystem
-
-TODO
-
 ## Support us and stay up to date
 
 Give us a star to support the project and stay up to date with the latest news.
