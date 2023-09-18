@@ -100,7 +100,7 @@ Below are manually curated lists of connectors and clients available for Connery
 - [Native Clients](https://docs.connery.io/docs/native-clients/)
 - [Community Clients](https://docs.connery.io/docs/community-clients)
 
-To add your connector or client to the lists, see the [Contributing Guide](/CONTRIBUTING.md).
+To add your connector or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
 
 ## 📖 Documentation
 
@@ -120,4 +120,4 @@ You can reach us via the following channels:
 
 We are extremely open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
 
-For detailed information on how to contribute, see our [Contributing Guide](/CONTRIBUTING.md).
+For detailed information on how to contribute, see our [contributing guide](/CONTRIBUTING.md).
