@@ -16,12 +16,12 @@ All types of contributions are encouraged and valued. See the [table of contents
 - [Code of conduct](#code-of-conduct)
 - [I have a question](#i-have-a-question)
 - [I want to contribute](#i-want-to-contribute)
-- [Reporting bugs](#reporting-bugs)
-- [Suggesting enhancements](#suggesting-enhancements)
-- [Your first code contribution](#your-first-code-contribution)
-- [Improving the documentation](#improving-the-documentation)
-- [Adding connector to the list of connectors](#adding-connector-to-the-list-of-connectors)
-- [Adding client to the list of clients](#adding-client-to-the-list-of-clients)
+  - [Reporting bugs](#reporting-bugs)
+  - [Suggesting enhancements](#suggesting-enhancements)
+  - [Your first code contribution](#your-first-code-contribution)
+  - [Improving the documentation](#improving-the-documentation)
+  - [Adding connector to the list of connectors](#adding-connector-to-the-list-of-connectors)
+  - [Adding client to the list of clients](#adding-client-to-the-list-of-clients)
 
 ## Code of conduct
 

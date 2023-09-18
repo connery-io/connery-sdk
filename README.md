@@ -3,10 +3,13 @@
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery?quickstart=1)
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
 
+<br/>
+<img src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/connery-diagram.svg" alt="Connery diagram">
+
 ## 🤔 What is this?
 
 **Connery is a middle layer between APIs and platforms.
-It allows wrapping any API into a connector written in JavaScript, standardizing it,
+It allows wrapping any API into a connector, standardizing it, ensuring security and access management,
 and then using the connector from any platform.**
 
 There are many platforms around that allow you to connect different services together and build automation workflows.
@@ -77,10 +80,10 @@ check the Ecosystem section below to learn more.
 
 ## ⭐ Support us and stay up-to-date
 
-Please give the repository a star to support the project and stay up-to-date with the latest news.
+Please **give the repository a star** to support the project and stay up-to-date with the latest news.
 
 <a href="https://github.com/connery-io/connery">
-   <img src="/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
+   <img src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
 </a>
 
 ## 🚀 Quickstart
@@ -90,7 +93,7 @@ Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to g
 ## 🌳 Ecosystem
 
 We aim to build a community-driven ecosystem of open-source connectors and clients around Connery.
-So everyone can contribute to the shared marketplace of connectors and clients and benefit from it.
+So everyone can contribute to the shared marketplace and benefit from it.
 
 Our vision is to build a marketplace where you can find open-source connectors and clients for any use case.
 
@@ -100,7 +103,7 @@ Below are manually curated lists of connectors and clients available for Connery
 - [Native Clients](https://docs.connery.io/docs/native-clients/)
 - [Community Clients](https://docs.connery.io/docs/community-clients)
 
-To add your connector or client to the lists, see the [Contributing Guide](/CONTRIBUTING.md).
+To add your connector or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
 
 ## 📖 Documentation
 
@@ -120,4 +123,4 @@ You can reach us via the following channels:
 
 We are extremely open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
 
-For detailed information on how to contribute, see our [Contributing Guide](/CONTRIBUTING.md).
+For detailed information on how to contribute, see our [contributing guide](/CONTRIBUTING.md).
