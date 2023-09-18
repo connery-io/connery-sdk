@@ -89,13 +89,18 @@ Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to g
 
 ## 🌳 Ecosystem
 
-TODO
+Our goal is to build a community-driven ecosystem of open-source connectors and clients around Connery.
+Sharing the connectors and clinets with the community will benefit everyone.
+
+Our vision is to build a marketplace where you can find open-source connectors and clients for any use case.
 
 Below are manually curated lists of connectors and clients available for Connery.
 
 - [Connectors](https://docs.connery.io/docs/connectors)
 - [Native Clients](https://docs.connery.io/docs/native-clients/)
 - [Community Clients](https://docs.connery.io/docs/community-clients)
+
+To add your connector or client to the lists, see the [Contributing Guide](/CONTRIBUTING.md).
 
 ## 📖 Documentation
 
