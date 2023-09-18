@@ -104,7 +104,9 @@ to learn how to use Connery.
 
 ## 💬 Feedback & Support
 
-We would love your feedback and are happy to help. You can reach us via the following channels:
+Connery is still in beta, so not everything will be perfect yet. Please let us know of any suggestions, ideas, or bugs you encounter, and we will use your feedback to improve our upcoming releases.
+
+You can reach us via the following channels:
 
 - [Discussions](https://github.com/connery-io/connery/discussions) - for feedback, questions, and discussions.
 - [Issues](https://github.com/connery-io/connery/issues) - for bug reports and feature requests.
