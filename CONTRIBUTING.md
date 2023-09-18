@@ -24,7 +24,7 @@ All types of contributions are encouraged and valued. See the [table of contents
 ## Code of conduct
 
 This project and everyone participating in it is governed by the
-[Connery code of conduct](https://github.com/connery-io/conneryblob/master/CODE_OF_CONDUCT.md).
+[Connery code of conduct](https://github.com/connery-io/connery/blob/main/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report unacceptable behavior
 to contact@connery.io.
 
