@@ -16,71 +16,83 @@ AI-powered chatbots, and agents.
 
 All of them must be connected to third-party services to provide integration and automation capabilities to the end users.
 API is not enough for that nowadays, as it should always be wrapped into the native app following
-the requirements of each platform.
+the requirements of each platform. This also brings many new challenges around security, access management, and more.
 
 This is where Connery comes into play using three concepts:
 
-### 1. Connectors
+**1. Connectors**
 
 The connector is a piece of configuration and JavaScript code that wraps any API
 and helps standardize it for any platform.
-We provide a way to create your own connectors easily.
 
 You might already be familiar with the concept of a connector.
 This idea has different names across various platforms:
 
-- App in Make, Zapier, and Slack;
-- Plugin in ChatGPT;
-- Tool in LangChain.
+- **App** in Make, Zapier, and Slack;
+- **Plugin** in ChatGPT;
+- **Tool** in LangChain.
 
-### 2. Runner
+**2. Runner**
 
 The runner is an open-source application that knows how to run connectors and provide a standardized API as an output.
 Also, it offers many important features to ensure the security of your connectors,
 like Authentication and Authorization, Access Management, Secret Management, Audit Logs,
-Natural Language Actions, Manual Approval, and many more.
+but also the features that make your connectors more powerful, like Natural Language Actions with LLM support, Manual Approval, and many more.
 
-### 3. Clients
+**3. Clients**
 
 The client is a native application on every platform that consumes the API provided
 by the runner and lets the end users use connectors without technical knowledge.
 
-## 📍 Real example
+## ✅ Real example
 
-Let's consider a real example from our customer.
+Let's consider a real example from one of our customers.
 
-### Problem
+**Problem**
 
-One of our customers needed to scale their application on AWS based on several
-business factors and events and be able to scale it manually when required.
-The scaling must be managed by non-technical people who know a business domain
-but don't know anything about AWS and the application infrastructure governed by the engineering team.
+The customer aimed to scale their application on AWS in response to various business conditions and events.
+Additionally, they wanted the flexibility to manually scale the application as needed.
+Importantly, the scaling process should be user-friendly enough for team members who are experts
+in the business domain but not familiar with AWS or the technical aspects managed by the engineering team.
 
-### Solution
+**Solution**
 
 The customer created a connector with two actions that allow to scale up and down the compute resources of the app in AWS.
 The connector uses AWS SDK for JavaScript to communicate with AWS.
-Then, the customer set up the runner and installed the connector on it.
-It enabled the customer to use the connector from Make scenarios and Slack chatbot, implementing the following use cases:
+After creating the connector, the customer configured a runner and installed the connector onto it.
+This setup enabled the customer to use the connector from multiple platforms using clients and supporting a range of use cases:
 
-1. Make scenario for smart scaling based on the input from other services connected to Make.
-2. Make scenario for scheduled scaling based on the time of the day and day of the week.
-3. Manual scaling directly from Slack channel using natural language.
-4. There was even the case when the customer scaled the app on the go from their Apple Watch
-   with Siri using preconfigured Apple Shortcuts connected by API to the runner.
+| Client                                                         | Use case                                                                                                                                                                |
+| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Make App](https://docs.connery.io/docs/native-clients/make)   | Scenario for smart scaling based on the input from other services connected to Make — for example, Google Sheets with the related data.                                 |
+| [Make App](https://docs.connery.io/docs/native-clients/make)   | Scenario for scheduled scaling based on the time of the day and day of the week.                                                                                        |
+| [Slack App](https://docs.connery.io/docs/native-clients/slack) | Manual scaling directly from Slack channel using natural language.                                                                                                      |
+| Apple Shortcut                                                 | There was even the case when the customer scaled the app on the go from their Apple Watch with Siri using preconfigured Apple Shortcuts connected by API to the runner. |
 
 The most beautiful thing is that once the connector is implemented by the developer and hosted on the runner,
 non-technical people can easily use it from any platform that covers their needs.
 
-## 🌟 Support us and stay up-to-date
+For many cases, you don't even need developers, as Connery brings many community-driven connectors and clients -
+check the Ecosystem section below to learn more.
 
-Please give us a star to support the project and stay up-to-date with the latest news.
+## ⭐ Support us and stay up-to-date
+
+Please give the repository a star to support the project and stay up-to-date with the latest news.
 
 <a href="https://github.com/connery-io/connery">
-   <img src="/apps/docs/static/img/repo/give-us-a-star.png" alt="Give us a star" width="300">
+   <img src="/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
 </a>
 
-## 🎁 Connectors & Clients
+## 🚀 Quickstart
+
+Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to get started with Connery.
+
+## 🌳 Ecosystem
+
+We aim to build a community-driven ecosystem of open-source connectors and clients around Connery.
+So everyone can contribute to the shared marketplace of connectors and clients and benefit from it.
+
+Our vision is to build a marketplace where you can find open-source connectors and clients for any use case.
 
 Below are manually curated lists of connectors and clients available for Connery.
 
@@ -88,21 +100,24 @@ Below are manually curated lists of connectors and clients available for Connery
 - [Native Clients](https://docs.connery.io/docs/native-clients/)
 - [Community Clients](https://docs.connery.io/docs/community-clients)
 
-If you have a connector or client you would like to add, please open a PR
-to update the [docs](https://github.com/connery-io/connery/tree/main/apps/docs/docs) app in this repository.
+To add your connector or client to the lists, see the [Contributing Guide](/CONTRIBUTING.md).
 
 ## 📖 Documentation
 
 Check out the [Connery Documentation](https://docs.connery.io) to learn more.
 
-We recommend starting with the [Introduction](https://docs.connery.io/docs/introduction)
-to understand the core concepts of Connery and then moving on to [Quickstart](https://docs.connery.io/docs/quick-start/)
-to learn how to use Connery.
-
 ## 💬 Feedback & Support
 
-We would love your feedback and are happy to help. You can reach us via the following channels:
+Connery is still in beta, so not everything will be perfect yet. Please let us know of any suggestions, ideas, or bugs you encounter, and we will use your feedback to improve our upcoming releases.
+
+You can reach us via the following channels:
 
 - [Discussions](https://github.com/connery-io/connery/discussions) - for feedback, questions, and discussions.
 - [Issues](https://github.com/connery-io/connery/issues) - for bug reports and feature requests.
 - [Twitter](https://twitter.com/connery_io) - for updates and announcements.
+
+## 👨‍💻 Contributing
+
+We are extremely open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
+
+For detailed information on how to contribute, see our [Contributing Guide](/CONTRIBUTING.md).
