@@ -72,7 +72,7 @@ The most beautiful thing is that once the connector is implemented by the develo
 non-technical people can easily use it from any platform that covers their needs.
 
 And for many things, you don't even need developers, as many connectors are already available.
-Check the [Ecosystem](#🌳-ecosystem) section below.
+Check the [Ecosystem](#-ecosystem) section below.
 
 ## ⭐ Support us and stay up-to-date
 
