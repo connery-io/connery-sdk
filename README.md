@@ -71,8 +71,7 @@ It enabled the customer to use the connector from Make scenarios and Slack chatb
 The most beautiful thing is that once the connector is implemented by the developer and hosted on the runner,
 non-technical people can easily use it from any platform that covers their needs.
 
-And for many things, you don't even need developers, as many connectors are already available.
-Check the [Ecosystem](#-ecosystem) section below.
+And for many things, you don't even need developers, as many connectors are already available - check the [Ecosystem](#-ecosystem) section below.
 
 ## ⭐ Support us and stay up-to-date
 
