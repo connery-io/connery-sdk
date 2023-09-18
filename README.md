@@ -71,10 +71,6 @@ It enabled the customer to use the connector from Make scenarios and Slack chatb
 The most beautiful thing is that once the connector is implemented by the developer and hosted on the runner,
 non-technical people can easily use it from any platform that covers their needs.
 
-## 🌳 Ecosystem
-
-TODO
-
 ## 🌟 Support us and stay up-to-date
 
 Please give the repository a star to support the project and stay up-to-date with the latest news.
@@ -87,7 +83,9 @@ Please give the repository a star to support the project and stay up-to-date wit
 
 Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to get started with Connery.
 
-## 🎁 Connectors & Clients
+## 🌳 Ecosystem
+
+TODO
 
 Below are manually curated lists of connectors and clients available for Connery.
 
