@@ -3,9 +3,9 @@
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery?quickstart=1)
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
 
-## 🤔 What is this?
-
 <img src="/apps/docs/static/img/repo/connery-diagram.svg" alt="Connery diagram">
+
+## 🤔 What is this?
 
 **Connery is a middle layer between APIs and platforms.
 It allows wrapping any API into a connector, standardizing it, ensuring security and access management,
