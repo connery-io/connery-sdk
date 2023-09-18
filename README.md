@@ -44,7 +44,7 @@ but also the features that make your connectors more powerful, like Natural Lang
 The client is a native application on every platform that consumes the API provided
 by the runner and lets the end users use connectors without technical knowledge.
 
-## 💡 Real example
+## ✅ Real example
 
 Let's consider a real example from our customer.
 
