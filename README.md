@@ -46,7 +46,7 @@ by the runner and lets the end users use connectors without technical knowledge.
 
 ## ✅ Real example
 
-Let's consider a real example from our customer.
+Let's consider a real example from one of our customers.
 
 **Problem**
 
