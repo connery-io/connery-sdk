@@ -5,7 +5,7 @@
 
 ## 🤔 What is this?
 
-<img src="/apps/docs/static/img/repo/connery-diagram.png" alt="Connery diagram">
+<img src="/apps/docs/static/img/repo/connery-diagram.svg" alt="Connery diagram">
 
 **Connery is a middle layer between APIs and platforms.
 It allows wrapping any API into a connector, standardizing it, ensuring security and access management,
