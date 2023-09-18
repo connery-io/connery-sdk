@@ -89,8 +89,8 @@ Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to g
 
 ## 🌳 Ecosystem
 
-Our goal is to build a community-driven ecosystem of open-source connectors and clients around Connery.
-Sharing the connectors and clinets with the community will benefit everyone.
+We aim to build a community-driven ecosystem of open-source connectors and clients around Connery.
+So everyone can contribute to the shared marketplace of connectors and clients and benefit from it.
 
 Our vision is to build a marketplace where you can find open-source connectors and clients for any use case.
 
