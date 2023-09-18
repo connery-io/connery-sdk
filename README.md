@@ -77,11 +77,15 @@ TODO
 
 ## 🌟 Support us and stay up-to-date
 
-Please give us a star to support the project and stay up-to-date with the latest news.
+Please give the repository a star to support the project and stay up-to-date with the latest news.
 
 <a href="https://github.com/connery-io/connery">
-   <img src="/apps/docs/static/img/repo/give-us-a-star.png" alt="Give us a star" width="300">
+   <img src="/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
 </a>
+
+## 🚀 Quickstart
+
+Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to get started with Connery.
 
 ## 🎁 Connectors & Clients
 
@@ -97,10 +101,6 @@ to update the [docs](https://github.com/connery-io/connery/tree/main/apps/docs/d
 ## 📖 Documentation
 
 Check out the [Connery Documentation](https://docs.connery.io) to learn more.
-
-We recommend starting with the [Introduction](https://docs.connery.io/docs/introduction)
-to understand the core concepts of Connery and then moving on to [Quickstart](https://docs.connery.io/docs/quick-start/)
-to learn how to use Connery.
 
 ## 💬 Feedback & Support
 
