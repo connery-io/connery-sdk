@@ -20,6 +20,8 @@ All types of contributions are encouraged and valued. See the [table of contents
 - [Suggesting enhancements](#suggesting-enhancements)
 - [Your first code contribution](#your-first-code-contribution)
 - [Improving the documentation](#improving-the-documentation)
+- [Adding connector to the list of connectors](#adding-connector-to-the-list-of-connectors)
+- [Adding client to the list of clients](#adding-client-to-the-list-of-clients)
 
 ## Code of conduct
 
@@ -113,7 +115,15 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/conner
 
 ...
 
-<!-- TODO: Updating, improving and correcting the documentation, including the list of connectors and clients. -->
+<!-- TODO: Updating, improving and correcting the documentation. -->
+
+### Adding connector to the list of connectors
+
+If you have a connector you would like to add to the [list of connectors](https://docs.connery.io/docs/connectors), please open a pull request to update the [./apps/docs/docs/connectors.mdx](https://github.com/connery-io/connery/blob/main/apps/docs/docs/connectors.mdx) file in this repository.
+
+### Adding client to the list of clients
+
+If you have a client you would like to add to the [list of community clients](https://docs.connery.io/docs/community-clients), please open a pull request to update the [./apps/docs/docs/community-clients.mdx](https://github.com/connery-io/connery/blob/main/apps/docs/docs/community-clients.mdx) file in this repository.
 
 ## Attribution
 
