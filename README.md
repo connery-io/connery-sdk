@@ -20,7 +20,7 @@ the requirements of each platform. This also brings many new challenges around s
 
 This is where Connery comes into play using three concepts:
 
-### 1. Connectors
+**1. Connectors**
 
 The connector is a piece of configuration and JavaScript code that wraps any API
 and helps standardize it for any platform.
@@ -32,14 +32,14 @@ This idea has different names across various platforms:
 - Plugin in ChatGPT;
 - Tool in LangChain.
 
-### 2. Runner
+**2. Runner**
 
 The runner is an open-source application that knows how to run connectors and provide a standardized API as an output.
 Also, it offers many important features to ensure the security of your connectors,
 like Authentication and Authorization, Access Management, Secret Management, Audit Logs,
 but also the features that make your connectors more powerful, like Natural Language Actions with LLM support, Manual Approval, and many more.
 
-### 3. Clients
+**3. Clients**
 
 The client is a native application on every platform that consumes the API provided
 by the runner and lets the end users use connectors without technical knowledge.
@@ -48,14 +48,14 @@ by the runner and lets the end users use connectors without technical knowledge.
 
 Let's consider a real example from our customer.
 
-### Problem
+**Problem**
 
 One of our customers needed to scale their application on AWS based on several
 business factors and events and be able to scale it manually when required.
 The scaling must be managed by non-technical people who know a business domain
 but don't know anything about AWS and the application infrastructure governed by the engineering team.
 
-### Solution
+**Solution**
 
 The customer created a connector with two actions that allow to scale up and down the compute resources of the app in AWS.
 The connector uses AWS SDK for JavaScript to communicate with AWS.
