@@ -50,17 +50,17 @@ Let's consider a real example from one of our customers.
 
 **Problem**
 
-One of our customers needed to scale their application on AWS based on several
-business factors and events and be able to scale it manually when required.
-The scaling must be managed by non-technical people who know a business domain
-but don't know anything about AWS and the application infrastructure governed by the engineering team.
+The customer aimed to scale their application on AWS in response to various business conditions and events.
+Additionally, they wanted the flexibility to manually scale the application as needed.
+Importantly, the scaling process should be user-friendly enough for team members who are experts
+in the business domain but not familiar with AWS or the technical aspects managed by the engineering team.
 
 **Solution**
 
 The customer created a connector with two actions that allow to scale up and down the compute resources of the app in AWS.
 The connector uses AWS SDK for JavaScript to communicate with AWS.
-Then, the customer set up the runner and installed the connector on it.
-It enabled the customer to use the connector from multiple platfroms, implementing the following clients and use cases:
+After creating the connector, the customer configured a runner and installed the connector onto it.
+This setup enabled the customer to use the connector from multiple platforms using clients and supporting a range of use cases:
 
 | Client                                                         | Use case                                                                                                                                                                |
 | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
