@@ -2,7 +2,7 @@
 
 First of all, thanks for taking the time to contribute! ❤️
 
-All types of contributions are encouraged and valued. See the [Table of Contents](#table-of-contents) for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉
+All types of contributions are encouraged and valued. See the [Table of contents](#table-of-contents) for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉
 
 > And if you like the project but just don't have time to contribute, that's fine. There are other easy ways to support the project and show your appreciation, which we would also be very happy about:
 >
@@ -13,18 +13,18 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 
 ## Table of contents
 
-- [Code of Conduct](#code-of-conduct)
-- [I Have a Question](#i-have-a-question)
-- [I Want To Contribute](#i-want-to-contribute)
-- [Reporting Bugs](#reporting-bugs)
-- [Suggesting Enhancements](#suggesting-enhancements)
-- [Your First Code Contribution](#your-first-code-contribution)
-- [Improving The Documentation](#improving-the-documentation)
+- [Code of conduct](#code-of-conduct)
+- [I have a question](#i-have-a-question)
+- [I want to contribute](#i-want-to-contribute)
+- [Reporting bugs](#reporting-bugs)
+- [Suggesting enhancements](#suggesting-enhancements)
+- [Your first code contribution](#your-first-code-contribution)
+- [Improving the documentation](#improving-the-documentation)
 
 ## Code of conduct
 
 This project and everyone participating in it is governed by the
-[Connery Code of Conduct](https://github.com/connery-io/conneryblob/master/CODE_OF_CONDUCT.md).
+[Connery code of conduct](https://github.com/connery-io/conneryblob/master/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report unacceptable behavior
 to contact@connery.io.
 
