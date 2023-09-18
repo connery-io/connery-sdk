@@ -60,18 +60,20 @@ but don't know anything about AWS and the application infrastructure governed by
 The customer created a connector with two actions that allow to scale up and down the compute resources of the app in AWS.
 The connector uses AWS SDK for JavaScript to communicate with AWS.
 Then, the customer set up the runner and installed the connector on it.
-It enabled the customer to use the connector from Make scenarios and Slack chatbot, implementing the following use cases:
+It enabled the customer to use the connector from multiple platfroms, implementing the following clients and use cases:
 
-1. Make scenario for smart scaling based on the input from other services connected to Make.
-2. Make scenario for scheduled scaling based on the time of the day and day of the week.
-3. Manual scaling directly from Slack channel using natural language.
-4. There was even the case when the customer scaled the app on the go from their Apple Watch
-   with Siri using preconfigured Apple Shortcuts connected by API to the runner.
+| Client                                                        | Use case                                                                                                                                                                |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Make App](https://docs.connery.io/docs/native-clients/slack) | Make scenario for smart scaling based on the input from other services connected to Make.                                                                               |
+| [Make App](https://docs.connery.io/docs/native-clients/slack) | Make scenario for scheduled scaling based on the time of the day and day of the week.                                                                                   |
+| [Slack App](https://docs.connery.io/docs/native-clients/make) | Manual scaling directly from Slack channel using natural language.                                                                                                      |
+| Apple Shortcut                                                | There was even the case when the customer scaled the app on the go from their Apple Watch with Siri using preconfigured Apple Shortcuts connected by API to the runner. |
 
 The most beautiful thing is that once the connector is implemented by the developer and hosted on the runner,
 non-technical people can easily use it from any platform that covers their needs.
 
-And for many things, you don't even need developers, as many connectors are already available - check the [Ecosystem](#-ecosystem) section below.
+> For many cases, you don't even need developers, as Connery brings many community-driven connectors and clients -
+> check the [Ecosystem](#-ecosystem) section below to learn more.
 
 ## ⭐ Support us and stay up-to-date
 
