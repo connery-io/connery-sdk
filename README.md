@@ -73,7 +73,7 @@ The most beautiful thing is that once the connector is implemented by the develo
 non-technical people can easily use it from any platform that covers their needs.
 
 For many cases, you don't even need developers, as Connery brings many community-driven connectors and clients -
-check the [Ecosystem](#-ecosystem) section below to learn more.
+check the Ecosystem section below to learn more.
 
 ## ⭐ Support us and stay up-to-date
 
