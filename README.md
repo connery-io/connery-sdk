@@ -64,8 +64,8 @@ This setup enabled the customer to use the connector from multiple platforms usi
 
 | Client                                                         | Use case                                                                                                                                                                |
 | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Make App](https://docs.connery.io/docs/native-clients/make)   | Make scenario for smart scaling based on the input from other services connected to Make — for example, Google Sheets with the related data.                            |
-| [Make App](https://docs.connery.io/docs/native-clients/make)   | Make scenario for scheduled scaling based on the time of the day and day of the week.                                                                                   |
+| [Make App](https://docs.connery.io/docs/native-clients/make)   | Scenario for smart scaling based on the input from other services connected to Make — for example, Google Sheets with the related data.                                 |
+| [Make App](https://docs.connery.io/docs/native-clients/make)   | Scenario for scheduled scaling based on the time of the day and day of the week.                                                                                        |
 | [Slack App](https://docs.connery.io/docs/native-clients/slack) | Manual scaling directly from Slack channel using natural language.                                                                                                      |
 | Apple Shortcut                                                 | There was even the case when the customer scaled the app on the go from their Apple Watch with Siri using preconfigured Apple Shortcuts connected by API to the runner. |
 
