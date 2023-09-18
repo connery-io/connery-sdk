@@ -6,7 +6,7 @@
 ## 🤔 What is this?
 
 **Connery is a middle layer between APIs and platforms.
-It allows wrapping any API into a connector written in JavaScript, standardizing it,
+It allows wrapping any API into a connector, standardizing it, ensuring security and access management,
 and then using the connector from any platform.**
 
 There are many platforms around that allow you to connect different services together and build automation workflows.
