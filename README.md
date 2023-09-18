@@ -77,7 +77,7 @@ check the Ecosystem section below to learn more.
 
 ## ⭐ Support us and stay up-to-date
 
-Please give the repository a star to support the project and stay up-to-date with the latest news.
+Please **give the repository a star** to support the project and stay up-to-date with the latest news.
 
 <a href="https://github.com/connery-io/connery">
    <img src="/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
