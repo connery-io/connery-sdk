@@ -110,3 +110,9 @@ You can reach us via the following channels:
 - [Discussions](https://github.com/connery-io/connery/discussions) - for feedback, questions, and discussions.
 - [Issues](https://github.com/connery-io/connery/issues) - for bug reports and feature requests.
 - [Twitter](https://twitter.com/connery_io) - for updates and announcements.
+
+## Contributing
+
+We are extremely open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
+
+For detailed information on how to contribute, see the [Contributing Guide](/CONTRIBUTING.md).
