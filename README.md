@@ -28,9 +28,9 @@ and helps standardize it for any platform.
 You might already be familiar with the concept of a connector.
 This idea has different names across various platforms:
 
-- App in Make, Zapier, and Slack;
-- Plugin in ChatGPT;
-- Tool in LangChain.
+- **App** in Make, Zapier, and Slack;
+- **Plugin** in ChatGPT;
+- **Tool** in LangChain.
 
 **2. Runner**
 
