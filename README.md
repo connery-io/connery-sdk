@@ -4,7 +4,6 @@
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
 
 <br/>
-<br/>
 <img src="/apps/docs/static/img/repo/connery-diagram.svg" alt="Connery diagram">
 
 ## 🤔 What is this?
