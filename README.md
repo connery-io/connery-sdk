@@ -4,7 +4,7 @@
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
 
 <br/>
-<img src="/apps/docs/static/img/repo/connery-diagram.svg" alt="Connery diagram">
+<img src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/connery-diagram.svg" alt="Connery diagram">
 
 ## 🤔 What is this?
 
@@ -83,7 +83,7 @@ check the Ecosystem section below to learn more.
 Please **give the repository a star** to support the project and stay up-to-date with the latest news.
 
 <a href="https://github.com/connery-io/connery">
-   <img src="/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
+   <img src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
 </a>
 
 ## 🚀 Quickstart
