@@ -16,7 +16,7 @@ AI-powered chatbots, and agents.
 
 All of them must be connected to third-party services to provide integration and automation capabilities to the end users.
 API is not enough for that nowadays, as it should always be wrapped into the native app following
-the requirements of each platform.
+the requirements of each platform. This also brings many new challenges around security, access management, and more.
 
 This is where Connery comes into play using three concepts:
 
@@ -24,7 +24,6 @@ This is where Connery comes into play using three concepts:
 
 The connector is a piece of configuration and JavaScript code that wraps any API
 and helps standardize it for any platform.
-We provide a way to create your own connectors easily.
 
 You might already be familiar with the concept of a connector.
 This idea has different names across various platforms:
@@ -38,7 +37,7 @@ This idea has different names across various platforms:
 The runner is an open-source application that knows how to run connectors and provide a standardized API as an output.
 Also, it offers many important features to ensure the security of your connectors,
 like Authentication and Authorization, Access Management, Secret Management, Audit Logs,
-Natural Language Actions, Manual Approval, and many more.
+but also the features that make your connectors more powerful, like Natural Language Actions with LLM support, Manual Approval, and many more.
 
 ### 3. Clients
 
@@ -71,6 +70,10 @@ It enabled the customer to use the connector from Make scenarios and Slack chatb
 
 The most beautiful thing is that once the connector is implemented by the developer and hosted on the runner,
 non-technical people can easily use it from any platform that covers their needs.
+
+## 🌳 Ecosystem
+
+TODO
 
 ## 🌟 Support us and stay up-to-date
 
