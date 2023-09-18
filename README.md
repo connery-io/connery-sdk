@@ -72,8 +72,8 @@ It enabled the customer to use the connector from multiple platfroms, implementi
 The most beautiful thing is that once the connector is implemented by the developer and hosted on the runner,
 non-technical people can easily use it from any platform that covers their needs.
 
-> For many cases, you don't even need developers, as Connery brings many community-driven connectors and clients -
-> check the [Ecosystem](#-ecosystem) section below to learn more.
+For many cases, you don't even need developers, as Connery brings many community-driven connectors and clients -
+check the [Ecosystem](#-ecosystem) section below to learn more.
 
 ## ⭐ Support us and stay up-to-date
 
