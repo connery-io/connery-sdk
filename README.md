@@ -8,9 +8,8 @@
 
 ## 🤔 What is this?
 
-**Connery is a middle layer between APIs and platforms.
-It allows wrapping any API into a connector, standardizing it, ensuring security and access management,
-and then using the connector from any platform.**
+**Connery is a middleware between APIs and platforms.
+It lets you take any API and turn it into a standardized connector with built-in security and access controls. Once that's done, you can use this connector across different platforms.**
 
 There are many platforms around that allow you to connect different services together and build automation workflows.
 For example, no-code platforms like Zapier and Make.
