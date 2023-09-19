@@ -1,5 +1,7 @@
 # Open-source connector ecosystem for AI and No-Code
 
+[![Release](https://img.shields.io/github/v/release/connery-io/connery?color=74C649&label=Release)](https://github.com/connery-io/connery/releases)
+[![License](https://img.shields.io/github/license/connery-io/connery?color=74C649&label=License)](https://github.com/connery-io/connery/blob/main/LICENSE)
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery?quickstart=1)
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
 
@@ -8,9 +10,8 @@
 
 ## 🤔 What is this?
 
-**Connery is a middle layer between APIs and platforms.
-It allows wrapping any API into a connector, standardizing it, ensuring security and access management,
-and then using the connector from any platform.**
+**Connery is a middleware between APIs and platforms.
+It lets you take any API and turn it into a standardized connector with built-in security and access controls. Once that's done, you can use this connector across different platforms.**
 
 There are many platforms around that allow you to connect different services together and build automation workflows.
 For example, no-code platforms like Zapier and Make.
@@ -78,7 +79,7 @@ non-technical people can easily use it from any platform that covers their needs
 For many cases, you don't even need developers, as Connery brings many community-driven connectors and clients -
 check the Ecosystem section below to learn more.
 
-## ⭐ Support us and stay up-to-date
+## 🌟 Support us and stay up-to-date
 
 Please **give the repository a star** to support the project and stay up-to-date with the latest news.
 
