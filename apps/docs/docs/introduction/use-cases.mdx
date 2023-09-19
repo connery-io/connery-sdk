@@ -15,7 +15,7 @@ Remember, the Connery approach is always the same:
 
 Connery is all about running actions. Once a connector and its actions become available in Connery they are exposed to several platforms. Our current strategy includes AI agent & chatbot platforms, Communication tooling and No-code automation platforms.
 
-![Connector exposure](/img/connector-exposure.png)
+![Connector exposure](/img/connery-connector-exposure.png)
 
 ### AI agents and chatbots
 
@@ -56,76 +56,60 @@ Automate more tasks by exposing customized actions to No-code platforms. Actions
 
 ## Use case examples
 
-Most uses cases combine tools without knowing how they work or without changing the medium. While there is a myriad of potential use cases, find here a selection of use cases that inspired the Connery platform.
+End-users can effortlessly interact with and combine multiple tools, without needing to understand their underlying mechanics or switch platforms. While there is many possibilities, we've curated a selection of use-cases that have inspired the development of Connery.
 
-### Log HR absence, vacation or attendance and approvals via Slack
+### HR-Related
 
-An employee logs a planned vacation, sick leave or attendance hours through Slack (or MS-Teams) that automatically triggers the absence logging and approval process via Personio or other HR tools.
+| Use-Case                                                            | Tools Involved                                          | Description                                                                                      | Benefits                                                    |
+| ------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
+| Log HR absence, vacation or attendance and approvals via Slack      | [Slack](/docs/native-clients/slack), MS-Teams, Personio | Employee logs vacation or sick leave via Slack/MS-Teams, triggering absence logging in Personio. | Saves time, reduces friction, and likely improves accuracy. |
+| Accounting service to remind employees of missing expense receipts  | [Slack](/docs/native-clients/slack), MS-Teams, Email    | Expense bot checks for missing filings and reminds employees via Slack/MS-Teams/Email.           | Saves time and stress for accounting staff.                 |
+| Learning and development chatbot with LinkedIn learning integration | LinkedIn Learning                                       | Bot recommends LinkedIn Learning courses based on career goals.                                  | Personalizes learning and development for employees.        |
 
-This saves time and reduces friction for the employee and likely increases process accuracy.
+### Sales and Customer Support
 
-### Chatbot to schedule meetings or hiring interviews
+| Use-Case                                                      | Tools Involved                                           | Description                                                                 | Benefits                                                         |
+| ------------------------------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Sales or customer support chatbot with Salesforce integration | Salesforce, Hubspot, Pipedrive                           | Chatbot pulls up customer records from Salesforce during a support request. | Quickens resolution times by providing necessary info to agents. |
+| Sales Management with CRM                                     | Salesforce, Hubspot, Pipedrive                           | Bot updates CRM records based on sales activities.                          | Keeps CRM updated, aiding in sales tracking and forecasting.     |
+| Sales chatbot with Gmail and CRM integration                  | [Gmail](https://github.com/connery-io/gmail), Salesforce | Sales bot sends follow-up emails via Gmail and logs them in CRM.            | Automates follow-up and keeps CRM up-to-date.                    |
+| IT-support chatbot with Zendesk integration                   | Zendesk                                                  | IT-support bot creates Zendesk tickets based on chat-reported issues.       | Logs and tracks IT issues efficiently.                           |
 
-An Slack (or MS-Teams) chatbot can schedule meetings interviews by checking the availability of participants on Google Calendar and sends invites via Email.
+### Finance and Accounting
 
-Streamlines the scheduling process and ensures that everyone is on the same page.
+| Use-Case                                    | Tools Involved | Description                                                     | Benefits                                                  |
+| ------------------------------------------- | -------------- | --------------------------------------------------------------- | --------------------------------------------------------- |
+| Finance chatbot with QuickBooks integration | QuickBooks     | Finance bot generates QuickBooks invoices based on chat orders. | Streamlines invoicing and reduces errors.                 |
+| Chat-based payment processing via Stripe    | Stripe         | Customer-facing chatbot initiates and handles Stripe payments.  | Streamlines payment process and enhances user experience. |
 
-### Customer Support Chatbot with Salesforce Integration
+### Marketing
 
-A customer support chatbot can automatically pull up customer records from Salesforce when a customer initiates a support request.
+| Use-Case                                     | Tools Involved | Description                                                                      | Benefits                                                       |
+| -------------------------------------------- | -------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Community management with Discord            | Discord        | Bot moderates Discord channels and provides real-time updates.                   | Enhances community engagement and ensures a safe environment.  |
+| Marketing chatbot with Mailchimp integration | Mailchimp      | Marketing bot adds leads to Mailchimp and triggers welcome emails.               | Automates lead nurturing and ensures timely communication.     |
+| Video content management with YouTube        | YouTube        | Bot uploads videos to YouTube and updates metadata.                              | Streamlines video management and enhances SEO.                 |
+| Social media marketing via Instagram         | Instagram      | Social media bot schedules Instagram posts and analyzes engagement metrics.      | Automates posting and provides insights for better engagement. |
+| Social media management with Facebook Pages  | Facebook Pages | Social media bot schedules posts and responds to user queries on Facebook Pages. | Automates social media management and enhances engagement.     |
 
-Agents can have all the necessary information at their fingertips, leading to quicker resolution times.
+### Project and Task Management
 
-### Project Management Chatbot with Jira Integration
+| Use-Case                                         | Tools Involved | Description                                                                | Benefits                                                            |
+| ------------------------------------------------ | -------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| Project management Chatbot with Jira integration | Jira           | Chatbot can manage Jira tickets based on project updates in team meetings. | Keeps project management tool updated in real-time.                 |
+| Task management with Trello                      | Trello         | Bot creates and updates Trello cards based on project status.              | Keeps project boards up-to-date, improving team collaboration.      |
+| Workflow automation with Monday.com              | Monday.com     | Bot automates task assignments and updates in Monday.com.                  | Streamlines workflow and enhances team productivity.                |
+| Project tracking with Asana                      | Asana          | Bot creates Asana tasks based on project milestones and updates.           | Keeps project tracking tools updated, enhancing team collaboration. |
 
-A chatbot can create, update, or close Jira tickets based on project updates provided in a team meeting.
+### Internal productivity
 
-Keeps the project management tool updated in real-time, reducing manual entry.
-
-### Sales Chatbot with Gmail and Salesforce Integration
-
-A sales chatbot can send follow-up emails through Gmail and log the interaction in Salesforce.
-
-Automates the follow-up process and ensures that the CRM is always up-to-date.
-
-### Personal Assistant Chatbot with Notion and Calendar Integration
-
-A personal assistant chatbot can create to-do lists in Notion and schedule reminders in Google Calendar.
-
-Helps in personal productivity by keeping track of tasks and schedules.
-
-### Finance Chatbot with QuickBooks Integration
-
-A finance chatbot can generate invoices in QuickBooks based on orders placed through the chat interface.
-
-Streamlines the invoicing process and reduces manual errors.
-
-### Accounting service to remind employees of missing expense receipts
-
-An expense bot can check missing expense filings and remind employees via Slack, MS-Teams or by Email.
-
-Saves accounting personnel significant time and nerves every month.
-
-### Marketing Chatbot with Mailchimp Integration
-
-A marketing chatbot can add new leads to a Mailchimp email list and trigger a welcome email series.
-
-Automates lead nurturing and ensures timely communication.
-
-### IT Support Chatbot with Zendesk Integration
-
-An IT support chatbot can create support tickets in Zendesk based on issues reported via chat.
-
-Ensures that all IT issues are logged and tracked efficiently.
-
-### Event Planning Chatbot with Event Registration Integration
-
-An event planning chatbot can handle registrations through chat and send tickets via Eventbrite or doo.
-
-Simplifies the registration process and enhances the attendee experience.
-
-### Learning and Development Chatbot with LinkedIn Learning Integration
-
-A chatbot can recommend courses from LinkedIn Learning based on an employee's career development goals.
-
-Personalizes learning and development initiatives for employees.
+| Use-Case                                                        | Tools Involved                                                                                               | Description                                                                                                    | Benefits                                                           |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Chatbot to schedule meetings or hiring interviews               | [Slack](/docs/native-clients/slack), MS-Teams, Google Calendar, [Gmail](https://github.com/connery-io/gmail) | Slack/MS-Teams bot schedules meetings by checking Google Calendar and sending invites.                         | Streamlines scheduling and ensures everyone is on the same page.   |
+| Personal assistant chatbot with Notion and calendar integration | Notion, Google Calendar                                                                                      | Assistant bot creates to-do lists in Notion and sets reminders in Google Calendar.                             | Enhances personal productivity by tracking tasks and schedules.    |
+| Event planning chatbot with event registration integration      | Eventbrite, [doo](https://github.com/viovendi/product-api-connector)                                         | Event bot handles chat registrations and sends tickets via Eventbrite or doo.                                  | Simplifies registration and enhances attendee experience.          |
+| Automated reporting with Google Sheets                          | Google Sheets                                                                                                | Reporting bot generates and updates reports in Google Sheets based on real-time data.                          | Streamlines reporting and ensures data accuracy.                   |
+| Survey and feedback collection                                  | Google Forms                                                                                                 | Assistant bot sends Google Forms to collect user feedback and stores responses.                                | Simplifies feedback collection and data analysis.                  |
+| Meeting scheduling with calendly                                | Calendly                                                                                                     | Assistant bot integrates with Calendly to schedule and reschedule meetings.                                    | Automates scheduling, saving time for internal and external teams. |
+| Email management with MS-Outlook                                | MS-Outlook                                                                                                   | Assistant bot sorts and prioritizes emails in MS Outlook based on user-defined rules.                          | Enhances email management and productivity.                        |
+| Conversational Slack agent with OpenAI                          | [OpenAI](https://github.com/connery-io/openai), [Slack](/docs/native-clients/slack)                          | Chatbot serves internal teams with customized OpenAI to handle complex queries and provide detailed responses. | Enhances internal ops by handling a wide range of queries.         |
