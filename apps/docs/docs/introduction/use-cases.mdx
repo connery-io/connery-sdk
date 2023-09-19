@@ -7,7 +7,7 @@ Here is how we structure it.
 
 Remember, the Connery approach is always the same:
 
-1. **Get your custom connector**
+1. **Get your connector**
    1. EITHER find a pre-built connector matching your task provided by the community
    2. OR build an own connector for your specific needs
 2. Keep all your connector configuration in one place (on the runner) and **execute from any client**
@@ -40,7 +40,7 @@ We plan to add more clients for other AI agent platforms.
 ### Communication tooling
 
 Enable your team to run actions directly using natural language. Connery provides clients for communication tools.
-Currently available is our Slack Client. MS-Teams, Notion, Discord and others are likely to follow.
+Currently available is our Slack Client. Microsoft Teams, Notion, Discord and others are likely to follow.
 You can always build your own client.
 
 Automate frequent tasks and/or make multiple Apps accessible via direct communication.
@@ -76,11 +76,11 @@ While there is many possibilities, we've curated a selection of use-cases that h
 
 ### HR-Related
 
-| Use-Case                                                            | Tools Involved                                          | Description                                                                                      | Benefits                                                    |
-| ------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| Log HR absence, vacation or attendance and approvals via Slack      | [Slack](/docs/native-clients/slack), MS-Teams, Personio | Employee logs vacation or sick leave via Slack/MS-Teams, triggering absence logging in Personio. | Saves time, reduces friction, and likely improves accuracy. |
-| Accounting service to remind employees of missing expense receipts  | [Slack](/docs/native-clients/slack), MS-Teams, Email    | Expense bot checks for missing filings and reminds employees via Slack/MS-Teams/Email.           | Saves time and stress for accounting staff.                 |
-| Learning and development chatbot with LinkedIn learning integration | LinkedIn Learning                                       | Bot recommends LinkedIn Learning courses based on career goals.                                  | Personalizes learning and development for employees.        |
+| Use-Case                                                            | Connectors        | Clients                                              | Description                                                                                             | Benefits                                                    |
+| ------------------------------------------------------------------- | ----------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Log HR absence, vacation or attendance and approvals via Slack      | Personio          | [Slack](/docs/native-clients/slack), Microsoft Teams | Employee logs vacation or sick leave via Slack/Microsoft Teams, triggering absence logging in Personio. | Saves time, reduces friction, and likely improves accuracy. |
+| Accounting service to remind employees of missing expense receipts  | Email             | [Slack](/docs/native-clients/slack), Microsoft Teams | Expense bot checks for missing filings and reminds employees via Slack/Microsoft Teams/Email.           | Saves time and stress for accounting staff.                 |
+| Learning and development chatbot with LinkedIn learning integration | LinkedIn Learning | [Slack](/docs/native-clients/slack), Microsoft Teams | Bot recommends LinkedIn Learning courses based on career goals.                                         | Personalizes learning and development for employees.        |
 
 ### Sales and Customer Support
 
@@ -119,13 +119,13 @@ While there is many possibilities, we've curated a selection of use-cases that h
 
 ### Internal productivity
 
-| Use-Case                                                        | Tools Involved                                                                                               | Description                                                                                                    | Benefits                                                           |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Chatbot to schedule meetings or hiring interviews               | [Slack](/docs/native-clients/slack), MS-Teams, Google Calendar, [Gmail](https://github.com/connery-io/gmail) | Slack/MS-Teams bot schedules meetings by checking Google Calendar and sending invites.                         | Streamlines scheduling and ensures everyone is on the same page.   |
-| Personal assistant chatbot with Notion and calendar integration | Notion, Google Calendar                                                                                      | Assistant bot creates to-do lists in Notion and sets reminders in Google Calendar.                             | Enhances personal productivity by tracking tasks and schedules.    |
-| Event planning chatbot with event registration integration      | Eventbrite, [doo](https://github.com/viovendi/product-api-connector)                                         | Event bot handles chat registrations and sends tickets via Eventbrite or doo.                                  | Simplifies registration and enhances attendee experience.          |
-| Automated reporting with Google Sheets                          | Google Sheets                                                                                                | Reporting bot generates and updates reports in Google Sheets based on real-time data.                          | Streamlines reporting and ensures data accuracy.                   |
-| Survey and feedback collection                                  | Google Forms                                                                                                 | Assistant bot sends Google Forms to collect user feedback and stores responses.                                | Simplifies feedback collection and data analysis.                  |
-| Meeting scheduling with calendly                                | Calendly                                                                                                     | Assistant bot integrates with Calendly to schedule and reschedule meetings.                                    | Automates scheduling, saving time for internal and external teams. |
-| Email management with MS-Outlook                                | MS-Outlook                                                                                                   | Assistant bot sorts and prioritizes emails in MS Outlook based on user-defined rules.                          | Enhances email management and productivity.                        |
-| Conversational Slack agent with OpenAI                          | [OpenAI](https://github.com/connery-io/openai), [Slack](/docs/native-clients/slack)                          | Chatbot serves internal teams with customized OpenAI to handle complex queries and provide detailed responses. | Enhances internal ops by handling a wide range of queries.         |
+| Use-Case                                                        | Tools Involved                                                                                                      | Description                                                                                                    | Benefits                                                           |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Chatbot to schedule meetings or hiring interviews               | [Slack](/docs/native-clients/slack), Microsoft Teams, Google Calendar, [Gmail](https://github.com/connery-io/gmail) | Slack/Microsoft Teams bot schedules meetings by checking Google Calendar and sending invites.                  | Streamlines scheduling and ensures everyone is on the same page.   |
+| Personal assistant chatbot with Notion and calendar integration | Notion, Google Calendar                                                                                             | Assistant bot creates to-do lists in Notion and sets reminders in Google Calendar.                             | Enhances personal productivity by tracking tasks and schedules.    |
+| Event planning chatbot with event registration integration      | Eventbrite, [doo](https://github.com/viovendi/product-api-connector)                                                | Event bot handles chat registrations and sends tickets via Eventbrite or doo.                                  | Simplifies registration and enhances attendee experience.          |
+| Automated reporting with Google Sheets                          | Google Sheets                                                                                                       | Reporting bot generates and updates reports in Google Sheets based on real-time data.                          | Streamlines reporting and ensures data accuracy.                   |
+| Survey and feedback collection                                  | Google Forms                                                                                                        | Assistant bot sends Google Forms to collect user feedback and stores responses.                                | Simplifies feedback collection and data analysis.                  |
+| Meeting scheduling with calendly                                | Calendly                                                                                                            | Assistant bot integrates with Calendly to schedule and reschedule meetings.                                    | Automates scheduling, saving time for internal and external teams. |
+| Email management with Microsoft Outlook                         | Microsoft Outlook                                                                                                   | Assistant bot sorts and prioritizes emails in MS Outlook based on user-defined rules.                          | Enhances email management and productivity.                        |
+| Conversational Slack agent with OpenAI                          | [OpenAI](https://github.com/connery-io/openai), [Slack](/docs/native-clients/slack)                                 | Chatbot serves internal teams with customized OpenAI to handle complex queries and provide detailed responses. | Enhances internal ops by handling a wide range of queries.         |
