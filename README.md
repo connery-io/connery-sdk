@@ -77,7 +77,7 @@ non-technical people can easily use it from any platform that covers their needs
 For many cases, you don't even need developers, as Connery brings many community-driven connectors and clients -
 check the Ecosystem section below to learn more.
 
-## ⭐ Support us and stay up-to-date
+## 🌟 Support us and stay up-to-date
 
 Please **give the repository a star** to support the project and stay up-to-date with the latest news.
 
