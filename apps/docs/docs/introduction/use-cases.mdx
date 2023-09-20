@@ -1,44 +1,55 @@
-# Use Cases
+# Use cases
 
-Connecting AI, workflow automation and real-world applications can serve many different use cases. Here is how we structure it.
+Connecting AI, workflow automation, and real-world applications can serve many different use cases.
+Here is how we structure it.
+
+:::info Standard approach
 
 Remember, the Connery approach is always the same:
 
-1. **Get your custom connector**
+1. **Get your connector**
    1. EITHER find a pre-built connector matching your task provided by the community
-   2. OR build an own connector for your specific needs
-2. Keep all your connector configuration in one place (on the runner) and **execute from any client**
+   2. OR build your own connector for your specific needs.
+2. Keep all your connector configurations in one place (on the runner) and **execute from any client**.
    1. EITHER find a pre-built client matching your tooling provided by the community
-   2. OR build your own client
+   2. OR build your own client.
+
+:::
 
 ## Run actions from multiple platforms
 
-Connery is all about running actions. Once a connector and its actions become available in Connery they are exposed to several platforms. Our current strategy includes AI agent & chatbot platforms, Communication tooling and No-code automation platforms.
+Connery is all about running actions.
+Once a connector and its actions become available in Connery, they are exposed to several platforms.
+Our current strategy includes AI Agent and Chatbot platforms, Collaboration tools, and No-code automation platforms.
 
 ![Connector exposure](/img/connery-connector-exposure.png)
 
-### AI agents and chatbots
+### AI Agents and Chatbots
 
-Run your actions from any AI agent or chatbot platform. Connery currently provides a native client for LangChain Tool and is accessible through the Connery API. We plan to add more clients for other AI agent platforms.
+Run your actions from any AI Agent or Chatbot platform.
+Connery currently provides a native client for LangChain and the API.
+We plan to add more clients for other AI Agent and Chatbot platforms.
 
-:::info Related Clients
+:::note Related Clients
 
 - [LangChain Tool](/docs/native-clients/langchain.mdx)
 - [API](/docs/native-clients/api.mdx)
 
 :::
 
-### Communication tooling
+### Collaboration tools
 
-Enable your team to run actions directly using natural language. Connery provides clients for communication tools. Currently available is our Slack Client. MS-Teams, Notion, Discord and others are likely to follow. You can always build your own client.
+Enable your team to run actions directly using natural language. Connery provides clients for collaboration tools.
+Currently available is our Slack App. Microsoft Teams, Notion, Discord, and others are likely to follow.
+You can always build your own client.
 
-Automate frequent tasks and/or make multiple Apps accessible via direct communication.
+Automate frequent tasks and make multiple services accessible via direct communication.
 
-- **Skill-enhancement**: Equip a less-skilled workforce to execute complex tasks without hand-over to specialized workforce, e.g. developers.
-- **Scope broadening**: Enable workforce to perform more tasks across more tooling without learning new processes and tools.
+- **Skill-enhancement**: Equip a less-skilled workforce to execute complex tasks without hand-over a specialized workforce, e.g., developers.
+- **Scope broadening**: Enable the workforce to perform more tasks across more tooling without learning new processes and tools.
 - **Efficiency improvement**: Increase throughput by automating repetitive tasks.
 
-:::info Related Clients
+:::note Related Clients
 
 - [Slack App](/docs/native-clients/slack.mdx)
 
@@ -46,9 +57,12 @@ Automate frequent tasks and/or make multiple Apps accessible via direct communic
 
 ### No-code automation
 
-Automate more tasks by exposing customized actions to No-code platforms. Actions can be customized and simplified for optimal access from no-code users. Currently available is our Make (former Integromat) client. Zapier and other platforms are likely to follow. You can always build your own client.
+Automate more tasks by exposing actions to No-code platforms.
+Currently available in our Make (former Integromat) client.
+Zapier and other platforms are likely to follow.
+You can always build your own client.
 
-:::info Related Clients
+:::note Related Clients
 
 - [Make App](/docs/native-clients/make.mdx)
 
@@ -56,21 +70,28 @@ Automate more tasks by exposing customized actions to No-code platforms. Actions
 
 ## Use case examples
 
-End-users can effortlessly interact with and combine multiple tools, without needing to understand their underlying mechanics or switch platforms. While there is many possibilities, we've curated a selection of use-cases that have inspired the development of Connery.
+End-users can effortlessly interact with and combine multiple tools without understanding their underlying mechanics or switching platforms.
+While there are many possibilities, we've curated a selection of use cases that have inspired the development of Connery.
 
-Mind the 'Client-type': many use cases apply to AI agents and chatbots. Thus, the according client type is chat-based, e.g. Slack, MS-Teams, Discord or even Notion. Connery also supports No-code client-types, e.g. Make (former Integromat) or Zapier.
+:::info Mind the "Client Type"
+
+Many use cases apply to AI Agents and Chatbots.
+Thus, the according client type is chat-based, e.g., Slack, Microsoft Teams, Discord, or even Notion.
+Connery also supports No-code client-types, e.g., Make or Zapier.
+
+:::
 
 ### HR-Related
 
-| Use-Case                                                            | Connectors          | Client-type | Description                                                                                      | Benefits                                                    |
-| ------------------------------------------------------------------- | ------------------- | ----------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| Log HR absence, vacation or attendance and approvals via Slack      | Personio, Workday   | Chat-based  | Employee logs vacation or sick leave via Slack/MS-Teams, triggering absence logging in Personio. | Saves time, reduces friction, and likely improves accuracy. |
-| Accounting service to remind employees of missing expense receipts  | Spendesk, Expensify | Chat-based  | Expense bot checks for missing filings and reminds employees via Slack/MS-Teams/Email.           | Saves time and stress for accounting staff.                 |
-| Learning and development chatbot with LinkedIn learning integration | LinkedIn Learning   | Chat-based  | Bot recommends LinkedIn Learning courses based on career goals.                                  | Personalizes learning and development for employees.        |
+| Use case                                                            | Connectors          | Client type | Description                                                                                             | Benefits                                                       |
+| ------------------------------------------------------------------- | ------------------- | ----------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Log HR absence, vacation, or attendance and approvals via Slack     | Personio, Workday   | Chat-based  | Employee logs vacation or sick leave via Slack/Microsoft Teams, triggering absence logging in Personio. | It saves time, reduces friction, and likely improves accuracy. |
+| Accounting service to remind employees of missing expense receipts  | Spendesk, Expensify | Chat-based  | Expense bot checks for missing filings and reminds employees via Slack/Microsoft Teams/Email.           | It saves time and stress for accounting staff.                 |
+| Learning and development chatbot with LinkedIn learning integration | LinkedIn Learning   | Chat-based  | Bot recommends LinkedIn Learning courses based on career goals.                                         | Personalizes learning and development for employees.           |
 
 ### Sales and Customer Support
 
-| Use-Case                                                      | Connectors                                               | Client-type | Description                                                                 | Benefits                                                         |
+| Use case                                                      | Connectors                                               | Client type | Description                                                                 | Benefits                                                         |
 | ------------------------------------------------------------- | -------------------------------------------------------- | ----------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | Sales or customer support chatbot with Salesforce integration | Salesforce, Hubspot, Pipedrive                           | Chat-based  | Chatbot pulls up customer records from Salesforce during a support request. | Quickens resolution times by providing necessary info to agents. |
 | Sales Management with CRM                                     | Salesforce, Hubspot, Pipedrive                           | Chat-based  | Bot updates CRM records based on sales activities.                          | Keeps CRM updated, aiding in sales tracking and forecasting.     |
@@ -78,7 +99,7 @@ Mind the 'Client-type': many use cases apply to AI agents and chatbots. Thus, th
 
 ### IT support
 
-| Use-Case                                       | Connectors         | Client-type | Description                                                                                 | Benefits                                                  |
+| Use case                                       | Connectors         | Client type | Description                                                                                 | Benefits                                                  |
 | ---------------------------------------------- | ------------------ | ----------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | Smart scaling automation for AWS resources     | Google Sheets, AWS | No-code     | Automation scenario for smart scaling based on input from other services via Google Sheets. | Simplifies registration and enhances attendee experience. |
 | Scheduled scaling automation for AWS resources | Google Sheets, AWS | No-code     | Automation scenario for scheduled scaling based on the time of the day and day of the week. | Simplifies registration and enhances attendee experience. |
@@ -87,14 +108,14 @@ Mind the 'Client-type': many use cases apply to AI agents and chatbots. Thus, th
 
 ### Finance and Accounting
 
-| Use-Case                                    | Connectors | Client-type | Description                                                     | Benefits                                                  |
+| Use case                                    | Connectors | Client type | Description                                                     | Benefits                                                  |
 | ------------------------------------------- | ---------- | ----------- | --------------------------------------------------------------- | --------------------------------------------------------- |
 | Finance chatbot with QuickBooks integration | QuickBooks | Chat-based  | Finance bot generates QuickBooks invoices based on chat orders. | Streamlines invoicing and reduces errors.                 |
 | Chat-based payment processing via Stripe    | Stripe     | Chat-based  | Customer-facing chatbot initiates and handles Stripe payments.  | Streamlines payment process and enhances user experience. |
 
 ### Marketing
 
-| Use-Case                                     | Connectors     | Client-type | Description                                                                      | Benefits                                                       |
+| Use case                                     | Connectors     | Client type | Description                                                                      | Benefits                                                       |
 | -------------------------------------------- | -------------- | ----------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | Marketing chatbot with Mailchimp integration | Mailchimp      | Chat-based  | Marketing bot adds leads to Mailchimp and triggers welcome emails.               | Automates lead nurturing and ensures timely communication.     |
 | Video content management with YouTube        | YouTube        | Chat-based  | Bot uploads videos to YouTube and updates metadata.                              | Streamlines video management and enhances SEO.                 |
@@ -103,7 +124,7 @@ Mind the 'Client-type': many use cases apply to AI agents and chatbots. Thus, th
 
 ### Project and Task Management
 
-| Use-Case                                         | Connectors | Client-type | Description                                                                | Benefits                                                            |
+| Use case                                         | Connectors | Client type | Description                                                                | Benefits                                                            |
 | ------------------------------------------------ | ---------- | ----------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | Project management Chatbot with Jira integration | Jira       | Chat-based  | Chatbot can manage Jira tickets based on project updates in team meetings. | Keeps project management tool updated in real-time.                 |
 | Task management with Trello                      | Trello     | Chat-based  | Bot creates and updates Trello cards based on project status.              | Keeps project boards up-to-date, improving team collaboration.      |
@@ -112,9 +133,9 @@ Mind the 'Client-type': many use cases apply to AI agents and chatbots. Thus, th
 
 ### Internal productivity
 
-| Use-Case                                                        | Connectors                                                           | Client-type | Description                                                                                                    | Benefits                                                           |
+| Use case                                                        | Connectors                                                           | Client type | Description                                                                                                    | Benefits                                                           |
 | --------------------------------------------------------------- | -------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Chatbot to schedule meetings or hiring interviews               | [Gmail](https://github.com/connery-io/gmail)                         | Chat-based  | Slack/MS-Teams bot schedules meetings by checking Google Calendar and sending invites.                         | Streamlines scheduling and ensures everyone is on the same page.   |
+| Chatbot to schedule meetings or hiring interviews               | [Gmail](https://github.com/connery-io/gmail)                         | Chat-based  | Slack/Microsoft Teams bot schedules meetings by checking Google Calendar and sending invites.                  | Streamlines scheduling and ensures everyone is on the same page.   |
 | Personal assistant chatbot with Notion and calendar integration | Notion, Google Calendar                                              | Chat-based  | Assistant bot creates to-do lists in Notion and sets reminders in Google Calendar.                             | Enhances personal productivity by tracking tasks and schedules.    |
 | Event planning chatbot with event registration integration      | Eventbrite, [doo](https://github.com/viovendi/product-api-connector) | Chat-based  | Event bot handles chat registrations and sends tickets via Eventbrite or doo.                                  | Simplifies registration and enhances attendee experience.          |
 | Automated reporting with Google Sheets                          | Google Sheets                                                        | Chat-based  | Reporting bot generates and updates reports in Google Sheets based on real-time data.                          | Streamlines reporting and ensures data accuracy.                   |
