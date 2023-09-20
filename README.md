@@ -113,9 +113,9 @@ To add your connector or client to the lists, see our [contributing guide](/CONT
 | Security                             |                                                                                                                                                                |
 | Access Management                    |                                                                                                                                                                |
 | Secret Management                    |                                                                                                                                                                |
-| Natural Language Actions             |                                                                                                                                                                |
+| Natural Language Actions             | Runner uses LLMs to understand natural language requests from users, classify the intent, identify action and the input parameters and finally run the action. |
 | Multi Platform Connectors            |                                                                                                                                                                |
-| Action Manual Approval               | Runner uses LLMs to understand natural language requests from users, classify the intent, identify action and the input parameters and finally run the action. |
+| Action Manual Approval               |                                                                                                                                                                |
 | AI Agents and Chatbots ready actions |                                                                                                                                                                |
 | Open-source connector marketplace    |                                                                                                                                                                |
 
