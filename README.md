@@ -108,16 +108,16 @@ To add your connector or client to the lists, see our [contributing guide](/CONT
 
 ## Features
 
-| Feature                              | Description |
-| ------------------------------------ | ----------- |
-| Security                             |             |
-| Access Management                    |             |
-| Secret Management                    |             |
-| Natural Language Actions             |             |
-| Multi Platform Connectors            |             |
-| Action Manual Approval               |             |
-| AI Agents and Chatbots ready actions |             |
-| Open-source connector marketplace    |             |
+| Feature                              | Description                                                                                                                                                    |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Security                             |                                                                                                                                                                |
+| Access Management                    |                                                                                                                                                                |
+| Secret Management                    |                                                                                                                                                                |
+| Natural Language Actions             |                                                                                                                                                                |
+| Multi Platform Connectors            |                                                                                                                                                                |
+| Action Manual Approval               | Runner uses LLMs to understand natural language requests from users, classify the intent, identify action and the input parameters and finally run the action. |
+| AI Agents and Chatbots ready actions |                                                                                                                                                                |
+| Open-source connector marketplace    |                                                                                                                                                                |
 
 Find more information about features in the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page in the documentation.
 
