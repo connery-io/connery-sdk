@@ -106,6 +106,20 @@ Below are manually curated lists of connectors and clients available for Connery
 
 To add your connector or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
 
+## Features
+
+| Feature                              | Description |
+| ------------------------------------ | ----------- |
+| Security                             |             |
+| Access Management                    |             |
+| Secret Management                    |             |
+| Natural Language Actions             |             |
+| Multi Platform Connectors            |             |
+| Action Manual Approval               |             |
+| AI Agents and Chatbots ready actions |             |
+
+Find more features in the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page of the documentation.
+
 ## 📖 Documentation
 
 Check out the [Connery Documentation](https://docs.connery.io) to learn more.
