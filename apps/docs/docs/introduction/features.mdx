@@ -1,0 +1,68 @@
+# Features and roadmap
+
+:::info
+
+Connery is in early beta, so only the essential features are are currently implemented.
+However, we list all the features here to give you an overview of what is coming next
+and show you the big picture.
+
+:::
+
+## Runner
+
+### General
+
+- [x] Open-source (MIT license)
+- [x] Runner administration through the "Connery Runner Administration" connector
+- [ ] Runner UI for administration
+- [ ] Runner UI for users
+
+### Security
+
+- [x] Isolated environment
+- [ ] Audit logs
+- [ ] Secret management
+- [ ] Actions manual approval
+
+### Access management
+
+- User access management
+  - [ ] Authentication
+  - [ ] Access control (to control which user can access which connector and actions)
+- Client access management
+  - [x] Authentication (using API keys)
+  - [ ] Access control (to control which client can access which connector and actions)
+- API connection management
+  - [x] API keys
+  - [ ] Oauth2
+
+### Natural Language Actions (NLA)
+
+- [x] Identify an action based on the user prompt
+- [x] Identify action input parameters based on the user prompt
+- [x] NLA based on OpenAI GPT-3 API
+- [ ] NLA based on custom LLM
+
+## Connectors SDK
+
+### Capabilities
+
+- [x] Definition language
+- [x] Configuration parameters
+- [x] Versioning
+- [x] Documentation
+- [ ] "Trigger" action type
+
+### CLI
+
+- [x] Create a new connector
+- [x] Create a new action
+- [x] Run an action for testing
+- [x] Validate connector definition
+- [x] Build a connector and its dependencies
+
+## Clients SDK
+
+- [x] API for clients
+- [x] NLA API for clients
+- [ ] Documentation

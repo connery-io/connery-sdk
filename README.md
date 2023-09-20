@@ -6,7 +6,7 @@
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
 
 <br/>
-<img src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/connery-diagram1.svg" alt="Connery diagram">
+<img alt="Connery overview diagram" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/connery-overview-diagram.svg">
 
 ## 🤔 What is this?
 
@@ -14,7 +14,7 @@
 It lets you take any API and turn it into a standardized connector with built-in security and access controls. Once that's done, you can use this connector across different platforms.**
 
 There are many platforms around that allow you to connect different services together and build automation workflows.
-For example, no-code platforms like Zapier and Make.
+For example, No-Code platforms like Zapier and Make.
 Also, many AI-powered platforms are gaining momentum on the market — for instance, ChatGPT with its plugins,
 AI-powered chatbots, and agents.
 
@@ -48,7 +48,7 @@ but also the features that make your connectors more powerful, like Natural Lang
 The client is a native application on every platform that consumes the API provided
 by the runner and lets the end users use connectors without technical knowledge.
 
-## ✅ Real example
+## ✅ Example
 
 Let's consider a real example from one of our customers.
 
@@ -68,8 +68,8 @@ This setup enabled the customer to use the connector from multiple platforms usi
 
 | Client                                                         | Use case                                                                                                                                                                |
 | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Make App](https://docs.connery.io/docs/native-clients/make)   | Scenario for smart scaling based on the input from other services connected to Make — for example, Google Sheets with the related data.                                 |
-| [Make App](https://docs.connery.io/docs/native-clients/make)   | Scenario for scheduled scaling based on the time of the day and day of the week.                                                                                        |
+| [Make App](https://docs.connery.io/docs/native-clients/make)   | Automation scenario for smart scaling based on the input from other services connected to Make — for example, Google Sheets with the related data.                      |
+| [Make App](https://docs.connery.io/docs/native-clients/make)   | Automation scenario for scheduled scaling based on the time of the day and day of the week.                                                                             |
 | [Slack App](https://docs.connery.io/docs/native-clients/slack) | Manual scaling directly from Slack channel using natural language.                                                                                                      |
 | Apple Shortcut                                                 | There was even the case when the customer scaled the app on the go from their Apple Watch with Siri using preconfigured Apple Shortcuts connected by API to the runner. |
 
