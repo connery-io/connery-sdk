@@ -14,7 +14,7 @@
 It lets you take any API and turn it into a standardized connector with built-in security and access controls. Once that's done, you can use this connector across different platforms.**
 
 There are many platforms around that allow you to connect different services together and build automation workflows.
-For example, no-code platforms like Zapier and Make.
+For example, No-Code platforms like Zapier and Make.
 Also, many AI-powered platforms are gaining momentum on the market — for instance, ChatGPT with its plugins,
 AI-powered chatbots, and agents.
 
