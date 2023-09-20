@@ -8,6 +8,7 @@ const sidebars = {
       items: [
         'introduction/core-concepts',
         'introduction/ecosystem',
+        'introduction/features',
         'introduction/use-cases',
       ],
       link: {
