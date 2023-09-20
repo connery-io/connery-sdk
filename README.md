@@ -117,8 +117,9 @@ To add your connector or client to the lists, see our [contributing guide](/CONT
 | Multi Platform Connectors            |             |
 | Action Manual Approval               |             |
 | AI Agents and Chatbots ready actions |             |
+| Open-source connector marketplace    |             |
 
-Find more features in the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page of the documentation.
+Find more information about features in the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page in the documentation.
 
 ## 📖 Documentation
 
