@@ -3,52 +3,65 @@
 :::info
 
 Connery is in early beta, so only a few features are available from the list below.
-The rest of the features are listed here to give you an idea of what is coming.
+However, we list all the features here to give you an idea of what is coming next
+and show you the project's big picture.
 
 :::
 
 ## Runner
 
-| Feature                   | Status | Category          | Description                               |
-| ------------------------- | ------ | ----------------- | ----------------------------------------- |
-| User access management    | -      | Access management | - Authentication<br/> - Access control    |
-| Client access management  | -      | Access management | - ✅ Authentication<br/> - Access control |
-| API connection management | -      | Access management | - ✅ API keys<br/> - Oauth2               |
+### General
 
-## Security
+- [x] Runner administration through the "Connery Runner Administration" connector
+- [ ] Runner UI for administration
+- [ ] Runner UI for users
 
-- Isolated environments ✅
-- Audit logs
-- Secret management
-- Actions manual approval
+### Security
 
-## Natural Language Actions (NLA)
+- [x] Isolated environment
+- [ ] Audit logs
+- [ ] Secret management
+- [ ] Actions manual approval
 
-- Identify action based user prompt ✅
-- Indentify action input parameters based on user prompt ✅
-- NLA based on OpenAI GPT-3 API ✅
-- NLA based on other LLMs
+### Access management
 
-## Connectors
+- User access management
+  - [ ] Authentication
+  - [ ] Access control (to control which user can access which connector and actions)
+- Client access management
+  - [x] Authentication (using API keys)
+  - [ ] Access control (to control which client can access which connector and actions)
+- API connection management
+  - [x] API keys
+  - [ ] Oauth2
 
-- Definition Language ✅
-- Configuration parameters ✅
-- Versioning ✅
+### Natural Language Actions (NLA)
 
-## CLI
+- [x] Identify action based user prompt
+- [x] Identify action input parameters based on user prompt
+- [x] NLA based on OpenAI GPT-3 API
+- [ ] NLA based on other LLMs
 
-- Create a new connector ✅
-- Create a new action ✅
-- Run an action (for testing) ✅
-- Validate conenctor definition ✅
-- Build a connector and its dependencies ✅
+## Connectors SDK
 
-## Clients
+### Capabilities
 
-- Clients API ✅
-- NLA API for clients ✅
+- [x] Definition language
+- [x] Configuration parameters
+- [x] Versioning
+- [x] Documentation
+- [ ] "Trigger" action type
 
-##
+### CLI
 
-Runner administration
-Runner UI
+- [x] Create a new connector
+- [x] Create a new action
+- [x] Run an action for testing
+- [x] Validate connector definition
+- [x] Build a connector and its dependencies
+
+## Clients SDK
+
+- [x] API for clients
+- [x] NLA API for clients
+- [ ] Documentation
