@@ -108,16 +108,16 @@ To add your connector or client to the lists, see our [contributing guide](/CONT
 
 ## Features
 
-| Feature                              | Description                                                                                                                                                    |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Security                             |                                                                                                                                                                |
-| Access Management                    |                                                                                                                                                                |
-| Secret Management                    |                                                                                                                                                                |
-| Natural Language Actions             | Runner uses LLMs to understand natural language requests from users, classify the intent, identify action and the input parameters and finally run the action. |
-| Multi Platform Connectors            |                                                                                                                                                                |
-| Action Manual Approval               |                                                                                                                                                                |
-| AI Agents and Chatbots ready actions |                                                                                                                                                                |
-| Open-source connector marketplace    |                                                                                                                                                                |
+| Feature                           | Description                                                                                                                                                    |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Security                          |                                                                                                                                                                |
+| Access Management                 |                                                                                                                                                                |
+| Secret Management                 |                                                                                                                                                                |
+| Natural Language Actions          | Runner uses LLMs to understand natural language requests from users, classify the intent, identify action and the input parameters and finally run the action. |
+| AI Readiness                      | Ready for AI Agents and Chatbots                                                                                                                               |
+| Action Manual Approval            | To let the human make the final decision on the action execution. It is especially helpful if AI Agents or Chatbots run the actions.                           |
+| Open-source Connector Marketplace |                                                                                                                                                                |
+| Multi Platform Connectors         |                                                                                                                                                                |
 
 Find more information about features in the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page in the documentation.
 

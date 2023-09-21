@@ -1,69 +1,104 @@
 # Features and roadmap
 
-:::info
+Connery is in early beta, so only the essential features are currently implemented.
+However, we list all the features here to give you an overview of what is coming next and show you the big picture.
 
-Connery is in early beta, so only the essential features are are currently implemented.
-However, we list all the features here to give you an overview of what is coming next
-and show you the big picture.
-
-:::
+The features are not listed in any particular order.
 
 ## Runner
 
 ### General
 
-- [x] Open-source (MIT license)
-- [x] Self-hosted
-- [x] Dockerized
-- [x] Runner administration through the "Connery Runner Administration" connector
-- [x] Documentation
-- [ ] Runner UI for administration
-- [ ] Runner UI for users]
-- [ ] Cloud deployment (AWS, Azure, GCP, etc.)
+| Status | Feature                        | Description                                                                                                   |
+| ------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| 🟢     | Open-source                    | MIT license.                                                                                                  |
+| 🟢     | Self-hosted                    | The runner is fully prepared for self-hosting.                                                                |
+| 🟢     | Dockerized                     |                                                                                                               |
+| 🟢     | Runner administration          | Using [Connery Runner Administration](https://github.com/connery-io/connery-runner-administration) connector. |
+| 🟢     | Connector provisioning         | Runner automatically downloads connectors from the referenced GitHub repositories. No deployment is needed.   |
+| 🟡     | AI readiness                   |                                                                                                               |
+| 🟡     | Documentation                  |                                                                                                               |
+| 🔴     | Runner UI for administration   |                                                                                                               |
+| 🔴     | Runner UI for users            |                                                                                                               |
+| 🔴     | Cloud deployment documentation | To deploy the runner to AWS, Azure, GCP, etc.                                                                 |
 
 ### Security
 
-- [x] Isolated environment
-- [ ] Audit logs
-- [ ] Secret management
-- [ ] Actions manual approval
+| Status | Feature                 | Description                                                                                                                          |
+| ------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 🟢     | Isolated environment    | The runner is designed as a dedicated instance for the company's or individual use.                                                  |
+| 🔴     | Audit logs              |                                                                                                                                      |
+| 🔴     | Secret management       | To store secrets, configuration, and connection to the third party APIs.                                                             |
+| 🔴     | Actions manual approval | To let the human make the final decision on the action execution. It is especially helpful if AI Agents or Chatbots run the actions. |
 
 ### Access management
 
-- User access management
-  - [ ] Authentication
-  - [ ] Access control (to control which user can access which connector and actions)
-- Client access management
-  - [x] Authentication (using API keys)
-  - [ ] Access control (to control which client can access which connector and actions)
-- API connection management
-  - [x] API keys
-  - [ ] Oauth2
+**User access management**
+
+This is about user access to the runner, its connectors, and actions.
+
+| Status | Feature        | Description                                                   |
+| ------ | -------------- | ------------------------------------------------------------- |
+| 🔴     | Authentication |                                                               |
+| 🔴     | Access control | To control which user can access which connector and actions. |
+
+**Client access management**
+
+This is about client access to the runner, its connectors, and actions.
+
+| Status | Feature        | Description                                                     |
+| ------ | -------------- | --------------------------------------------------------------- |
+| 🟢     | Authentication | Using API keys.                                                 |
+| 🔴     | Access control | To control which client can access which connector and actions. |
+
+**API connection management**
+
+This is about connector access to the third-party APIs and connection management.
+For example, to access your Gmail account, the connector has to be connected to your Gmail account using Oauth2,
+and then the Runner has to store the connection securely, control access to it, and use it when needed.
+
+| Status | Feature  | Description                                                        |
+| ------ | -------- | ------------------------------------------------------------------ |
+| 🟢     | API keys | Possibility to authorize with the third-party APIs using API keys. |
+| 🔴     | Oauth2   |                                                                    |
 
 ### Natural Language Actions (NLA)
 
-- [x] Identify an action based on the user prompt
-- [x] Identify action input parameters based on the user prompt
-- [x] NLA based on OpenAI GPT-3 API
-- [ ] NLA based on custom LLM
+Runner uses LLMs to understand natural language requests from users, classify the intent,
+identify the action and its input parameters, and then run the action.
+
+Currently, Connery provides native clients for [Slack](/docs/native-clients/slack)
+and [Make](/docs/native-clients/slack) that utilize this feature and allow users
+to run actions using natural language.
+
+| Status | Feature                                                   | Description                                                                                                                                                               |
+| ------ | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🟢     | Identify an action based on the user prompt               |                                                                                                                                                                           |
+| 🟢     | Identify action input parameters based on the user prompt |                                                                                                                                                                           |
+| 🟢     | NLA based on OpenAI GPT-3 API                             | The runner uses [OpenAI function calling](https://platform.openai.com/docs/guides/gpt/function-calling) to identify action and input parameters based on the user prompt. |
+| 🔴     | NLA based on custom LLM                                   |                                                                                                                                                                           |
 
 ### Monitoring
 
-- [ ] Monitoring dashboard
+| Status | Feature              | Description |
+| ------ | -------------------- | ----------- |
+| 🔴     | Monitoring dashboard |             |
 
 ## Connectors SDK
 
 ### Capabilities
 
-- [x] Definition language
-- [x] Configuration parameters
-- [x] Documentation
-- [x] Error handling
-- [x] Action input parameters and validation
-- [x] Action output parameters and validation
-- [x] Testing framework
-- [x] Dependencies management
-- [ ] "Trigger" action type
+| Status | Feature                                 | Description |
+| ------ | --------------------------------------- | ----------- |
+| 🟢     | Connector definition language           |             |
+| 🟢     | Configuration parameters                |             |
+| 🟢     | Error handling                          |             |
+| 🟢     | Action input parameters and validation  |             |
+| 🟢     | Action output parameters and validation |             |
+| 🟢     | Testing framework                       |             |
+| 🟢     | Dependencies management                 |             |
+| 🟡     | Documentation                           |             |
+| 🔴     | "Trigger" action type                   |             |
 
 ### CLI
 
@@ -77,13 +112,12 @@ It provides the following features.
 | 🟢     | Run an action                          | Very useful for testing and debugging during development.                                          |
 | 🟢     | Validate connector definition          | Validate if connector and actions are defined correctly and follow the required structure.         |
 | 🟢     | Build a connector and its dependencies | Build a connector and its dependencies into a single file, which can be used to run the connector. |
-| 🔴     | Documentation                          |                                                                                                    |
+| 🟡     | Documentation                          |                                                                                                    |
 
 ### Essential tooling for SDLC
 
-As every connector is a separate GitHub repository,
-it enables treating connector as a separate project with all the benefits
-of GitHub infrastructure for development and support.
+As every connector is a separate GitHub repository, it enables treating the connector
+as an independent project with all the benefits of GitHub infrastructure for development and support.
 
 | Status | Feature                | Description |
 | ------ | ---------------------- | ----------- |
@@ -104,8 +138,9 @@ of GitHub infrastructure for development and support.
 
 ## Connectors
 
-Find the list of available connectors [here](/docs/connectors).
+[List of available connectors](/docs/connectors)
 
 ## Clients
 
-Find the list of available clients [here](/docs/native-clients/).
+- [List of available native clients](/docs/native-clients)
+- [List of available community clients](/docs/community-clients)
