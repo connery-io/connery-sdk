@@ -87,6 +87,10 @@ Please **give the repository a star** to support the project and stay up-to-date
    <img src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
 </a>
 
+## 🚀 Quickstart
+
+Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to get started with Connery.
+
 ## ✨ Features
 
 | Feature                           | Description                                                                                                                                                |
@@ -101,10 +105,6 @@ Please **give the repository a star** to support the project and stay up-to-date
 | Multi-Platform Connectors         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                              |
 
 Find more information about features on the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page in the documentation.
-
-## 🚀 Quickstart
-
-Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to get started with Connery.
 
 ## 🌳 Ecosystem
 
