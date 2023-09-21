@@ -106,7 +106,7 @@ Below are manually curated lists of connectors and clients available for Connery
 
 To add your connector or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
 
-## Features
+## ✨ Features
 
 | Feature                           | Description                                                                                                                                                    |
 | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
