@@ -87,6 +87,21 @@ Please **give the repository a star** to support the project and stay up-to-date
    <img src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
 </a>
 
+## ✨ Features
+
+| Feature                           | Description                                                                                                                                                |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Security                          | Robust, enterprise-grade security measures ensuring data protection and privacy.                                                                           |
+| Access Management                 | Flexible, role-based access controls allowing fine-tuned permissions for both users and clients.                                                           |
+| Secret Management                 | Advanced and secure handling of confidential data, API keys, and third-party integrations.                                                                 |
+| Natural Language Actions          | Seamless interaction using everyday language. The Runner understands user requests, classifies intent, identifies action, and executes it without a hitch. |
+| AI Readiness                      | Future-proof architecture primed for integration with intelligent AI agents and chatbots.                                                                  |
+| Action Manual Approval            | Empower humans with the final say in executing actions, ensuring accuracy and relevance, especially when AI is in control.                                 |
+| Open-source Connector Marketplace | Dive into a rich ecosystem of connectors, expand functionalities and customize to your heart's content.                                                    |
+| Multi-Platform Connectors         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                              |
+
+Find more information about features on the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page in the documentation.
+
 ## 🚀 Quickstart
 
 Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to get started with Connery.
@@ -105,21 +120,6 @@ Below are manually curated lists of connectors and clients available for Connery
 - [Community Clients](https://docs.connery.io/docs/community-clients)
 
 To add your connector or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
-
-## ✨ Features
-
-| Feature                           | Description                                                                                                                                                |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Security                          | Robust, enterprise-grade security measures ensuring data protection and privacy.                                                                           |
-| Access Management                 | Flexible, role-based access controls allowing fine-tuned permissions for both users and clients.                                                           |
-| Secret Management                 | Advanced and secure handling of confidential data, API keys, and third-party integrations.                                                                 |
-| Natural Language Actions          | Seamless interaction using everyday language. The Runner understands user requests, classifies intent, identifies action, and executes it without a hitch. |
-| AI Readiness                      | Future-proof architecture primed for integration with intelligent AI agents and chatbots.                                                                  |
-| Action Manual Approval            | Empower humans with the final say in executing actions, ensuring accuracy and relevance, especially when AI is in control.                                 |
-| Open-source Connector Marketplace | Dive into a rich ecosystem of connectors, expand functionalities and customize to your heart's content.                                                    |
-| Multi-Platform Connectors         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                              |
-
-Find more information about features on the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page in the documentation.
 
 ## 📖 Documentation
 
