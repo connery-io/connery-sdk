@@ -115,11 +115,11 @@ To add your connector or client to the lists, see our [contributing guide](/CONT
 | Secret Management                 | Advanced and secure handling of confidential data, API keys, and third-party integrations.                                                                 |
 | Natural Language Actions          | Seamless interaction using everyday language. The Runner understands user requests, classifies intent, identifies action, and executes it without a hitch. |
 | AI Readiness                      | Future-proof architecture primed for integration with intelligent AI agents and chatbots.                                                                  |
-| Action Manual Approval            | Empower humans with the final say in executing actions, ensuring accuracy and relevance especially when AI is in control.                                  |
-| Open-source Connector Marketplace | Dive into a rich ecosystem of connectors, expand functionalities, and customize to your heart's content.                                                   |
-| Multi Platform Connectors         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                              |
+| Action Manual Approval            | Empower humans with the final say in executing actions, ensuring accuracy and relevance, especially when AI is in control.                                 |
+| Open-source Connector Marketplace | Dive into a rich ecosystem of connectors, expand functionalities and customize to your heart's content.                                                    |
+| Multi-Platform Connectors         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                              |
 
-Find more information about features in the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page in the documentation.
+Find more information about features on the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page in the documentation.
 
 ## 📖 Documentation
 
