@@ -12,7 +12,7 @@ jobs:
   build:
     name: Build Dev Container
     runs-on: ubuntu-latest
-
+    if: github.repository == 'connery-io/connery' && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
