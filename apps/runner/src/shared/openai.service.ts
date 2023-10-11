@@ -1,11 +1,14 @@
 import { Inject } from '@nestjs/common';
 import { ActionSchemaType } from 'lib';
 import { ConnectorsService } from ':src/shared/connectors.service';
-import { ChatCompletionFunctions, Configuration, OpenAIApi } from 'openai';
+import { Configuration, OpenAIApi } from 'openai';
 import { LocalConfigService } from ':src/shared/local-config.service';
+import { ChatOpenAI } from 'langchain/chat_models/openai';
+import { HumanMessage } from 'langchain/schema';
 
 // TODO: replace with the shared type(s),
 // the same that is used in the API response
+// TODO: Deprecate this method
 export type RunActionOutput = {
   response: string;
   output?: {
@@ -21,12 +24,38 @@ export type RunActionOutput = {
   };
 };
 
+// TODO: replace with the shared type(s),
+// the same that is used in the API response
+
+// TODO: add missing required input parameters, and all the other parameters that are not required
+export type ActionIdentifiedOutput = {
+  identified: true;
+  connectorKey: string;
+  actionKey: string;
+  inputParameters: {
+    [key: string]: string;
+  };
+  used: {
+    prompt: string;
+  };
+};
+
+// TODO: replace with the shared type(s),
+// the same that is used in the API response
+export type ActionNotIdentifiedOutput = {
+  identified: false;
+  used: {
+    prompt: string;
+  };
+};
+
 export class OpenAiService {
   constructor(
     @Inject(ConnectorsService) private connectorsService: ConnectorsService,
     private configService: LocalConfigService,
   ) {}
 
+  // TODO: Deprecate this method
   async runAction(prompt: string): Promise<RunActionOutput> {
     if (!prompt) {
       throw new Error("Input parameter 'prompt' is required but the value is empty or not provided");
@@ -128,6 +157,63 @@ export class OpenAiService {
     }
   }
 
+  async identifyAction(prompt: string): Promise<ActionIdentifiedOutput | ActionNotIdentifiedOutput> {
+    // TODO implement
+
+    console.log(JSON.stringify({ type: 'user_prompt_received', data: { prompt: prompt } }));
+
+    const runnerConfig = this.configService.getRunnerConfig();
+    if (!runnerConfig.OpenAiApiKey) {
+      throw new Error('The OPENAI_API_KEY is not configured on the runner.');
+    }
+
+    const model = new ChatOpenAI({
+      openAIApiKey: runnerConfig.OpenAiApiKey,
+      modelName: 'gpt-3.5-turbo-0613',
+    });
+
+    const exposedActions = await this.getExposedActionsJsonSchema();
+    const result = await model.call([new HumanMessage(prompt)], {
+      functions: exposedActions,
+    });
+
+    const functionCall = result.additional_kwargs.function_call;
+    if (!functionCall) {
+      return {
+        identified: false,
+        used: {
+          prompt,
+        },
+      };
+    }
+
+    let action;
+    try {
+      action = await this.connectorsService.getAction(functionCall.name);
+    } catch (error) {
+      return {
+        identified: false,
+        used: {
+          prompt,
+        },
+      };
+    }
+
+    // TODO: Handle the case when the required parameters are not provided for the action
+    const inputParameters = JSON.parse(functionCall.arguments);
+
+    return {
+      identified: true,
+      connectorKey: action.connector.key,
+      actionKey: action.key,
+      inputParameters,
+      used: {
+        prompt,
+      },
+    };
+  }
+
+  // TODO: Deprecate this method
   private getResultInstructions(actionSchema: ActionSchemaType, actionResult: object): string {
     const parametersInfo: string[] = [];
 
@@ -160,6 +246,7 @@ export class OpenAiService {
     `;
   }
 
+  // TODO: Deprecate this method
   private getGenearlSystemInstructions(): string {
     return `
       You are a helpful assistant.
@@ -170,8 +257,8 @@ export class OpenAiService {
     `;
   }
 
-  private async getExposedActionsJsonSchema(): Promise<ChatCompletionFunctions[]> {
-    const exposedActions: ChatCompletionFunctions[] = [];
+  private async getExposedActionsJsonSchema() {
+    const exposedActions = [];
 
     const actions = await this.connectorsService.getActions();
 
@@ -183,8 +270,8 @@ export class OpenAiService {
     return exposedActions;
   }
 
-  private convertActionToJsonSchema(action: ActionSchemaType): ChatCompletionFunctions {
-    const actionJsonSchema: ChatCompletionFunctions = {
+  private convertActionToJsonSchema(action: ActionSchemaType) {
+    const actionJsonSchema: any = {
       name: action.key,
       description: action.description,
     };

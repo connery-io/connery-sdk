@@ -43,6 +43,25 @@ export type RunActionWithPromptOutput2 = {
   };
 };
 
+export type ActionIdentifiedOutput = {
+  identified: true;
+  connectorKey: string;
+  actionKey: string;
+  inputParameters: {
+    [key: string]: string;
+  };
+  used: {
+    prompt: string;
+  };
+};
+
+export type ActionNotIdentifiedOutput = {
+  identified: false;
+  used: {
+    prompt: string;
+  };
+};
+
 export type InputParameter = {
   key: string;
   title: string;
