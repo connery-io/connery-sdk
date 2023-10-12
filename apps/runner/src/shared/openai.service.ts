@@ -177,7 +177,7 @@ export class OpenAiService {
       functions: exposedActions,
     });
 
-    const functionCall = result.additional_kwargs.function_call;
+    const functionCall = result.additional_kwargs?.function_call;
     if (!functionCall) {
       return {
         identified: false,
@@ -283,9 +283,10 @@ export class OpenAiService {
         description: inputParameter.description,
       };
 
-      if (inputParameter.validation && inputParameter.validation.required) {
-        actionJsonSchema.parameters.required.push(inputParameter.key);
-      }
+      // NOTE: I commented this out to let OpenAI classify the user prompt as a function call even if not all the required input parameters are provided
+      //if (inputParameter.validation && inputParameter.validation.required) {
+      //  actionJsonSchema.parameters.required.push(inputParameter.key);
+      //}
     }
 
     return actionJsonSchema;
