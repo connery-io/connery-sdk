@@ -68,9 +68,9 @@ This setup enabled the customer to use the connector from multiple platforms usi
 
 | Client                                                         | Use case                                                                                                                                                                |
 | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Slack App](https://docs.connery.io/docs/native-clients/slack) | Manual scaling directly from Slack channel using natural language.                                                                                                      |
 | [Make App](https://docs.connery.io/docs/native-clients/make)   | Automation scenario for smart scaling based on the input from other services connected to Make — for example, Google Sheets with the related data.                      |
 | [Make App](https://docs.connery.io/docs/native-clients/make)   | Automation scenario for scheduled scaling based on the time of the day and day of the week.                                                                             |
-| [Slack App](https://docs.connery.io/docs/native-clients/slack) | Manual scaling directly from Slack channel using natural language.                                                                                                      |
 | Apple Shortcut                                                 | There was even the case when the customer scaled the app on the go from their Apple Watch with Siri using preconfigured Apple Shortcuts connected by API to the runner. |
 
 The most beautiful thing is that once the connector is implemented by the developer and hosted on the runner,
@@ -78,6 +78,10 @@ non-technical people can easily use it from any platform that covers their needs
 
 For many cases, you don't even need developers, as Connery brings many community-driven connectors and clients -
 check the Ecosystem section below to learn more.
+
+**Scaling using Connery app in Slack**
+
+<img alt="Scale AWS Fargate service with Connery in Slack" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/scale-aws-fargate-service-with-connery-in-slack.gif">
 
 ## 🌟 Support us and stay up-to-date
 
