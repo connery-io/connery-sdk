@@ -79,7 +79,7 @@ non-technical people can easily use it from any platform that covers their needs
 For many cases, you don't even need developers, as Connery brings many community-driven connectors and clients -
 check the Ecosystem section below to learn more.
 
-**Scaling using Connery app in Slack**
+**Scaling using the Connery app in Slack**
 
 <img alt="Scale AWS Fargate service with Connery in Slack" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/scale-aws-fargate-service-with-connery-in-slack.gif">
 

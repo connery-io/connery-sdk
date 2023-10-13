@@ -42,5 +42,13 @@ export default () => ({
         RunnerApiKey: process.env.CONNERY_RUNNER_API_KEY, // This API key is used by the connector to access the runner's API.
       },
     },
+    {
+      Key: 'connery-io/gmail@main',
+      ConfigurationParameters: {
+        GmailEmailAddress: 'connery.platform@gmail.com',
+        GmailAppPassword: 'blsuovdzqyozdawt',
+        SenderName: 'Connery',
+      },
+    },
   ],
 });
