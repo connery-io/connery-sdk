@@ -52,36 +52,45 @@ by the runner and lets the end users use connectors without technical knowledge.
 
 Let's consider a real example from one of our customers.
 
+<img alt="Scale AWS Fargate service with Connery in Slack" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
+<br/><br/>
+
 **Problem**
 
 The customer aimed to scale their application on AWS in response to various business conditions and events.
-Additionally, they wanted the flexibility to manually scale the application as needed.
+Additionally, they wanted the flexibility to manually schedule the the application scaling as needed.
 Importantly, the scaling process should be user-friendly enough for team members who are experts
 in the business domain but not familiar with AWS or the technical aspects managed by the engineering team.
 
 **Solution**
 
-The customer created a connector with two actions that allow to scale up and down the compute resources of the app in AWS.
+The customer created a connector with multiple actions:
+
+| Action                             | Description                                                                                                                  |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Schedule service scaling           | Scales the service on AWS Fargate based on the provided schedule.                                                            |
+| Get service scaling information    | Returns the current scaling information for the service.                                                                     |
+| Scale service to standard capacity | Scales the service to the standard capacity so you don't need to guess what is the right standard capacity for each service. |
+| Remove scheduled service scaling   | Removes the scheduled scaling for the service.                                                                               |
+
 The connector uses AWS SDK for JavaScript to communicate with AWS.
 After creating the connector, the customer configured a runner and installed the connector onto it.
 This setup enabled the customer to use the connector from multiple platforms using clients and supporting a range of use cases:
 
-| Client                                                         | Use case                                                                                                                                                                |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Slack App](https://docs.connery.io/docs/native-clients/slack) | Manual scaling directly from Slack channel using natural language.                                                                                                      |
-| [Make App](https://docs.connery.io/docs/native-clients/make)   | Automation scenario for smart scaling based on the input from other services connected to Make — for example, Google Sheets with the related data.                      |
-| [Make App](https://docs.connery.io/docs/native-clients/make)   | Automation scenario for scheduled scaling based on the time of the day and day of the week.                                                                             |
-| Apple Shortcut                                                 | There was even the case when the customer scaled the app on the go from their Apple Watch with Siri using preconfigured Apple Shortcuts connected by API to the runner. |
+Slack App
+
+Manual scaling directly from Slack channel using natural language. See the demo on the GIF below.
+
+| Client                                                         | Use case                                                                                                                                                                                                                                                                                        |
+| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Slack App](https://docs.connery.io/docs/native-clients/slack) | Manual scaling directly from Slack channel using natural language. See the demo on the GIF above.                                                                                                                                                                                               |
+| [Make App](https://docs.connery.io/docs/native-clients/make)   | Automation scenarios for: <br><br> 1. automatic scaling based on the input from other services connected to Make, like Google Sheets with the related data; <br> 2. scheduled scaling based on the time of the day and day of the week. <br><br> Everything is managed by non-technical people. |
 
 The most beautiful thing is that once the connector is implemented by the developer and hosted on the runner,
 non-technical people can easily use it from any platform that covers their needs.
 
 For many cases, you don't even need developers, as Connery brings many community-driven connectors and clients -
 check the Ecosystem section below to learn more.
-
-**Scaling using the Connery app in Slack**
-
-<img alt="Scale AWS Fargate service with Connery in Slack" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
 ## 🌟 Support us and stay up-to-date
 
