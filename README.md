@@ -81,7 +81,7 @@ check the Ecosystem section below to learn more.
 
 **Scaling using the Connery app in Slack**
 
-<img alt="Scale AWS Fargate service with Connery in Slack" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/scale-aws-fargate-service-with-connery-in-slack.gif">
+<img alt="Scale AWS Fargate service with Connery in Slack" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
 ## 🌟 Support us and stay up-to-date
 
