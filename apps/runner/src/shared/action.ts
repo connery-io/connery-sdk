@@ -72,7 +72,7 @@ export class Action {
       // Validate if all required input parameters are present
       if (inputSchema.validation?.required && !input[inputSchema.key]) {
         throw new HttpException(
-          `Input parameter '${inputSchema.key}' is required, but the value is empty or not provided.`,
+          `[Input validation error] Input parameter '${inputSchema.key}' is required, but the value is empty or not provided.`,
           HttpStatus.BAD_REQUEST,
         );
       }
@@ -84,7 +84,9 @@ export class Action {
           return;
         } else {
           throw new HttpException(
-            `The input parameter '${inputSchema.key}' has incorrect type. The expected type is '${
+            `[Input validation error] The input parameter '${
+              inputSchema.key
+            }' has incorrect type. The expected type is '${
               inputSchema.type
             }', but the actual value has the type '${typeof input[inputSchema.key]}'.`,
             HttpStatus.BAD_REQUEST,
@@ -97,7 +99,7 @@ export class Action {
     Object.keys(input).forEach((inputKey) => {
       if (!inputParametersSchema.find((inputSchema) => inputSchema.key === inputKey)) {
         throw new HttpException(
-          `Input parameter '${inputKey}' is not defined in the action schema.`,
+          `[Input validation error] Input parameter '${inputKey}' is not defined in the action schema.`,
           HttpStatus.BAD_REQUEST,
         );
       }
@@ -112,7 +114,7 @@ export class Action {
       // Validate if all required output parameters are present
       if (outputSchema.validation && outputSchema.validation.required && !output[outputSchema.key]) {
         throw new HttpException(
-          `The action has been run. However, the output is not valid. The output parameter '${outputSchema.key}' is required, but the value is empty or not provided.`,
+          `[Output validation error] The action has been run. However, the output is not valid. The output parameter '${outputSchema.key}' is required, but the value is empty or not provided.`,
           HttpStatus.INTERNAL_SERVER_ERROR,
         );
       }
@@ -120,7 +122,7 @@ export class Action {
       // Validate if the type of the output parameter is correct
       if (outputSchema.type !== typeof output[outputSchema.key]) {
         throw new HttpException(
-          `The action has been run. However, the output is not valid. The output parameter '${
+          `[Output validation error] The action has been run. However, the output is not valid. The output parameter '${
             outputSchema.key
           }' has an incorrect type. The expected type is '${
             outputSchema.type
@@ -134,7 +136,7 @@ export class Action {
     Object.keys(output).forEach((outputKey) => {
       if (!outputParametersSchema.find((outputSchema) => outputSchema.key === outputKey)) {
         throw new HttpException(
-          `The action has been run. However, the output is not valid. The output parameter '${outputKey}' is not defined in the action schema.`,
+          `[Output validation error] The action has been run. However, the output is not valid. The output parameter '${outputKey}' is not defined in the action schema.`,
           HttpStatus.INTERNAL_SERVER_ERROR,
         );
       }
