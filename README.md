@@ -53,7 +53,6 @@ by the runner and lets the end users use connectors without technical knowledge.
 Let's consider a real example from one of our customers.
 
 <img alt="Scale AWS Fargate service with Connery in Slack" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
-<br/><br/>
 
 **Problem**
 
@@ -76,10 +75,6 @@ The customer created a connector with multiple actions:
 The connector uses AWS SDK for JavaScript to communicate with AWS.
 After creating the connector, the customer configured a runner and installed the connector onto it.
 This setup enabled the customer to use the connector from multiple platforms using clients and supporting a range of use cases:
-
-Slack App
-
-Manual scaling directly from Slack channel using natural language. See the demo on the GIF below.
 
 | Client                                                         | Use case                                                                                                                                                                                                                                                                                        |
 | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
