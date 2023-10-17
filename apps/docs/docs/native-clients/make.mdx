@@ -8,17 +8,16 @@ The advantage of using the Make app is that you can use actions from your runner
 
 The Make App has the following actions:
 
-| Make action (module)              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Run action                        | This Make action lets you select an action from the runner, specify input parameters, and run it.<br/><br/>This action does not use OpenAI API and runs actions directly from the runner.                                                                                                                                                                                                                                                                                                      |
-| Run action using natural language | This Make action lets you run action from the runner using natural language, similar to how the [Connery app in Slack](/docs/native-clients/slack#information) works using OpenAI API for classification.<br/><br/>To use the app, you must configure `OPENAI_API_KEY` in the [runner configuration](http://localhost:4202/docs/quick-start/set-up-runner#3-configure-env-variables) so the runner can use OpenAI API to classify the user intent and identify input parameters from messages. |
+| Make action (module) | Description                                                                                                                                                                               |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Run an Action        | This Make action lets you select an action from the runner, specify input parameters, and run it.<br/><br/>This action does not use OpenAI API and runs actions directly from the runner. |
 
 :::info Tricky terminology
 
 Please note that Make also uses the term "action" to describe a simple operation. Sometimes they also call it a "module", though.
 
 The Make actions listed in the table above are proxies that allow you to call actions from your Connery runner.
-That's why the app has an action called "Run action" 🤭
+That's why the app has an action called "Run an Action" 🤭
 
 :::
 

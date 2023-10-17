@@ -52,7 +52,7 @@ by the runner and lets the end users use connectors without technical knowledge.
 
 Let's consider a real example from one of our customers.
 
-<img alt="Scale AWS Fargate service with Connery in Slack" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
+<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
 **Problem**
 
