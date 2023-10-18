@@ -3,7 +3,7 @@ import { ActionSchemaType } from 'lib';
 import { ConnectorsService } from ':src/shared/connectors.service';
 import { LocalConfigService } from ':src/shared/local-config.service';
 import { ChatOpenAI } from 'langchain/chat_models/openai';
-import { HumanMessage } from 'langchain/schema';
+import { HumanMessage, SystemMessage } from 'langchain/schema';
 
 // TODO: replace with the shared type(s),
 // the same that is used in the API response
@@ -45,15 +45,19 @@ export class OpenAiService {
       throw new Error('The OPENAI_API_KEY is not configured on the runner.');
     }
 
-    const model = new ChatOpenAI({
+    const chat = new ChatOpenAI({
       openAIApiKey: runnerConfig.OpenAiApiKey,
       modelName: 'gpt-3.5-turbo-0613',
+    }).bind({
+      functions: await this.getExposedActionsJsonSchema(),
     });
 
-    const exposedActions = await this.getExposedActionsJsonSchema();
-    const result = await model.call([new HumanMessage(prompt)], {
-      functions: exposedActions,
-    });
+    const result = await chat.invoke([
+      new SystemMessage(
+        `You are a helpful assistant. Your task is to help the user find the requested function and identify its parameters from the user's prompt. Here is a current time in UTC in case you need it for the date or time-related parameters: ${new Date().toUTCString()}`,
+      ),
+      new HumanMessage(prompt),
+    ]);
 
     const functionCall = result.additional_kwargs?.function_call;
     if (!functionCall) {
