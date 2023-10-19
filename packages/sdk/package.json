@@ -1,0 +1,10 @@
+{
+  "name": "sdk",
+  "description": "Connery SDK",
+  "version": "0.0.1",
+  "license": "MIT",
+  "bin": "./dist/index.mjs",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {}
+}

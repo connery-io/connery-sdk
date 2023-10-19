@@ -2,7 +2,7 @@
   "name": "connery",
   "description": "Connery CLI",
   "version": "0.0.32",
-  "license": "AGPL-3.0",
+  "license": "MIT",
   "bin": "./dist/index.mjs",
   "dependencies": {
     "@inquirer/prompts": "^3.0.0",
