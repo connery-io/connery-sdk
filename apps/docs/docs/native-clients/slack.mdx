@@ -9,13 +9,14 @@ In the channels, the app can see and respond only to the messages where the app 
 
 For every message to the app, it calls Connery API, which
 utilizes [OpenAI function calling](https://platform.openai.com/docs/guides/gpt/function-calling)
-to classify the user intent and identify input parameters from the message.
-After classifying the intent, the app requests the runner to run
-the specific action with the identified parameters and respond to the user with the result.
+to identify the action and prefill input parameters based on the user's natural language request.
+After that, the app shows the action form to the user with prefilled input parameters. So the user can review and change the input parameters, if required, and run the action.
+In the end, the app shows the result of the action to the user or an error message if the action failed.
+See the demo below in the Usage section.
 
 To use the app, you must configure `OPENAI_API_KEY`
 in the [runner configuration](http://localhost:4202/docs/quick-start/set-up-runner#3-configure-env-variables)
-so the runner can use OpenAI API to classify the user intent and identify input parameters from messages.
+so the runner can use OpenAI API to classify the user intent to identify the action and prefill input parameters based on the user's natural language request.
 
 Let's install the app in your Slack workspace and configure it to connect to your runner.
 
@@ -64,6 +65,6 @@ If the connection is successful, you will see the updated "Home" tab with the li
 To use the app, send your message to the app as a direct message using natural language.
 Also, you can invite the app to any channel and use it there by mentioning the app in your message.
 
-Below is an example of running actions in the app using natural language.
+Below is an example how Connery app helps to scale the Back End service on AWS from the slack channel.
 
 ![Scheduled scaling of Back End service on AWS Fargate from Slack using Connery](/img/slack/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif)
