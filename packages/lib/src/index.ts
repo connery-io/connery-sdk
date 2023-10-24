@@ -1,2 +1,2 @@
-export * from './connector.schema';
-export * from './helpers';
+export * from './deprecated/connector.schema';
+export * from './deprecated/helpers';

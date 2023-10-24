@@ -3,7 +3,8 @@
   "display": "Internal Package",
   "compilerOptions": {
     "target": "esnext",
-    "module": "commonjs",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "declaration": true,
     "strict": true
   }
