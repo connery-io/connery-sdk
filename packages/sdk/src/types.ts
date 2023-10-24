@@ -71,17 +71,13 @@ export type PluginRuntime = Omit<Plugin, 'Actions' | 'ConfigurationParameters'> 
   // The plugin key is not specified in the plugin manifest to avoid duplication.
   // Instead, the plugin key is calculated from the GitHub repository URL on runtime.
   Key: string;
-  Actions: ActionRuntime[] | (() => Promise<ActionRuntime[]>);
+  Actions: ActionRuntime[];
   ConfigurationParameters: ConfigurationParameterRuntime[];
-  GetAction: (key: string) => Promise<ActionRuntime | undefined>;
-  GetConfigurationParameter: (key: string) => Promise<ConfigurationParameterRuntime | undefined>;
 };
 
 export type ActionRuntime = Omit<Action, 'InputParameters' | 'OutputParameters'> & {
-  InputParameters: InputParameterRuntime[] | (() => Promise<InputParameterRuntime[]>);
-  OutputParameters: OutputParameterRuntime[] | (() => Promise<OutputParameterRuntime[]>);
-  GetInputParameter: (key: string) => Promise<InputParameterRuntime | undefined>;
-  GetOutputParameter: (key: string) => Promise<OutputParameterRuntime | undefined>;
+  InputParameters: InputParameterRuntime[];
+  OutputParameters: OutputParameterRuntime[];
 };
 
 export type InputParameterRuntime = InputParameter & {
