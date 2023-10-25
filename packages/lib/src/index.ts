@@ -1,2 +1,1 @@
-export * from './deprecated/connector.schema';
-export * from './deprecated/helpers';
+export { PluginLoader } from './plugin-loader';

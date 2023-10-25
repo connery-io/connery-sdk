@@ -124,7 +124,7 @@ export type ConfigurationParametersObject = {
 };
 
 export type PluginContext = {
-  ConfigurationParameters: ConfigurationParameterRuntime[];
+  ConfigurationParameters: ConfigurationParametersObject;
 };
 
 export type ActionContext = {
