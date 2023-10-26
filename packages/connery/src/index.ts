@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import build from './build';
 import init from './init';
 import addAction from './add-action';
 import validate from './validate';
@@ -26,5 +25,4 @@ program
   .command('validate')
   .description('validate connector definition in ./index.js and linked files')
   .action(validate);
-program.command('build').description('build connector and its dependencies').action(build);
 program.parse();
