@@ -1,7 +1,7 @@
-import { ConfigurationParametersObject, PluginContext, PluginRuntime } from '@connery-io/sdk';
+import { ConfigurationParametersObject, PluginFactoryContext, PluginRuntime } from '@connery-io/sdk';
 import { convertPlugin } from './helpers/convert';
 import { populateConfigurationParameters } from './helpers/populate';
-import { readPluginDefinitionFile } from './helpers/read';
+import { getPluginFactory } from './helpers/read';
 import { validatePluginRuntime } from './helpers/validate';
 
 export class PluginLoader {
@@ -14,12 +14,12 @@ export class PluginLoader {
   ) {}
 
   async load(): Promise<void> {
-    // Read plugin definition file
-    const pluginInstance = await readPluginDefinitionFile(this._pluginDefinitionPath);
+    // Read plugin definition file and get plugin factory
+    const pluginFactoryContext: PluginFactoryContext = { ConfigurationParameters: this._configurationParametersObject };
+    const pluginFactory = await getPluginFactory(this._pluginDefinitionPath, pluginFactoryContext);
 
     // Get plugin definition
-    const pluginContext: PluginContext = { ConfigurationParameters: this._configurationParametersObject };
-    const plugin = await pluginInstance.GetPlugin(pluginContext);
+    const plugin = await pluginFactory.GetPlugin();
 
     // Convert plugin definition to runtime plugin object
     const pluginRuntime = await convertPlugin(plugin, this._pluginKey);

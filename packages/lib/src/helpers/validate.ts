@@ -111,6 +111,6 @@ const PluginSchema = zod
 //
 
 function uniqueKeysValidator(array: any[]) {
-  const keys = array.map((item: { key: any }) => item.key);
+  const keys = array.map((item: { Key: string }) => item.Key);
   return new Set(keys).size === keys.length;
 }

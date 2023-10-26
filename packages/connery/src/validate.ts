@@ -1,16 +1,19 @@
-import { parseAndValidateConnector, readConnectorDefinitionFileUsingImport } from 'lib';
+import { PluginLoader } from 'lib';
 import { logEmptyLine, logError, logErrorBody, logInfo, logSuccess } from './shared';
 
 export default async function (): Promise<void> {
   try {
     logEmptyLine();
-    logInfo('🔎 Validating connector definition in ./index.js and linked files...');
-    const connector = await readConnectorDefinitionFileUsingImport(`${process.cwd()}/index.js`);
-    parseAndValidateConnector(connector);
-    logSuccess('Connector definition is valid');
+    logInfo('🔎 Validating plugin definition in ./dist/plugin.js file...');
+
+    // TODO: check if plugin.js exists and ask to build if not
+    const pluginLoader = new PluginLoader(`${process.cwd()}/dist/plugin.js`, '123', {}); // TODO fix parameters
+    await pluginLoader.load();
+
+    logSuccess('Plugin definition is valid');
     logEmptyLine();
   } catch (error: any) {
-    logError('Error occurred while validating connector definition');
+    logError('Error occurred while validating plugin definition');
     logErrorBody(error.message);
     throw error;
   }

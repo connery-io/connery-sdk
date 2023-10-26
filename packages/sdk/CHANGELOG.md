@@ -1,5 +1,23 @@
 # @connery-io/sdk
 
+## 0.0.8
+
+### Patch Changes
+
+- Update abstract class
+
+## 0.0.7
+
+### Patch Changes
+
+- Add AbstractPluginFactory
+
+## 0.0.6
+
+### Patch Changes
+
+- Update factory interface
+
 ## 0.0.5
 
 ### Patch Changes

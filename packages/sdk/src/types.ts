@@ -123,7 +123,7 @@ export type ConfigurationParametersObject = {
   [key: string]: ConfigurationParameterValue;
 };
 
-export type PluginContext = {
+export type PluginFactoryContext = {
   ConfigurationParameters: ConfigurationParametersObject;
 };
 

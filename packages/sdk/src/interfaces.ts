@@ -1,5 +1,7 @@
-import { Plugin, PluginContext } from './types';
+import { Plugin, PluginFactoryContext } from './types';
 
-export interface IPluginFactory {
-  GetPlugin(context: PluginContext): Promise<Plugin>;
+export abstract class AbstractPluginFactory {
+  constructor(protected pluginFactoryContext: PluginFactoryContext) {}
+
+  abstract GetPlugin(): Promise<Plugin>;
 }
