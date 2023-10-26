@@ -1,5 +1,11 @@
 # @connery-io/sdk
 
+## 0.0.5
+
+### Patch Changes
+
+- Update interface
+
 ## 0.0.4
 
 ### Patch Changes

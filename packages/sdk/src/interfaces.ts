@@ -1,5 +1,5 @@
 import { Plugin, PluginContext } from './types';
 
-export interface IPlugin {
+export interface IPluginFactory {
   GetPlugin(context: PluginContext): Promise<Plugin>;
 }
