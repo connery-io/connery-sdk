@@ -7,7 +7,9 @@ export default async function (): Promise<void> {
     logInfo('🔎 Validating plugin definition in ./dist/plugin.js file...');
 
     // TODO: check if plugin.js exists and ask to build if not
-    const pluginLoader = new PluginLoader(`${process.cwd()}/dist/plugin.js`, '123', {}); // TODO fix parameters
+
+    // _pluginKey and _configurationParametersObject are not required for validation
+    const pluginLoader = new PluginLoader(`${process.cwd()}/dist/plugin.js`, '', {});
     await pluginLoader.load();
 
     logSuccess('Plugin definition is valid');
