@@ -1,4 +1,4 @@
-import { PluginRuntime } from '@connery-io/sdk';
+import { PluginRuntime } from '../types';
 import { fromZodError } from 'zod-validation-error';
 import * as zod from 'zod';
 

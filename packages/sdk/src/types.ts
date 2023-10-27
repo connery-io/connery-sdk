@@ -63,53 +63,15 @@ export type Validation = {
 };
 
 //
-// Runtime types
+// Context types
 //
-
-export type PluginRuntime = Omit<Plugin, 'Actions' | 'ConfigurationParameters'> & {
-  // Plugin Key is a combination of the GitHub organization and repository name where the plugin is hosted (e.g. "connery-io/connery-plugin-template").
-  // The plugin key is not specified in the plugin manifest to avoid duplication.
-  // Instead, the plugin key is calculated from the GitHub repository URL on runtime.
-  Key: string;
-  Actions: ActionRuntime[];
-  ConfigurationParameters: ConfigurationParameterRuntime[];
-};
-
-export type ActionRuntime = Omit<Action, 'InputParameters' | 'OutputParameters'> & {
-  InputParameters: InputParameterRuntime[];
-  OutputParameters: OutputParameterRuntime[];
-};
-
-export type InputParameterRuntime = InputParameter & {
-  Value: InputParameterValue;
-};
-
-export type OutputParameterRuntime = OutputParameter & {
-  Value: OutputParameterValue;
-};
-
-export type ConfigurationParameterRuntime = ConfigurationParameter & {
-  Value: ConfigurationParameterValue;
-};
 
 // At the moment we only support string parameters.
 // In the future we may support other types, such as boolean, number, etc.
 // That's why we have a separate type for parameter values.
 export type InputParameterValue = string;
-
-// At the moment we only support string parameters.
-// In the future we may support other types, such as boolean, number, etc.
-// That's why we have a separate type for parameter values.
 export type OutputParameterValue = string;
-
-// At the moment we only support string parameters.
-// In the future we may support other types, such as boolean, number, etc.
-// That's why we have a separate type for parameter values.
 export type ConfigurationParameterValue = string;
-
-//
-// Context types
-//
 
 export type InputParametersObject = {
   [key: string]: InputParameterValue;
@@ -130,6 +92,4 @@ export type PluginFactoryContext = {
 export type ActionContext = {
   InputParameters: InputParametersObject;
   ConfigurationParameters: ConfigurationParametersObject;
-  Action: ActionRuntime;
-  Plugin: PluginRuntime;
 };

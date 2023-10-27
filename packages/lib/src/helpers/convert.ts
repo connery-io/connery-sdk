@@ -1,15 +1,11 @@
+import { Action, ConfigurationParameter, InputParameter, OutputParameter, Plugin } from '@connery-io/sdk';
 import {
-  Action,
   ActionRuntime,
-  ConfigurationParameter,
   ConfigurationParameterRuntime,
-  InputParameter,
   InputParameterRuntime,
-  OutputParameter,
   OutputParameterRuntime,
-  Plugin,
   PluginRuntime,
-} from '@connery-io/sdk';
+} from '../types';
 
 export async function convertPlugin(plugin: Plugin, key: string): Promise<PluginRuntime> {
   return {

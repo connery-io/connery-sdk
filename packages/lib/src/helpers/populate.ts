@@ -1,4 +1,5 @@
-import { ConfigurationParameterRuntime, ConfigurationParametersObject } from '@connery-io/sdk';
+import { ConfigurationParametersObject } from '@connery-io/sdk';
+import { ConfigurationParameterRuntime } from '../types';
 
 export function populateConfigurationParameters(
   configurationParameters: ConfigurationParameterRuntime[],

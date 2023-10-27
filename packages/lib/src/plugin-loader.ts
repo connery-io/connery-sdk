@@ -1,4 +1,5 @@
-import { ConfigurationParametersObject, PluginFactoryContext, PluginRuntime } from '@connery-io/sdk';
+import { ConfigurationParametersObject, PluginFactoryContext } from '@connery-io/sdk';
+import { PluginRuntime } from './types';
 import { convertPlugin } from './helpers/convert';
 import { populateConfigurationParameters } from './helpers/populate';
 import { getPluginFactory } from './helpers/read';
