@@ -1,5 +1,5 @@
 import { PluginLoader } from 'lib';
-import { logEmptyLine, logError, logErrorBody, logInfo, logSuccess } from './shared';
+import { checkFileExists, logEmptyLine, logError, logErrorBody, logInfo, logSuccess } from './shared';
 
 export default async function (): Promise<void> {
   try {
@@ -9,14 +9,8 @@ export default async function (): Promise<void> {
     const pluginDefinitionPath = `${process.cwd()}/dist/plugin.js`;
 
     // Check if ./dist/plugin.js exists
-    try {
-      await import(pluginDefinitionPath);
-    } catch (error: any) {
-      if (error.code === 'ERR_MODULE_NOT_FOUND') {
-        throw new Error('Plugin definition file ./dist/plugin.js is not found. Please build the plugin first.');
-      } else {
-        throw error;
-      }
+    if (!(await checkFileExists(pluginDefinitionPath))) {
+      throw new Error('Plugin file "./dist/plugin.js" is not found. Please build the plugin first.');
     }
 
     // Check if ./dist/plugin.js exports a valid plugin definition

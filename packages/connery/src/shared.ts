@@ -1,4 +1,6 @@
 import chalk from 'chalk';
+import { access } from 'fs/promises';
+import { constants } from 'fs';
 
 const successColor = '#00ff00';
 const errorColor = '#ff0000';
@@ -52,4 +54,13 @@ export function logErrorBody(message: string) {
 
 export function logEmptyLine() {
   console.log('');
+}
+
+export async function checkFileExists(path: string) {
+  try {
+    await access(path, constants.F_OK);
+    return true;
+  } catch (err) {
+    return false;
+  }
 }
