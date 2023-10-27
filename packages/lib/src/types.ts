@@ -20,11 +20,15 @@ export type PluginRuntime = Omit<Plugin, 'Actions' | 'ConfigurationParameters'> 
   Key: string;
   Actions: ActionRuntime[];
   ConfigurationParameters: ConfigurationParameterRuntime[];
+  GetAction: (key: string) => ActionRuntime | undefined;
+  GetConfigurationParameter: (key: string) => ConfigurationParameterRuntime | undefined;
 };
 
 export type ActionRuntime = Omit<Action, 'InputParameters' | 'OutputParameters'> & {
   InputParameters: InputParameterRuntime[];
   OutputParameters: OutputParameterRuntime[];
+  GetInputParameter: (key: string) => InputParameterRuntime | undefined;
+  GetOutputParameter: (key: string) => OutputParameterRuntime | undefined;
 };
 
 export type InputParameterRuntime = InputParameter & {

@@ -56,11 +56,10 @@ export function logEmptyLine() {
   console.log('');
 }
 
-export async function checkFileExists(path: string) {
+export async function checkPluginFileExists(path: string): Promise<void> {
   try {
     await access(path, constants.F_OK);
-    return true;
   } catch (err) {
-    return false;
+    throw new Error(`The plugin file '${path}' is not found. Try to build the plugin.`);
   }
 }

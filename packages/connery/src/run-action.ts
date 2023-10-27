@@ -1,4 +1,4 @@
-import { getAction, parseAndValidateConnector, readConnectorDefinitionFileUsingImport } from 'lib';
+import { PluginLoader, getAction, parseAndValidateConnector, readConnectorDefinitionFileUsingImport } from 'lib';
 import {
   logEmptyLine,
   logError,
@@ -9,6 +9,7 @@ import {
   styleAnswer,
   styleError,
   styleQuestion,
+  checkPluginFileExists,
 } from './shared';
 import { input, select } from '@inquirer/prompts';
 
@@ -17,9 +18,13 @@ export default async function (
   options: { configurationParameters: string; inputParameters: string },
 ) {
   try {
+    const pluginDefinitionPath = `${process.cwd()}/dist/plugin.js`;
+    await checkPluginFileExists(pluginDefinitionPath);
+
     // Read connector definition file
-    const connector = await readConnectorDefinitionFileUsingImport(`${process.cwd()}/index.js`);
-    const connectorSchema = parseAndValidateConnector(connector);
+    const pluginLoader = new PluginLoader(pluginDefinitionPath, '', {}); // TODO add _pluginKey and _configurationParametersObject parameters
+    await pluginLoader.load();
+    const pluginRuntime = pluginLoader.pluginRuntime;
 
     const showFastRunCommand =
       !actionKey || options.configurationParameters === '{}' || options.inputParameters == '{}';
@@ -32,21 +37,21 @@ export default async function (
     if (!actionKey) {
       actionKey = await select({
         message: styleQuestion('What action do you want to run?'),
-        choices: connectorSchema.actions.map((action) => ({ name: action.key, value: action.key })),
+        choices: pluginRuntime.Actions.map((action) => ({ name: action.Key, value: action.Key })),
       });
 
       logEmptyLine();
     }
 
-    const actionSchema = getAction(connectorSchema, actionKey);
+    const action = pluginRuntime.GetAction(actionKey);
 
     // Collect configuration parameters if not provided
-    if (Object.keys(configurationParameters).length === 0 && connectorSchema.configurationParameters.length > 0) {
+    if (Object.keys(configurationParameters).length === 0 && pluginRuntime.ConfigurationParameters.length > 0) {
       logQuestionSectionTitle('Specify configuration parameters for the connector');
       logEmptyLine();
 
-      for (const configurationParameter of connectorSchema.configurationParameters) {
-        configurationParameters[configurationParameter.key] = await input({
+      for (const configurationParameter of pluginRuntime.ConfigurationParameters) {
+        configurationParameters[configurationParameter.Key] = await input({
           message: styleQuestion(configurationParameter.title, configurationParameter.key),
           transformer: styleAnswer,
           validate: (value: string) => {
@@ -85,8 +90,6 @@ export default async function (
     const result = await actionSchema.operation.handler({
       configurationParameters,
       inputParameters,
-      connector: connectorSchema,
-      action: actionSchema,
     });
 
     logSuccess('Action is successfully executed with the following result');

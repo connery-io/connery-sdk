@@ -5,7 +5,7 @@
 export type Plugin = {
   Title: string;
   Description?: string;
-  Actions: Action[] | (() => Promise<Action[]>);
+  Actions: Action[] | ((context: Context) => Promise<Action[]>);
   ConfigurationParameters: ConfigurationParameter[];
   Maintainers: Maintainer[];
   Connery: Connery;
@@ -16,8 +16,8 @@ export type Action = {
   Title: string;
   Description?: string;
   Type: 'create' | 'read' | 'update' | 'delete';
-  InputParameters: InputParameter[] | (() => Promise<InputParameter[]>);
-  OutputParameters: OutputParameter[] | (() => Promise<OutputParameter[]>);
+  InputParameters: InputParameter[];
+  OutputParameters: OutputParameter[];
   Operation: Operation;
 };
 
@@ -85,11 +85,10 @@ export type ConfigurationParametersObject = {
   [key: string]: ConfigurationParameterValue;
 };
 
-export type PluginFactoryContext = {
+export type Context = {
   ConfigurationParameters: ConfigurationParametersObject;
 };
 
-export type ActionContext = {
+export type ActionContext = Context & {
   InputParameters: InputParametersObject;
-  ConfigurationParameters: ConfigurationParametersObject;
 };

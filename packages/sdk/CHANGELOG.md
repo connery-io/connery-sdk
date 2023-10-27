@@ -1,5 +1,11 @@
 # @connery-io/sdk
 
+## 0.0.10
+
+### Patch Changes
+
+- Update types
+
 ## 0.0.9
 
 ### Patch Changes
