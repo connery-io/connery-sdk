@@ -60,7 +60,7 @@
 
 ### Patch Changes
 
-- Add required field connery.runnerVersion into connector definition
+- Add required field connery.runnerVersion into plugin definition
 
 ## 0.0.2
 

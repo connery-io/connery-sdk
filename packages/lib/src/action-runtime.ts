@@ -30,9 +30,11 @@ export class ActionRuntime {
 
     const result: ActionOutput = {
       output: {},
-      usedActionKey: this._actionDefinition.Key,
-      usedConnectorKey: this._plugin.key,
-      usedInputParameters: trimmedInput,
+      used: {
+        pluginKey: this._plugin.key,
+        actionKey: this._actionDefinition.Key,
+        inputParameters: trimmedInput,
+      },
     };
 
     const actionContext = this.getActionContext(trimmedInput);
