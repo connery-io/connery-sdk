@@ -1,3 +1,4 @@
+// @ts-ignore: Suppresses TS1479
 import nodePlop from 'node-plop';
 
 // init-repository

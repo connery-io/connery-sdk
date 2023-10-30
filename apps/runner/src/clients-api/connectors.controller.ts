@@ -8,17 +8,17 @@ import {
   RunActionInput,
   RunActionOutput,
 } from './types';
-import { ConnectorsService } from ':src/shared/connectors.service';
+import { PluginInMemoryCacheService } from ':src/shared/plugin-in-memory-cache.service';
 import { map } from 'lodash';
 
 @Controller('/connectors')
 export class ConnectorsController {
-  constructor(private connectorsService: ConnectorsService) {}
+  constructor(private connectorsService: PluginInMemoryCacheService) {}
 
   @Get('/')
   async getConnectors(): Promise<PaginatedResponse<ConnectorOutput[]> | ErrorResponse> {
     try {
-      const connectors = await this.connectorsService.getConnectors();
+      const connectors = await this.connectorsService.getPlugins();
 
       return {
         status: 'success',
@@ -56,7 +56,7 @@ export class ConnectorsController {
     @Param('connectorKeyPart2') connectorKeyPart2: string,
   ): Promise<ObjectResponse<ConnectorOutput> | ErrorResponse> {
     try {
-      const connector = await this.connectorsService.getConnector(`${connectorKeyPart1}/${connectorKeyPart2}`);
+      const connector = await this.connectorsService.getPlugin(`${connectorKeyPart1}/${connectorKeyPart2}`);
 
       return {
         status: 'success',
@@ -93,7 +93,7 @@ export class ConnectorsController {
     @Param('actionKey') actionKey: string,
   ): Promise<ObjectResponse<ActionOutput> | ErrorResponse> {
     try {
-      const connector = await this.connectorsService.getConnector(`${connectorKeyPart1}/${connectorKeyPart2}`);
+      const connector = await this.connectorsService.getPlugin(`${connectorKeyPart1}/${connectorKeyPart2}`);
       const action = connector.getAction(actionKey);
 
       return {
@@ -125,7 +125,7 @@ export class ConnectorsController {
     @Body() body: RunActionInput,
   ): Promise<ObjectResponse<RunActionOutput> | ErrorResponse> {
     try {
-      const connector = await this.connectorsService.getConnector(`${connectorKeyPart1}/${connectorKeyPart2}`);
+      const connector = await this.connectorsService.getPlugin(`${connectorKeyPart1}/${connectorKeyPart2}`);
       const action = connector.getAction(actionKey);
       const actionResult = await action.runAction(body);
 

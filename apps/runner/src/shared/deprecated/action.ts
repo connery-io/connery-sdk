@@ -1,12 +1,13 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InputParametersObject, OperationContext, OutputParametersObject, RunActionOutputType } from './types';
 import { ActionSchemaType } from 'lib';
-import { Connector } from './connector';
+import { PluginDownloaderService } from './plugin-downloader.service';
 import { trim, forEach } from 'lodash';
 
+/*
 @Injectable()
 export class Action {
-  constructor(private actionSchema: ActionSchemaType, private _connector: Connector) {}
+  constructor(private actionSchema: ActionSchemaType, private _connector: PluginDownloaderService) {}
 
   get key(): string {
     return this.actionSchema.key;
@@ -16,11 +17,10 @@ export class Action {
     return this.actionSchema;
   }
 
-  get connector(): Connector {
+  get connector(): PluginDownloaderService {
     return this._connector;
   }
 
-  // TODO: Move to the shared library
   async runAction(inputParameters: InputParametersObject): Promise<RunActionOutputType> {
     const trimmedInputParameters = this.trimInput(inputParameters);
     this.validateInput(trimmedInputParameters);
@@ -43,7 +43,6 @@ export class Action {
     return result;
   }
 
-  // TODO: Move to the shared library
   private getOperationContext(inputParameters: InputParametersObject): OperationContext {
     return {
       inputParameters: inputParameters,
@@ -53,7 +52,6 @@ export class Action {
     };
   }
 
-  // TODO: Move to the shared library
   private trimInput(input: InputParametersObject): InputParametersObject {
     const trimmedInput: InputParametersObject = {};
 
@@ -64,7 +62,6 @@ export class Action {
     return trimmedInput;
   }
 
-  // TODO: Move to the shared library
   private validateInput(input: InputParametersObject): void {
     const inputParametersSchema = this.schema.inputParameters;
 
@@ -106,7 +103,6 @@ export class Action {
     });
   }
 
-  // TODO: Move to the shared library
   private validateOutput(output: OutputParametersObject): void {
     const outputParametersSchema = this.schema.outputParameters;
 
@@ -143,3 +139,4 @@ export class Action {
     });
   }
 }
+*/

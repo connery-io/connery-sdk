@@ -1,48 +1,46 @@
-import { ConfigurationParametersObject, PluginFactoryContext } from '@connery-io/sdk';
-import { PluginRuntime } from './types';
-import { convertPlugin } from './helpers/convert';
-import { populateConfigurationParameters } from './helpers/populate';
-import { getPluginFactory } from './helpers/read';
-import { validatePluginRuntime } from './helpers/validate';
+import { ConfigurationParameterDefinition, ConfigurationParametersObject, PluginDefinition } from '@connery-io/sdk';
+import { validatePluginDefinitionWithoutActions } from './plugin-definition-validation-utils';
+import { PluginRuntime } from './plugin-runtime';
 
+// This class is used to load a plugin from file to memory and provide the plugin runtime object.
 export class PluginLoader {
-  private _pluginRuntime: PluginRuntime | null = null;
+  private _pluginDefinition: PluginDefinition | null = null;
 
-  constructor(
-    private _pluginDefinitionPath: string,
-    private _pluginKey: string,
-    private _configurationParametersObject: ConfigurationParametersObject,
-  ) {}
+  async init(pluginDefinitionPath: string): Promise<void> {
+    // Read plugin definition
+    const pluginDefinition = await this.getPluginDefinition(pluginDefinitionPath);
 
-  async load(): Promise<void> {
-    // Read plugin definition file and get plugin factory
-    const pluginFactoryContext: PluginFactoryContext = { ConfigurationParameters: this._configurationParametersObject };
-    const pluginFactory = await getPluginFactory(this._pluginDefinitionPath, pluginFactoryContext);
+    // We do not resolve async functions in plugin definition here becasue we don't have the configuration parameters yet,
+    // so we validate the plugin definition without resolving async functions.
+    validatePluginDefinitionWithoutActions(pluginDefinition);
 
-    // Get plugin definition
-    const plugin = await pluginFactory.GetPlugin();
-
-    // Convert plugin definition to runtime plugin object
-    const pluginRuntime = await convertPlugin(plugin, this._pluginKey);
-
-    // Validate plugin runtime object as we need to resolve all the aync functions to arrays of objects
-    validatePluginRuntime(pluginRuntime);
-
-    // Populate configuration parameters in the runtime plugin object
-    pluginRuntime.ConfigurationParameters = populateConfigurationParameters(
-      pluginRuntime.ConfigurationParameters,
-      this._configurationParametersObject,
-    );
-
-    // Set properties
-    this._pluginRuntime = pluginRuntime;
+    // Save plugin definition to memory
+    this._pluginDefinition = pluginDefinition;
   }
 
-  get pluginRuntime(): PluginRuntime {
-    if (!this._pluginRuntime) {
-      throw new Error('Plugin is not loaded');
+  get configurationParameterDefinitions(): ConfigurationParameterDefinition[] {
+    if (!this._pluginDefinition) {
+      throw new Error('Plugin loader is not initialized.');
     }
 
-    return this._pluginRuntime;
+    return this._pluginDefinition.ConfigurationParameters;
+  }
+
+  // After loading the plugin, we can get the plugin runtime object.
+  async getPlugin(pluginKey: string, configurationParameters: ConfigurationParametersObject): Promise<PluginRuntime> {
+    if (!this._pluginDefinition) {
+      throw new Error('Plugin loader is not initialized.');
+    }
+
+    const pluginRuntime = new PluginRuntime();
+    await pluginRuntime.init(pluginKey, this._pluginDefinition, configurationParameters);
+
+    return pluginRuntime;
+  }
+
+  private async getPluginDefinition(pluginDefinitionPath: string): Promise<PluginDefinition> {
+    const importedModule = await import(pluginDefinitionPath);
+    const plugin = importedModule.default.default as PluginDefinition;
+    return plugin;
   }
 }

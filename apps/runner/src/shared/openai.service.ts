@@ -1,6 +1,6 @@
 import { Inject } from '@nestjs/common';
 import { ActionSchemaType } from 'lib';
-import { ConnectorsService } from ':src/shared/connectors.service';
+import { PluginInMemoryCacheService } from ':src/shared/plugin-in-memory-cache.service';
 import { LocalConfigService } from ':src/shared/local-config.service';
 import { ChatOpenAI } from 'langchain/chat_models/openai';
 import { HumanMessage, SystemMessage } from 'langchain/schema';
@@ -31,7 +31,7 @@ export type ActionNotIdentifiedOutput = {
 
 export class OpenAiService {
   constructor(
-    @Inject(ConnectorsService) private connectorsService: ConnectorsService,
+    @Inject(PluginInMemoryCacheService) private connectorsService: PluginInMemoryCacheService,
     private configService: LocalConfigService,
   ) {}
 

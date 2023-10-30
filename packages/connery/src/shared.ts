@@ -1,3 +1,4 @@
+// @ts-ignore: Suppresses TS1479
 import chalk from 'chalk';
 import { access } from 'fs/promises';
 import { constants } from 'fs';
@@ -6,6 +7,7 @@ const successColor = '#00ff00';
 const errorColor = '#ff0000';
 const questionColor = '#362490';
 const infoColor = '#000000';
+const tipColor = '#dedede';
 const additionalDataColor = 'eeeeee';
 
 export function styleQuestion(question: string, description?: string) {
@@ -37,6 +39,11 @@ export function logInfo(message: string) {
   console.log(logMessage);
 }
 
+export function logTip(message: string) {
+  const logMessage = chalk.reset.hex(tipColor)(message);
+  console.log(logMessage);
+}
+
 export function logSuccess(message: string) {
   const logMessage = chalk.reset.hex(successColor).bold(message);
   console.log(`✅ ${logMessage}`);
@@ -56,10 +63,12 @@ export function logEmptyLine() {
   console.log('');
 }
 
-export async function checkPluginFileExists(path: string): Promise<void> {
+export async function checkPluginFileExists(): Promise<void> {
   try {
-    await access(path, constants.F_OK);
+    await access(pluginFilePath, constants.F_OK);
   } catch (err) {
-    throw new Error(`The plugin file '${path}' is not found. Try to build the plugin.`);
+    throw new Error(`The plugin file '${pluginFilePath}' is not found. Try to build the plugin.`);
   }
 }
+
+export const pluginFilePath = `${process.cwd()}/dist/plugin.js`;

@@ -2,63 +2,63 @@
 // Definition types
 //
 
-export type Plugin = {
+export type PluginDefinition = {
   Title: string;
   Description?: string;
-  Actions: Action[] | ((context: Context) => Promise<Action[]>);
-  ConfigurationParameters: ConfigurationParameter[];
-  Maintainers: Maintainer[];
-  Connery: Connery;
+  Actions: ActionDefinition[] | ((context: Context) => Promise<ActionDefinition[]>);
+  ConfigurationParameters: ConfigurationParameterDefinition[];
+  Maintainers: MaintainerDefinition[];
+  Connery: ConneryDefinition;
 };
 
-export type Action = {
+export type ActionDefinition = {
   Key: string;
   Title: string;
   Description?: string;
   Type: 'create' | 'read' | 'update' | 'delete';
-  InputParameters: InputParameter[];
-  OutputParameters: OutputParameter[];
-  Operation: Operation;
+  InputParameters: InputParameterDefinition[];
+  OutputParameters: OutputParameterDefinition[];
+  Operation: OperationDefinition;
 };
 
-export type InputParameter = {
+export type InputParameterDefinition = {
   Key: string;
   Title: string;
   Description?: string;
   Type: 'string';
-  Validation?: Validation;
+  Validation?: ValidationDefinition;
 };
 
-export type OutputParameter = {
+export type OutputParameterDefinition = {
   Key: string;
   Title: string;
   Description?: string;
   Type: 'string';
-  Validation?: Validation;
+  Validation?: ValidationDefinition;
 };
 
-export type Operation = {
+export type OperationDefinition = {
   Handler: (context: ActionContext) => Promise<OutputParametersObject>;
 };
 
-export type ConfigurationParameter = {
+export type ConfigurationParameterDefinition = {
   Key: string;
   Title: string;
   Description?: string;
   Type: 'string';
-  Validation?: Validation;
+  Validation?: ValidationDefinition;
 };
 
-export type Maintainer = {
+export type MaintainerDefinition = {
   Name: string;
   Email: string;
 };
 
-export type Connery = {
+export type ConneryDefinition = {
   RunnerVersion: '0';
 };
 
-export type Validation = {
+export type ValidationDefinition = {
   Required?: boolean;
 };
 

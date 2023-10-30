@@ -1,17 +1,32 @@
-import { PluginRuntime } from '../types';
+import { ActionDefinition, PluginDefinition } from '@connery-io/sdk';
 import { fromZodError } from 'zod-validation-error';
 import * as zod from 'zod';
 
 const keyRegex = /^[A-Z][a-zA-Z0-9]*$/;
 const keyRegexMessage = 'Key must be in PascalCase and start with a letter';
 
-export function validatePluginRuntime(pluginRuntime: PluginRuntime): void {
+//
+// Validation functions
+//
+
+export function validatePluginDefinitionWithoutActions(plugin: PluginDefinition): void {
   try {
-    PluginSchema.parse(pluginRuntime);
+    PluginSchema.parse(plugin);
   } catch (error: any) {
     const userFriendlyValidationError = fromZodError(error, { prefix: '', prefixSeparator: '' });
     throw new Error(userFriendlyValidationError.message);
   }
+}
+
+export function validateActionDefinitions(actions: ActionDefinition[]): void {
+  actions.forEach((action) => {
+    try {
+      ActionSchema.parse(action);
+    } catch (error: any) {
+      const userFriendlyValidationError = fromZodError(error, { prefix: '', prefixSeparator: '' });
+      throw new Error(userFriendlyValidationError.message);
+    }
+  });
 }
 
 //
@@ -31,7 +46,6 @@ const InputParameterSchema = zod
     Description: zod.string().max(2000).optional(),
     Type: zod.enum(['string']),
     Validation: ValidationSchema.optional(),
-    Value: zod.any(),
   })
   .strict();
 
@@ -42,7 +56,6 @@ const OutputParameterSchema = zod
     Description: zod.string().max(2000).optional(),
     Type: zod.enum(['string']),
     Validation: ValidationSchema.optional(),
-    Value: zod.any(),
   })
   .strict();
 
@@ -61,10 +74,10 @@ const ActionSchema = zod
     InputParameters: zod
       .array(InputParameterSchema)
       .refine(uniqueKeysValidator, { message: 'Input parameters must have unique keys' }),
+    Operation: OperationSchema,
     OutputParameters: zod
       .array(OutputParameterSchema)
       .refine(uniqueKeysValidator, { message: 'Output parameters must have unique keys' }),
-    Operation: OperationSchema,
   })
   .strict();
 
@@ -75,7 +88,6 @@ const ConfigurationParameterSchema = zod
     Description: zod.string().max(2000).optional(),
     Type: zod.enum(['string']),
     Validation: ValidationSchema.optional(),
-    Value: zod.any(),
   })
   .strict();
 
@@ -92,12 +104,16 @@ const ConnerySchema = zod
   })
   .strict();
 
+const ActionsType = zod.union([
+  zod.array(ActionSchema).min(1).refine(uniqueKeysValidator, { message: 'Actions must have unique keys' }),
+  zod.function(),
+]);
+
 const PluginSchema = zod
   .object({
-    Key: zod.string(),
     Title: zod.string().min(1).max(100),
     Description: zod.string().max(2000).optional(),
-    Actions: zod.array(ActionSchema).min(1).refine(uniqueKeysValidator, { message: 'Actions must have unique keys' }),
+    Actions: ActionsType,
     ConfigurationParameters: zod
       .array(ConfigurationParameterSchema)
       .refine(uniqueKeysValidator, { message: 'Configuration parameters must have unique keys' }),

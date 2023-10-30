@@ -1,19 +1,24 @@
 import { PluginLoader } from 'lib';
-import { checkPluginFileExists, logEmptyLine, logError, logErrorBody, logInfo, logSuccess } from './shared';
+import {
+  checkPluginFileExists,
+  logEmptyLine,
+  logError,
+  logErrorBody,
+  logInfo,
+  logSuccess,
+  pluginFilePath,
+} from './shared';
 
 export default async function (): Promise<void> {
   try {
-    const pluginDefinitionPath = `${process.cwd()}/dist/plugin.js`;
-
     logEmptyLine();
-    logInfo(`🔎 Validating plugin definition in '${pluginDefinitionPath}' file...`);
+    logInfo(`🔎 Validating plugin definition in '${pluginFilePath}' file...`);
 
-    await checkPluginFileExists(pluginDefinitionPath);
+    await checkPluginFileExists();
 
-    // Load the plugin from ./dist/plugin.js to check if it exports a valid plugin definition
-    // _pluginKey and _configurationParametersObject parameters are not required for validation
-    const pluginLoader = new PluginLoader(pluginDefinitionPath, '', {});
-    await pluginLoader.load();
+    // Init the plugin. It will load the plugin definition to memory and validate it.
+    const pluginLoader = new PluginLoader();
+    await pluginLoader.init(pluginFilePath);
 
     logSuccess('Plugin definition is valid');
     logEmptyLine();

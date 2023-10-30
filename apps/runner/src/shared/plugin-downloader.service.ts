@@ -7,8 +7,8 @@ import { Action } from './action';
 import { find } from 'lodash';
 
 @Injectable()
-export class Connector {
-  private _connectorSchema!: ConnectorSchemaType;
+export class PluginDownloaderService {
+  //private _connectorSchema!: ConnectorSchemaType;
   private _repoOwner: string;
   private _repoName: string;
   private _repoBranch: string;
@@ -27,10 +27,13 @@ export class Connector {
     this._connectorSchema = await this.parseAndValidateConnector();
   }
 
+  /* Moved
   get key(): string {
     return this.installedConnectorConfig.Key;
   }
+  */
 
+  /* TODO: UNCOMMENT or move IF NEEDED
   get repoOwner(): string {
     return this._repoOwner;
   }
@@ -42,15 +45,21 @@ export class Connector {
   get repoBranch(): string {
     return this._repoBranch;
   }
+  */
 
+  /* Moved
   get configurationParameters(): ConfigurationParametersObject {
     return this.installedConnectorConfig.ConfigurationParameters;
   }
+  */
 
+  /* Moved
   get schema(): ConnectorSchemaType {
     return this._connectorSchema;
   }
+  */
 
+  /* Moved
   getAction(actionKey: string): Action {
     const actionSchema = find(this.schema.actions, { key: actionKey });
 
@@ -64,10 +73,13 @@ export class Connector {
     const action = new Action(actionSchema, this);
     return action;
   }
+  */
 
+  /* Moved
   getActions(): Action[] {
     return this.schema.actions.map((actionSchema) => new Action(actionSchema, this));
   }
+  */
 
   private async downloadConnector(): Promise<void> {
     const git = simpleGit();
@@ -114,7 +126,7 @@ export class Connector {
   }
 
   private get fullConnectorDefinitionPath(): string {
-    return `${process.cwd()}/${this.localFolderPath}/dist/connector.js`;
+    return `${process.cwd()}/${this.localFolderPath}/dist/plugin.js`;
   }
 
   private get connectorDefinitionPath(): string {
