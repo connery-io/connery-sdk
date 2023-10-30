@@ -65,10 +65,11 @@ export function logEmptyLine() {
 
 export async function checkPluginFileExists(): Promise<void> {
   try {
-    await access(pluginFilePath, constants.F_OK);
+    await access(fullPluginFilePath, constants.F_OK);
   } catch (err) {
-    throw new Error(`The plugin file '${pluginFilePath}' is not found. Try to build the plugin.`);
+    throw new Error(`The plugin file '${fullPluginFilePath}' is not found. Try to build the plugin.`);
   }
 }
 
-export const pluginFilePath = `${process.cwd()}/dist/plugin.js`;
+export const pluginFilePath = `/dist/plugin.js`;
+export const fullPluginFilePath = `${process.cwd()}${pluginFilePath}`;

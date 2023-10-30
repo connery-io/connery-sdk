@@ -1,6 +1,6 @@
 import { input, select } from '@inquirer/prompts';
-import { addAction } from './templates-generator';
-import { logEmptyLine, logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from './shared';
+import { addAction } from '../templates-generator';
+import { logEmptyLine, logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from '../shared';
 
 export default async function (): Promise<void> {
   try {

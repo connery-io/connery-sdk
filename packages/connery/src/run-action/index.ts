@@ -1,5 +1,5 @@
 import { PluginLoader } from 'lib';
-import { logEmptyLine, checkPluginFileExists, pluginFilePath } from '../shared';
+import { logEmptyLine, checkPluginFileExists, fullPluginFilePath } from '../shared';
 import {
   collectActionInputParameters,
   collectActionKey,
@@ -32,7 +32,7 @@ export default async function (
     await checkPluginFileExists();
 
     const pluginLoader = new PluginLoader();
-    await pluginLoader.init(pluginFilePath);
+    await pluginLoader.init(fullPluginFilePath);
     const configurationParameterDefinitions = await pluginLoader.configurationParameterDefinitions;
 
     // Collect configuration parameters if not provided

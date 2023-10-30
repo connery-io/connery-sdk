@@ -1,6 +1,6 @@
 import { input } from '@inquirer/prompts';
-import { initRepository } from './templates-generator';
-import { logEmptyLine, logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from './shared';
+import { initRepository } from '../templates-generator';
+import { logEmptyLine, logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from '../shared';
 import * as fs from 'fs';
 
 export default async function () {
