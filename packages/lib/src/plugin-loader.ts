@@ -1,14 +1,16 @@
 import { ConfigurationParameterDefinition, ConfigurationParametersObject, PluginDefinition } from '@connery-io/sdk';
 import { validatePluginDefinitionWithoutActions } from './plugin-definition-validation-utils';
 import { PluginRuntime } from './plugin-runtime';
+import { PluginFileNotFoundError } from '.';
 
 // This class is used to load a plugin from file to memory and provide the plugin runtime object.
 export class PluginLoader {
   private _pluginDefinition: PluginDefinition | null = null;
 
-  async init(pluginDefinitionPath: string): Promise<void> {
+  async init(pluginFilePath: string): Promise<void> {
     // Read plugin definition
-    const pluginDefinition = await this.getPluginDefinition(pluginDefinitionPath);
+    await this.fileExists(pluginFilePath);
+    const pluginDefinition = await this.getPluginDefinition(pluginFilePath);
 
     // We do not resolve async functions in plugin definition here becasue we don't have the configuration parameters yet,
     // so we validate the plugin definition without resolving async functions.
@@ -38,9 +40,18 @@ export class PluginLoader {
     return pluginRuntime;
   }
 
-  private async getPluginDefinition(pluginDefinitionPath: string): Promise<PluginDefinition> {
-    const importedModule = await import(pluginDefinitionPath);
+  private async getPluginDefinition(pluginFilePath: string): Promise<PluginDefinition> {
+    const importedModule = await import(pluginFilePath);
     const plugin = importedModule.default.default as PluginDefinition;
     return plugin;
+  }
+
+  private async fileExists(pluginFilePath: string): Promise<void> {
+    const fs = await import('fs');
+    try {
+      await fs.promises.stat(pluginFilePath);
+    } catch {
+      throw new PluginFileNotFoundError(pluginFilePath);
+    }
   }
 }

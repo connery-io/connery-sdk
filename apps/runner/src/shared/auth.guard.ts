@@ -1,5 +1,5 @@
 import { CanActivate, ExecutionContext, HttpException, HttpStatus, Injectable, SetMetadata } from '@nestjs/common';
-import { LocalConfigService } from './local-config.service';
+import { LocalConfigService } from './config/local-config.service';
 import { Reflector } from '@nestjs/core';
 
 @Injectable()
@@ -23,30 +23,14 @@ export class AuthGuard implements CanActivate {
     let isAccessAllowed = false;
     try {
       isAccessAllowed = this.configService.verifyAccess(apiKey);
-    } catch (e: any) {
-      throw new HttpException(
-        {
-          status: 'error',
-          error: {
-            message: e.message,
-          },
-        },
-        HttpStatus.UNAUTHORIZED,
-      );
+    } catch (error: any) {
+      throw new HttpException({ status: 'error', error: { message: error.message } }, HttpStatus.UNAUTHORIZED);
     }
 
     if (isAccessAllowed) {
       return true;
     } else {
-      throw new HttpException(
-        {
-          status: 'error',
-          error: {
-            message: 'Unauthorized',
-          },
-        },
-        HttpStatus.UNAUTHORIZED,
-      );
+      throw new HttpException({ status: 'error', error: { message: 'Unauthorized' } }, HttpStatus.UNAUTHORIZED);
     }
   }
 }

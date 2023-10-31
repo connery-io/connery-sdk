@@ -18,11 +18,9 @@ export class ActionRuntime {
     return this._actionDefinition;
   }
 
-  /* TODO: UNCOMMENT IF NEEDED
   get plugin(): PluginRuntime {
     return this._plugin;
   }
-  */
 
   async run(input: InputParametersObject): Promise<ActionOutput> {
     const trimmedInput = trimInput(input);

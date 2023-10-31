@@ -1,7 +1,5 @@
 // @ts-ignore: Suppresses TS1479
 import chalk from 'chalk';
-import { access } from 'fs/promises';
-import { constants } from 'fs';
 
 const successColor = '#00ff00';
 const errorColor = '#ff0000';
@@ -61,14 +59,6 @@ export function logErrorBody(message: string) {
 
 export function logEmptyLine() {
   console.log('');
-}
-
-export async function checkPluginFileExists(): Promise<void> {
-  try {
-    await access(fullPluginFilePath, constants.F_OK);
-  } catch (err) {
-    throw new Error(`The plugin file '${fullPluginFilePath}' is not found. Try to build the plugin.`);
-  }
 }
 
 export const pluginFilePath = `/dist/plugin.js`;

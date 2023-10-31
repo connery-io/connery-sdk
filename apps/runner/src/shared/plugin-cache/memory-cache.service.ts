@@ -1,14 +1,14 @@
 import { rmSync } from 'fs';
-import { LocalConfigService } from './local-config.service';
-import { PluginDownloaderService } from './plugin-downloader.service';
+import { LocalConfigService } from '../config/local-config.service';
+import { PluginDownloader } from './plugin-downloader';
 import { Inject } from '@nestjs/common';
-import { Action } from './action';
 import { find, filter } from 'lodash';
+import { IPluginCache } from './plugin-cache.interface';
+import { ActionRuntime, PluginRuntime } from 'lib';
 
-// TODO: Define and implement IPluginCache interface
-export class PluginInMemoryCacheService {
-  private _plugins: PluginDownloaderService[] = [];
-  private _actions: Action[] = [];
+export class MemoryCacheService implements IPluginCache {
+  private _plugins: PluginRuntime[] = [];
+  private _actions: ActionRuntime[] = [];
 
   constructor(@Inject(LocalConfigService) private configService: LocalConfigService) {}
 
@@ -16,7 +16,7 @@ export class PluginInMemoryCacheService {
   // Plugins
   //
 
-  async getPlugins(): Promise<PluginDownloaderService[]> {
+  async getPlugins(): Promise<PluginRuntime[]> {
     if (this._plugins.length === 0) {
       await this.initialize();
     }
@@ -24,7 +24,7 @@ export class PluginInMemoryCacheService {
     return this._plugins;
   }
 
-  async getPlugin(pluginKey: string): Promise<PluginDownloaderService> {
+  async getPlugin(pluginKey: string): Promise<PluginRuntime> {
     if (this._plugins.length === 0) {
       await this.initialize();
     }
@@ -42,8 +42,7 @@ export class PluginInMemoryCacheService {
   // Actions
   //
 
-  // Get actions across all plugins on the runner
-  async getActions(): Promise<Action[]> {
+  async getActions(): Promise<ActionRuntime[]> {
     if (this._actions.length === 0) {
       await this.initialize();
     }
@@ -51,20 +50,19 @@ export class PluginInMemoryCacheService {
     return this._actions;
   }
 
-  // Get action by key across all plugins on the runner
-  async getAction(actionKey: string): Promise<Action> {
+  async getAction(actionKey: string): Promise<ActionRuntime> {
     if (this._actions.length === 0) {
       await this.initialize();
     }
 
-    const actions = filter(this._actions, { key: actionKey });
+    const actions = filter(this._actions, { key: actionKey }) as ActionRuntime[];
 
     if (actions.length === 0) {
       throw new Error(`The action '${actionKey}' is not found on the runner.`);
     } else if (actions.length > 1) {
       // TODO: handle this case properly
       throw new Error(
-        `The action '${actionKey}' is found on multiple plugins on the runner. This is not supported yet.`,
+        `The action '${actionKey}' is found on multiple plugins on the runner. This case is not supported yet.`,
       );
     } else {
       return actions[0];
@@ -76,23 +74,28 @@ export class PluginInMemoryCacheService {
   //
 
   async initialize(): Promise<void> {
-    const installedPluginsConfig = this.configService.getInstalledConnectors();
+    const installedPluginsConfig = this.configService.getInstalledPlugins();
     const runnerConfig = this.configService.getRunnerConfig();
 
     for (const installedPluginConfig of installedPluginsConfig) {
-      const plugin = new PluginDownloaderService(installedPluginConfig, runnerConfig);
-      await plugin.initialize();
+      const pluginDownloader = new PluginDownloader(installedPluginConfig, runnerConfig.GitHubPat);
+      await pluginDownloader.init();
+
+      const plugin = pluginDownloader.plugin;
       this._plugins.push(plugin);
 
-      const actions = await plugin.getActions();
+      const actions = await plugin.actions;
       this._actions.push(...actions);
     }
 
     console.log(JSON.stringify({ type: 'system', message: 'All plugins initialized in cache.' }));
   }
 
-  clean(): void {
+  async clear(): Promise<void> {
+    // Remove all plugin files from file system
     rmSync('plugins', { recursive: true, force: true });
+
+    // Clear cache in memory
     this._plugins = [];
     this._actions = [];
 

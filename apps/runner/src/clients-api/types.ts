@@ -2,10 +2,6 @@ export type RunActionInput = {
   [key: string]: string;
 };
 
-export type IdentifyActionInput = {
-  prompt: string;
-};
-
 export type RunActionOutput = {
   output: {
     [key: string]: string;
@@ -16,25 +12,6 @@ export type RunActionOutput = {
     inputParameters: {
       [key: string]: string;
     };
-  };
-};
-
-export type ActionIdentifiedOutput = {
-  identified: true;
-  connectorKey: string;
-  actionKey: string;
-  inputParameters: {
-    [key: string]: string;
-  };
-  used: {
-    prompt: string;
-  };
-};
-
-export type ActionNotIdentifiedOutput = {
-  identified: false;
-  used: {
-    prompt: string;
   };
 };
 
@@ -72,21 +49,4 @@ export type ConnectorOutput = {
   title: string;
   description?: string;
   actions: ActionOutput[];
-};
-
-export type PaginatedResponse<T> = {
-  status: 'success';
-  data: T;
-};
-
-export type ObjectResponse<T> = {
-  status: 'success';
-  data: T;
-};
-
-export type ErrorResponse = {
-  status: 'error';
-  error: {
-    message: string;
-  };
 };

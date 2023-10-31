@@ -1,7 +1,6 @@
 import { input } from '@inquirer/prompts';
 import { initRepository } from '../templates-generator';
 import { logEmptyLine, logError, logErrorBody, logSuccess, styleAnswer, styleError, styleQuestion } from '../shared';
-import * as fs from 'fs';
 
 export default async function () {
   try {
@@ -76,7 +75,8 @@ export default async function () {
   }
 }
 
-function removeFile(filePath: string): Promise<void> {
+async function removeFile(filePath: string): Promise<void> {
+  const fs = await import('fs');
   return new Promise((resolve) => {
     fs.unlink(filePath, (err) => {
       if (err) {

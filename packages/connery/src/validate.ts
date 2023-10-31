@@ -1,24 +1,22 @@
-import { PluginLoader } from 'lib';
-import {
-  checkPluginFileExists,
-  logEmptyLine,
-  logError,
-  logErrorBody,
-  logInfo,
-  logSuccess,
-  fullPluginFilePath,
-} from './shared';
+import { PluginFileNotFoundError, PluginLoader } from 'lib';
+import { logEmptyLine, logError, logErrorBody, logInfo, logSuccess, fullPluginFilePath } from './shared';
 
 export default async function (): Promise<void> {
   try {
     logEmptyLine();
     logInfo(`🔎 Validating plugin definition in '${fullPluginFilePath}' file...`);
 
-    await checkPluginFileExists();
-
     // Init the plugin. It will load the plugin definition to memory and validate it.
     const pluginLoader = new PluginLoader();
-    await pluginLoader.init(fullPluginFilePath);
+    try {
+      await pluginLoader.init(fullPluginFilePath);
+    } catch (error) {
+      if (error instanceof PluginFileNotFoundError) {
+        throw new Error(`${error.message} Try to build the plugin first.`);
+      } else {
+        throw error;
+      }
+    }
 
     logSuccess('Plugin definition is valid');
     logEmptyLine();

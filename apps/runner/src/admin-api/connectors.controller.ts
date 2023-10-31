@@ -1,15 +1,15 @@
+import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 import { Controller, Get, HttpException, HttpStatus } from '@nestjs/common';
-import { PluginInMemoryCacheService } from '../shared/plugin-in-memory-cache.service';
 
-@Controller('/admin/connectors')
-export class ConnectorsController {
-  constructor(private connectorsService: PluginInMemoryCacheService) {}
+@Controller('/admin/plugins')
+export class PluginsController {
+  constructor(private pluginCache: IPluginCache) {}
 
   @Get('/refresh')
-  async refreshConnectorsCache(): Promise<void> {
+  async refreshPluginCache(): Promise<void> {
     try {
-      this.connectorsService.clean();
-      await this.connectorsService.initialize();
+      await this.pluginCache.clear();
+      await this.pluginCache.initialize();
     } catch (error: any) {
       // TODO: Replace with proper solution
       throw new HttpException(

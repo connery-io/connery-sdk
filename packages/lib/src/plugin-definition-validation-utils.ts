@@ -4,6 +4,8 @@ import * as zod from 'zod';
 
 const keyRegex = /^[A-Z][a-zA-Z0-9]*$/;
 const keyRegexMessage = 'Key must be in PascalCase and start with a letter';
+const prefix = 'Plugin definition validation error:';
+const prefixSeparator = ' ';
 
 //
 // Validation functions
@@ -13,7 +15,7 @@ export function validatePluginDefinitionWithoutActions(plugin: PluginDefinition)
   try {
     PluginSchema.parse(plugin);
   } catch (error: any) {
-    const userFriendlyValidationError = fromZodError(error, { prefix: '', prefixSeparator: '' });
+    const userFriendlyValidationError = fromZodError(error, { prefix, prefixSeparator });
     throw new Error(userFriendlyValidationError.message);
   }
 }
@@ -23,7 +25,7 @@ export function validateActionDefinitions(actions: ActionDefinition[]): void {
     try {
       ActionSchema.parse(action);
     } catch (error: any) {
-      const userFriendlyValidationError = fromZodError(error, { prefix: '', prefixSeparator: '' });
+      const userFriendlyValidationError = fromZodError(error, { prefix, prefixSeparator });
       throw new Error(userFriendlyValidationError.message);
     }
   });

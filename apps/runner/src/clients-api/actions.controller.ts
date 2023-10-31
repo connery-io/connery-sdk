@@ -1,23 +1,18 @@
-import { OpenAiService } from ':src/shared/openai.service';
 import { Body, Controller, HttpException, HttpStatus, Post } from '@nestjs/common';
-import {
-  ActionIdentifiedOutput,
-  ActionNotIdentifiedOutput,
-  ErrorResponse,
-  ObjectResponse,
-  IdentifyActionInput,
-} from './types';
+import { ILlm } from ':src/shared/llm/llm.interface';
+import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from ':src/shared/llm/types';
+import { ObjectResponse } from ':src/shared/types';
 
 @Controller('/actions')
 export class ActionsController {
-  constructor(private openAiService: OpenAiService) {}
+  constructor(private llm: ILlm) {}
 
   @Post('/identify')
   async identifyAction(
-    @Body() body: IdentifyActionInput,
-  ): Promise<ObjectResponse<ActionIdentifiedOutput | ActionNotIdentifiedOutput> | ErrorResponse> {
+    @Body() body: { prompt: string },
+  ): Promise<ObjectResponse<ActionIdentifiedOutput | ActionNotIdentifiedOutput>> {
     try {
-      const result = await this.openAiService.identifyAction(body.prompt);
+      const result = await this.llm.identifyAction(body.prompt);
 
       return {
         status: 'success',

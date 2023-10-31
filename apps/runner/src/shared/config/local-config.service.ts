@@ -1,9 +1,10 @@
 import { ConfigService } from '@nestjs/config';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { ApiKeyConfigType, InstalledConnectorConfigType, RunnerConfigType } from './types';
+import { ApiKeyConfig, InstalledPluginConfig, RunnerConfig } from './types';
+import { IConfig } from './config.interface';
 
 @Injectable()
-export class LocalConfigService {
+export class LocalConfigService implements IConfig {
   constructor(private configService: ConfigService) {}
 
   verifyAccess(apiKey: string): boolean {
@@ -11,7 +12,7 @@ export class LocalConfigService {
 
     if (!apiKey) throw new UnauthorizedException('API key is not provided');
 
-    const apiKeys = this.configService.get<ApiKeyConfigType[]>('ApiKeys');
+    const apiKeys = this.configService.get<ApiKeyConfig[]>('ApiKeys');
     if (apiKeys) {
       apiKeys.forEach((item) => {
         if (item.ApiKey === apiKey) {
@@ -26,13 +27,13 @@ export class LocalConfigService {
     return isAccessAllowed;
   }
 
-  getInstalledConnectors(): InstalledConnectorConfigType[] {
-    const installedConnectors = this.configService.get<InstalledConnectorConfigType[]>('InstalledConnectors');
-    return installedConnectors ?? [];
+  getInstalledPlugins(): InstalledPluginConfig[] {
+    const installedPlugins = this.configService.get<InstalledPluginConfig[]>('InstalledPlugins');
+    return installedPlugins ?? [];
   }
 
-  getRunnerConfig(): RunnerConfigType {
-    const runnerConfig = this.configService.get<RunnerConfigType>('RunnerConfig');
+  getRunnerConfig(): RunnerConfig {
+    const runnerConfig = this.configService.get<RunnerConfig>('RunnerConfig');
 
     if (!runnerConfig) {
       throw new Error('RunnerConfig is not defined in the configuration');

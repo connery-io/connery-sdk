@@ -1,5 +1,5 @@
-import { PluginLoader } from 'lib';
-import { logEmptyLine, checkPluginFileExists, fullPluginFilePath } from '../shared';
+import { PluginFileNotFoundError, PluginLoader } from 'lib';
+import { logEmptyLine, fullPluginFilePath } from '../shared';
 import {
   collectActionInputParameters,
   collectActionKey,
@@ -29,10 +29,16 @@ export default async function (
     // Add a line break after the command line arguments
     logEmptyLine();
 
-    await checkPluginFileExists();
-
     const pluginLoader = new PluginLoader();
-    await pluginLoader.init(fullPluginFilePath);
+    try {
+      await pluginLoader.init(fullPluginFilePath);
+    } catch (error) {
+      if (error instanceof PluginFileNotFoundError) {
+        throw new Error(`${error.message} Try to build the plugin first.`);
+      } else {
+        throw error;
+      }
+    }
     const configurationParameterDefinitions = await pluginLoader.configurationParameterDefinitions;
 
     // Collect configuration parameters if not provided
