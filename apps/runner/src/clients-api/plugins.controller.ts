@@ -39,12 +39,12 @@ export class PluginsController {
 
   // We need to use two params here because the plugin contains a slash
   // (e.g. "connery-io/connery-runner-administration@main")
-  @Get('/:connectorKeyPart1/:connectorKeyPart2')
+  @Get('/:pluginKeyPart1/:pluginKeyPart2')
   async getPlugin(
-    @Param('connectorKeyPart1') connectorKeyPart1: string,
-    @Param('connectorKeyPart2') connectorKeyPart2: string,
+    @Param('pluginKeyPart1') pluginKeyPart1: string,
+    @Param('pluginKeyPart2') pluginKeyPart2: string,
   ): Promise<ObjectResponse<PluginResponseType>> {
-    const plugin = await this.pluginCache.getPlugin(`${connectorKeyPart1}/${connectorKeyPart2}`);
+    const plugin = await this.pluginCache.getPlugin(`${pluginKeyPart1}/${pluginKeyPart2}`);
 
     return {
       status: 'success',
@@ -59,14 +59,14 @@ export class PluginsController {
 
   // We need to use two params here because the plugin contains a slash
   // (e.g. "connery-io/connery-runner-administration@main")
-  @Get('/:connectorKeyPart1/:connectorKeyPart2/actions/:actionKey')
+  @Get('/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey')
   async getAction(
-    @Param('connectorKeyPart1') connectorKeyPart1: string,
-    @Param('connectorKeyPart2') connectorKeyPart2: string,
+    @Param('pluginKeyPart1') pluginKeyPart1: string,
+    @Param('pluginKeyPart2') pluginKeyPart2: string,
     @Param('actionKey') actionKey: string,
   ): Promise<ObjectResponse<ActionResponseType>> {
-    const connector = await this.pluginCache.getPlugin(`${connectorKeyPart1}/${connectorKeyPart2}`);
-    const action = connector.getAction(actionKey);
+    const plugin = await this.pluginCache.getPlugin(`${pluginKeyPart1}/${pluginKeyPart2}`);
+    const action = plugin.getAction(actionKey);
 
     return {
       status: 'success',
@@ -76,14 +76,14 @@ export class PluginsController {
 
   // We need to use two params here because the plugin contains a slash
   // (e.g. "connery-io/connery-runner-administration@main")
-  @Post('/:connectorKeyPart1/:connectorKeyPart2/actions/:actionKey/run')
+  @Post('/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey/run')
   async runAction(
-    @Param('connectorKeyPart1') connectorKeyPart1: string,
-    @Param('connectorKeyPart2') connectorKeyPart2: string,
+    @Param('pluginKeyPart1') pluginKeyPart1: string,
+    @Param('pluginKeyPart2') pluginKeyPart2: string,
     @Param('actionKey') actionKey: string,
     @Body() body: InputParametersObject,
   ): Promise<ObjectResponse<ActionOutput>> {
-    const plugin = await this.pluginCache.getPlugin(`${connectorKeyPart1}/${connectorKeyPart2}`);
+    const plugin = await this.pluginCache.getPlugin(`${pluginKeyPart1}/${pluginKeyPart2}`);
     const action = plugin.getAction(actionKey);
     const actionResult = await action.run(body);
 
