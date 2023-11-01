@@ -1,5 +1,11 @@
 # @connery-io/sdk
 
+## 0.0.13
+
+### Patch Changes
+
+- Update CLI with the updated types
+
 ## 0.0.12
 
 ### Patch Changes

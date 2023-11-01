@@ -1,7 +1,7 @@
 {
   "name": "@connery-io/sdk",
   "description": "Connery SDK",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
