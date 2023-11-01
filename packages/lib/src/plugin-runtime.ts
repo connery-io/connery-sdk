@@ -79,7 +79,7 @@ export class PluginRuntime {
     const action = this._actions.find((action) => action.definition.key === actionKey);
 
     if (!action) {
-      throw new Error(`Action '${actionKey}' is not found in the '${this._pluginKey}' plugin.`);
+      throw new Error(`The action '${actionKey}' is not found in the '${this._pluginKey}' plugin.`);
     }
 
     return action;

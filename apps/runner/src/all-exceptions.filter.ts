@@ -8,10 +8,11 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
 
-    let status, message;
+    let status, message: string;
     if (exception instanceof HttpException) {
       status = exception.getStatus();
-      message = exception.getResponse();
+      const response: any = exception.getResponse();
+      message = typeof response === 'string' ? response : response.error;
     } else {
       status = HttpStatus.INTERNAL_SERVER_ERROR;
       message = (exception as Error).message;
@@ -23,7 +24,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
         message: message.toString(),
       },
     };
-
+    console.error(JSON.stringify({ type: 'all-exceptions-filter', message }));
     response.status(status).json(errorObject);
   }
 }
