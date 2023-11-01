@@ -59,7 +59,6 @@ export default async function (
       collectedData.actionKey = await collectActionKey(plugin.definition.actions as ActionDefinition[]);
     }
 
-    showActionRunningMessage();
     const action = plugin.getAction(collectedData.actionKey);
 
     // Collect input parameters if not provided
@@ -77,6 +76,7 @@ export default async function (
     }
 
     // Run the action
+    showActionRunningMessage();
     const result = await action.run(collectedData.inputParameters);
 
     // Show the result

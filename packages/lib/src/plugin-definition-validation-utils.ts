@@ -4,7 +4,7 @@ import * as zod from 'zod';
 
 const keyRegex = /^[a-z][a-zA-Z0-9]*$/;
 const keyRegexMessage = 'Key must be in camelCase and start with a letter';
-const prefix = 'Plugin definition validation error:';
+const prefix = '[Plugin definition validation error]';
 const prefixSeparator = ' ';
 
 //
