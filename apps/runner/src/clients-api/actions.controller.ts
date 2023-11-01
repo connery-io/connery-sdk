@@ -1,11 +1,11 @@
-import { Body, Controller, HttpException, HttpStatus, Post } from '@nestjs/common';
+import { Body, Controller, HttpException, HttpStatus, Inject, Post } from '@nestjs/common';
 import { ILlm } from ':src/shared/llm/llm.interface';
 import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from ':src/shared/llm/types';
 import { ObjectResponse } from ':src/shared/types';
 
 @Controller('/v1/actions')
 export class ActionsController {
-  constructor(private llm: ILlm) {}
+  constructor(@Inject(ILlm) private llm: ILlm) {}
 
   @Post('/identify')
   async identifyAction(

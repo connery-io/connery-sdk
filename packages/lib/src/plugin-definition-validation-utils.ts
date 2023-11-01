@@ -2,8 +2,8 @@ import { ActionDefinition, PluginDefinition } from '@connery-io/sdk';
 import { fromZodError } from 'zod-validation-error';
 import * as zod from 'zod';
 
-const keyRegex = /^[A-Z][a-zA-Z0-9]*$/;
-const keyRegexMessage = 'Key must be in PascalCase and start with a letter';
+const keyRegex = /^[a-z][a-zA-Z0-9]*$/;
+const keyRegexMessage = 'Key must be in camelCase and start with a letter';
 const prefix = 'Plugin definition validation error:';
 const prefixSeparator = ' ';
 

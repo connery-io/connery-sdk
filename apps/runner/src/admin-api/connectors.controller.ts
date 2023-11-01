@@ -1,9 +1,9 @@
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
-import { Controller, Get, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get, HttpException, HttpStatus, Inject } from '@nestjs/common';
 
 @Controller('/v1/admin/plugins')
 export class PluginsController {
-  constructor(private pluginCache: IPluginCache) {}
+  constructor(@Inject(IPluginCache) private pluginCache: IPluginCache) {}
 
   @Get('/refresh')
   async refreshPluginCache(): Promise<void> {

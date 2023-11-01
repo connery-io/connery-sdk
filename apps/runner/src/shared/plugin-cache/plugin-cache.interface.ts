@@ -10,3 +10,6 @@ export interface IPluginCache {
   initialize(): Promise<void>;
   clear(): Promise<void>;
 }
+
+// Used as a dependency injection token in NestJS
+export const IPluginCache = Symbol('IPluginCache');

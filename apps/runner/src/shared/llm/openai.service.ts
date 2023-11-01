@@ -5,6 +5,7 @@ import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 import { IConfig } from ':src/shared/config/config.interface';
 import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from './types';
 import { ILlm } from './llm.interface';
+import { Inject, Injectable } from '@nestjs/common';
 
 type ExposedAction = {
   name: string;
@@ -21,8 +22,9 @@ type ExposedAction = {
   };
 };
 
+@Injectable()
 export class OpenAiService implements ILlm {
-  constructor(private pluginCache: IPluginCache, private config: IConfig) {}
+  constructor(@Inject(IPluginCache) private pluginCache: IPluginCache, @Inject(IConfig) private config: IConfig) {}
 
   async identifyAction(prompt: string): Promise<ActionIdentifiedOutput | ActionNotIdentifiedOutput> {
     // TODO implement

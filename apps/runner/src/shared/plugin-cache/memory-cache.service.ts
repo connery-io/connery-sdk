@@ -1,16 +1,17 @@
 import { rmSync } from 'fs';
-import { LocalConfigService } from '../config/local-config.service';
 import { PluginDownloader } from './plugin-downloader';
-import { Inject } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { find, filter } from 'lodash';
 import { IPluginCache } from './plugin-cache.interface';
 import { ActionRuntime, PluginRuntime } from 'lib';
+import { IConfig } from '../config/config.interface';
 
+@Injectable()
 export class MemoryCacheService implements IPluginCache {
   private _plugins: PluginRuntime[] = [];
   private _actions: ActionRuntime[] = [];
 
-  constructor(@Inject(LocalConfigService) private configService: LocalConfigService) {}
+  constructor(@Inject(IConfig) private config: IConfig) {}
 
   //
   // Plugins
@@ -74,8 +75,8 @@ export class MemoryCacheService implements IPluginCache {
   //
 
   async initialize(): Promise<void> {
-    const installedPluginsConfig = this.configService.getInstalledPlugins();
-    const runnerConfig = this.configService.getRunnerConfig();
+    const installedPluginsConfig = this.config.getInstalledPlugins();
+    const runnerConfig = this.config.getRunnerConfig();
 
     for (const installedPluginConfig of installedPluginsConfig) {
       const pluginDownloader = new PluginDownloader(installedPluginConfig, runnerConfig.GitHubPat);

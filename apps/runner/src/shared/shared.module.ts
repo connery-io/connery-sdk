@@ -5,18 +5,30 @@ import { MemoryCacheService } from './plugin-cache/memory-cache.service';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth.guard';
 import { OpenAiService } from './llm/openai.service';
+import { IConfig } from './config/config.interface';
+import { IPluginCache } from './plugin-cache/plugin-cache.interface';
+import { ILlm } from './llm/llm.interface';
 
 @Module({
   imports: [ConfigModule],
   providers: [
-    LocalConfigService,
-    MemoryCacheService,
     {
       provide: APP_GUARD,
       useClass: AuthGuard,
     },
-    OpenAiService,
+    {
+      provide: IConfig,
+      useClass: LocalConfigService,
+    },
+    {
+      provide: IPluginCache,
+      useClass: MemoryCacheService,
+    },
+    {
+      provide: ILlm,
+      useClass: OpenAiService,
+    },
   ],
-  exports: [MemoryCacheService, LocalConfigService, OpenAiService],
+  exports: [IConfig, IPluginCache, ILlm],
 })
 export class SharedModule {}

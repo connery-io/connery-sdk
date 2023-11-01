@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpException, HttpStatus, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, HttpStatus, Inject, Param, Post } from '@nestjs/common';
 import { map } from 'lodash';
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 import { ObjectResponse, PaginatedResponse } from ':src/shared/types';
@@ -19,7 +19,7 @@ type ActionResponseType = Omit<ActionDefinition, 'operation'>;
 
 @Controller('/v1/plugins')
 export class PluginsController {
-  constructor(private pluginCache: IPluginCache) {}
+  constructor(@Inject(IPluginCache) private pluginCache: IPluginCache) {}
 
   @Get('/')
   async getPlugins(): Promise<PaginatedResponse<PluginListResponseType>> {

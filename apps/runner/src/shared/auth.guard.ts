@@ -1,10 +1,18 @@
-import { CanActivate, ExecutionContext, HttpException, HttpStatus, Injectable, SetMetadata } from '@nestjs/common';
-import { LocalConfigService } from './config/local-config.service';
+import {
+  CanActivate,
+  ExecutionContext,
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+  SetMetadata,
+} from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
+import { IConfig } from './config/config.interface';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private configService: LocalConfigService, private reflector: Reflector) {}
+  constructor(@Inject(IConfig) private config: IConfig, private reflector: Reflector) {}
 
   canActivate(context: ExecutionContext): boolean {
     // Allow access to public routes
@@ -22,7 +30,7 @@ export class AuthGuard implements CanActivate {
 
     let isAccessAllowed = false;
     try {
-      isAccessAllowed = this.configService.verifyAccess(apiKey);
+      isAccessAllowed = this.config.verifyAccess(apiKey);
     } catch (error: any) {
       throw new HttpException({ status: 'error', error: { message: error.message } }, HttpStatus.UNAUTHORIZED);
     }
