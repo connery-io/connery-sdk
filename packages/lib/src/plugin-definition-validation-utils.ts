@@ -37,47 +37,47 @@ export function validateActionDefinitions(actions: ActionDefinition[]): void {
 
 const ValidationSchema = zod
   .object({
-    Required: zod.boolean().optional(),
+    required: zod.boolean().optional(),
   })
   .strict();
 
 const InputParameterSchema = zod
   .object({
-    Key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
-    Title: zod.string().min(1).max(100),
-    Description: zod.string().max(2000).optional(),
-    Type: zod.enum(['string']),
-    Validation: ValidationSchema.optional(),
+    key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
+    title: zod.string().min(1).max(100),
+    description: zod.string().max(2000).optional(),
+    type: zod.enum(['string']),
+    validation: ValidationSchema.optional(),
   })
   .strict();
 
 const OutputParameterSchema = zod
   .object({
-    Key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
-    Title: zod.string().min(1).max(100),
-    Description: zod.string().max(2000).optional(),
-    Type: zod.enum(['string']),
-    Validation: ValidationSchema.optional(),
+    key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
+    title: zod.string().min(1).max(100),
+    description: zod.string().max(2000).optional(),
+    type: zod.enum(['string']),
+    validation: ValidationSchema.optional(),
   })
   .strict();
 
 const OperationSchema = zod
   .object({
-    Handler: zod.function(),
+    handler: zod.function(),
   })
   .strict();
 
 const ActionSchema = zod
   .object({
-    Key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
-    Title: zod.string().min(1).max(100),
-    Description: zod.string().max(2000).optional(),
-    Type: zod.enum(['create', 'read', 'update', 'delete']),
-    InputParameters: zod
+    key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
+    title: zod.string().min(1).max(100),
+    description: zod.string().max(2000).optional(),
+    type: zod.enum(['create', 'read', 'update', 'delete']),
+    inputParameters: zod
       .array(InputParameterSchema)
       .refine(uniqueKeysValidator, { message: 'Input parameters must have unique keys' }),
-    Operation: OperationSchema,
-    OutputParameters: zod
+    operation: OperationSchema,
+    outputParameters: zod
       .array(OutputParameterSchema)
       .refine(uniqueKeysValidator, { message: 'Output parameters must have unique keys' }),
   })
@@ -85,24 +85,24 @@ const ActionSchema = zod
 
 const ConfigurationParameterSchema = zod
   .object({
-    Key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
-    Title: zod.string().min(1).max(100),
-    Description: zod.string().max(2000).optional(),
-    Type: zod.enum(['string']),
-    Validation: ValidationSchema.optional(),
+    key: zod.string().regex(keyRegex, { message: keyRegexMessage }).min(1).max(50),
+    title: zod.string().min(1).max(100),
+    description: zod.string().max(2000).optional(),
+    type: zod.enum(['string']),
+    validation: ValidationSchema.optional(),
   })
   .strict();
 
 const MaintainerSchema = zod
   .object({
-    Name: zod.string().min(1).max(100),
-    Email: zod.string().email().min(1).max(100),
+    name: zod.string().min(1).max(100),
+    email: zod.string().email().min(1).max(100),
   })
   .strict();
 
 const ConnerySchema = zod
   .object({
-    RunnerVersion: zod.enum(['0']),
+    runnerVersion: zod.enum(['0']),
   })
   .strict();
 
@@ -113,14 +113,14 @@ const ActionsType = zod.union([
 
 const PluginSchema = zod
   .object({
-    Title: zod.string().min(1).max(100),
-    Description: zod.string().max(2000).optional(),
-    Actions: ActionsType,
-    ConfigurationParameters: zod
+    title: zod.string().min(1).max(100),
+    description: zod.string().max(2000).optional(),
+    actions: ActionsType,
+    configurationParameters: zod
       .array(ConfigurationParameterSchema)
       .refine(uniqueKeysValidator, { message: 'Configuration parameters must have unique keys' }),
-    Maintainers: zod.array(MaintainerSchema).min(1),
-    Connery: ConnerySchema,
+    maintainers: zod.array(MaintainerSchema).min(1),
+    connery: ConnerySchema,
   })
   .strict();
 
@@ -129,6 +129,6 @@ const PluginSchema = zod
 //
 
 function uniqueKeysValidator(array: any[]) {
-  const keys = array.map((item: { Key: string }) => item.Key);
+  const keys = array.map((item: { key: string }) => item.key);
   return new Set(keys).size === keys.length;
 }

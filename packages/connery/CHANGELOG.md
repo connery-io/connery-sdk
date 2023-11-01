@@ -1,5 +1,23 @@
 # connery
 
+## 0.0.36
+
+### Patch Changes
+
+- Update validation
+
+## 0.0.35
+
+### Patch Changes
+
+- Update validation
+
+## 0.0.34
+
+### Patch Changes
+
+- Update validation
+
 ## 0.0.33
 
 ### Patch Changes

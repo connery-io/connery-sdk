@@ -1,7 +1,7 @@
 {
   "name": "connery",
   "description": "Connery CLI",
-  "version": "0.0.33",
+  "version": "0.0.36",
   "license": "MIT",
   "bin": "./dist/index.mjs",
   "dependencies": {
