@@ -34,12 +34,20 @@ export default () => ({
 
   // List of plugins installed on the runner.
   InstalledPlugins: [
+    //{
+    //  // This is a pre-installed plugin for runner administration.
+    //  Key: 'connery-io/connery-runner-administration@main',
+    //  ConfigurationParameters: {
+    //    RunenrUrl: 'http://localhost:4201',
+    //    RunnerApiKey: process.env.CONNERY_RUNNER_API_KEY, // This API key is used by the plugin to access the runner's API.
+    //  },
+    //},
     {
-      // This is a pre-installed plugin for runner administration.
-      Key: 'connery-io/connery-runner-administration@main',
+      Key: 'connery-io/gmail@ts-repo',
       ConfigurationParameters: {
-        RunenrUrl: 'http://localhost:4201',
-        RunnerApiKey: process.env.CONNERY_RUNNER_API_KEY, // This API key is used by the plugin to access the runner's API.
+        gmailEmailAddress: process.env.GMAIL_EMAIL_ADDRESS,
+        gmailAppPassword: process.env.GMAIL_APP_PASSWORD,
+        senderName: 'Connery',
       },
     },
   ],
