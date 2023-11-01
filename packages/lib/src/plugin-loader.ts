@@ -9,13 +9,6 @@ export class PluginLoader {
   constructor(private _caller: 'runner' | 'cli' = 'runner') {}
 
   async init(pluginFilePath: string): Promise<void> {
-    console.log(
-      JSON.stringify({
-        type: 'system',
-        message: `Plugin loader started initialization for ${pluginFilePath}.`,
-      }),
-    );
-
     // Read plugin definition
     await this.fileExists(pluginFilePath);
 
@@ -34,13 +27,6 @@ export class PluginLoader {
 
     // Save plugin definition to memory
     this._pluginDefinition = pluginDefinition;
-
-    console.log(
-      JSON.stringify({
-        type: 'system',
-        message: `Plugin loader finished initialization for ${pluginFilePath}.`,
-      }),
-    );
   }
 
   get configurationParameterDefinitions(): ConfigurationParameterDefinition[] {

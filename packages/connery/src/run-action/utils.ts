@@ -51,6 +51,11 @@ export function showActionsLoadingMessage(): void {
   logEmptyLine();
 }
 
+export function showActionRunningMessage(): void {
+  logInfo('Running action...');
+  logEmptyLine();
+}
+
 export async function collectActionKey(actionDefinitions: ActionDefinition[]): Promise<string> {
   const actionKey = await select({
     message: styleQuestion('What action do you want to run?'),

@@ -4,6 +4,7 @@ import {
   collectActionInputParameters,
   collectActionKey,
   collectConfigurationParameters,
+  showActionRunningMessage,
   showActionsLoadingMessage,
   showError,
   showResult,
@@ -51,7 +52,6 @@ export default async function (
     }
 
     showActionsLoadingMessage();
-
     const plugin = await pluginLoader.getPlugin('local', collectedData.configurationParameters);
 
     // Collect action key if not provided
@@ -59,6 +59,7 @@ export default async function (
       collectedData.actionKey = await collectActionKey(plugin.definition.actions as ActionDefinition[]);
     }
 
+    showActionRunningMessage();
     const action = plugin.getAction(collectedData.actionKey);
 
     // Collect input parameters if not provided
