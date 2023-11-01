@@ -3,7 +3,7 @@ import { ILlm } from ':src/shared/llm/llm.interface';
 import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from ':src/shared/llm/types';
 import { ObjectResponse } from ':src/shared/types';
 
-@Controller('/actions')
+@Controller('/v1/actions')
 export class ActionsController {
   constructor(private llm: ILlm) {}
 

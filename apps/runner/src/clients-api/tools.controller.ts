@@ -2,7 +2,7 @@ import { Public } from ':src/shared/auth.guard';
 import { ObjectResponse } from ':src/shared/types';
 import { Controller, Get } from '@nestjs/common';
 
-@Controller()
+@Controller('/v1')
 export class ToolsController {
   @Public()
   @Get('/')

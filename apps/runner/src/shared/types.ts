@@ -4,7 +4,7 @@
 
 export type PaginatedResponse<T> = {
   status: 'success';
-  data: T;
+  data: T[];
 };
 
 export type ObjectResponse<T> = {

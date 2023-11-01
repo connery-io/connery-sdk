@@ -1,7 +1,7 @@
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 import { Controller, Get, HttpException, HttpStatus } from '@nestjs/common';
 
-@Controller('/admin/plugins')
+@Controller('/v1/admin/plugins')
 export class PluginsController {
   constructor(private pluginCache: IPluginCache) {}
 
