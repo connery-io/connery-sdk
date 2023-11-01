@@ -59,33 +59,33 @@ export class PluginsController {
         data: map(plugins, (plugin) => {
           return {
             key: plugin.key,
-            title: plugin.definition.Title,
-            description: plugin.definition.Description,
+            title: plugin.definition.title,
+            description: plugin.definition.description,
             actions: map(plugin.actions, (action) => {
               return {
-                key: action.definition.Key,
-                title: action.definition.Title,
-                description: action.definition.Description,
-                type: action.definition.Type,
-                inputParameters: map(action.definition.InputParameters, (inputParameter) => {
+                key: action.definition.key,
+                title: action.definition.title,
+                description: action.definition.description,
+                type: action.definition.type,
+                inputParameters: map(action.definition.inputParameters, (inputParameter) => {
                   return {
-                    key: inputParameter.Key,
-                    title: inputParameter.Title,
-                    description: inputParameter.Description,
-                    type: inputParameter.Type,
+                    key: inputParameter.key,
+                    title: inputParameter.title,
+                    description: inputParameter.description,
+                    type: inputParameter.type,
                     validation: {
-                      required: inputParameter.Validation?.Required,
+                      required: inputParameter.validation?.required,
                     },
                   };
                 }),
-                outputParameters: map(action.definition.OutputParameters, (outputParameter) => {
+                outputParameters: map(action.definition.outputParameters, (outputParameter) => {
                   return {
-                    key: outputParameter.Key,
-                    title: outputParameter.Title,
-                    description: outputParameter.Description,
-                    type: outputParameter.Type,
+                    key: outputParameter.key,
+                    title: outputParameter.title,
+                    description: outputParameter.description,
+                    type: outputParameter.type,
                     validation: {
-                      required: outputParameter.Validation?.Required,
+                      required: outputParameter.validation?.required,
                     },
                   };
                 }),
@@ -122,33 +122,33 @@ export class PluginsController {
         status: 'success',
         data: {
           key: plugin.key,
-          title: plugin.definition.Title,
-          description: plugin.definition.Description,
+          title: plugin.definition.title,
+          description: plugin.definition.description,
           actions: map(plugin.actions, (action) => {
             return {
-              key: action.definition.Key,
-              title: action.definition.Title,
-              description: action.definition.Description,
-              type: action.definition.Type,
-              inputParameters: map(action.definition.InputParameters, (inputParameter) => {
+              key: action.definition.key,
+              title: action.definition.title,
+              description: action.definition.description,
+              type: action.definition.type,
+              inputParameters: map(action.definition.inputParameters, (inputParameter) => {
                 return {
-                  key: inputParameter.Key,
-                  title: inputParameter.Title,
-                  description: inputParameter.Description,
-                  type: inputParameter.Type,
+                  key: inputParameter.key,
+                  title: inputParameter.title,
+                  description: inputParameter.description,
+                  type: inputParameter.type,
                   validation: {
-                    required: inputParameter.Validation?.Required,
+                    required: inputParameter.validation?.required,
                   },
                 };
               }),
-              outputParameters: map(action.definition.OutputParameters, (outputParameter) => {
+              outputParameters: map(action.definition.outputParameters, (outputParameter) => {
                 return {
-                  key: outputParameter.Key,
-                  title: outputParameter.Title,
-                  description: outputParameter.Description,
-                  type: outputParameter.Type,
+                  key: outputParameter.key,
+                  title: outputParameter.title,
+                  description: outputParameter.description,
+                  type: outputParameter.type,
                   validation: {
-                    required: outputParameter.Validation?.Required,
+                    required: outputParameter.validation?.required,
                   },
                 };
               }),
@@ -185,29 +185,29 @@ export class PluginsController {
       return {
         status: 'success',
         data: {
-          key: action.definition.Key,
-          title: action.definition.Title,
-          description: action.definition.Description,
-          type: action.definition.Type,
-          inputParameters: map(action.definition.InputParameters, (inputParameter) => {
+          key: action.definition.key,
+          title: action.definition.title,
+          description: action.definition.description,
+          type: action.definition.type,
+          inputParameters: map(action.definition.inputParameters, (inputParameter) => {
             return {
-              key: inputParameter.Key,
-              title: inputParameter.Title,
-              description: inputParameter.Description,
-              type: inputParameter.Type,
+              key: inputParameter.key,
+              title: inputParameter.title,
+              description: inputParameter.description,
+              type: inputParameter.type,
               validation: {
-                required: inputParameter.Validation?.Required,
+                required: inputParameter.validation?.required,
               },
             };
           }),
-          outputParameters: map(action.definition.OutputParameters, (outputParameter) => {
+          outputParameters: map(action.definition.outputParameters, (outputParameter) => {
             return {
-              key: outputParameter.Key,
-              title: outputParameter.Title,
-              description: outputParameter.Description,
-              type: outputParameter.Type,
+              key: outputParameter.key,
+              title: outputParameter.title,
+              description: outputParameter.description,
+              type: outputParameter.type,
               validation: {
-                required: outputParameter.Validation?.Required,
+                required: outputParameter.validation?.required,
               },
             };
           }),

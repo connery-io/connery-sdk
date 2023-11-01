@@ -18,9 +18,9 @@ export function validateRequiredInputParameters(
   input: InputParametersObject,
 ): void {
   inputDefinitions.forEach((inputDefinition) => {
-    if (inputDefinition.Validation?.Required && !input[inputDefinition.Key]) {
+    if (inputDefinition.validation?.required && !input[inputDefinition.key]) {
       throw new Error(
-        `[Input validation error] Input parameter '${inputDefinition.Key}' is required, but the value is empty or not provided.`,
+        `[Input validation error] Input parameter '${inputDefinition.key}' is required, but the value is empty or not provided.`,
       );
     }
   });
@@ -32,17 +32,17 @@ export function validateInputParameterTypes(
   input: InputParametersObject,
 ): void {
   inputDefinitions.forEach((inputDefinition) => {
-    if (inputDefinition.Type !== typeof input[inputDefinition.Key]) {
+    if (inputDefinition.type !== typeof input[inputDefinition.key]) {
       // Ignore the validation if the input parameter is not required and the value is empty or not provided
-      if (!inputDefinition.Validation?.Required && typeof input[inputDefinition.Key] === 'undefined') {
+      if (!inputDefinition.validation?.required && typeof input[inputDefinition.key] === 'undefined') {
         return;
       } else {
         throw new Error(
           `[Input validation error] The input parameter '${
-            inputDefinition.Key
+            inputDefinition.key
           }' has incorrect type. The expected type is '${
-            inputDefinition.Type
-          }', but the actual value has the type '${typeof input[inputDefinition.Key]}'.`,
+            inputDefinition.type
+          }', but the actual value has the type '${typeof input[inputDefinition.key]}'.`,
         );
       }
     }
@@ -55,7 +55,7 @@ export function validateExtraInputParameters(
   input: InputParametersObject,
 ): void {
   Object.keys(input).forEach((inputKey) => {
-    if (!inputDefinitions.find((inputDefinition) => inputDefinition.Key === inputKey)) {
+    if (!inputDefinitions.find((inputDefinition) => inputDefinition.key === inputKey)) {
       throw new Error(`[Input validation error] Input parameter '${inputKey}' is not defined in the action schema.`);
     }
   });
@@ -71,9 +71,9 @@ export function validateRequiredOutputParameters(
   output: OutputParametersObject,
 ): void {
   outputDefinitions.forEach((outputDefinition) => {
-    if (outputDefinition.Validation?.Required && !output[outputDefinition.Key]) {
+    if (outputDefinition.validation?.required && !output[outputDefinition.key]) {
       throw new Error(
-        `[Output validation error] The action has been run. However, the output is not valid. The output parameter '${outputDefinition.Key}' is required, but the value is empty or not provided.`,
+        `[Output validation error] The action has been run. However, the output is not valid. The output parameter '${outputDefinition.key}' is required, but the value is empty or not provided.`,
       );
     }
   });
@@ -85,17 +85,17 @@ export function validateOutputParameterTypes(
   output: OutputParametersObject,
 ): void {
   outputDefinitions.forEach((outputDefinition) => {
-    if (outputDefinition.Type !== typeof output[outputDefinition.Key]) {
+    if (outputDefinition.type !== typeof output[outputDefinition.key]) {
       // Ignore the validation if the input parameter is not required and the value is empty or not provided
-      if (!outputDefinition.Validation?.Required && typeof output[outputDefinition.Key] === 'undefined') {
+      if (!outputDefinition.validation?.required && typeof output[outputDefinition.key] === 'undefined') {
         return;
       } else {
         throw new Error(
           `[Output validation error] The action has been run. However, the output is not valid. The output parameter '${
-            outputDefinition.Key
+            outputDefinition.key
           }' has an incorrect type. The expected type is '${
-            outputDefinition.Type
-          }', but the actual value has the type '${typeof output[outputDefinition.Key]}'.`,
+            outputDefinition.type
+          }', but the actual value has the type '${typeof output[outputDefinition.key]}'.`,
         );
       }
     }
@@ -108,7 +108,7 @@ export function validateExtraOutputParameters(
   output: OutputParametersObject,
 ): void {
   Object.keys(output).forEach((outputKey) => {
-    if (!outputDefinitions.find((outputDefinition) => outputDefinition.Key === outputKey)) {
+    if (!outputDefinitions.find((outputDefinition) => outputDefinition.key === outputKey)) {
       throw new Error(
         `[Output validation error] The action has been run. However, the output is not valid. The output parameter '${outputKey}' is not defined in the action schema.`,
       );
@@ -127,11 +127,11 @@ export function validateRequiredConfigurationParameters(
 ): void {
   configurationParametersDefinitions.forEach((configurationParameterDefinition) => {
     if (
-      configurationParameterDefinition.Validation?.Required &&
-      !configurationParameters[configurationParameterDefinition.Key]
+      configurationParameterDefinition.validation?.required &&
+      !configurationParameters[configurationParameterDefinition.key]
     ) {
       throw new Error(
-        `[Configuration parameters validation error] The configuration parameter '${configurationParameterDefinition.Key}' is required, but the value is empty or not provided.`,
+        `[Configuration parameters validation error] The configuration parameter '${configurationParameterDefinition.key}' is required, but the value is empty or not provided.`,
       );
     }
   });
@@ -144,21 +144,21 @@ export function validateConfigurationParameterTypes(
 ): void {
   configurationParametersDefinitions.forEach((configurationParameterDefinition) => {
     if (
-      configurationParameterDefinition.Type !== typeof configurationParameters[configurationParameterDefinition.Key]
+      configurationParameterDefinition.type !== typeof configurationParameters[configurationParameterDefinition.key]
     ) {
       if (
-        !configurationParameterDefinition.Validation?.Required &&
-        typeof configurationParameters[configurationParameterDefinition.Key] === 'undefined'
+        !configurationParameterDefinition.validation?.required &&
+        typeof configurationParameters[configurationParameterDefinition.key] === 'undefined'
       ) {
         return;
       } else {
         throw new Error(
           `[Configuration parameters validation error] The configuration parameter '${
-            configurationParameterDefinition.Key
+            configurationParameterDefinition.key
           }' has incorrect type. The expected type is '${
-            configurationParameterDefinition.Type
+            configurationParameterDefinition.type
           }', but the actual value has the type '${typeof configurationParameters[
-            configurationParameterDefinition.Key
+            configurationParameterDefinition.key
           ]}'.`,
         );
       }
@@ -174,7 +174,7 @@ export function validateExtraConfigurationParameters(
   Object.keys(configurationParameters).forEach((configurationParameterKey) => {
     if (
       !configurationParametersDefinitions.find(
-        (configurationParameterDefinition) => configurationParameterDefinition.Key === configurationParameterKey,
+        (configurationParameterDefinition) => configurationParameterDefinition.key === configurationParameterKey,
       )
     ) {
       throw new Error(

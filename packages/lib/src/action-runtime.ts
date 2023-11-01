@@ -30,14 +30,14 @@ export class ActionRuntime {
       output: {},
       used: {
         pluginKey: this._plugin.key,
-        actionKey: this._actionDefinition.Key,
+        actionKey: this._actionDefinition.key,
         inputParameters: trimmedInput,
       },
     };
 
     const actionContext = this.getActionContext(trimmedInput);
     try {
-      result.output = await this._actionDefinition.Operation.Handler(actionContext);
+      result.output = await this._actionDefinition.operation.handler(actionContext);
     } catch (error: any) {
       console.error(JSON.stringify(error));
       throw new Error(`[Action execution error] ${error.message}`);
@@ -49,13 +49,13 @@ export class ActionRuntime {
 
   private getActionContext(input: InputParametersObject): ActionContext {
     return {
-      InputParameters: input,
-      ConfigurationParameters: this._plugin.configurationParameters,
+      inputParameters: input,
+      configurationParameters: this._plugin.configurationParameters,
     };
   }
 
   private validateInput(input: InputParametersObject): void {
-    const inputDefinitions = this._actionDefinition.InputParameters;
+    const inputDefinitions = this._actionDefinition.inputParameters;
 
     validateRequiredInputParameters(inputDefinitions, input);
     validateInputParameterTypes(inputDefinitions, input);
@@ -63,7 +63,7 @@ export class ActionRuntime {
   }
 
   private validateOutput(output: OutputParametersObject): void {
-    const outputDefinitions = this._actionDefinition.OutputParameters;
+    const outputDefinitions = this._actionDefinition.outputParameters;
 
     validateRequiredOutputParameters(outputDefinitions, output);
     validateOutputParameterTypes(outputDefinitions, output);

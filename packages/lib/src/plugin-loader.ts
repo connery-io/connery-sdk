@@ -25,7 +25,7 @@ export class PluginLoader {
       throw new Error('Plugin loader is not initialized.');
     }
 
-    return this._pluginDefinition.ConfigurationParameters;
+    return this._pluginDefinition.configurationParameters;
   }
 
   // After loading the plugin, we can get the plugin runtime object.

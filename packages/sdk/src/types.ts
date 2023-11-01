@@ -3,63 +3,63 @@
 //
 
 export type PluginDefinition = {
-  Title: string;
-  Description?: string;
-  Actions: ActionDefinition[] | ((context: Context) => Promise<ActionDefinition[]>);
-  ConfigurationParameters: ConfigurationParameterDefinition[];
-  Maintainers: MaintainerDefinition[];
-  Connery: ConneryDefinition;
+  title: string;
+  description?: string;
+  actions: ActionDefinition[] | ((context: Context) => Promise<ActionDefinition[]>);
+  configurationParameters: ConfigurationParameterDefinition[];
+  maintainers: MaintainerDefinition[];
+  connery: ConneryDefinition;
 };
 
 export type ActionDefinition = {
-  Key: string;
-  Title: string;
-  Description?: string;
-  Type: 'create' | 'read' | 'update' | 'delete';
-  InputParameters: InputParameterDefinition[];
-  OutputParameters: OutputParameterDefinition[];
-  Operation: OperationDefinition;
+  key: string;
+  title: string;
+  description?: string;
+  type: 'create' | 'read' | 'update' | 'delete';
+  inputParameters: InputParameterDefinition[];
+  outputParameters: OutputParameterDefinition[];
+  operation: OperationDefinition;
 };
 
 export type InputParameterDefinition = {
-  Key: string;
-  Title: string;
-  Description?: string;
-  Type: 'string';
-  Validation?: ValidationDefinition;
+  key: string;
+  title: string;
+  description?: string;
+  type: 'string';
+  validation?: ValidationDefinition;
 };
 
 export type OutputParameterDefinition = {
-  Key: string;
-  Title: string;
-  Description?: string;
-  Type: 'string';
-  Validation?: ValidationDefinition;
+  key: string;
+  title: string;
+  description?: string;
+  type: 'string';
+  validation?: ValidationDefinition;
 };
 
 export type OperationDefinition = {
-  Handler: (context: ActionContext) => Promise<OutputParametersObject>;
+  handler: (context: ActionContext) => Promise<OutputParametersObject>;
 };
 
 export type ConfigurationParameterDefinition = {
-  Key: string;
-  Title: string;
-  Description?: string;
-  Type: 'string';
-  Validation?: ValidationDefinition;
+  key: string;
+  title: string;
+  description?: string;
+  type: 'string';
+  validation?: ValidationDefinition;
 };
 
 export type MaintainerDefinition = {
-  Name: string;
-  Email: string;
+  name: string;
+  email: string;
 };
 
 export type ConneryDefinition = {
-  RunnerVersion: '0';
+  runnerVersion: '0';
 };
 
 export type ValidationDefinition = {
-  Required?: boolean;
+  required?: boolean;
 };
 
 //
@@ -86,9 +86,9 @@ export type ConfigurationParametersObject = {
 };
 
 export type Context = {
-  ConfigurationParameters: ConfigurationParametersObject;
+  configurationParameters: ConfigurationParametersObject;
 };
 
 export type ActionContext = Context & {
-  InputParameters: InputParametersObject;
+  inputParameters: InputParametersObject;
 };

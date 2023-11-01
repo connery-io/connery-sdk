@@ -29,11 +29,11 @@ export async function collectConfigurationParameters(
   logEmptyLine();
 
   for (const param of configurationParameterDefinitions) {
-    result[param.Key] = await input({
-      message: styleQuestion(param.Title, param.Key),
+    result[param.key] = await input({
+      message: styleQuestion(param.title, param.key),
       transformer: styleAnswer,
       validate: (value: string) => {
-        if (param.Validation?.Required && value.trim() === '') {
+        if (param.validation?.required && value.trim() === '') {
           return styleError('Configuration parameter is required');
         }
         return true;
@@ -49,7 +49,7 @@ export async function collectConfigurationParameters(
 export async function collectActionKey(actionDefinitions: ActionDefinition[]): Promise<string> {
   const actionKey = await select({
     message: styleQuestion('What action do you want to run?'),
-    choices: actionDefinitions.map((action) => ({ name: action.Key, value: action.Key })),
+    choices: actionDefinitions.map((action) => ({ name: action.key, value: action.key })),
   });
   logEmptyLine();
 
@@ -65,11 +65,11 @@ export async function collectActionInputParameters(
   logEmptyLine();
 
   for (const param of inputParameterDefinitions) {
-    result[param.Key] = await input({
-      message: styleQuestion(param.Title, param.Key),
+    result[param.key] = await input({
+      message: styleQuestion(param.title, param.key),
       transformer: styleAnswer,
       validate: (value: string) => {
-        if (param.Validation?.Required && value.trim() === '') {
+        if (param.validation?.required && value.trim() === '') {
           return styleError('Input parameter is required');
         }
         return true;

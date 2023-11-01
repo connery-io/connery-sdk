@@ -76,7 +76,7 @@ export class OpenAiService implements ILlm {
     return {
       identified: true,
       pluginKey: action.plugin.key,
-      actionKey: action.definition.Key,
+      actionKey: action.definition.key,
       inputParameters,
       used: {
         prompt,
@@ -99,8 +99,8 @@ export class OpenAiService implements ILlm {
 
   private convertActionToJsonSchema(actionDefinition: ActionDefinition): ExposedAction {
     const exposedAction: ExposedAction = {
-      name: actionDefinition.Key,
-      description: actionDefinition.Description || actionDefinition.Title,
+      name: actionDefinition.key,
+      description: actionDefinition.description || actionDefinition.title,
       parameters: {
         type: 'object',
         properties: {},
@@ -108,10 +108,10 @@ export class OpenAiService implements ILlm {
       },
     };
 
-    for (const inputParameter of actionDefinition.InputParameters) {
-      exposedAction.parameters.properties[inputParameter.Key] = {
-        type: inputParameter.Type,
-        description: inputParameter.Description || inputParameter.Title,
+    for (const inputParameter of actionDefinition.inputParameters) {
+      exposedAction.parameters.properties[inputParameter.key] = {
+        type: inputParameter.type,
+        description: inputParameter.description || inputParameter.title,
       };
 
       // NOTE: The following code is commented out to let OpenAI classify the user prompt as a function call

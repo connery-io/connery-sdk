@@ -53,14 +53,14 @@ export default async function (
 
     // Collect action key if not provided
     if (!collectedData.actionKey) {
-      collectedData.actionKey = await collectActionKey(plugin.definition.Actions as ActionDefinition[]);
+      collectedData.actionKey = await collectActionKey(plugin.definition.actions as ActionDefinition[]);
     }
 
     const action = plugin.getAction(collectedData.actionKey);
 
     // Collect input parameters if not provided
-    if (Object.keys(collectedData.inputParameters).length === 0 && action.definition.InputParameters.length > 0) {
-      collectedData.inputParameters = await collectActionInputParameters(action.definition.InputParameters);
+    if (Object.keys(collectedData.inputParameters).length === 0 && action.definition.inputParameters.length > 0) {
+      collectedData.inputParameters = await collectActionInputParameters(action.definition.inputParameters);
     }
 
     // If a bare or incomplete CLI command was used to run the action, show a shortcut

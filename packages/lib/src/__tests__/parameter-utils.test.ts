@@ -26,8 +26,8 @@ import {
 describe('validateRequiredInputParameters()', () => {
   it('throws an error if a required input parameter is missing', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const input: InputParametersObject = { Age: '25' };
 
@@ -38,8 +38,8 @@ describe('validateRequiredInputParameters()', () => {
 
   it('throws an error if a required input parameter is empty string', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const input: InputParametersObject = { Name: '', Age: '25' };
 
@@ -50,8 +50,8 @@ describe('validateRequiredInputParameters()', () => {
 
   it('does not throw an error if all required input parameters are provided', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: true } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: true } },
     ];
     const input: InputParametersObject = { Name: 'John', Age: '25' };
 
@@ -60,8 +60,8 @@ describe('validateRequiredInputParameters()', () => {
 
   it('does not throw an error if a parameter is not required and is missing', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const input: InputParametersObject = { Age: '25' };
 
@@ -70,8 +70,8 @@ describe('validateRequiredInputParameters()', () => {
 
   it('does not throw an error if a parameter is not required and is empty string', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const input: InputParametersObject = { Name: '', Age: '25' };
 
@@ -80,8 +80,8 @@ describe('validateRequiredInputParameters()', () => {
 
   it('does not throw an error if all parameters are not requried and nothing is provided', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const input: InputParametersObject = {};
 
@@ -90,8 +90,8 @@ describe('validateRequiredInputParameters()', () => {
 
   it('does not throw an error if Required is not defined and the parameter is missing', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: {} },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: {} },
+      { key: 'Name', title: 'Name', type: 'string', validation: {} },
+      { key: 'Age', title: 'Age', type: 'string', validation: {} },
     ];
     const input: InputParametersObject = { Age: '25' };
 
@@ -100,8 +100,8 @@ describe('validateRequiredInputParameters()', () => {
 
   it('does not throw an error if Validation is not defined and the parameter is missing', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string' },
-      { Key: 'Age', Title: 'Age', Type: 'string' },
+      { key: 'Name', title: 'Name', type: 'string' },
+      { key: 'Age', title: 'Age', type: 'string' },
     ];
     const input: InputParametersObject = { Age: '25' };
 
@@ -117,8 +117,8 @@ describe('validateInputParameterTypes()', () => {
 
   it('does not throw an error if the input type matches the defined type', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: true } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: true } },
     ];
     const input: InputParametersObject = { Name: 'John', Age: '25' };
 
@@ -127,7 +127,7 @@ describe('validateInputParameterTypes()', () => {
 
   it('does not throw an error if the input parameter is not required and the value is empty', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
     ];
     const input: InputParametersObject = { Name: '' };
 
@@ -136,7 +136,7 @@ describe('validateInputParameterTypes()', () => {
 
   it('does not throw an error if the input parameter is not required and the value is not provided', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
     ];
     const input: InputParametersObject = {};
 
@@ -147,8 +147,8 @@ describe('validateInputParameterTypes()', () => {
 describe('validateExtraInputParameters()', () => {
   it('throws an error if there are extra input parameters that are not defined in the schema', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string' },
-      { Key: 'Age', Title: 'Age', Type: 'string' },
+      { key: 'Name', title: 'Name', type: 'string' },
+      { key: 'Age', title: 'Age', type: 'string' },
     ];
     const input: InputParametersObject = { Age: '25', Extra: 'extra' };
 
@@ -159,8 +159,8 @@ describe('validateExtraInputParameters()', () => {
 
   it('does not throw an error if there are no extra input parameters that are not defined in the schema', () => {
     const inputDefinitions: InputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string' },
-      { Key: 'Age', Title: 'Age', Type: 'string' },
+      { key: 'Name', title: 'Name', type: 'string' },
+      { key: 'Age', title: 'Age', type: 'string' },
     ];
     const input: InputParametersObject = { Age: '25' };
 
@@ -182,8 +182,8 @@ describe('validateExtraInputParameters()', () => {
 describe('validateRequiredOutputParameters()', () => {
   it('throws an error if a required output parameter is missing', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const output: OutputParametersObject = { Age: '25' };
 
@@ -194,8 +194,8 @@ describe('validateRequiredOutputParameters()', () => {
 
   it('throws an error if a required output parameter is empty string', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const output: OutputParametersObject = { Name: '', Age: '25' };
 
@@ -206,8 +206,8 @@ describe('validateRequiredOutputParameters()', () => {
 
   it('does not throw an error if all required output parameters are provided', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: true } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: true } },
     ];
     const output: OutputParametersObject = { Name: 'John', Age: '25' };
 
@@ -216,8 +216,8 @@ describe('validateRequiredOutputParameters()', () => {
 
   it('does not throw an error if a parameter is not required and is missing', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const output: OutputParametersObject = { Age: '25' };
 
@@ -226,8 +226,8 @@ describe('validateRequiredOutputParameters()', () => {
 
   it('does not throw an error if a parameter is not required and is empty string', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const output: OutputParametersObject = { Name: '', Age: '25' };
 
@@ -236,8 +236,8 @@ describe('validateRequiredOutputParameters()', () => {
 
   it('does not throw an error if all parameters are not requried and nothing is provided', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const output: OutputParametersObject = {};
 
@@ -246,8 +246,8 @@ describe('validateRequiredOutputParameters()', () => {
 
   it('does not throw an error if Required is not defined and the parameter is missing', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: {} },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: {} },
+      { key: 'Name', title: 'Name', type: 'string', validation: {} },
+      { key: 'Age', title: 'Age', type: 'string', validation: {} },
     ];
     const output: OutputParametersObject = { Age: '25' };
 
@@ -256,8 +256,8 @@ describe('validateRequiredOutputParameters()', () => {
 
   it('does not throw an error if Validation is not defined and the parameter is missing', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string' },
-      { Key: 'Age', Title: 'Age', Type: 'string' },
+      { key: 'Name', title: 'Name', type: 'string' },
+      { key: 'Age', title: 'Age', type: 'string' },
     ];
     const output: OutputParametersObject = { Age: '25' };
 
@@ -273,8 +273,8 @@ describe('validateOutputParameterTypes()', () => {
 
   it('does not throw an error if the output type matches the defined type', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: true } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: true } },
     ];
     const output: OutputParametersObject = { Name: 'John', Age: '25' };
 
@@ -283,7 +283,7 @@ describe('validateOutputParameterTypes()', () => {
 
   it('does not throw an error if the output parameter is not required and the value is empty', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
     ];
     const output: OutputParametersObject = { Name: '' };
 
@@ -292,7 +292,7 @@ describe('validateOutputParameterTypes()', () => {
 
   it('does not throw an error if the output parameter is not required and the value is not provided', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
     ];
     const output: OutputParametersObject = {};
 
@@ -303,8 +303,8 @@ describe('validateOutputParameterTypes()', () => {
 describe('validateExtraOutputParameters()', () => {
   it('throws an error if there are extra output parameters that are not defined in the schema', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string' },
-      { Key: 'Age', Title: 'Age', Type: 'string' },
+      { key: 'Name', title: 'Name', type: 'string' },
+      { key: 'Age', title: 'Age', type: 'string' },
     ];
     const output: OutputParametersObject = { Age: '25', Extra: 'extra' };
 
@@ -315,8 +315,8 @@ describe('validateExtraOutputParameters()', () => {
 
   it('does not throw an error if there are no extra output parameters that are not defined in the schema', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string' },
-      { Key: 'Age', Title: 'Age', Type: 'string' },
+      { key: 'Name', title: 'Name', type: 'string' },
+      { key: 'Age', title: 'Age', type: 'string' },
     ];
     const output: OutputParametersObject = { Age: '25' };
 
@@ -338,8 +338,8 @@ describe('validateExtraOutputParameters()', () => {
 describe('validateRequiredConfigurationParameters()', () => {
   it('throws an error if a required configuration parameter is missing', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const configuration: ConfigurationParametersObject = { Age: '25' };
 
@@ -350,8 +350,8 @@ describe('validateRequiredConfigurationParameters()', () => {
 
   it('throws an error if a required configuration parameter is empty string', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const configuration: ConfigurationParametersObject = { Name: '', Age: '25' };
 
@@ -362,8 +362,8 @@ describe('validateRequiredConfigurationParameters()', () => {
 
   it('does not throw an error if all required configuration parameters are provided', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: true } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: true } },
     ];
     const configuration: ConfigurationParametersObject = { Name: 'John', Age: '25' };
 
@@ -372,8 +372,8 @@ describe('validateRequiredConfigurationParameters()', () => {
 
   it('does not throw an error if a parameter is not required and is missing', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const configuration: ConfigurationParametersObject = { Age: '25' };
 
@@ -382,8 +382,8 @@ describe('validateRequiredConfigurationParameters()', () => {
 
   it('does not throw an error if a parameter is not required and is empty string', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const configuration: ConfigurationParametersObject = { Name: '', Age: '25' };
 
@@ -392,8 +392,8 @@ describe('validateRequiredConfigurationParameters()', () => {
 
   it('does not throw an error if all parameters are not requried and nothing is provided', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: false } },
     ];
     const configuration: ConfigurationParametersObject = {};
 
@@ -402,8 +402,8 @@ describe('validateRequiredConfigurationParameters()', () => {
 
   it('does not throw an error if Required is not defined and the parameter is missing', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: {} },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: {} },
+      { key: 'Name', title: 'Name', type: 'string', validation: {} },
+      { key: 'Age', title: 'Age', type: 'string', validation: {} },
     ];
     const configuration: ConfigurationParametersObject = { Age: '25' };
 
@@ -412,8 +412,8 @@ describe('validateRequiredConfigurationParameters()', () => {
 
   it('does not throw an error if Validation is not defined and the parameter is missing', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string' },
-      { Key: 'Age', Title: 'Age', Type: 'string' },
+      { key: 'Name', title: 'Name', type: 'string' },
+      { key: 'Age', title: 'Age', type: 'string' },
     ];
     const configuration: ConfigurationParametersObject = { Age: '25' };
 
@@ -429,8 +429,8 @@ describe('validateConfigurationParameterTypes()', () => {
 
   it('does not throw an error if the configuration type matches the defined type', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: true } },
-      { Key: 'Age', Title: 'Age', Type: 'string', Validation: { Required: true } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: true } },
+      { key: 'Age', title: 'Age', type: 'string', validation: { required: true } },
     ];
     const configuration: ConfigurationParametersObject = { Name: 'John', Age: '25' };
 
@@ -439,7 +439,7 @@ describe('validateConfigurationParameterTypes()', () => {
 
   it('does not throw an error if the configuration parameter is not required and the value is empty', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
     ];
     const configuration: ConfigurationParametersObject = { Name: '' };
 
@@ -448,7 +448,7 @@ describe('validateConfigurationParameterTypes()', () => {
 
   it('does not throw an error if the configuration parameter is not required and the value is not provided', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string', Validation: { Required: false } },
+      { key: 'Name', title: 'Name', type: 'string', validation: { required: false } },
     ];
     const configuration: ConfigurationParametersObject = {};
 
@@ -459,8 +459,8 @@ describe('validateConfigurationParameterTypes()', () => {
 describe('validateExtraConfigurationParameters()', () => {
   it('throws an error if there are extra configuration parameters that are not defined in the schema', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string' },
-      { Key: 'Age', Title: 'Age', Type: 'string' },
+      { key: 'Name', title: 'Name', type: 'string' },
+      { key: 'Age', title: 'Age', type: 'string' },
     ];
     const configuration: ConfigurationParametersObject = { Age: '25', Extra: 'extra' };
 
@@ -471,8 +471,8 @@ describe('validateExtraConfigurationParameters()', () => {
 
   it('does not throw an error if there are no extra configuration parameters that are not defined in the schema', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
-      { Key: 'Name', Title: 'Name', Type: 'string' },
-      { Key: 'Age', Title: 'Age', Type: 'string' },
+      { key: 'Name', title: 'Name', type: 'string' },
+      { key: 'Age', title: 'Age', type: 'string' },
     ];
     const configuration: ConfigurationParametersObject = { Age: '25' };
 

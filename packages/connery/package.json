@@ -17,7 +17,7 @@
     "tsup": "^7.1.0"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts",
+    "build": "tsc --noEmit && tsup src/index.ts --format esm --dts",
     "dev": "npm run build -- --watch",
     "test": "jest"
   }

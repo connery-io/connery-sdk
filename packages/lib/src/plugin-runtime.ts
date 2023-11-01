@@ -23,17 +23,17 @@ export class PluginRuntime {
     this._pluginDefinition = pluginDefinition;
 
     // Validate and save configuration parameters
-    validateRequiredConfigurationParameters(pluginDefinition.ConfigurationParameters, configurationParameters);
-    validateConfigurationParameterTypes(pluginDefinition.ConfigurationParameters, configurationParameters);
-    validateExtraConfigurationParameters(pluginDefinition.ConfigurationParameters, configurationParameters);
+    validateRequiredConfigurationParameters(pluginDefinition.configurationParameters, configurationParameters);
+    validateConfigurationParameterTypes(pluginDefinition.configurationParameters, configurationParameters);
+    validateExtraConfigurationParameters(pluginDefinition.configurationParameters, configurationParameters);
     this._configurationParameters = configurationParameters;
 
     // Resolve, validate, and save async actions
     const resolvedActionDefinitions = await this.resolveAndValidateActions(
-      pluginDefinition.Actions,
+      pluginDefinition.actions,
       configurationParameters,
     );
-    this._pluginDefinition.Actions = resolvedActionDefinitions;
+    this._pluginDefinition.actions = resolvedActionDefinitions;
 
     // Load actions to memory
     this._actions = resolvedActionDefinitions.map((actionDefinition) => new ActionRuntime(actionDefinition, this));
@@ -76,7 +76,7 @@ export class PluginRuntime {
       throw new Error('Plugin is not initialized.');
     }
 
-    const action = this._actions.find((action) => action.definition.Key === actionKey);
+    const action = this._actions.find((action) => action.definition.key === actionKey);
 
     if (!action) {
       throw new Error(`Action '${actionKey}' is not found in the '${this._pluginKey}' plugin.`);
@@ -93,7 +93,7 @@ export class PluginRuntime {
 
     if (typeof actions === 'function') {
       const context: Context = {
-        ConfigurationParameters: configurationParameters,
+        configurationParameters: configurationParameters,
       };
 
       // Resolve async actions
