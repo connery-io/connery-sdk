@@ -30,7 +30,7 @@ export class MemoryCacheService implements IPluginCache {
       await this.initialize();
     }
 
-    const plugin = find(this._plugins, { key: pluginKey });
+    const plugin = find(this._plugins, (action: PluginRuntime) => action.key === pluginKey);
 
     if (!plugin) {
       throw new Error(`The plugin '${pluginKey}' is not found on the runner.`);
@@ -56,7 +56,10 @@ export class MemoryCacheService implements IPluginCache {
       await this.initialize();
     }
 
-    const actions = filter(this._actions, { key: actionKey }) as ActionRuntime[];
+    const actions = filter(
+      this._actions,
+      (action: ActionRuntime) => action.definition.key === actionKey,
+    ) as ActionRuntime[];
 
     if (actions.length === 0) {
       throw new Error(`The action '${actionKey}' is not found on the runner.`);

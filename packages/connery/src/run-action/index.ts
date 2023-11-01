@@ -4,6 +4,7 @@ import {
   collectActionInputParameters,
   collectActionKey,
   collectConfigurationParameters,
+  showActionsLoadingMessage,
   showError,
   showResult,
   showShortcutCommand,
@@ -29,7 +30,7 @@ export default async function (
     // Add a line break after the command line arguments
     logEmptyLine();
 
-    const pluginLoader = new PluginLoader();
+    const pluginLoader = new PluginLoader('cli');
     try {
       await pluginLoader.init(fullPluginFilePath);
     } catch (error) {
@@ -48,6 +49,8 @@ export default async function (
     ) {
       collectedData.configurationParameters = await collectConfigurationParameters(configurationParameterDefinitions);
     }
+
+    showActionsLoadingMessage();
 
     const plugin = await pluginLoader.getPlugin('local', collectedData.configurationParameters);
 

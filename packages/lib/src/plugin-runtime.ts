@@ -22,13 +22,32 @@ export class PluginRuntime {
     this._pluginKey = pluginKey;
     this._pluginDefinition = pluginDefinition;
 
+    console.log(
+      JSON.stringify({
+        type: 'system',
+        message: `Plugin initialization started for plugin '${this._pluginKey}'.`,
+      }),
+    );
+
     // Validate and save configuration parameters
     validateRequiredConfigurationParameters(pluginDefinition.configurationParameters, configurationParameters);
     validateConfigurationParameterTypes(pluginDefinition.configurationParameters, configurationParameters);
     validateExtraConfigurationParameters(pluginDefinition.configurationParameters, configurationParameters);
     this._configurationParameters = configurationParameters;
+    console.log(
+      JSON.stringify({
+        type: 'system',
+        message: `Provided configuration parameters for plugin '${this._pluginKey}' are valid.`,
+      }),
+    );
 
     // Resolve, validate, and save async actions
+    console.log(
+      JSON.stringify({
+        type: 'system',
+        message: `Start resolving actions for plugin '${this._pluginKey}'.`,
+      }),
+    );
     const resolvedActionDefinitions = await this.resolveAndValidateActions(
       pluginDefinition.actions,
       configurationParameters,
@@ -37,6 +56,18 @@ export class PluginRuntime {
 
     // Load actions to memory
     this._actions = resolvedActionDefinitions.map((actionDefinition) => new ActionRuntime(actionDefinition, this));
+    console.log(
+      JSON.stringify({
+        type: 'system',
+        message: `All ations are successfully resolved and loaded to memory for the plugin '${this._pluginKey}'.`,
+      }),
+    );
+    console.log(
+      JSON.stringify({
+        type: 'system',
+        message: `Plugin initialization succesfully finished for plugin '${this._pluginKey}'.`,
+      }),
+    );
   }
 
   get key(): string {

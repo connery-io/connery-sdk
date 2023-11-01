@@ -46,6 +46,11 @@ export async function collectConfigurationParameters(
   return result;
 }
 
+export function showActionsLoadingMessage(): void {
+  logInfo('Loading actions...');
+  logEmptyLine();
+}
+
 export async function collectActionKey(actionDefinitions: ActionDefinition[]): Promise<string> {
   const actionKey = await select({
     message: styleQuestion('What action do you want to run?'),

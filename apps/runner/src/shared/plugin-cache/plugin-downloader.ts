@@ -59,7 +59,7 @@ export class PluginDownloader {
       await git.clone(this.pluginRepositoryUrl, this.pluginFolderPath, ['--depth', '1', '--branch', this._repoBranch]);
 
       console.log(
-        JSON.stringify({ type: 'system', message: `Plugin '${this._installedPluginConfig.Key}' downloaded` }),
+        JSON.stringify({ type: 'system', message: `Plugin '${this._installedPluginConfig.Key}' downloaded.` }),
       );
     } catch (error: any) {
       if (error.message.includes('already exists')) {
@@ -67,7 +67,7 @@ export class PluginDownloader {
         console.log(
           JSON.stringify({
             type: 'system',
-            message: `Plugin '${this._installedPluginConfig.Key}' is already exist in cache`,
+            message: `Plugin '${this._installedPluginConfig.Key}' is already exist in cache.`,
           }),
         );
       } else {

@@ -6,11 +6,27 @@ import { PluginFileNotFoundError } from '.';
 // This class is used to load a plugin from file to memory and provide the plugin runtime object.
 export class PluginLoader {
   private _pluginDefinition: PluginDefinition | null = null;
+  constructor(private _caller: 'runner' | 'cli' = 'runner') {}
 
   async init(pluginFilePath: string): Promise<void> {
+    console.log(
+      JSON.stringify({
+        type: 'system',
+        message: `Plugin loader started initialization for ${pluginFilePath}.`,
+      }),
+    );
+
     // Read plugin definition
     await this.fileExists(pluginFilePath);
-    const pluginDefinition = await this.getPluginDefinition(pluginFilePath);
+
+    // Temprary solution
+    // TODO: Consolidate the plugin loader for the CLI and the runner
+    let pluginDefinition;
+    if (this._caller === 'runner') {
+      pluginDefinition = await this.getPluginDefinitionWithRequire(pluginFilePath);
+    } else {
+      pluginDefinition = await this.getPluginDefinitionWithImport(pluginFilePath);
+    }
 
     // We do not resolve async functions in plugin definition here becasue we don't have the configuration parameters yet,
     // so we validate the plugin definition without resolving async functions.
@@ -18,6 +34,13 @@ export class PluginLoader {
 
     // Save plugin definition to memory
     this._pluginDefinition = pluginDefinition;
+
+    console.log(
+      JSON.stringify({
+        type: 'system',
+        message: `Plugin loader finished initialization for ${pluginFilePath}.`,
+      }),
+    );
   }
 
   get configurationParameterDefinitions(): ConfigurationParameterDefinition[] {
@@ -40,7 +63,15 @@ export class PluginLoader {
     return pluginRuntime;
   }
 
-  private async getPluginDefinition(pluginFilePath: string): Promise<PluginDefinition> {
+  private async getPluginDefinitionWithRequire(pluginFilePath: string): Promise<PluginDefinition> {
+    // clear require cache for hot reloading
+    delete require.cache[pluginFilePath];
+    const importedModule = require(pluginFilePath);
+    const plugin = importedModule.default as PluginDefinition;
+    return plugin;
+  }
+
+  private async getPluginDefinitionWithImport(pluginFilePath: string): Promise<PluginDefinition> {
     const importedModule = await import(pluginFilePath);
     const plugin = importedModule.default.default as PluginDefinition;
     return plugin;

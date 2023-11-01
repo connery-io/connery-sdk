@@ -29,7 +29,7 @@ export class OpenAiService implements ILlm {
   async identifyAction(prompt: string): Promise<ActionIdentifiedOutput | ActionNotIdentifiedOutput> {
     // TODO implement
 
-    console.log(JSON.stringify({ type: 'user_prompt_received', data: { prompt: prompt } }));
+    console.log(JSON.stringify({ type: 'system', message: `Identifying action for prompt: '${prompt}'` }));
 
     const runnerConfig = this.config.getRunnerConfig();
     if (!runnerConfig.OpenAiApiKey) {
@@ -52,6 +52,8 @@ export class OpenAiService implements ILlm {
 
     const functionCall = result.additional_kwargs?.function_call;
     if (!functionCall) {
+      console.error(JSON.stringify({ type: 'error', message: 'Function call is not found in the result.' }));
+
       return {
         identified: false,
         used: {
@@ -59,11 +61,24 @@ export class OpenAiService implements ILlm {
         },
       };
     }
+
+    console.log(
+      JSON.stringify({ type: 'system', message: `Identified function call: ${JSON.stringify(functionCall)}` }),
+    );
 
     let action;
     try {
       action = await this.pluginCache.getAction(functionCall.name);
-    } catch (error) {
+
+      console.log(
+        JSON.stringify({
+          type: 'system',
+          message: `Identified action '${action.definition.key}' found in the plugin ${action.plugin.key}`,
+        }),
+      );
+    } catch (error: any) {
+      console.error(JSON.stringify({ type: 'error', message: error.message, stack: error.stack }));
+
       return {
         identified: false,
         used: {
@@ -72,7 +87,6 @@ export class OpenAiService implements ILlm {
       };
     }
 
-    // TODO: Handle the case when the required parameters are not provided for the action
     const inputParameters: InputParametersObject = JSON.parse(functionCall.arguments);
 
     return {
