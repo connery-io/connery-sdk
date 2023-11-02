@@ -17,7 +17,7 @@ export async function collectUserInput(): Promise<InitRepositoryParameters> {
       },
     }),
     pluginDescription: await input({
-      message: styleQuestion('What is the plugin description?'),
+      message: styleQuestion('What is the plugin description?', '(optional)'),
       transformer: styleAnswer,
     }),
     authorName: await input({

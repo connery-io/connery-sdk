@@ -11,7 +11,7 @@ export default async function () {
     await removeFile(`${process.cwd()}/.gitignore`);
     await removeFile(`${process.cwd()}/LICENSE`);
 
-    initRepository(userInput);
+    await initRepository(userInput);
 
     showSuccessMessage();
   } catch (error: any) {

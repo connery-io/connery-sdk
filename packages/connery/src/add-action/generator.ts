@@ -1,50 +1,80 @@
 // @ts-ignore: Suppresses TS1479
 import nodePlop from 'node-plop';
+import { AddActionParameters } from './types.js';
 
-import actionTemplate from './templates/action.js.js';
-import actionTestTemplate from './templates/action.test.js.js';
-
-export type AddActionParameters = {
-  key: string;
-  title: string;
-  description: string;
-  type: string;
-};
+import actionTemplate from './templates/action.ts';
+import actionTestTemplate from './templates/action.test.ts';
 
 export async function addAction(parameters: AddActionParameters) {
   const plot = await nodePlop('');
   const generatorName = 'add-action';
 
-  plot.setGenerator('add-action', {
+  plot.setGenerator(generatorName, {
     description: 'Add action',
     actions: [
       {
         type: 'add',
-        path: 'actions/{{key}}.js',
+        path: 'src/actions/{{key}}.ts',
         template: actionTemplate,
       },
       {
         type: 'add',
-        path: 'tests/actions/{{key}}.test.js',
+        path: 'test/actions/{{key}}.test.ts',
         template: actionTestTemplate,
       },
       {
-        type: 'modify',
-        path: 'index.js',
-        pattern: /(^.*)/m, // Import the new action and att it to the first line of the file
-        template: 'const {{key}} = require("./actions/{{key}}");\n$1',
+        type: 'modify', // Import the new action in the index.ts file
+        path: 'src/index.ts',
+        transform: (fileContents, answers) => {
+          const sdkImport = "import { PluginDefinition } from '@connery-io/sdk';\n";
+          const newImport = `import ${answers.key} from './actions/${answers.key}';\n`;
+
+          // Check if the import statement already exists to prevent duplicates
+          if (fileContents.includes(newImport.trim())) {
+            return fileContents; // If it exists, return the file contents unmodified
+          }
+
+          // Replace the sdkImport line with itself followed by the new import line
+          return fileContents.replace(sdkImport, sdkImport + newImport);
+        },
       },
       {
-        type: 'append',
-        path: 'index.js',
-        pattern: /(actions:\s*\[)/g, // Add the new action to the beginning of the actions array
-        template: '\t\t{{key}},',
+        type: 'modify', // Add the new action to the actions array
+        path: 'src/index.ts',
+        transform: (fileContents, answers) => {
+          // Define the newItem to be added
+          const newItem = answers.key;
+          // Define a RegExp pattern to match the actions array
+          const actionsPattern = /actions:\s*\[\s*([^]*?)\s*\]/gm;
+
+          // Replace the content by using String.replace with a callback function
+          return fileContents.replace(actionsPattern, (match, actionContent) => {
+            // Check if 'newItem' already exists to prevent duplicates
+            if (actionContent.includes(newItem)) {
+              return match; // If it exists, return the original match
+            }
+
+            // Determine if the action array is multiline based on the match
+            const isMultiline = match.trim().endsWith('],');
+
+            // Prepare the formatted new action string
+            const newActionFormatted = isMultiline ? `  ${newItem},\n` : `${newItem}, `;
+
+            // Insert 'newItem' at the beginning of the actionContent
+            // Preserve formatting by including new lines and spaces if multiline
+            if (isMultiline) {
+              return match.replace(/\[\s*/, `[\n  ${newActionFormatted}`);
+            } else {
+              return match.replace(/\[\s*/, `[${newActionFormatted}`);
+            }
+          });
+        },
       },
       {
         type: 'modify',
         path: 'README.md',
         pattern: /(Description\s*\|\s*.*?\|(\r?\n))/g, // Add the new action to the beginning of the table
-        template: '$1| [{{title}}](/actions/{{key}}.js) | {{description}} |\n',
+        template: '$1| [{{title}}](/src/actions/{{key}}.ts) | {{description}} |\n',
       },
     ],
   });
