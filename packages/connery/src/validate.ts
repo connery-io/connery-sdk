@@ -7,6 +7,9 @@ export default async function (): Promise<void> {
     logInfo(`🔎 Validating plugin definition in '${fullPluginFilePath}' file...`);
 
     // Init the plugin. It will load the plugin definition to memory and validate it.
+    // NOTE: If the 'actions' property is defined as a function, the function will not be executed,
+    // so the definition of actions will not be validated at this point. It will be validated later when
+    // the plugin is initialized.
     const pluginLoader = new PluginLoader('cli');
     try {
       await pluginLoader.init(fullPluginFilePath);

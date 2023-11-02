@@ -1,4 +1,4 @@
-const content = `name: Build connector
+export default `name: Build plugin
 
 on:
   push:
@@ -6,11 +6,11 @@ on:
       - main
 
 concurrency:
-  group: build-connector
+  group: build-plugin
 
 jobs:
-  build-connector:
-    name: Build connector
+  build-plugin:
+    name: Build plugin
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,13 +19,13 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: '18'
 
       - name: Install dependencies
         shell: bash
         run: npm install
 
-      - name: Build connector
+      - name: Build plugin
         shell: bash
         run: npm run build
 
@@ -36,5 +36,3 @@ jobs:
           git commit -m "Update dist" || echo "No changes to commit"
           git push origin main
 `;
-
-export default content;

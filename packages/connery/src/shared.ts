@@ -8,6 +8,9 @@ const infoColor = '#000000';
 const tipColor = '#dedede';
 const additionalDataColor = 'eeeeee';
 
+export const pluginFilePath = `/dist/plugin.js`;
+export const fullPluginFilePath = `${process.cwd()}${pluginFilePath}`;
+
 export function styleQuestion(question: string, description?: string) {
   const styleQuestion = chalk.reset.hex(questionColor).bold(question);
 
@@ -60,6 +63,3 @@ export function logErrorBody(message: string) {
 export function logEmptyLine() {
   console.log('');
 }
-
-export const pluginFilePath = `/dist/plugin.js`;
-export const fullPluginFilePath = `${process.cwd()}${pluginFilePath}`;

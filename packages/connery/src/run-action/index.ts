@@ -51,7 +51,9 @@ export default async function (
       collectedData.configurationParameters = await collectConfigurationParameters(configurationParameterDefinitions);
     }
 
-    showActionsLoadingMessage();
+    if (!collectedData.actionKey) {
+      showActionsLoadingMessage();
+    }
     const plugin = await pluginLoader.getPlugin('local', collectedData.configurationParameters);
 
     // Collect action key if not provided

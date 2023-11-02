@@ -110,9 +110,8 @@ export function showShortcutCommand(
   logTip(
     'SHORTCUT: Next time you need to run the same action with the same parameters, you can use the following command:',
   );
-  logEmptyLine();
   logTip(
-    `npx connery@latest run-action ${actionKey} --configuration-parameters '${configurationParametersJson}' --input-parameters '${inputParametersJson}'`,
+    `npx connery@latest dev run-action ${actionKey} --configuration-parameters '${configurationParametersJson}' --input-parameters '${inputParametersJson}'`,
   );
   logEmptyLine();
 }
