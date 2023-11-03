@@ -89,9 +89,9 @@ You should receive a successful response with the list of installed connectors a
 By default, the [connery-io/connery-runner-administration](https://github.com/connery-io/connery-runner-administration) connector is preinstalled on the runner.
 :::
 
-### Run action using natural language
+### Identify action using natural language
 
-Here is an example of using Natural Language Actions API to run the `RefreshConnectorsCache` action from the `connery-io/connery-runner-administration` connector.
+Here is an example of using Natural Language Actions API to identify action based on the natural language request.
 
 :::info
 The `OPENAI_API_KEY` is required for the Natural Language Actions feature to work.
@@ -99,7 +99,7 @@ If you configure it just now, you must restart the runner to apply the changes.
 :::
 
 ```
-curl '<PUBLIC_RUNNER_URL>actions/run' \
+curl '<PUBLIC_RUNNER_URL>actions/identify' \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
 -d '{
@@ -107,7 +107,8 @@ curl '<PUBLIC_RUNNER_URL>actions/run' \
 }' | jq .
 ```
 
-You should receive a natural language response from the runner.
+You should receive a response from the runner with the identified action, its connector, and the list of input parameters.
+Once the action is identified, you can run it using the API call from the next step.
 
 ### Run action using API
 
