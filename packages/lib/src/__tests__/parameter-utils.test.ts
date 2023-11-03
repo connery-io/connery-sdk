@@ -98,12 +98,12 @@ describe('validateRequiredInputParameters()', () => {
     expect(() => validateRequiredInputParameters(inputDefinitions, input)).not.toThrow();
   });
 
-  it('does not throw an error if Validation is not defined and the parameter is missing', () => {
+  it('does not throw an error if Validation is not defined and the parameter is missing or empty', () => {
     const inputDefinitions: InputParameterDefinition[] = [
       { key: 'Name', title: 'Name', type: 'string' },
       { key: 'Age', title: 'Age', type: 'string' },
     ];
-    const input: InputParametersObject = { Age: '25' };
+    const input: InputParametersObject = { Age: '' };
 
     expect(() => validateRequiredInputParameters(inputDefinitions, input)).not.toThrow();
   });
@@ -254,12 +254,12 @@ describe('validateRequiredOutputParameters()', () => {
     expect(() => validateRequiredOutputParameters(outputDefinitions, output)).not.toThrow();
   });
 
-  it('does not throw an error if Validation is not defined and the parameter is missing', () => {
+  it('does not throw an error if Validation is not defined and the parameter is missing or empty', () => {
     const outputDefinitions: OutputParameterDefinition[] = [
       { key: 'Name', title: 'Name', type: 'string' },
       { key: 'Age', title: 'Age', type: 'string' },
     ];
-    const output: OutputParametersObject = { Age: '25' };
+    const output: OutputParametersObject = { Age: '' };
 
     expect(() => validateRequiredOutputParameters(outputDefinitions, output)).not.toThrow();
   });
@@ -410,12 +410,12 @@ describe('validateRequiredConfigurationParameters()', () => {
     expect(() => validateRequiredConfigurationParameters(configurationDefinitions, configuration)).not.toThrow();
   });
 
-  it('does not throw an error if Validation is not defined and the parameter is missing', () => {
+  it('does not throw an error if Validation is not defined and the parameter is missing or empty', () => {
     const configurationDefinitions: ConfigurationParameterDefinition[] = [
       { key: 'Name', title: 'Name', type: 'string' },
       { key: 'Age', title: 'Age', type: 'string' },
     ];
-    const configuration: ConfigurationParametersObject = { Age: '25' };
+    const configuration: ConfigurationParametersObject = { Age: '' };
 
     expect(() => validateRequiredConfigurationParameters(configurationDefinitions, configuration)).not.toThrow();
   });
