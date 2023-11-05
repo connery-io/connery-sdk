@@ -25,7 +25,7 @@ export async function collectConfigurationParameters(
 ): Promise<ConfigurationParametersObject> {
   const result: ConfigurationParametersObject = {};
 
-  logQuestionSectionTitle('Specify configuration parameters for the connector');
+  logQuestionSectionTitle('Specify configuration parameters for the plugin');
   logEmptyLine();
 
   for (const param of configurationParameterDefinitions) {

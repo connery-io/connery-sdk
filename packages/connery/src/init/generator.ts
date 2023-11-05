@@ -24,7 +24,7 @@ export async function initRepository(parameters: InitRepositoryParameters) {
     actions: [
       {
         type: 'add',
-        path: '.github/workflows/build-connector.yml',
+        path: '.github/workflows/build-plugin.yml',
         template: buildPluginTemplate,
       },
       {
