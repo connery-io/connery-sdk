@@ -12,37 +12,37 @@ Here, you will learn how to install a plugin on the runner.
 
 Open the runner configuration file `./apps/runner/connery-runner.config.ts` in the codespace.
 
-Among the other configuration parameters, you can see the `InstalledPlugins` section.
-`InstalledPlugins` is an array of plugin configurations already containing one plugin: `connery-io/connery-runner-administration@main`.
+Among the other configuration parameters, you can see the `installedPlugins` section.
+`installedPlugins` is an array of plugin configurations already containing one plugin: `connery-io/connery-runner-administration@main`.
 This plugin is used to manage the runner, and it's preinstalled on the runner by default.
 
 ```ts
 ...
-InstalledPlugins: [
+installedPlugins: [
   {
-    Key: 'connery-io/connery-runner-administration@main',
-    ConfigurationParameters: {
-      RunenrUrl: 'http://localhost:4201',
-      RunnerApiKey: process.env.CONNERY_RUNNER_API_KEY,
+    key: 'connery-io/connery-runner-administration@main',
+    configurationParameters: {
+      runenrUrl: 'http://localhost:4201',
+      runnerApiKey: process.env.CONNERY_RUNNER_API_KEY,
     },
   },
 ],
 ...
 ```
 
-Every plugin configuration has the `Key` and `ConfigurationParameters` properties.
+Every plugin configuration has the `key` and `configurationParameters` properties.
 
-The `Key` is a unique plugin identifier with the following format: `owner/repository@branch`.
+The `key` is a unique plugin identifier with the following format: `owner/repository@branch`.
 As you can see, it directly relates to the GitHub repository where the plugin is stored.
 For example, the `connery-io/connery-runner-administration@main` plugin is stored
 in the https://github.com/connery-io/connery-runner-administration GitHub repository and uses the code from the `main` branch.
 The branch is used for versioning and can be replaced with a tag.
 
-The `ConfigurationParameters` is a flat key-value object containing the plugin's configuration parameters.
+The `configurationParameters` is a flat key-value object containing the plugin's configuration parameters.
 Configuration parameters are specific for each plugin; you can find them in the plugin definition file in the related GitHub repository.
 For example, the `connery-io/connery-runner-administration@main` plugin has the configuration parameters
-defined in the `configurationParameters` section of its definition file [index.js](https://github.com/connery-io/connery-runner-administration/blob/main/index.js) in the root of the GitHub repository.
-The definition file shows that both `RunenrUrl` and `RunnerApiKey` configuration parameters are required, so they must be provided in the plugin configuration.
+defined in the `configurationParameters` section of its definition file [index.ts](https://github.com/connery-io/connery-runner-administration/blob/main/src/index.ts) in the root of the GitHub repository.
+The definition file shows that both `runenrUrl` and `runnerApiKey` configuration parameters are required, so they must be provided in the plugin configuration.
 
 The actions of this plugin use the configuration parameters to perform their tasks.
 
@@ -61,26 +61,26 @@ For example, for the `connery-io/gmail` plugin, the latest version is `v1.0.0` o
 We will use this version in the example below.
 :::
 
-First, we need to check the plugin definition file [index.js](https://github.com/connery-io/gmail/blob/main/index.js) and find the configuration parameters we need to provide.
+First, we need to check the plugin definition file [index.ts](https://github.com/connery-io/gmail/blob/main/src/index.ts) and find the configuration parameters we need to provide.
 Based on the definition file, the configuration parameters are:
 
-- `GmailEmailAddress` (required)
-- `GmailAppPassword` (required)
-- `SenderName` (optional)
+- `gmailEmailAddress` (required)
+- `gmailAppPassword` (required)
+- `senderName` (optional)
 
-So let's add the plugin configuration to the end of the `InstalledPlugins` array in the runner configuration file like the following:
+So let's add the plugin configuration to the end of the `installedPlugins` array in the runner configuration file like the following:
 
 ```ts
 ...
-InstalledPlugins: [
+installedPlugins: [
   ...
   {
-    Key: 'connery-io/gmail@v1.0.0', // NOTE: We use the tagged version v1.0.0 here. However, you can use any other available tagged version or the branch name here.
-    ConfigurationParameters:
+    key: 'connery-io/gmail@v1.0.0', // NOTE: We use the tagged version v1.0.0 here. However, you can use any other available tagged version or the branch name here.
+    configurationParameters:
     {
-      GmailEmailAddress: '<GMAIL_EMAIL_ADRESS>',
-      GmailAppPassword: '<GMAIL_APP_PASSWORD>',
-      SenderName: '<SENDER_NAME>'
+      gmailEmailAddress: '<GMAIL_EMAIL_ADRESS>',
+      gmailAppPassword: '<GMAIL_APP_PASSWORD>',
+      senderName: '<SENDER_NAME>'
     }
   }
 ],
