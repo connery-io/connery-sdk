@@ -21,7 +21,7 @@ echo $PAT | docker login ghcr.io -u $USERNAME --password-stdin
 
 # Build and push Docker image
 echo "Building and pushing Docker image..."
-docker buildx build --file ./.devcontainer/Dockerfile --tag ghcr.io/connery-io/connery-platform/dev-container:latest --platform linux/amd64,linux/arm64 --push .
+docker buildx build --file ./.devcontainer/Dockerfile --tag ghcr.io/connery-io/connery/dev-container:latest --platform linux/amd64,linux/arm64 --push .
 
 # Log out from GitHub Packages
 docker logout ghcr.io
