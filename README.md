@@ -1,12 +1,12 @@
 # Open-source plugin ecosystem for AI and No-code
 
-[![Release](https://img.shields.io/github/v/release/connery-io/connery?color=74C649&label=Release)](https://github.com/connery-io/connery/releases)
-[![License](https://img.shields.io/github/license/connery-io/connery?color=74C649&label=License)](https://github.com/connery-io/connery/blob/main/LICENSE)
-[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery?quickstart=1)
-[![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
+[![Release](https://img.shields.io/github/v/release/connery-io/connery-platform?color=74C649&label=Release)](https://github.com/connery-io/connery-platform/releases)
+[![License](https://img.shields.io/github/license/connery-io/connery-platform?color=74C649&label=License)](https://github.com/connery-io/connery-platform/blob/main/LICENSE)
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery-platform?quickstart=1)
+[![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery-platform)
 
 <br/>
-<img alt="Connery overview diagram" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/connery-overview-diagram.svg">
+<img alt="Connery overview diagram" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/connery-overview-diagram.svg">
 
 ## 🤔 What is this?
 
@@ -52,7 +52,7 @@ by the runner and lets the end users use plugins without technical knowledge.
 
 Let's consider a real example from one of our customers.
 
-<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
+<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
 **Problem**
 
@@ -78,8 +78,8 @@ This setup enabled the customer to use the plugin from multiple platforms using 
 
 | Client                                                              | Use case                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Slack&nbsp;App](https://docs.connery.io/docs/native-clients/slack) | Manual scaling directly from Slack channel using natural language. See the demo on the GIF above.                                                                                                                                                                                               |
-| [Make&nbsp;App](https://docs.connery.io/docs/native-clients/make)   | Automation scenarios for: <br><br> 1. automatic scaling based on the input from other services connected to Make, like Google Sheets with the related data; <br> 2. scheduled scaling based on the time of the day and day of the week. <br><br> Everything is managed by non-technical people. |
+| [Slack&nbsp;App](https://docs.connery.io/docs/clients/native/slack) | Manual scaling directly from Slack channel using natural language. See the demo on the GIF above.                                                                                                                                                                                               |
+| [Make&nbsp;App](https://docs.connery.io/docs/clients/native/make)   | Automation scenarios for: <br><br> 1. automatic scaling based on the input from other services connected to Make, like Google Sheets with the related data; <br> 2. scheduled scaling based on the time of the day and day of the week. <br><br> Everything is managed by non-technical people. |
 
 The most beautiful thing is that once the plugin is implemented by the developer and hosted on the runner,
 non-technical people can easily use it from any platform that covers their needs.
@@ -91,13 +91,13 @@ check the Ecosystem section below to learn more.
 
 Please **give the repository a star** to support the project and stay up-to-date with the latest news.
 
-<a href="https://github.com/connery-io/connery">
-   <img src="https://raw.githubusercontent.com/connery-io/connery/main/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
+<a href="https://github.com/connery-io/connery-platform">
+   <img src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
 </a>
 
 ## 🚀 Quickstart
 
-Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to get started with Connery.
+Check out the [Quickstart](https://docs.connery.io/docs/platform/quick-start/) guide to get started with Connery.
 
 ## ✨ Features
 
@@ -112,7 +112,7 @@ Check out the [Quickstart](https://docs.connery.io/docs/quick-start/) guide to g
 | Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.                                                       |
 | Multi-Platform Plugins         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                              |
 
-Find more information about features on the [Features and roadmap](https://docs.connery.io/docs/introduction/features) page in the documentation.
+Find more information about features on the [Features and roadmap](https://docs.connery.io/docs/platform/introduction/features) page in the documentation.
 
 ## 🌳 Ecosystem
 
@@ -123,9 +123,10 @@ Our vision is to build a marketplace where you can find open-source plugins and 
 
 Below are manually curated lists of plugins and clients available for Connery.
 
-- [Plugins](https://docs.connery.io/docs/plugins)
-- [Native Clients](https://docs.connery.io/docs/native-clients/)
-- [Community Clients](https://docs.connery.io/docs/community-clients)
+- [Native plugins](https://docs.connery.io/docs/plugins/native)
+- [Community plugins](https://docs.connery.io/docs/plugins/community)
+- [Native clients](https://docs.connery.io/docs/clients/native)
+- [Community clients](https://docs.connery.io/docs/clients/community)
 
 To add your plugin or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
 
@@ -139,8 +140,8 @@ Connery is still in beta, so not everything will be perfect yet. Please let us k
 
 You can reach us via the following channels:
 
-- [Discussions](https://github.com/connery-io/connery/discussions) - for feedback, questions, and discussions.
-- [Issues](https://github.com/connery-io/connery/issues) - for bug reports and feature requests.
+- [Discussions](https://github.com/connery-io/connery-platform/discussions) - for feedback, questions, and discussions.
+- [Issues](https://github.com/connery-io/connery-platform/issues) - for bug reports and feature requests.
 - [Twitter](https://twitter.com/connery_io) - for updates and announcements.
 
 ## 👨‍💻 Contributing
