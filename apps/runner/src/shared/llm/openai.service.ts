@@ -32,12 +32,12 @@ export class OpenAiService implements ILlm {
     console.log(JSON.stringify({ type: 'system', message: `Identifying action for prompt: '${prompt}'` }));
 
     const runnerConfig = this.config.getRunnerConfig();
-    if (!runnerConfig.OpenAiApiKey) {
+    if (!runnerConfig.openAiApiKey) {
       throw new Error('The OPENAI_API_KEY is not configured on the runner.');
     }
 
     const chat = new ChatOpenAI({
-      openAIApiKey: runnerConfig.OpenAiApiKey,
+      openAIApiKey: runnerConfig.openAiApiKey,
       modelName: 'gpt-3.5-turbo-0613',
     }).bind({
       functions: await this.getExposedActionsJsonSchema(),

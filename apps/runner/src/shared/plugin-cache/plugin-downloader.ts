@@ -10,7 +10,7 @@ export class PluginDownloader {
   private _plugin: PluginRuntime | undefined;
 
   constructor(private _installedPluginConfig: InstalledPluginConfig, private _gitHubPat: string) {
-    const { repoOwner, repoName, repoBranch } = this.parsePluginKey(this._installedPluginConfig.Key);
+    const { repoOwner, repoName, repoBranch } = this.parsePluginKey(this._installedPluginConfig.key);
     this._repoOwner = repoOwner;
     this._repoName = repoName;
     this._repoBranch = repoBranch;
@@ -39,8 +39,8 @@ export class PluginDownloader {
     }
 
     this._plugin = await pluginLoader.getPlugin(
-      this._installedPluginConfig.Key,
-      this._installedPluginConfig.ConfigurationParameters,
+      this._installedPluginConfig.key,
+      this._installedPluginConfig.configurationParameters,
     );
   }
 
@@ -59,7 +59,7 @@ export class PluginDownloader {
       await git.clone(this.pluginRepositoryUrl, this.pluginFolderPath, ['--depth', '1', '--branch', this._repoBranch]);
 
       console.log(
-        JSON.stringify({ type: 'system', message: `Plugin '${this._installedPluginConfig.Key}' downloaded.` }),
+        JSON.stringify({ type: 'system', message: `Plugin '${this._installedPluginConfig.key}' downloaded.` }),
       );
     } catch (error: any) {
       if (error.message.includes('already exists')) {
@@ -67,7 +67,7 @@ export class PluginDownloader {
         console.log(
           JSON.stringify({
             type: 'system',
-            message: `Plugin '${this._installedPluginConfig.Key}' is already exist in cache.`,
+            message: `Plugin '${this._installedPluginConfig.key}' is already exist in cache.`,
           }),
         );
       } else {

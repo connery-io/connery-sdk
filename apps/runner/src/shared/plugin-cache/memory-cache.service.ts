@@ -82,7 +82,7 @@ export class MemoryCacheService implements IPluginCache {
     const runnerConfig = this.config.getRunnerConfig();
 
     for (const installedPluginConfig of installedPluginsConfig) {
-      const pluginDownloader = new PluginDownloader(installedPluginConfig, runnerConfig.GitHubPat);
+      const pluginDownloader = new PluginDownloader(installedPluginConfig, runnerConfig.gitHubPat);
       await pluginDownloader.init();
 
       const plugin = pluginDownloader.plugin;

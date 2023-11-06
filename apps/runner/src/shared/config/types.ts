@@ -1,22 +1,22 @@
 import { ConfigurationParametersObject } from '@connery-io/sdk';
 
 export type ApiKeyConfig = {
-  Title: string;
-  ApiKey: string;
+  title: string;
+  apiKey: string;
 };
 
 export type InstalledPluginConfig = {
-  Key: string;
-  ConfigurationParameters: ConfigurationParametersObject;
+  key: string;
+  configurationParameters: ConfigurationParametersObject;
 };
 
 export type RunnerConfig = {
-  GitHubPat: string;
-  OpenAiApiKey: string;
+  gitHubPat: string;
+  openAiApiKey: string;
 };
 
 export type Config = {
-  ApiKeys: ApiKeyConfig[];
-  InstalledPlugins: InstalledPluginConfig[];
-  RunnerConfig: RunnerConfig;
+  apiKeys: ApiKeyConfig[];
+  installedPlugins: InstalledPluginConfig[];
+  runnerConfig: RunnerConfig;
 };
