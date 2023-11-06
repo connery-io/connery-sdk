@@ -44,19 +44,19 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'introduction/index',
-            label: 'Docs',
+            docId: 'platform/introduction/index',
+            label: 'Platform',
           },
           {
             type: 'doc',
             position: 'left',
-            docId: 'plugins',
+            docId: 'plugins/native',
             label: 'Plugins',
           },
           {
             type: 'doc',
             position: 'left',
-            docId: 'native-clients/index',
+            docId: 'clients/native/index',
             label: 'Clients',
           },
           {
