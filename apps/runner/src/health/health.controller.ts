@@ -1,40 +1,21 @@
 import { Public } from ':src/shared/auth.guard';
+import { ObjectResponse } from ':src/shared/types';
 import { Controller, Get } from '@nestjs/common';
 import { HealthCheckService, HealthCheck } from '@nestjs/terminus';
 
-type HealthResponse = {
-  status: 'ok';
-};
-
-// TODO: Move to the shared types
-type ErrorResponse = {
-  status: 'error';
-  error: {
-    message: string;
-  };
-};
-
-@Controller('/health')
+@Controller('/v1/health')
 export class HealthController {
   constructor(private health: HealthCheckService) {}
 
   @Public()
   @Get()
   @HealthCheck()
-  async check(): Promise<HealthResponse | ErrorResponse> {
-    try {
-      await this.health.check([]);
-    } catch (error: any) {
-      return {
-        status: 'error',
-        error: {
-          message: error.message,
-        },
-      };
-    }
+  async check(): Promise<ObjectResponse<undefined>> {
+    await this.health.check([]);
 
     return {
-      status: 'ok',
+      status: 'success',
+      data: undefined,
     };
   }
 }

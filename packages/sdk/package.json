@@ -1,0 +1,16 @@
+{
+  "name": "@connery-io/sdk",
+  "description": "Connery SDK",
+  "version": "0.0.15",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {},
+  "devDependencies": {
+    "tsconfig": "*"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  }
+}

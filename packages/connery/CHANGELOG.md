@@ -1,5 +1,41 @@
 # connery
 
+## 0.0.38
+
+### Patch Changes
+
+- Update
+
+## 0.0.37
+
+### Patch Changes
+
+- Update packages
+
+## 0.0.36
+
+### Patch Changes
+
+- Update validation
+
+## 0.0.35
+
+### Patch Changes
+
+- Update validation
+
+## 0.0.34
+
+### Patch Changes
+
+- Update validation
+
+## 0.0.33
+
+### Patch Changes
+
+- Update CLI with the updated types
+
 ## 0.0.32
 
 ### Patch Changes
@@ -22,7 +58,7 @@
 
 ### Patch Changes
 
-- Disable minification on connector build
+- Disable minification on plugin build
 
 ## 0.0.28
 
@@ -34,7 +70,7 @@
 
 ### Patch Changes
 
-- Add action and connector parameters to the run-action command
+- Add action and plugin parameters to the run-action command
 
 ## 0.0.26
 
@@ -88,7 +124,7 @@
 
 ### Patch Changes
 
-- Add required field connery.runnerVersion into connector definition
+- Add required field connery.runnerVersion into plugin definition
 
 ## 0.0.17
 
@@ -136,7 +172,7 @@
 
 ### Patch Changes
 
-- Fix dynamic connector import for validation
+- Fix dynamic plugin import for validation
 
 ## 0.0.9
 

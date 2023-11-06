@@ -1,39 +1,21 @@
-import { OpenAiService } from ':src/shared/openai.service';
-import { Body, Controller, HttpException, HttpStatus, Post } from '@nestjs/common';
-import {
-  ActionIdentifiedOutput,
-  ActionNotIdentifiedOutput,
-  ErrorResponse,
-  ObjectResponse,
-  IdentifyActionInput,
-} from './types';
+import { Body, Controller, HttpException, Inject, Post } from '@nestjs/common';
+import { ILlm } from ':src/shared/llm/llm.interface';
+import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from ':src/shared/llm/types';
+import { ObjectResponse } from ':src/shared/types';
 
-@Controller('/actions')
+@Controller('/v1/actions')
 export class ActionsController {
-  constructor(private openAiService: OpenAiService) {}
+  constructor(@Inject(ILlm) private llm: ILlm) {}
 
   @Post('/identify')
   async identifyAction(
-    @Body() body: IdentifyActionInput,
-  ): Promise<ObjectResponse<ActionIdentifiedOutput | ActionNotIdentifiedOutput> | ErrorResponse> {
-    try {
-      const result = await this.openAiService.identifyAction(body.prompt);
+    @Body() body: { prompt: string },
+  ): Promise<ObjectResponse<ActionIdentifiedOutput | ActionNotIdentifiedOutput>> {
+    const result = await this.llm.identifyAction(body.prompt);
 
-      return {
-        status: 'success',
-        data: result,
-      };
-    } catch (error: any) {
-      // TODO: Replace with proper solution
-      throw new HttpException(
-        {
-          status: 'error',
-          error: {
-            message: error.message,
-          },
-        },
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
-    }
+    return {
+      status: 'success',
+      data: result,
+    };
   }
 }

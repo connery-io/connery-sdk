@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { SharedModule } from ':src/shared/shared.module';
-import { ConnectorsController } from './connectors.controller';
+import { PluginsController } from './plugins.controller';
 
 @Module({
   imports: [SharedModule],
-  controllers: [ConnectorsController],
+  controllers: [PluginsController],
 })
 export class AdminApiModule {}

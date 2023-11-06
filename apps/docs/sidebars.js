@@ -1,19 +1,19 @@
 const sidebars = {
-  docsSidebar: [
+  platformSidebar: [
     {
       type: "category",
       label: "Introduction",
       collapsible: false,
       collapsed: false,
       items: [
-        'introduction/core-concepts',
-        'introduction/ecosystem',
-        'introduction/features',
-        'introduction/use-cases',
+        'platform/introduction/core-concepts',
+        'platform/introduction/ecosystem',
+        'platform/introduction/features',
+        'platform/introduction/use-cases',
       ],
       link: {
         type: 'doc',
-        id: 'introduction/index',
+        id: 'platform/introduction/index',
       },
     },
     {
@@ -22,47 +22,52 @@ const sidebars = {
       collapsible: false,
       collapsed: false,
       items: [
-        'quick-start/set-up-runner',
-        'quick-start/install-connector-on-the-runner',
-        'quick-start/use-clients-to-call-actions',
+        'platform/quick-start/set-up-runner',
+        'platform/quick-start/install-plugin-on-the-runner',
+        'platform/quick-start/use-clients-to-call-actions',
       ],
       link: {
         type: 'doc',
-        id: 'quick-start/index',
+        id: 'platform/quick-start/index',
       },
     },
+  ],
+  pluginsSidebar: [
+    'plugins/native',
+    'plugins/community',
     {
       type: "category",
       label: "Guides",
       collapsible: false,
       collapsed: false,
       items: [
-        'guides/create-connector',
+        'plugins/guides/create-plugin',
       ],
       link: {
         type: 'doc',
-        id: 'guides/index',
+        id: 'plugins/guides/index',
       },
     }
   ],
   clientsSidebar: [
     {
       type: "category",
-      label: "Native Clients",
+      label: "Native clients",
       collapsible: false,
       collapsed: false,
       items: [
-        'native-clients/slack',
-        'native-clients/make',
-        'native-clients/langchain',
-        'native-clients/api',
+        'clients/native/slack',
+        'clients/native/make',
+        'clients/native/api',
+        'clients/native/cli',
+        'clients/native/langchain',
       ],
       link: {
         type: 'doc',
-        id: 'native-clients/index',
+        id: 'clients/native/index',
       },
     },
-    'community-clients',
+    'clients/community',
   ]
 };
 

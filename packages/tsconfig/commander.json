@@ -2,12 +2,12 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "commander.js",
   "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "lib": ["es2022"],
-    "module": "Node16",
-    "target": "es2022",
     "strict": true,
     "esModuleInterop": true,
-    "moduleResolution": "node16",
     "sourceMap": true,
     "allowJs": true
   }

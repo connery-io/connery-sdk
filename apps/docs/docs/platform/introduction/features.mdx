@@ -1,0 +1,147 @@
+# Features and roadmap
+
+Connery is in early beta, so only the essential features are currently implemented.
+However, we list all the features here to give you an overview of what is coming next and show you the big picture.
+
+The features are not listed in any particular order.
+
+## Runner
+
+### General
+
+| Status | Feature                        | Description                                                                                                |
+| ------ | ------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| 🟢     | Open-source                    | MIT license.                                                                                               |
+| 🟢     | Self-hosted                    | The runner is fully prepared for self-hosting.                                                             |
+| 🟢     | Dockerized                     |                                                                                                            |
+| 🟢     | Runner administration          | Using [Connery Runner Administration](https://github.com/connery-io/connery-runner-administration) plugin. |
+| 🟢     | Plugin provisioning            | Runner automatically downloads plugins from the referenced GitHub repositories. No deployment is needed.   |
+| 🟡     | AI readiness                   |                                                                                                            |
+| 🟡     | Documentation                  |                                                                                                            |
+| 🔴     | Runner UI for administration   |                                                                                                            |
+| 🔴     | Runner UI for users            |                                                                                                            |
+| 🔴     | Cloud deployment documentation | To deploy the runner to AWS, Azure, GCP, etc.                                                              |
+
+### Security
+
+| Status | Feature                 | Description                                                                                                                          |
+| ------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| 🟢     | Isolated environment    | The runner is designed as a dedicated instance for the company's or individual use.                                                  |
+| 🔴     | Audit logs              |                                                                                                                                      |
+| 🔴     | Secret management       | To store secrets, configuration, and connection to the third party APIs.                                                             |
+| 🔴     | Actions manual approval | To let the human make the final decision on the action execution. It is especially helpful if AI Agents or Chatbots run the actions. |
+
+### Access management
+
+**User access management**
+
+This is about user access to the runner, its plugins, and actions.
+
+| Status | Feature        | Description                                                |
+| ------ | -------------- | ---------------------------------------------------------- |
+| 🔴     | Authentication |                                                            |
+| 🔴     | Access control | To control which user can access which plugin and actions. |
+
+**Client access management**
+
+This is about client access to the runner, its plugins, and actions.
+
+| Status | Feature        | Description                                                  |
+| ------ | -------------- | ------------------------------------------------------------ |
+| 🟢     | Authentication | Using API keys.                                              |
+| 🔴     | Access control | To control which client can access which plugin and actions. |
+
+**API connection management**
+
+This is about plugin access to the third-party APIs and connection management.
+For example, to access your Gmail account, the plugin has to be connected to your Gmail account using Oauth2,
+and then the Runner has to store the connection securely, control access to it, and use it when needed.
+
+| Status | Feature  | Description                                                        |
+| ------ | -------- | ------------------------------------------------------------------ |
+| 🟢     | API keys | Possibility to authorize with the third-party APIs using API keys. |
+| 🔴     | Oauth2   |                                                                    |
+
+### Natural Language Actions (NLA)
+
+Runner uses LLMs to understand natural language requests from users, classify the intent, and then
+identify the action and its input parameters.
+
+Currently, Connery provides native clients for [Slack](/docs/clients/native/slack)
+and [Make](/docs/clients/native/make) that utilize this feature and allow users
+to run actions using natural language.
+
+| Status | Feature                                                   | Description                                                                                                                                                               |
+| ------ | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🟢     | Identify an action based on the user prompt               |                                                                                                                                                                           |
+| 🟢     | Identify action input parameters based on the user prompt |                                                                                                                                                                           |
+| 🟢     | NLA based on OpenAI GPT-3 API                             | The runner uses [OpenAI function calling](https://platform.openai.com/docs/guides/gpt/function-calling) to identify action and input parameters based on the user prompt. |
+| 🔴     | NLA based on custom LLM                                   |                                                                                                                                                                           |
+
+### Monitoring
+
+| Status | Feature              | Description |
+| ------ | -------------------- | ----------- |
+| 🔴     | Monitoring dashboard |             |
+
+## Plugins SDK
+
+### Capabilities
+
+| Status | Feature                                 | Description |
+| ------ | --------------------------------------- | ----------- |
+| 🟢     | Plugin definition language              |             |
+| 🟢     | Configuration parameters                |             |
+| 🟢     | Error handling                          |             |
+| 🟢     | Action input parameters and validation  |             |
+| 🟢     | Action output parameters and validation |             |
+| 🟢     | Testing framework                       |             |
+| 🟢     | Dependencies management                 |             |
+| 🟡     | Documentation                           |             |
+| 🔴     | "Trigger" action type                   |             |
+
+### CLI
+
+We built a CLI to simplify the development process.
+It provides the following features.
+
+| Status | Feature                             | Description                                                                                  |
+| ------ | ----------------------------------- | -------------------------------------------------------------------------------------------- |
+| 🟢     | Initialize plugin repository        | Scafold the repository structure and files based on the predefined template.                 |
+| 🟢     | Create a new action                 | Scafold a new action based on the predefined template.                                       |
+| 🟢     | Run an action                       | Very useful for testing and debugging during development.                                    |
+| 🟢     | Validate plugin definition          | Validate if plugin and actions are defined correctly and follow the required structure.      |
+| 🟢     | Build a plugin and its dependencies | Build a plugin and its dependencies into a single file, which can be used to run the plugin. |
+| 🟡     | Documentation                       |                                                                                              |
+
+### Essential tooling for SDLC
+
+As every plugin is a separate GitHub repository, it enables treating the plugin
+as an independent project with all the benefits of GitHub infrastructure for development and support.
+
+| Status | Feature                | Description |
+| ------ | ---------------------- | ----------- |
+| 🟢     | Source code management |             |
+| 🟢     | Versioning             |             |
+| 🟢     | Issues                 |             |
+| 🟢     | Discussions            |             |
+| 🟢     | Documentation          |             |
+| 🟢     | CI/CD                  |             |
+
+## Clients SDK
+
+| Status | Feature             | Description |
+| ------ | ------------------- | ----------- |
+| 🟢     | API for clients     |             |
+| 🟢     | NLA API for clients |             |
+| 🔴     | Documentation       |             |
+
+## Plugins
+
+- [List of native plugins](/docs/plugins/native)
+- [List of community plugins](/docs/plugins/community)
+
+## Clients
+
+- [List of native clients](/docs/clients/native/)
+- [List of community clients](/docs/clients/community)

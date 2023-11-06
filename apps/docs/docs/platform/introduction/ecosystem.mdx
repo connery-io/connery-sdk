@@ -1,0 +1,12 @@
+# Ecosystem
+
+![Connery ecosystem](/img/connery-ecosystem.png)
+
+1. Community builds open-source plugins for many different purposes.
+   Every plugin is a separate open-source GitHub repository maintained by the community.
+2. A company or an individual configures their own isolated runner with a unique plugin set and configuration.
+3. Runner pulls plugins from GitHub based on the runner configuration.
+4. Runner exposes actions to clients and end users based on the access configuration.
+5. End users use clients to automate their work in different ways from different places. Additionally community can build their own clients based on the runner API.
+6. Runner securely keeps connections to third-party services for every installed plugin.
+7. (optional) The Runner uses Large Language Models to support the Natural Language Actions feature. Runner utilizes LLMs to classify user intent, identify action, and prefill its input parameters based on the user prompt.

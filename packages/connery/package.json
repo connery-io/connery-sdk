@@ -1,15 +1,14 @@
 {
   "name": "connery",
   "description": "Connery CLI",
-  "version": "0.0.32",
-  "license": "AGPL-3.0",
+  "version": "0.0.38",
+  "license": "MIT",
   "bin": "./dist/index.mjs",
   "dependencies": {
     "@inquirer/prompts": "^3.0.0",
     "chalk": "^5.3.0",
     "commander": "^11.0.0",
-    "node-plop": "^0.31.1",
-    "webpack": "^5.88.0"
+    "node-plop": "^0.31.1"
   },
   "devDependencies": {
     "jest": "^29.6.2",
@@ -18,7 +17,7 @@
     "tsup": "^7.1.0"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts",
+    "build": "tsc --noEmit && tsup src/index.ts --format esm --dts",
     "dev": "npm run build -- --watch",
     "test": "jest"
   }

@@ -22,7 +22,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/connery-io/connery/tree/main/apps/docs/',
+          editUrl: 'https://github.com/connery-io/connery-platform/tree/main/apps/docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -39,28 +39,28 @@ const config = {
     ({
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Connery',
+        title: 'Connery Docs',
         items: [
           {
             type: 'doc',
             position: 'left',
-            docId: 'introduction/index',
-            label: 'Docs',
+            docId: 'platform/introduction/index',
+            label: 'Platform',
           },
           {
             type: 'doc',
             position: 'left',
-            docId: 'connectors',
-            label: 'Connectors',
+            docId: 'plugins/native',
+            label: 'Plugins',
           },
           {
             type: 'doc',
             position: 'left',
-            docId: 'native-clients/index',
+            docId: 'clients/native/index',
             label: 'Clients',
           },
           {
-            href: 'https://github.com/connery-io/connery',
+            href: 'https://github.com/connery-io/connery-platform',
             label: 'GitHub',
             position: 'right',
           },

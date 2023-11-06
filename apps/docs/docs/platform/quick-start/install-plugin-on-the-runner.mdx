@@ -1,0 +1,110 @@
+# Install plugin on the runner
+
+Here, you will learn how to install a plugin on the runner.
+
+:::note Helpful resources
+
+- [What is a plugin?](/docs/platform/introduction/core-concepts#plugin)
+
+:::
+
+## 1. Open and understand the configuration file
+
+Open the runner configuration file `./apps/runner/connery-runner.config.ts` in the codespace.
+
+Among the other configuration parameters, you can see the `installedPlugins` section.
+`installedPlugins` is an array of plugin configurations already containing one plugin: `connery-io/connery-runner-administration@main`.
+This plugin is used to manage the runner, and it's preinstalled on the runner by default.
+
+```ts
+...
+installedPlugins: [
+  {
+    key: 'connery-io/connery-runner-administration@main',
+    configurationParameters: {
+      runenrUrl: 'http://localhost:4201',
+      runnerApiKey: process.env.CONNERY_RUNNER_API_KEY,
+    },
+  },
+],
+...
+```
+
+Every plugin configuration has the `key` and `configurationParameters` properties.
+
+The `key` is a unique plugin identifier with the following format: `owner/repository@branch`.
+As you can see, it directly relates to the GitHub repository where the plugin is stored.
+For example, the `connery-io/connery-runner-administration@main` plugin is stored
+in the https://github.com/connery-io/connery-runner-administration GitHub repository and uses the code from the `main` branch.
+The branch is used for versioning and can be replaced with a tag.
+
+The `configurationParameters` is a flat key-value object containing the plugin's configuration parameters.
+Configuration parameters are specific for each plugin; you can find them in the plugin definition file in the related GitHub repository.
+For example, the `connery-io/connery-runner-administration@main` plugin has the configuration parameters
+defined in the `configurationParameters` section of its definition file [index.ts](https://github.com/connery-io/connery-runner-administration/blob/main/src/index.ts) in the root of the GitHub repository.
+The definition file shows that both `runenrUrl` and `runnerApiKey` configuration parameters are required, so they must be provided in the plugin configuration.
+
+The actions of this plugin use the configuration parameters to perform their tasks.
+
+## 2. Add plugin configuration
+
+Let's install the [connery-io/gmail](https://github.com/connery-io/gmail) plugin on the runner.
+It has an action that sends an email using the Gmail API.
+
+:::info Plugin versioning
+You can install the plugin from the `main` branch, so you always use the newest plugin code from the main branch.
+However, this won't be as stable as the tagged versions. The plugin can be in the development stage on the `main` branch.
+When on the tagged version, the code is stable, and once the new version tag is released, the code won't be changed anymore for this version.
+You can find the latest version of the plugin in it's repository in the "Releases" section.
+
+For example, for the `connery-io/gmail` plugin, the latest version is `v1.0.0` on the date of writing this article.
+We will use this version in the example below.
+:::
+
+First, we need to check the plugin definition file [index.ts](https://github.com/connery-io/gmail/blob/main/src/index.ts) and find the configuration parameters we need to provide.
+Based on the definition file, the configuration parameters are:
+
+- `gmailEmailAddress` (required)
+- `gmailAppPassword` (required)
+- `senderName` (optional)
+
+So let's add the plugin configuration to the end of the `installedPlugins` array in the runner configuration file like the following:
+
+```ts
+...
+installedPlugins: [
+  ...
+  {
+    key: 'connery-io/gmail@v1.0.0', // NOTE: We use the tagged version v1.0.0 here. However, you can use any other available tagged version or the branch name here.
+    configurationParameters:
+    {
+      gmailEmailAddress: '<GMAIL_EMAIL_ADRESS>',
+      gmailAppPassword: '<GMAIL_APP_PASSWORD>',
+      senderName: '<SENDER_NAME>'
+    }
+  }
+],
+...
+```
+
+Replace the `<GMAIL_EMAIL_ADRESS>`, `<GMAIL_APP_PASSWORD>` and `<SENDER_NAME>` placeholders with the actual values.<br/>
+Check the [Sign in with app passwords](https://support.google.com/accounts/answer/185833?hl=en) article from Google Support to learn how to generate the app password for your Gmail account.
+
+If the runner is still running in your codespace, the configuration will be automatically applied after saving the file.
+On the next API request to the runner, it will download the plugin from the GitHub repository and cache it.
+
+:::info
+
+If you want to install a plugin from the private GitHub repository, configure the Personal Access Token (`GITHUB_PAT`) in the `.env` file.
+So the runner can access the private repository and can download the plugin.
+
+:::
+
+If you want to update the installed plugins with the latest changes from their repositories,
+run the `ClearPluginCache` action of the `connery-io/connery-runner-administration@main` plugin as was shown [on the previous page](/docs/platform/quick-start/set-up-runner#run-action-using-api).
+It will clean the plugins cache on the runner and download the latest version of the plugins from the specified branch or tag.
+You don't need to restart the runner after that.
+
+## Next steps
+
+Now, when you have the runner configured and the plugins installed, you can learn how to [use clients](/docs/platform/quick-start/use-clients-to-call-actions) to call actions from the plugins.
