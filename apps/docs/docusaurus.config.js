@@ -39,7 +39,7 @@ const config = {
     ({
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Connery',
+        title: 'Connery Docs',
         items: [
           {
             type: 'doc',
