@@ -76,7 +76,7 @@ Let's test the runner to ensure it's up and running and accessible from the inte
 Open a new terminal in your codespace and run the following command:
 
 ```
-curl '<PUBLIC_RUNNER_URL>plugins' \
+curl '<PUBLIC_RUNNER_URL>/v1/plugins' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>' | jq .
 ```
 
@@ -91,7 +91,7 @@ By default, the [connery-io/connery-runner-administration](https://github.com/co
 
 ### Run action using natural language
 
-Here is an example of using Natural Language Actions API to run the `RefreshPluginsCache` action from the `connery-io/connery-runner-administration` plugin.
+Here is an example of using Natural Language Actions API to run the `refreshPluginsCache` action from the `connery-io/connery-runner-administration` plugin.
 
 :::info
 The `OPENAI_API_KEY` is required for the Natural Language Actions feature to work.
@@ -99,7 +99,7 @@ If you configure it just now, you must restart the runner to apply the changes.
 :::
 
 ```
-curl '<PUBLIC_RUNNER_URL>actions/run' \
+curl '<PUBLIC_RUNNER_URL>/v1/actions/run' \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
 -d '{
@@ -111,10 +111,10 @@ You should receive a natural language response from the runner.
 
 ### Run action using API
 
-Here is an example of how to run the `RefreshPluginsCache` action using API.
+Here is an example of how to run the `refreshPluginsCache` action using API.
 
 ```
-curl '<PUBLIC_RUNNER_URL>plugins/connery-io/connery-runner-administration@main/actions/RefreshPluginsCache/run' \
+curl '<PUBLIC_RUNNER_URL>/v1/plugins/connery-io/connery-runner-administration@main/actions/refreshPluginsCache/run' \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
 -d '{}' | jq .

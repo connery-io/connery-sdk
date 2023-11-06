@@ -32,7 +32,7 @@ An action is an atomic operation designed to perform a specific task.
 You can think of an action as a function with input and output parameters that can be called from many places (clients).
 
 :::info Example
-[SendEmail](https://github.com/connery-io/gmail/blob/main/actions/SendEmail.js) is an action in
+[sendEmail](https://github.com/connery-io/gmail/blob/main/src/actions/sendEmail.ts) is an action in
 the [connery-io/gmail](https://github.com/connery-io/gmail) plugin. It has Recipient, Subject, and Body input parameters.
 Once the action is run by the client, it sends an email based on the provided input parameters
 and returns a MessageId to the client as a result.
