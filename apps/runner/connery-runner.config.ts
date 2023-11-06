@@ -38,8 +38,8 @@ export default () => ({
       // This is a pre-installed plugin for runner administration.
       Key: 'connery-io/connery-runner-administration@main',
       ConfigurationParameters: {
-        RunenrUrl: 'http://localhost:4201',
-        RunnerApiKey: process.env.CONNERY_RUNNER_API_KEY, // This API key is used by the plugin to access the runner's API.
+        runnerUrl: 'http://localhost:4201',
+        runnerApiKey: process.env.CONNERY_RUNNER_API_KEY, // This API key is used by the plugin to access the runner's API.
       },
     },
   ],
