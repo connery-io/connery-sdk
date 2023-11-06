@@ -7,10 +7,10 @@ Here is how we structure it.
 
 Remember, the Connery approach is always the same:
 
-1. **Get your connector**
-   1. EITHER find a pre-built connector matching your task provided by the community
-   2. OR build your own connector for your specific needs.
-2. Keep all your connector configurations in one place (on the runner) and **execute from any client**.
+1. **Get your plugin**
+   1. EITHER find a pre-built plugin matching your task provided by the community
+   2. OR build your own plugin for your specific needs.
+2. Keep all your plugin configurations in one place (on the runner) and **execute from any client**.
    1. EITHER find a pre-built client matching your tooling provided by the community
    2. OR build your own client.
 
@@ -19,10 +19,10 @@ Remember, the Connery approach is always the same:
 ## Run actions from multiple platforms
 
 Connery is all about running actions.
-Once a connector and its actions become available in Connery, they are exposed to several platforms.
+Once a plugin and its actions become available in Connery, they are exposed to several platforms.
 Our current strategy includes AI Agent and Chatbot platforms, Collaboration tools, and No-code automation platforms.
 
-![Connector exposure](/img/connery-connector-exposure.png)
+![Plugin exposure](/img/connery-plugin-exposure.png)
 
 ### AI Agents and Chatbots
 
@@ -83,7 +83,7 @@ Connery also supports No-code client-types, e.g., Make or Zapier.
 
 ### HR-Related
 
-| Use case                                                            | Connectors          | Client type | Description                                                                                             | Benefits                                                       |
+| Use case                                                            | Plugins             | Client type | Description                                                                                             | Benefits                                                       |
 | ------------------------------------------------------------------- | ------------------- | ----------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | Log HR absence, vacation, or attendance and approvals via Slack     | Personio, Workday   | Chat-based  | Employee logs vacation or sick leave via Slack/Microsoft Teams, triggering absence logging in Personio. | It saves time, reduces friction, and likely improves accuracy. |
 | Accounting service to remind employees of missing expense receipts  | Spendesk, Expensify | Chat-based  | Expense bot checks for missing filings and reminds employees via Slack/Microsoft Teams/Email.           | It saves time and stress for accounting staff.                 |
@@ -91,7 +91,7 @@ Connery also supports No-code client-types, e.g., Make or Zapier.
 
 ### Sales and Customer Support
 
-| Use case                                                      | Connectors                                               | Client type | Description                                                                 | Benefits                                                         |
+| Use case                                                      | Plugins                                                  | Client type | Description                                                                 | Benefits                                                         |
 | ------------------------------------------------------------- | -------------------------------------------------------- | ----------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | Sales or customer support chatbot with Salesforce integration | Salesforce, Hubspot, Pipedrive                           | Chat-based  | Chatbot pulls up customer records from Salesforce during a support request. | Quickens resolution times by providing necessary info to agents. |
 | Sales Management with CRM                                     | Salesforce, Hubspot, Pipedrive                           | Chat-based  | Bot updates CRM records based on sales activities.                          | Keeps CRM updated, aiding in sales tracking and forecasting.     |
@@ -99,7 +99,7 @@ Connery also supports No-code client-types, e.g., Make or Zapier.
 
 ### IT support
 
-| Use case                                       | Connectors         | Client type | Description                                                                                 | Benefits                                                  |
+| Use case                                       | Plugins            | Client type | Description                                                                                 | Benefits                                                  |
 | ---------------------------------------------- | ------------------ | ----------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | Smart scaling automation for AWS resources     | Google Sheets, AWS | No-code     | Automation scenario for smart scaling based on input from other services via Google Sheets. | Simplifies registration and enhances attendee experience. |
 | Scheduled scaling automation for AWS resources | Google Sheets, AWS | No-code     | Automation scenario for scheduled scaling based on the time of the day and day of the week. | Simplifies registration and enhances attendee experience. |
@@ -108,14 +108,14 @@ Connery also supports No-code client-types, e.g., Make or Zapier.
 
 ### Finance and Accounting
 
-| Use case                                    | Connectors | Client type | Description                                                     | Benefits                                                  |
+| Use case                                    | Plugins    | Client type | Description                                                     | Benefits                                                  |
 | ------------------------------------------- | ---------- | ----------- | --------------------------------------------------------------- | --------------------------------------------------------- |
 | Finance chatbot with QuickBooks integration | QuickBooks | Chat-based  | Finance bot generates QuickBooks invoices based on chat orders. | Streamlines invoicing and reduces errors.                 |
 | Chat-based payment processing via Stripe    | Stripe     | Chat-based  | Customer-facing chatbot initiates and handles Stripe payments.  | Streamlines payment process and enhances user experience. |
 
 ### Marketing
 
-| Use case                                     | Connectors     | Client type | Description                                                                      | Benefits                                                       |
+| Use case                                     | Plugins        | Client type | Description                                                                      | Benefits                                                       |
 | -------------------------------------------- | -------------- | ----------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | Marketing chatbot with Mailchimp integration | Mailchimp      | Chat-based  | Marketing bot adds leads to Mailchimp and triggers welcome emails.               | Automates lead nurturing and ensures timely communication.     |
 | Video content management with YouTube        | YouTube        | Chat-based  | Bot uploads videos to YouTube and updates metadata.                              | Streamlines video management and enhances SEO.                 |
@@ -124,7 +124,7 @@ Connery also supports No-code client-types, e.g., Make or Zapier.
 
 ### Project and Task Management
 
-| Use case                                         | Connectors | Client type | Description                                                                | Benefits                                                            |
+| Use case                                         | Plugins    | Client type | Description                                                                | Benefits                                                            |
 | ------------------------------------------------ | ---------- | ----------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | Project management Chatbot with Jira integration | Jira       | Chat-based  | Chatbot can manage Jira tickets based on project updates in team meetings. | Keeps project management tool updated in real-time.                 |
 | Task management with Trello                      | Trello     | Chat-based  | Bot creates and updates Trello cards based on project status.              | Keeps project boards up-to-date, improving team collaboration.      |
@@ -133,13 +133,13 @@ Connery also supports No-code client-types, e.g., Make or Zapier.
 
 ### Internal productivity
 
-| Use case                                                        | Connectors                                                           | Client type | Description                                                                                                    | Benefits                                                           |
-| --------------------------------------------------------------- | -------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Chatbot to schedule meetings or hiring interviews               | [Gmail](https://github.com/connery-io/gmail)                         | Chat-based  | Slack/Microsoft Teams bot schedules meetings by checking Google Calendar and sending invites.                  | Streamlines scheduling and ensures everyone is on the same page.   |
-| Personal assistant chatbot with Notion and calendar integration | Notion, Google Calendar                                              | Chat-based  | Assistant bot creates to-do lists in Notion and sets reminders in Google Calendar.                             | Enhances personal productivity by tracking tasks and schedules.    |
-| Event planning chatbot with event registration integration      | Eventbrite, [doo](https://github.com/viovendi/product-api-connector) | Chat-based  | Event bot handles chat registrations and sends tickets via Eventbrite or doo.                                  | Simplifies registration and enhances attendee experience.          |
-| Automated reporting with Google Sheets                          | Google Sheets                                                        | Chat-based  | Reporting bot generates and updates reports in Google Sheets based on real-time data.                          | Streamlines reporting and ensures data accuracy.                   |
-| Survey and feedback collection                                  | Google Forms                                                         | Chat-based  | Assistant bot sends Google Forms to collect user feedback and stores responses.                                | Simplifies feedback collection and data analysis.                  |
-| Meeting scheduling with calendly                                | Calendly                                                             | Chat-based  | Assistant bot integrates with Calendly to schedule and reschedule meetings.                                    | Automates scheduling, saving time for internal and external teams. |
-| Email management with MS-Outlook                                | MS-Outlook                                                           | Chat-based  | Assistant bot sorts and prioritizes emails in MS Outlook based on user-defined rules.                          | Enhances email management and productivity.                        |
-| Conversational Slack agent with OpenAI                          | [OpenAI](https://github.com/connery-io/openai)                       | Chat-based  | Chatbot serves internal teams with customized OpenAI to handle complex queries and provide detailed responses. | Enhances internal ops by handling a wide range of queries.         |
+| Use case                                                        | Plugins                                                           | Client type | Description                                                                                                    | Benefits                                                           |
+| --------------------------------------------------------------- | ----------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Chatbot to schedule meetings or hiring interviews               | [Gmail](https://github.com/connery-io/gmail)                      | Chat-based  | Slack/Microsoft Teams bot schedules meetings by checking Google Calendar and sending invites.                  | Streamlines scheduling and ensures everyone is on the same page.   |
+| Personal assistant chatbot with Notion and calendar integration | Notion, Google Calendar                                           | Chat-based  | Assistant bot creates to-do lists in Notion and sets reminders in Google Calendar.                             | Enhances personal productivity by tracking tasks and schedules.    |
+| Event planning chatbot with event registration integration      | Eventbrite, [doo](https://github.com/viovendi/product-api-plugin) | Chat-based  | Event bot handles chat registrations and sends tickets via Eventbrite or doo.                                  | Simplifies registration and enhances attendee experience.          |
+| Automated reporting with Google Sheets                          | Google Sheets                                                     | Chat-based  | Reporting bot generates and updates reports in Google Sheets based on real-time data.                          | Streamlines reporting and ensures data accuracy.                   |
+| Survey and feedback collection                                  | Google Forms                                                      | Chat-based  | Assistant bot sends Google Forms to collect user feedback and stores responses.                                | Simplifies feedback collection and data analysis.                  |
+| Meeting scheduling with calendly                                | Calendly                                                          | Chat-based  | Assistant bot integrates with Calendly to schedule and reschedule meetings.                                    | Automates scheduling, saving time for internal and external teams. |
+| Email management with MS-Outlook                                | MS-Outlook                                                        | Chat-based  | Assistant bot sorts and prioritizes emails in MS Outlook based on user-defined rules.                          | Enhances email management and productivity.                        |
+| Conversational Slack agent with OpenAI                          | [OpenAI](https://github.com/connery-io/openai)                    | Chat-based  | Chatbot serves internal teams with customized OpenAI to handle complex queries and provide detailed responses. | Enhances internal ops by handling a wide range of queries.         |

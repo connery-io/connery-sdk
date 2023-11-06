@@ -23,7 +23,7 @@ const sidebars = {
       collapsed: false,
       items: [
         'quick-start/set-up-runner',
-        'quick-start/install-connector-on-the-runner',
+        'quick-start/install-plugin-on-the-runner',
         'quick-start/use-clients-to-call-actions',
       ],
       link: {
@@ -37,7 +37,7 @@ const sidebars = {
       collapsible: false,
       collapsed: false,
       items: [
-        'guides/create-connector',
+        'guides/create-plugin',
       ],
       link: {
         type: 'doc',

@@ -71,27 +71,27 @@ To expose the runner to the internet, follow the steps:
 
 Let's test the runner to ensure it's up and running and accessible from the internet.
 
-### List installed connectors
+### List installed plugins
 
 Open a new terminal in your codespace and run the following command:
 
 ```
-curl '<PUBLIC_RUNNER_URL>connectors' \
+curl '<PUBLIC_RUNNER_URL>plugins' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>' | jq .
 ```
 
 Replace `<PUBLIC_RUNNER_URL>` with the URL that you copied in the previous step,
 and `<CONNERY_RUNNER_API_KEY>` with the value of the `CONNERY_RUNNER_API_KEY` variable from the `.env` file.
 
-You should receive a successful response with the list of installed connectors and their actions on the runner.
+You should receive a successful response with the list of installed plugins and their actions on the runner.
 
 :::info
-By default, the [connery-io/connery-runner-administration](https://github.com/connery-io/connery-runner-administration) connector is preinstalled on the runner.
+By default, the [connery-io/connery-runner-administration](https://github.com/connery-io/connery-runner-administration) plugin is preinstalled on the runner.
 :::
 
 ### Run action using natural language
 
-Here is an example of using Natural Language Actions API to run the `RefreshConnectorsCache` action from the `connery-io/connery-runner-administration` connector.
+Here is an example of using Natural Language Actions API to run the `RefreshPluginsCache` action from the `connery-io/connery-runner-administration` plugin.
 
 :::info
 The `OPENAI_API_KEY` is required for the Natural Language Actions feature to work.
@@ -103,7 +103,7 @@ curl '<PUBLIC_RUNNER_URL>actions/run' \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
 -d '{
-    "prompt": "Please clean connectors cache on the runner."
+    "prompt": "Please clean plugins cache on the runner."
 }' | jq .
 ```
 
@@ -111,10 +111,10 @@ You should receive a natural language response from the runner.
 
 ### Run action using API
 
-Here is an example of how to run the `RefreshConnectorsCache` action using API.
+Here is an example of how to run the `RefreshPluginsCache` action using API.
 
 ```
-curl '<PUBLIC_RUNNER_URL>connectors/connery-io/connery-runner-administration@main/actions/RefreshConnectorsCache/run' \
+curl '<PUBLIC_RUNNER_URL>plugins/connery-io/connery-runner-administration@main/actions/RefreshPluginsCache/run' \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
 -d '{}' | jq .
@@ -124,4 +124,4 @@ In this particular case, the action does not require any input parameters and do
 
 ## Next steps
 
-Now, when you have the runner up and running, let's learn how to [install connector](/docs/quick-start/install-connector-on-the-runner) on it.
+Now, when you have the runner up and running, let's learn how to [install plugin](/docs/quick-start/install-plugin-on-the-runner) on it.

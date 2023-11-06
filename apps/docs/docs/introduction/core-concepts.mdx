@@ -3,23 +3,23 @@
 Here, you can find the core concepts of the Connery platform and their definitions.
 We highly recommend you read this section before diving into the documentation.
 
-## Connector
+## Plugin
 
-A connector is a collection of actions closely related by meaning and function.
-Before a connector can be used, it must be installed on a runner.
+A plugin is a collection of actions closely related by meaning and function.
+Before a plugin can be used, it must be installed on a runner.
 Once installed, its actions are accessible and can be run from any client.
 
-Each connector is represented by a GitHub repository with a specific structure.
-GitHub is an excellent infrastructure for connectors that provides all the necessary tools
+Each plugin is represented by a GitHub repository with a specific structure.
+GitHub is an excellent infrastructure for plugins that provides all the necessary tools
 for development and maintenance: version control, collaboration, automation, and more.
 
 :::info Example
-A [connery-io/gmail](https://github.com/connery-io/gmail) connector has a set of actions related to Gmail.
-The connector requires GmailEmailAddress and GmailAppPassword configuration parameters
+A [connery-io/gmail](https://github.com/connery-io/gmail) plugin has a set of actions related to Gmail.
+The plugin requires GmailEmailAddress and GmailAppPassword configuration parameters
 during the installation on the runner so the actions have access to the Gmail account.
 :::
 
-You might already be familiar with the concept of a connector.
+You might already be familiar with the concept of a plugin.
 This idea has different names across various platforms:
 
 - **Plugin** in ChatGPT;
@@ -33,7 +33,7 @@ You can think of an action as a function with input and output parameters that c
 
 :::info Example
 [SendEmail](https://github.com/connery-io/gmail/blob/main/actions/SendEmail.js) is an action in
-the [connery-io/gmail](https://github.com/connery-io/gmail) connector. It has Recipient, Subject, and Body input parameters.
+the [connery-io/gmail](https://github.com/connery-io/gmail) plugin. It has Recipient, Subject, and Body input parameters.
 Once the action is run by the client, it sends an email based on the provided input parameters
 and returns a MessageId to the client as a result.
 :::
@@ -41,7 +41,7 @@ and returns a MessageId to the client as a result.
 ## Runner
 
 A runner is an open-source application that hosts and runs actions.
-Every company or individual configures their own isolated runner with a unique connector set and configuration.
+Every company or individual configures their own isolated runner with a unique plugin set and configuration.
 Runner provides a security layer and access control for actions and their execution.
 
 ## Client

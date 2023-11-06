@@ -50,8 +50,8 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'connectors',
-            label: 'Connectors',
+            docId: 'plugins',
+            label: 'Plugins',
           },
           {
             type: 'doc',
