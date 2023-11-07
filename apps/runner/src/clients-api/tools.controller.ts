@@ -2,7 +2,7 @@ import { Public } from ':src/shared/auth.guard';
 import { ObjectResponse } from ':src/shared/types';
 import { Controller, Get } from '@nestjs/common';
 
-@Controller('/v1')
+@Controller()
 export class ToolsController {
   @Public()
   @Get('/')
@@ -15,7 +15,7 @@ export class ToolsController {
     };
   }
 
-  @Get('/verify-access')
+  @Get('/v1/verify-access')
   verifyAccess(): ObjectResponse<undefined> {
     // By default every API endpoint is protected by the AuthGuard. Including this one.
     // And the AuthGuard will throw an exception if the request is not authenticated.
