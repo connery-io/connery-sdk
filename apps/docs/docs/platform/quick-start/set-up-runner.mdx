@@ -23,9 +23,12 @@ It takes around 2 minutes to create a new codespace, install dependencies, build
 
 Also, you can use the green **Code** button in the top right corner of the repository, then open the **Codespaces** tab and click **Create codespace on main**.
 
+After the codespace is created, you would need to wait for a few minutes until the commands from the `./.devcontainer/post-start-commands.sh` script are executed.
+It will create the `.env` file, install the runner dependencies, and build the project.
+
 ## 2. Configure ENV variables
 
-After the codespace is created, you will see that the `.env` file in the repository's root folder is already created with a unique `CONNERY_RUNNER_API_KEY`.
+After that, you will see that the `.env` file in the repository's root folder is already created with a unique `CONNERY_RUNNER_API_KEY`.
 The runner uses this API Key to protect the API.
 You will use it later to configure clients to work with the runner.
 
@@ -112,10 +115,10 @@ Once the action is identified, you can run it using the API call from the next s
 
 ### Run action using API
 
-Here is an example of how to run the `refreshPluginsCache` action using API.
+Here is an example of how to run the `refreshPluginCache` action using API.
 
 ```
-curl '<PUBLIC_RUNNER_URL>/v1/plugins/connery-io/connery-runner-administration@main/actions/refreshPluginsCache/run' \
+curl '<PUBLIC_RUNNER_URL>/v1/plugins/connery-io/connery-runner-administration@main/actions/refreshPluginCache/run' \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
 -d '{}' | jq .
