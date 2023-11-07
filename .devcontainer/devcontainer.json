@@ -1,6 +1,6 @@
 {
   "name": "Connery",
-  "image": "ghcr.io/connery-io/connery/dev-container:latest",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node",
   "postStartCommand": "./.devcontainer/post-start-commands.sh",
   "forwardPorts": [4040, 4201, 4202, 9229],
   "portsAttributes": {
@@ -39,11 +39,7 @@
         "editor.formatOnPaste": true,
         "grammarly.files.include": ["**/*.md", "**/*.mdx", "**/*.txt"]
       },
-      "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "GitHub.copilot"
-      ]
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
     }
   }
 }
