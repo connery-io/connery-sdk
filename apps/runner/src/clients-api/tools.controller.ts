@@ -15,8 +15,19 @@ export class ToolsController {
     };
   }
 
+  // This endpoint is deprecated and will be removed in the future
+  // TODO: Remove this endpoint once all the clients are updated to use the new one
+  @Get('/verify-access')
+  verifyAccessV0(): ObjectResponse<undefined> {
+    return this.verifyAccess();
+  }
+
   @Get('/v1/verify-access')
-  verifyAccess(): ObjectResponse<undefined> {
+  verifyAccessV1(): ObjectResponse<undefined> {
+    return this.verifyAccess();
+  }
+
+  private verifyAccess(): ObjectResponse<undefined> {
     // By default every API endpoint is protected by the AuthGuard. Including this one.
     // And the AuthGuard will throw an exception if the request is not authenticated.
     // This endpoint does not contain any business logic, it is only used to verify if the request is authenticated by the clients.
