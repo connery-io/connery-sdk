@@ -17,7 +17,7 @@ The [./src/actions/](/src/actions/) folder contains all the actions this plugin 
 Every action is represented by a separate file with the action definition and implementation.
 
 The [./dist/plugin.js](/dist/plugin.js) file is the bundled version of the plugin with all the dependencies.
-Connery Platform uses this file to run the plugin.
+Connery uses this file to run the plugin.
 
 ## Connery
 
