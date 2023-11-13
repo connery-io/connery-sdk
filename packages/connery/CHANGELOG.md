@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.39
+
+### Patch Changes
+
+- Update docs
+
 ## 0.0.38
 
 ### Patch Changes
