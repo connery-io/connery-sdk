@@ -48,9 +48,9 @@ but also the features that make your plugins more powerful, like Natural Languag
 The client is a native application on every platform that consumes the API provided
 by the runner and lets the end users use plugins without technical knowledge.
 
-## ✅ Example
+## ✅ Example #1 - Scale back-end service on AWS from Slack
 
-Let's consider a real example from one of our customers.
+Let's consider an example from one of our customers.
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
@@ -86,6 +86,12 @@ non-technical people can easily use it from any platform that covers their needs
 
 For many cases, you don't even need developers, as Connery brings many community-driven plugins and clients -
 check the Ecosystem section below to learn more.
+
+## ✅ Example #2 - Send email from a custom GPT using Connery actions
+
+<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
+
+Read more about this example in our documentation: [OpenAI GPTs client for Connery](https://docs.connery.io/docs/clients/native/openai).
 
 ## 🌟 Support us and stay up-to-date
 
