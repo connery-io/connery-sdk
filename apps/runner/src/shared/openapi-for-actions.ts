@@ -7,7 +7,7 @@ import { IConfig } from './config/config.interface';
 interface ExtendedOperationObject extends OpenAPIV3.OperationObject {
   // This custom extension property is used by OpenAI Actions to determine if the action requires a confirmation before running.
   // See more details here: https://platform.openai.com/docs/actions/consequential-flag
-  'x-openai-isConsequential': boolean;
+  'x-openai-isConsequential'?: boolean;
 }
 
 @Injectable()
@@ -134,7 +134,10 @@ export class OpenApiForActions {
       operationId: actionOpenApiKey,
       summary: action.definition.title,
       description: action.definition.description,
-      'x-openai-isConsequential': false,
+      // For 'read' action type we set the 'x-openai-isConsequential' to false, otherwise we set it to true.
+      // This mean that the 'read' actions will not require a user confirmation before running.
+      // But all other action types (ceate, update delete) will require a user confirmation before running.
+      'x-openai-isConsequential': action.definition.type !== 'read',
       requestBody,
       responses,
       security: [{ ApiKeyAuth: [] }],

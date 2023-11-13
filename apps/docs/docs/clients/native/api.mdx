@@ -1,7 +1,28 @@
 # API
 
-Use the Connery API to create your own client based on the plugin infrastructure from Connery.
+Use the Connery API to create your own client based on the Connery plugin infrastructure.
 
-:::info
-Coming soon...
+## Actions API
+
+Connery Runner exposes a dynamic OpenAPI schema that describes all the actions available on your runner.
+
+To get the OpenAPI schema, send a request to your runner's `GET /v1/actions/openapi` endpoint.
+The endpoint is private and requires an API Key for safety reasons.
+
+Use the following cURL to get the OpenAPI schema:
+
+```
+curl -L '<PUBLIC_RUNNER_URL>/v1/actions/openapi' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>'
+```
+
+The `<PUBLIC_RUNNER_URL>` and `<CONNERY_RUNNER_API_KEY>` you should get during the runner setup in the [Quickstart](/docs/platform/quick-start/) guide.
+
+:::info Runner Public URL
+
+OpenAPI schema contains the URL of your runner in the `servers` section.
+Therefore, you need to configure the public URL of your runner in the `CONNERY_RUNNER_PUBLIC_URL` environment variable in the `.env` file.
+
 :::
+
+The open API schema contains complete information about all the actions available on your runner, including their input and output parameters.
