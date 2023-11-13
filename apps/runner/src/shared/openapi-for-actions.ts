@@ -4,6 +4,12 @@ import { OpenAPIV3 } from 'openapi-types';
 import { ActionRuntime } from 'lib';
 import { IConfig } from './config/config.interface';
 
+interface ExtendedOperationObject extends OpenAPIV3.OperationObject {
+  // This custom extension property is used by OpenAI Actions to determine if the action requires a confirmation before running.
+  // See more details here: https://platform.openai.com/docs/actions/consequential-flag
+  'x-openai-isConsequential': boolean;
+}
+
 @Injectable()
 export class OpenApiForActions {
   private _openApiSchema: OpenAPIV3.Document;
@@ -124,10 +130,11 @@ export class OpenApiForActions {
       500: { $ref: '#/components/responses/ErrorResponse' },
     };
 
-    const operation: OpenAPIV3.OperationObject = {
+    const operation: ExtendedOperationObject = {
       operationId: actionOpenApiKey,
       summary: action.definition.title,
       description: action.definition.description,
+      'x-openai-isConsequential': false,
       requestBody,
       responses,
       security: [{ ApiKeyAuth: [] }],
