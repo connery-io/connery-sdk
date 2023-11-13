@@ -58,6 +58,7 @@ const sidebars = {
       items: [
         'clients/native/slack',
         'clients/native/make',
+        'clients/native/openai',
         'clients/native/api',
         'clients/native/cli',
         'clients/native/langchain',
