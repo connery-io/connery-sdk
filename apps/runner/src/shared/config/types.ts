@@ -13,6 +13,7 @@ export type InstalledPluginConfig = {
 export type RunnerConfig = {
   gitHubPat: string;
   openAiApiKey: string;
+  publicUrl: string;
 };
 
 export type Config = {
