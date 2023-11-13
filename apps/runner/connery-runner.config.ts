@@ -6,16 +6,23 @@
 // The .env file is not committed to the repository for security reasons.
 // ##################
 
-export default () => ({
+import { Config } from ':src/shared/config/types';
+
+const config: Config = {
   runnerConfig: {
     // GitHub Personal Access Token is used to access plugins in private repositories.
     // The user associated with the PAT must have access to the private repositories.
     // It's optional if you don't use private plugins.
-    gitHubPat: process.env.GITHUB_PAT,
+    gitHubPat: process.env.GITHUB_PAT || '',
 
     // OpenAI API Key is used for the Natural Language Actions feature.
     // It's optional if you don't use the feature.
-    openAiApiKey: process.env.OPENAI_API_KEY,
+    openAiApiKey: process.env.OPENAI_API_KEY || '',
+
+    // The public URL of the runner.
+    // This URL is used in an OpenAPI specification for the available actions on the runner.
+    // It's optional if you don't use the feature.
+    publicUrl: process.env.CONNERY_RUNNER_PUBLIC_URL || '',
   },
 
   // We recommend using a separate API key for each client.
@@ -28,7 +35,7 @@ export default () => ({
       // This key is also used for the internal purposes of the runner.
       // For example, by the pre-installed connery-io/connery-runner-administration plugin (see below).
       title: 'Connery Runner API Key',
-      apiKey: process.env.CONNERY_RUNNER_API_KEY,
+      apiKey: process.env.CONNERY_RUNNER_API_KEY || '',
     },
   ],
 
@@ -39,8 +46,9 @@ export default () => ({
       key: 'connery-io/connery-runner-administration@main',
       configurationParameters: {
         runnerUrl: 'http://localhost:4201',
-        runnerApiKey: process.env.CONNERY_RUNNER_API_KEY, // This API key is used by the plugin to access the runner's API.
+        runnerApiKey: process.env.CONNERY_RUNNER_API_KEY || '', // This API key is used by the plugin to access the runner's API.
       },
     },
   ],
-});
+};
+export default () => config;

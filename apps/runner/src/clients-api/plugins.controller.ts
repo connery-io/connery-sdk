@@ -17,12 +17,91 @@ type PluginResponseType = PluginListResponseType & {
 
 type ActionResponseType = Omit<ActionDefinition, 'operation'>;
 
-@Controller('/v1/plugins')
+@Controller()
 export class PluginsController {
   constructor(@Inject(IPluginCache) private pluginCache: IPluginCache) {}
 
-  @Get('/')
-  async getPlugins(): Promise<PaginatedResponse<PluginListResponseType>> {
+  //
+  // Public methods
+  //
+
+  // This endpoint is deprecated and will be removed in the future
+  // TODO: Remove this endpoint once all the clients are updated to use the new one
+  @Get('/connectors')
+  async getPluginsV0(): Promise<PaginatedResponse<PluginListResponseType>> {
+    return this.getPlugins();
+  }
+
+  @Get('/v1/plugins/')
+  async getPluginsV1(): Promise<PaginatedResponse<PluginListResponseType>> {
+    return this.getPlugins();
+  }
+
+  // This endpoint is deprecated and will be removed in the future
+  // TODO: Remove this endpoint once all the clients are updated to use the new one
+  @Get('/connectors/:pluginKeyPart1/:pluginKeyPart2')
+  async getPluginV0(
+    @Param('pluginKeyPart1') pluginKeyPart1: string,
+    @Param('pluginKeyPart2') pluginKeyPart2: string,
+  ): Promise<ObjectResponse<PluginResponseType>> {
+    return this.getPlugin(pluginKeyPart1, pluginKeyPart2);
+  }
+
+  @Get('/v1/plugins/:pluginKeyPart1/:pluginKeyPart2')
+  async getPluginV1(
+    @Param('pluginKeyPart1') pluginKeyPart1: string,
+    @Param('pluginKeyPart2') pluginKeyPart2: string,
+  ): Promise<ObjectResponse<PluginResponseType>> {
+    return this.getPlugin(pluginKeyPart1, pluginKeyPart2);
+  }
+
+  // This endpoint is deprecated and will be removed in the future
+  // TODO: Remove this endpoint once all the clients are updated to use the new one
+  @Get('/connectors/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey')
+  async getActionV0(
+    @Param('pluginKeyPart1') pluginKeyPart1: string,
+    @Param('pluginKeyPart2') pluginKeyPart2: string,
+    @Param('actionKey') actionKey: string,
+  ): Promise<ObjectResponse<ActionResponseType>> {
+    return this.getAction(pluginKeyPart1, pluginKeyPart2, actionKey);
+  }
+
+  @Get('/v1/plugins/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey')
+  async getActionV1(
+    @Param('pluginKeyPart1') pluginKeyPart1: string,
+    @Param('pluginKeyPart2') pluginKeyPart2: string,
+    @Param('actionKey') actionKey: string,
+  ): Promise<ObjectResponse<ActionResponseType>> {
+    return this.getAction(pluginKeyPart1, pluginKeyPart2, actionKey);
+  }
+
+  // This endpoint is deprecated and will be removed in the future
+  // TODO: Remove this endpoint once all the clients are updated to use the new one
+  @Post('/connectors/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey/run')
+  async runActionV0(
+    @Param('pluginKeyPart1') pluginKeyPart1: string,
+    @Param('pluginKeyPart2') pluginKeyPart2: string,
+    @Param('actionKey') actionKey: string,
+    @Body() body: InputParametersObject,
+  ): Promise<ObjectResponse<ActionOutput>> {
+    return this.runAction(pluginKeyPart1, pluginKeyPart2, actionKey, body);
+  }
+
+  @Post('/v1/plugins/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey/run')
+  async runActionV1(
+    @Param('pluginKeyPart1') pluginKeyPart1: string,
+    @Param('pluginKeyPart2') pluginKeyPart2: string,
+    @Param('actionKey') actionKey: string,
+    @Body() body: InputParametersObject,
+  ): Promise<ObjectResponse<ActionOutput>> {
+    return this.runAction(pluginKeyPart1, pluginKeyPart2, actionKey, body);
+  }
+
+  //
+  // Private methods
+  //
+
+  private async getPlugins(): Promise<PaginatedResponse<PluginListResponseType>> {
     const plugins = await this.pluginCache.getPlugins();
 
     return {
@@ -39,8 +118,7 @@ export class PluginsController {
 
   // We need to use two params here because the plugin contains a slash
   // (e.g. "connery-io/connery-runner-administration@main")
-  @Get('/:pluginKeyPart1/:pluginKeyPart2')
-  async getPlugin(
+  private async getPlugin(
     @Param('pluginKeyPart1') pluginKeyPart1: string,
     @Param('pluginKeyPart2') pluginKeyPart2: string,
   ): Promise<ObjectResponse<PluginResponseType>> {
@@ -52,15 +130,14 @@ export class PluginsController {
         key: plugin.key,
         title: plugin.definition.title,
         description: plugin.definition.description,
-        actions: map(plugin.definition.actions, convertAction),
+        actions: map(plugin.definition.actions, this.convertAction),
       },
     };
   }
 
   // We need to use two params here because the plugin contains a slash
   // (e.g. "connery-io/connery-runner-administration@main")
-  @Get('/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey')
-  async getAction(
+  private async getAction(
     @Param('pluginKeyPart1') pluginKeyPart1: string,
     @Param('pluginKeyPart2') pluginKeyPart2: string,
     @Param('actionKey') actionKey: string,
@@ -70,14 +147,13 @@ export class PluginsController {
 
     return {
       status: 'success',
-      data: convertAction(action.definition),
+      data: this.convertAction(action.definition),
     };
   }
 
   // We need to use two params here because the plugin contains a slash
   // (e.g. "connery-io/connery-runner-administration@main")
-  @Post('/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey/run')
-  async runAction(
+  private async runAction(
     @Param('pluginKeyPart1') pluginKeyPart1: string,
     @Param('pluginKeyPart2') pluginKeyPart2: string,
     @Param('actionKey') actionKey: string,
@@ -92,35 +168,35 @@ export class PluginsController {
       data: actionResult,
     };
   }
-}
 
-function convertAction(action: ActionDefinition): ActionResponseType {
-  return {
-    key: action.key,
-    title: action.title,
-    description: action.description,
-    type: action.type,
-    inputParameters: map(action.inputParameters, (inputParameter) => {
-      return {
-        key: inputParameter.key,
-        title: inputParameter.title,
-        description: inputParameter.description,
-        type: inputParameter.type,
-        validation: {
-          required: inputParameter.validation?.required,
-        },
-      };
-    }),
-    outputParameters: map(action.outputParameters, (outputParameter) => {
-      return {
-        key: outputParameter.key,
-        title: outputParameter.title,
-        description: outputParameter.description,
-        type: outputParameter.type,
-        validation: {
-          required: outputParameter.validation?.required,
-        },
-      };
-    }),
-  };
+  private convertAction(action: ActionDefinition): ActionResponseType {
+    return {
+      key: action.key,
+      title: action.title,
+      description: action.description,
+      type: action.type,
+      inputParameters: map(action.inputParameters, (inputParameter) => {
+        return {
+          key: inputParameter.key,
+          title: inputParameter.title,
+          description: inputParameter.description,
+          type: inputParameter.type,
+          validation: {
+            required: inputParameter.validation?.required,
+          },
+        };
+      }),
+      outputParameters: map(action.outputParameters, (outputParameter) => {
+        return {
+          key: outputParameter.key,
+          title: outputParameter.title,
+          description: outputParameter.description,
+          type: outputParameter.type,
+          validation: {
+            required: outputParameter.validation?.required,
+          },
+        };
+      }),
+    };
+  }
 }
