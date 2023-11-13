@@ -18,6 +18,9 @@ export class OpenApiForActions {
       },
       servers: [],
       paths: {},
+      externalDocs: {
+        url: 'https://docs.connery.io',
+      },
       components: {
         schemas: {},
         securitySchemes: {
@@ -58,7 +61,12 @@ export class OpenApiForActions {
     if (!runnerConfig.publicUrl) {
       throw new Error('The CONNERY_RUNNER_PUBLIC_URL is not configured on the runner.');
     }
-    this._openApiSchema.servers = [{ url: runnerConfig.publicUrl }];
+    this._openApiSchema.servers = [
+      {
+        description: 'Runner URL',
+        url: runnerConfig.publicUrl,
+      },
+    ];
 
     // Add the actions to the OpenAPI spec
     const actions = await this.pluginCache.getActions();
