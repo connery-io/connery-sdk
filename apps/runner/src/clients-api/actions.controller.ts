@@ -1,7 +1,8 @@
-import { Body, Controller, Inject, Post } from '@nestjs/common';
+import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
 import { ILlm } from ':src/shared/llm/llm.interface';
 import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from ':src/shared/llm/types';
 import { ObjectResponse } from ':src/shared/types';
+import { OpenApiForActions } from ':src/shared/openapi-for-actions';
 
 type IdentifyActionBody = {
   prompt: string;
@@ -9,7 +10,10 @@ type IdentifyActionBody = {
 
 @Controller()
 export class ActionsController {
-  constructor(@Inject(ILlm) private llm: ILlm) {}
+  constructor(
+    @Inject(ILlm) private llm: ILlm,
+    @Inject(OpenApiForActions) private openApiForActions: OpenApiForActions,
+  ) {}
 
   // This endpoint is deprecated and will be removed in the future
   // TODO: Remove this endpoint once all the clients are updated to use the new one
@@ -25,6 +29,11 @@ export class ActionsController {
     @Body() body: IdentifyActionBody,
   ): Promise<ObjectResponse<ActionIdentifiedOutput | ActionNotIdentifiedOutput>> {
     return this.identifyAction(body);
+  }
+
+  @Get('/v1/actions/openapi')
+  async getActionsOpenApi(): Promise<any> {
+    return this.openApiForActions.getOpenApiSchema();
   }
 
   private async identifyAction(

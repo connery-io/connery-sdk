@@ -1,0 +1,106 @@
+# OpenAI Actions in GPTs
+
+Use Connery actions in your GPTs to make them more powerful.
+
+## Demo
+
+See below a demo of how we use Connery's **Send email** action in the GPT to write and send emails.
+
+[DEMO]
+
+## Information
+
+OpenAI released a custom version of ChatGPT that you can create for a specific purpose — called GPTs.
+GPTs provide the ability to deeply customize ChatGPT with all new capabilities.
+In addition to using our built-in capabilities, you can also define custom actions by making one or more APIs available to the GPT.
+Actions allow GPTs to integrate external data or interact with the real world.
+Connect GPTs to databases, plug them into emails, or make them your shopping assistant.
+
+And Connery can significantly help you with that.
+With Connery, you can easily create and manage your own custom actions and use them in your GPTs.
+Connery will take care of the action running, authorization, and provide you the OpenAPI schema compatible with OpenAI GPTs.
+
+:::note Helpful resources
+
+- [Core concepts of Connery](/docs/platform/introduction/core-concepts)
+- [How to start using Connery](/docs/platform/quick-start/)
+- [More about Actions in GPTs on the official OpenAI docs](https://platform.openai.com/docs/actions)
+
+:::
+
+## Configuration
+
+### Prerequisites
+
+If you are new to Connery, we recommend you start with the [Quickstart](/docs/platform/quick-start/) guide.
+There, you will find all the information required to set up Connery and start using it.
+
+:::info Runner Public URL
+
+OpenAPI schema contains the URL of your runner to let GPTs know where to send requests.
+Therefore, you need to configure the public URL of your runner in the `CONNERY_RUNNER_PUBLIC_URL` environment variable in the `.env` file.
+
+:::
+
+We also recommend installing the [connery-io/gmail](https://github.com/connery-io/gmail) plugin on your runner, as we use it in this demo to send emails.
+
+In addition to that, you will need to create a GPT to use the actions from Connery.
+In this demo, we use a GPT with the following configuration:
+
+| Configuration Name    | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name                  | Send Email Helper                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Description           | This GPT helps me write emails and then send them from my email address using Connery actions.                                                                                                                                                                                                                                                                                                                                                       |
+| Instructions          | Send Email Helper is designed to assist in writing personal emails with a positive tone. It will always request confirmation before sending an email and will ask specific questions to gather all necessary details for the email's completion. The assistant will maintain a neutral and professional demeanor throughout the interaction. When addressing the user, it will use the name Volodymyr and apply a consistent sign-off in the emails. |
+| Conversation starters | 1. Can you help me draft an email?                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
+### Set up actions in the GPT
+
+Once you have a Connery runner up and running and a GPT created, you can add Connery actions to it.
+
+1. **Get OpenAPI schema** with all the actions installed on your runner
+
+To get the OpenAPI schema, you must send a request to your runner's `GET /v1/actions/openapi` endpoint.
+The endpoint is private and requires an API Key for safety reasons.
+
+Use the following cURL to get the OpenAPI schema:
+
+```
+curl -L '<PUBLIC_RUNNER_URL>/v1/actions/openapi' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>'
+```
+
+The `<PUBLIC_RUNNER_URL>` and `<CONNERY_RUNNER_API_KEY>` you should get during the runner setup in the [Quickstart](/docs/platform/quick-start/) guide.
+
+2. Open the **Configuration** section of your GPT.
+3. Scroll down to the **Actions** section and click the **Add actions** button.
+
+![Actions configuration in GPT](/img/openai/actions-configuration-in-gpt-1@2x.png)
+
+4. Paste the OpenAPI schema you got from the runner into the **Schema** field.
+5. Check the list of actions detected in the schema.
+6. Click the **Edit** button in the **Authentication** section to configure the authentication method for the actions.
+
+![Actions configuration in GPT](/img/openai/actions-configuration-in-gpt-2@2x.png)
+
+7. Select the **API Key** authentication type.
+8. Paste the API Key of your runner into the **API Key** field.
+9. Select the **Custom** auth type.
+10. Use the `x-api-key` as a **Custom Header Name**.
+11. Click the **Save** button.
+
+![Actions configuration in GPT](/img/openai/actions-configuration-in-gpt-3@2x.png)
+
+12. Press **Update** on the top right corner to update the GPT.
+13. Press **Confirm** to confirm the update.
+
+![Actions configuration in GPT](/img/openai/actions-configuration-in-gpt-4@2x.png)
+
+Now, you're ready to use the actions in your GPT.
+
+:::tip One action - multiple opportunities
+
+Once the action is configured on Connery Runner, you can use it not only in the GPT but also on many other platforms.
+Check the list of [Clients](/docs/clients/native/) to see what platforms are supported.
+
+:::

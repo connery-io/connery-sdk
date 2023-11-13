@@ -1,10 +1,18 @@
 # Slack App
 
-Use natural language to run actions in your [Slack](https://slack.com/) workspace, collaborating with your team.
+Use natural language to run Connery actions in your [Slack](https://slack.com/) workspace when collaborating with your team.
+
+## Demo
+
+Below is an example of how the Connery app helps scale the back-end service on AWS from the Slack channel.
+
+![Scheduled scaling of Back End service on AWS Fargate from Slack using Connery](/img/slack/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif)
 
 ## Information
 
-You can use the app by sending it direct messages or in any channel where the app is invited.
+To use the app, send your message to the app as a direct message using natural language.
+Also, you can invite the app to any channel and use it there by mentioning the app in your message.
+
 In the channels, the app can see and respond only to the messages where the app is mentioned.
 
 For every message to the app, it calls Connery API, which
@@ -14,9 +22,13 @@ After that, the app shows the action form to the user with prefilled input param
 In the end, the app shows the result of the action to the user or an error message if the action failed.
 See the demo below in the Usage section.
 
+:::info
+
 To use the app, you must configure `OPENAI_API_KEY`
 in the [runner configuration](http://localhost:4202/docs/platform/quick-start/set-up-runner#3-configure-env-variables)
 so the runner can use OpenAI API to classify the user intent to identify the action and prefill input parameters based on the user's natural language request.
+
+:::
 
 Let's install the app in your Slack workspace and configure it to connect to your runner.
 
@@ -59,12 +71,3 @@ Use the button below to install the app into your Slack workspace.
 If the connection is successful, you will see the updated "Home" tab with the list of available actions from your runner.
 
 ![Slack App Configuration](/img/slack/configure-app-3.png)
-
-## Usage
-
-To use the app, send your message to the app as a direct message using natural language.
-Also, you can invite the app to any channel and use it there by mentioning the app in your message.
-
-Below is an example how Connery app helps to scale the Back End service on AWS from the slack channel.
-
-![Scheduled scaling of Back End service on AWS Fargate from Slack using Connery](/img/slack/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif)
