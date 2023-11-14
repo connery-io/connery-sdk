@@ -63,7 +63,7 @@ in the business domain but not familiar with AWS or the technical aspects manage
 
 **Solution**
 
-The customer created a plugin with multiple actions:
+The customer created a private plugin with multiple actions:
 
 | Action                             | Description                                                                                                                  |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -91,7 +91,21 @@ check the Ecosystem section below to learn more.
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Read more about this example in our documentation: [OpenAI GPTs client for Connery](https://docs.connery.io/docs/clients/native/openai).
+We use the [connery-io/gmail](https://github.com/connery-io/gmail) plugin in this demo to send emails.
+
+Read more about this demo and how to use Connery actions from a custom OpenAI GPT in our documentation: [OpenAI GPTs client for Connery](https://docs.connery.io/docs/clients/native/openai).
+
+## What is in this repository?
+
+This is a monorepo that contains the following components:
+
+| Name   | Path                 | Description                                                                                                     |
+| ------ | -------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Runner | `./apps/runner`      | The core of Connery that knows how to handle plugins, run actions, and provide a standardized API as an output. |
+| Docs   | `./apps/docs`        | The documentation website.                                                                                      |
+| CLI    | `./packages/connery` | CLI for plugin development.                                                                                     |
+| SDK    | `./packages/sdk`     | SDK for plugin development.                                                                                     |
+| Lib    | `./packages/lib`     | Shared library for the runner and CLI.                                                                          |
 
 ## 🌟 Support us and stay up-to-date
 
