@@ -48,52 +48,17 @@ but also the features that make your plugins more powerful, like Natural Languag
 The client is a native application on every platform that consumes the API provided
 by the runner and lets the end users use plugins without technical knowledge.
 
-## ✅ Example #1 - Scale back-end service on AWS from Slack
-
-Let's consider an example from one of our customers.
+## ✅ Example 1: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
-**Problem**
+Read more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
 
-The customer aimed to scale their application on AWS in response to various business conditions and events.
-Additionally, they wanted the flexibility to manually schedule the the application scaling as needed.
-Importantly, the scaling process should be user-friendly enough for team members who are experts
-in the business domain but not familiar with AWS or the technical aspects managed by the engineering team.
-
-**Solution**
-
-The customer created a private plugin with multiple actions:
-
-| Action                             | Description                                                                                                                  |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Schedule service scaling           | Scales the service on AWS Fargate based on the provided schedule.                                                            |
-| Get service scaling information    | Returns the current scaling information for the service.                                                                     |
-| Scale service to standard capacity | Scales the service to the standard capacity so you don't need to guess what is the right standard capacity for each service. |
-| Remove scheduled service scaling   | Removes the scheduled scaling for the service.                                                                               |
-
-The plugin uses AWS SDK for JavaScript to communicate with AWS.
-After creating the plugin, the customer configured a runner and installed the plugin onto it.
-This setup enabled the customer to use the plugin from multiple platforms using clients and supporting a range of use cases:
-
-| Client                                                              | Use case                                                                                                                                                                                                                                                                                        |
-| ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Slack&nbsp;App](https://docs.connery.io/docs/clients/native/slack) | Manual scaling directly from Slack channel using natural language. See the demo on the GIF above.                                                                                                                                                                                               |
-| [Make&nbsp;App](https://docs.connery.io/docs/clients/native/make)   | Automation scenarios for: <br><br> 1. automatic scaling based on the input from other services connected to Make, like Google Sheets with the related data; <br> 2. scheduled scaling based on the time of the day and day of the week. <br><br> Everything is managed by non-technical people. |
-
-The most beautiful thing is that once the plugin is implemented by the developer and hosted on the runner,
-non-technical people can easily use it from any platform that covers their needs.
-
-For many cases, you don't even need developers, as Connery brings many community-driven plugins and clients -
-check the Ecosystem section below to learn more.
-
-## ✅ Example #2 - Send email from a custom GPT using Connery actions
+## ✅ Example 2: Send email from a custom OpenAI GPT using Connery actions
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-We use the [connery-io/gmail](https://github.com/connery-io/gmail) plugin in this demo to send emails.
-
-Read more about this demo and how to use Connery actions from a custom OpenAI GPT in our documentation: [OpenAI GPTs client for Connery](https://docs.connery.io/docs/clients/native/openai).
+Read more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
 
 ## What is in this repository?
 

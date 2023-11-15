@@ -1,0 +1,50 @@
+# Scale back-end service on AWS from Slack
+
+## Demo
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/-V0aUwYld9E?si=i1Rdk0hStlGbpkww&amp;controls=0"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+
+## Problem
+
+One of our customer aimed to scale their application on AWS in response to various business conditions and events.
+Additionally, they wanted the flexibility to manually schedule the application scaling as needed.
+Importantly, the scaling process should be user-friendly enough for team members who are experts in the business domain
+but unfamiliar with AWS or the technical aspects the engineering team manages.
+
+## Solution
+
+The customer created a private plugin with multiple actions:
+
+| Action                             | Description                                                                                                                  |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Schedule service scaling           | Scales the service on AWS Fargate based on the provided schedule.                                                            |
+| Get service scaling information    | Returns the current scaling information for the service.                                                                     |
+| Scale service to standard capacity | Scales the service to the standard capacity so you don't need to guess what is the right standard capacity for each service. |
+| Remove scheduled service scaling   | Removes the scheduled scaling for the service.                                                                               |
+
+The plugin uses AWS SDK for JavaScript to communicate with AWS.
+After creating the plugin, the customer configured a runner and installed the plugin onto it.
+This setup enabled the customer to use the plugin from multiple platforms using clients and supporting a range of use cases:
+
+- Manual scaling directly from Slack channel using natural language (see the demo above);
+- Make scenarios for automatic scaling based on the input from other services connected to Make, like Google Sheets with the related data;
+- Make scenarios for scheduled scaling based on the time of the day and day of the week.
+
+The most beautiful thing is that once the plugin is implemented by the developer and hosted on the runner,
+non-technical people can easily use it from any platform that covers their needs.
+
+## Related links
+
+- Used plugin, its source code, and documentation: (the customer built a private plugin for that)
+- Used clients and their documentation:
+  - [Slack App](https://docs.connery.io/docs/clients/native/slack)
+  - [Make App](https://docs.connery.io/docs/clients/native/make)
+- How to set up Connery: [Quickstart](/docs/platform/quick-start)
