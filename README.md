@@ -52,13 +52,13 @@ by the runner and lets the end users use plugins without technical knowledge.
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
-Read more about this use case in our documentation: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
+Read more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
 
 ## ✅ Example 2: Send email from a custom OpenAI GPT using Connery actions
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Read more about this use case in our documentation: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
+Read more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
 
 ## What is in this repository?
 
