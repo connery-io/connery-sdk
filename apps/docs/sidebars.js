@@ -9,7 +9,6 @@ const sidebars = {
         'platform/introduction/core-concepts',
         'platform/introduction/ecosystem',
         'platform/introduction/features',
-        'platform/introduction/use-cases',
       ],
       link: {
         type: 'doc',
@@ -31,6 +30,20 @@ const sidebars = {
         id: 'platform/quick-start/index',
       },
     },
+    {
+      type: "category",
+      label: "Use cases",
+      collapsible: false,
+      collapsed: false,
+      items: [
+        'platform/use-cases/scale-back-end-service-on-aws-from-slack',
+        'platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions',
+      ],
+      link: {
+        type: 'doc',
+        id: 'platform/use-cases/index',
+      },
+    }
   ],
   pluginsSidebar: [
     'plugins/native',
