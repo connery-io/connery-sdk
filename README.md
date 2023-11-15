@@ -10,7 +10,7 @@
 
 ## 🤔 What is this?
 
-**Connery is a middleware between APIs and platforms.
+**Connery is a middleware runtime between APIs and platforms.
 It lets you take any API and turn it into a standardized plugin with built-in security and access controls. Once that's done, you can use this plugin across different platforms.**
 
 There are many platforms around that allow you to connect different services together and build automation workflows.
