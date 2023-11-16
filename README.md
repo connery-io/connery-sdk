@@ -6,98 +6,71 @@
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery-platform)
 
 <br/>
-<img alt="Connery overview diagram" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/connery-overview-diagram.svg">
+<img alt="Connery overview diagram" src="./apps/docs/static/img/repo/connery-overview-diagram.svg">
 
 ## 🤔 What is this?
 
-**Connery is a middleware runtime between APIs and platforms.
-It lets you take any API and turn it into a standardized plugin with built-in security and access controls. Once that's done, you can use this plugin across different platforms.**
+**Connery is a middleware runtime between APIs and platforms. With Connery, you can turn any API into a standardized plugin with built-in auth, security, and access management and use it across different platforms.**
 
-There are many platforms around that allow you to connect different services together and build automation workflows.
-For example, No-code platforms like Zapier and Make.
-Also, many AI-powered platforms are gaining momentum on the market — for instance, ChatGPT with its plugins,
-AI-powered chatbots, and agents.
+Many **AI platforms** are gaining momentum on the market — for instance, OpenAI with GPTs, LangChain, AI-powered chatbots, and agents.
 
-All of them must be connected to third-party services to provide integration and automation capabilities to the end users.
-API is not enough for that nowadays, as it should always be wrapped into the native app following
-the requirements of each platform. This also brings many new challenges around security, access management, and more.
+Also, many **no-code platforms**, such as Zapier and Make, allow you to connect different services together and build automation workflows.
 
-This is where Connery comes into play using three concepts:
+To fully leverage the capabilities of these platforms, it's essential to connect them with your APIs, like SaaS applications, databases, back-end services, and so on.
 
-**1. Plugins**
+While APIs provide a fundamental bridge for connectivity, their integration often requires customization into platform-specific applications, adhering to diverse platform standards. This necessity introduces a complex array of challenges, particularly in areas of authentication, security, and access management, which are critical for seamless and secure operations.
 
-The plugin is a piece of configuration and JavaScript code that wraps any API
-and helps standardize it for any platform.
+This is where Connery comes into play.
 
-You might already be familiar with the concept of a plugin.
-This idea has different names across various platforms:
+## ⚙️ How does it work?
 
-- **App** in Make, Zapier, and Slack;
-- **Plugin** in ChatGPT;
-- **Tool** in LangChain.
+Connery consists of four main components that tightly work together:
 
-**2. Runner**
+**Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing. For example, "Send an email" is an action in the "Gmail" _plugin_.
 
-The runner is an open-source application that knows how to run plugins and provide a standardized API as an output.
-Also, it offers many important features to ensure the security of your plugins,
-like Authentication and Authorization, Access Management, Secret Management, Audit Logs,
-but also the features that make your plugins more powerful, like Natural Language Actions with LLM support, Manual Approval, and many more.
+**Plugin** - This is a collection of related actions grouped together because they serve a similar purpose. Each plugin is represented by a GitHub repository with TypeScript code of a specific structure that adapts any API for use with the _runner_. It's a way to standardize different APIs so they work well within the Connery system.
 
-**3. Clients**
+**Runner** - This is the heart of Connery, an open-source application that knows how to handle plugins and run actions. It's equipped with key features like authentication handling, security, and access management. Each organization or individual configures their own isolated runner with a unique plugin set and configuration. The runner provides a standardized API for every installed action as an output that can be consumed by _clients_.
 
-The client is a native application on every platform that consumes the API provided
-by the runner and lets the end users use plugins without technical knowledge.
+**Client** - A client is a specific application for each platform that uses the API provided by the runner. It's like a translator that adapts the runner's capabilities to fit the platform's needs. For example, a Slack App client allows to run actions right from Slack.
+
+The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same action from Slack, custom OpenAI GPT or Make.
+
+See examples below.
 
 ## ✅ Example 1: Scale back-end service on AWS from Slack
 
-<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
+<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
 Read more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
 
 ## ✅ Example 2: Send email from a custom OpenAI GPT using Connery actions
 
-<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
+<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
 Read more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
-
-## What is in this repository?
-
-This is a monorepo that contains the following components:
-
-| Name   | Path                 | Description                                                                                                     |
-| ------ | -------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Runner | `./apps/runner`      | The core of Connery that knows how to handle plugins, run actions, and provide a standardized API as an output. |
-| Docs   | `./apps/docs`        | The documentation website.                                                                                      |
-| CLI    | `./packages/connery` | CLI for plugin development.                                                                                     |
-| SDK    | `./packages/sdk`     | SDK for plugin development.                                                                                     |
-| Lib    | `./packages/lib`     | Shared library for the runner and CLI.                                                                          |
 
 ## 🌟 Support us and stay up-to-date
 
 Please **give the repository a star** to support the project and stay up-to-date with the latest news.
 
-<a href="https://github.com/connery-io/connery-platform">
-   <img src="https://raw.githubusercontent.com/connery-io/connery-platform/main/apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
-</a>
-
-## 🚀 Quickstart
-
-Check out the [Quickstart](https://docs.connery.io/docs/platform/quick-start/) guide to get started with Connery.
+<img src="./apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
 
 ## ✨ Features
 
-| Feature                        | Description                                                                                                                                                |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Security                       | Robust, enterprise-grade security measures ensuring data protection and privacy.                                                                           |
-| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for both users and clients.                                                           |
-| Secret Management              | Advanced and secure handling of confidential data, API keys, and third-party integrations.                                                                 |
-| Natural Language Actions       | Seamless interaction using everyday language. The Runner understands user requests, classifies intent, identifies action, and executes it without a hitch. |
-| AI Readiness                   | Future-proof architecture primed for integration with intelligent AI agents and chatbots.                                                                  |
-| Action Manual Approval         | Empower humans with the final say in executing actions, ensuring accuracy and relevance, especially when AI is in control.                                 |
-| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.                                                       |
-| Multi-Platform Plugins         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                              |
+| Feature                        | Description                                                                                                                                                     |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Auth                           | Authentication and authorization handling for both users and clients.                                                                                           |
+| Security                       | Robust, enterprise-grade security measures ensuring data protection and privacy.                                                                                |
+| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for both users and clients.                                                                |
+| Secret Management              | Advanced and secure handling of sensitive data, such as API keys, passwords, and tokens.                                                                        |
+| Natural Language Actions       | Seamless interaction using natural language. The runner understands user requests, identifies the right action and its parameters, and suggest the user to run. |
+| Action Manual Approval         | Empower humans with the final say in executing actions, ensuring accuracy and relevance, especially when AI is involved.                                        |
+| AI Readiness                   | Future-proof architecture primed for integration with intelligent AI agents and chatbots.                                                                       |
+| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.                                                            |
+| Multi-Platform Plugins         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                                   |
 
-Find more information about features on the [Features and roadmap](https://docs.connery.io/docs/platform/introduction/features) page in the documentation.
+Please note that many features are still in development and will be released in the upcoming versions.
 
 ## 🌳 Ecosystem
 
@@ -106,7 +79,7 @@ So everyone can contribute to the shared marketplace and benefit from it.
 
 Our vision is to build a marketplace where you can find open-source plugins and clients for any use case.
 
-Below are manually curated lists of plugins and clients available for Connery.
+Below are manually curated lists of plugins and clients available for Connery:
 
 - [Native plugins](https://docs.connery.io/docs/plugins/native)
 - [Community plugins](https://docs.connery.io/docs/plugins/community)
@@ -115,9 +88,13 @@ Below are manually curated lists of plugins and clients available for Connery.
 
 To add your plugin or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
 
+## 🚀 Quickstart
+
+Check out the [Quickstart](https://docs.connery.io/docs/platform/quick-start/) guide to get started with Connery.
+
 ## 📖 Documentation
 
-Check out the [Connery Documentation](https://docs.connery.io) to learn more.
+Check out the [Documentation](https://docs.connery.io) to learn more.
 
 ## 💬 Feedback & Support
 
@@ -128,6 +105,18 @@ You can reach us via the following channels:
 - [Discussions](https://github.com/connery-io/connery-platform/discussions) - for feedback, questions, and discussions.
 - [Issues](https://github.com/connery-io/connery-platform/issues) - for bug reports and feature requests.
 - [Twitter](https://twitter.com/connery_io) - for updates and announcements.
+
+## 🗄️ Repository structure
+
+This is a monorepo that contains the following components:
+
+| Name   | Path                 | Description                                                                                                     |
+| ------ | -------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Runner | `./apps/runner`      | The core of Connery that knows how to handle plugins, run actions, and provide a standardized API as an output. |
+| Docs   | `./apps/docs`        | The documentation website.                                                                                      |
+| CLI    | `./packages/connery` | CLI for plugin development.                                                                                     |
+| SDK    | `./packages/sdk`     | SDK for plugin development.                                                                                     |
+| Lib    | `./packages/lib`     | Shared library for the runner and CLI.                                                                          |
 
 ## 👨‍💻 Contributing
 
