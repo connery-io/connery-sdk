@@ -20,7 +20,7 @@ export type ErrorResponse = {
 };
 
 //
-// OpenAI types
+// Other types
 //
 
 export type OpenAiFunctionSchema = {

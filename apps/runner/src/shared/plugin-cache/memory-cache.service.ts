@@ -1,6 +1,6 @@
 import { rmSync } from 'fs';
 import { PluginDownloader } from './plugin-downloader';
-import { Inject, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
 import { find, filter } from 'lodash';
 import { IPluginCache } from './plugin-cache.interface';
 import { ActionRuntime, PluginRuntime } from 'lib';
@@ -33,7 +33,7 @@ export class MemoryCacheService implements IPluginCache {
     const plugin = find(this._plugins, (action: PluginRuntime) => action.key === pluginKey);
 
     if (!plugin) {
-      throw new Error(`The plugin '${pluginKey}' is not found on the runner.`);
+      throw new HttpException(`The plugin '${pluginKey}' is not found on the runner.`, HttpStatus.NOT_FOUND);
     }
 
     return plugin;
@@ -62,7 +62,7 @@ export class MemoryCacheService implements IPluginCache {
     ) as ActionRuntime[];
 
     if (actions.length === 0) {
-      throw new Error(`The action '${actionKey}' is not found on the runner.`);
+      throw new HttpException(`The action '${actionKey}' is not found on the runner.`, HttpStatus.NOT_FOUND);
     } else if (actions.length > 1) {
       // TODO: handle this case properly
       throw new Error(
