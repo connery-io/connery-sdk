@@ -3,7 +3,7 @@ import { ILlm } from ':src/shared/llm/llm.interface';
 import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from ':src/shared/llm/types';
 import { ObjectResponse } from ':src/shared/types';
 import { OpenApiForActions } from ':src/shared/openapi-for-actions';
-import { OpenAiFucntionsForActions } from ':src/shared/openai-functions-for-actions';
+import { OpenAiFunctionsForActions } from ':src/shared/openai-functions-for-actions';
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 
 type IdentifyActionBody = {
@@ -15,7 +15,7 @@ export class ActionsController {
   constructor(
     @Inject(ILlm) private llm: ILlm,
     @Inject(OpenApiForActions) private openApiForActions: OpenApiForActions,
-    @Inject(OpenAiFucntionsForActions) private openAiFucntionsForActions: OpenAiFucntionsForActions,
+    @Inject(OpenAiFunctionsForActions) private openAiFunctionsForActions: OpenAiFunctionsForActions,
     @Inject(IPluginCache) private pluginCache: IPluginCache,
   ) {}
 
@@ -40,9 +40,9 @@ export class ActionsController {
     return this.openApiForActions.getOpenApiSchema();
   }
 
-  @Get('/v1/actions/specs/openai-fucntions')
+  @Get('/v1/actions/specs/openai-functions')
   async getOpenAiFunctionsSchemaForActions(): Promise<any> {
-    return this.openAiFucntionsForActions.getOpenAiFunctionsSchema();
+    return this.openAiFunctionsForActions.getOpenAiFunctionsSchema();
   }
 
   // NOTE: This is a temporary endpoint.

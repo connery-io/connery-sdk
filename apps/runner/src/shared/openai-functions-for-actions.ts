@@ -3,7 +3,7 @@ import { IPluginCache } from './plugin-cache/plugin-cache.interface';
 import { OpenAiFunctionSchema } from './types';
 
 @Injectable()
-export class OpenAiFucntionsForActions {
+export class OpenAiFunctionsForActions {
   constructor(@Inject(IPluginCache) private pluginCache: IPluginCache) {}
 
   async getOpenAiFunctionsSchema(): Promise<OpenAiFunctionSchema[]> {
