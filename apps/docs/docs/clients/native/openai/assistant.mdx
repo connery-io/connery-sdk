@@ -1,0 +1,128 @@
+# Assistants API
+
+Use Connery actions in Function Calling tool of OpenAI Assistants API.
+
+## Information
+
+The Assistants API allows you to build AI assistants within your own applications.
+An Assistant has instructions and can leverage models, tools, and knowledge to respond to user queries.
+The Assistants API currently supports three types of tools: Code Interpreter, Retrieval, and _Function Calling_.
+
+Function calling allows you to describe functions to the Assistants and have it intelligently return the functions that need to be called along with their arguments.
+The Assistants API will pause execution during a Run when it invokes functions, and you can supply the results of the function call back to continue the Run execution.
+
+Connery actions can easily be used in the Function Calling tool of OpenAI Assistants API.
+See below for instructions on configuring and using Connery actions in the Assistant.
+
+:::note Helpful resources
+
+- [OpenAI Assistants API](https://platform.openai.com/docs/assistants/overview/agents)
+- [Funtion Calling](https://platform.openai.com/docs/assistants/tools/function-calling)
+
+:::
+
+## Configuration
+
+### Prerequisites
+
+If you are new to Connery, we recommend you start with the [Quickstart](/docs/platform/quick-start/) guide.
+There, you will find all the information required to set up Connery and start using it.
+
+### Configure functions in the Assistant
+
+1. **Get OpenAI Functions specification for Connery actions installed on the runner.**
+
+```
+curl -L '<PUBLIC_RUNNER_URL>/v1/actions/specs/openai-functions' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>'
+```
+
+The `<PUBLIC_RUNNER_URL>` and `<CONNERY_RUNNER_API_KEY>` you should get during the runner setup in the [Quickstart](/docs/platform/quick-start/) guide.
+
+In response, you will get an OpenAI Function specification for every action installed on your Connery runner.
+
+2. **Use the specification to add functions to your assistant.**
+
+You can do it using Assistant API.
+See the [Defining functions](https://platform.openai.com/docs/assistants/tools/defining-functions) section of the Assistants AI documentation for more information.
+
+Also, you can do it on the [Assistants](https://platform.openai.com/assistants) or [Playground](https://platform.openai.com/playground) pages on the OpenAI developer platform.
+
+<p align="center">
+  <img
+    src="/img/openai/functions-configuration-in-assistant-1@2x.png"
+    alt="Functions configuration in Assistant"
+  />
+</p>
+
+:::info
+
+The UI does not allow adding an array of functions at once. So you need to add them one by one.
+
+:::
+
+Once you add the functions, you can use them as any other functions in the Function Calling tool of the Assistants API.
+
+## Usage
+
+1. **Get functions from the model that have to be called.**
+
+When you initiate a Run with a user Message that triggers the function, the model can provide multiple functions.
+See the [Reading the functions called by the Assistant](https://platform.openai.com/docs/assistants/tools/reading-the-functions-called-by-the-assistant) section of the Assistants AI documentation for more information.
+
+2. **Resolve the function name to the Connery action.**
+
+```
+curl -L '<PUBLIC_RUNNER_URL>/v1/actions/specs/resolve-action-from-specs?specActionKey=<FUNCTION_NAME>' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>'
+```
+
+Replace `<FUNCTION_NAME>` with the function name you got from the model.
+
+In the response you will get the Plugin ID and Action ID which you can then use to run the action in the runner.
+
+:::info
+
+Because of the limitation of the OpenAI Function schema, we can not put the Plugin ID and Action ID in the function name.
+So, we use a short hashed action key in the OpenIA Function schema.
+Then we resolve it to the Plugin ID and Action ID required to run the action on the runner.
+
+This is a temporary solution which will be adjusted in the future.
+
+:::
+
+3. **Run the action on the runner and get the result.**
+
+Use the following API endpoint to run the action:
+
+```
+curl -L '<PUBLIC_RUNNER_URL>/v1/plugins/<PLUGIN_ID>/actions/<ACTION_ID>/run' \
+-H 'Content-Type: application/json' \
+-H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
+-d '<ARGUMENTS>'
+```
+
+Replace `<PLUGIN_ID>` and `<ACTION_ID>` with the values you got from the previous step.
+
+Replace `<ARGUMENTS>` with the arguments you got from the model.
+It should be a flat JSON object like this:
+
+```
+{
+  "argument1": "value1",
+  "argument2": "value2"
+}
+```
+
+After the action is executed, you will get the result in the response.
+
+4. **Send the result back to the model.**
+
+See the [Submitting functions outputs](https://platform.openai.com/docs/assistants/tools/submitting-functions-outputs) section of the Assistants AI documentation for more information.
+
+:::tip One action - multiple opportunities
+
+Once the action is configured on Connery Runner, you can use it not only in the Assistants API but also on many other platforms.
+Check the list of [Clients](/docs/clients/native/) to see what platforms are supported.
+
+:::
