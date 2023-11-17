@@ -69,9 +69,22 @@ const sidebars = {
       collapsible: false,
       collapsed: false,
       items: [
+        {
+          type: "category",
+          label: "OpenAI",
+          collapsible: false,
+          collapsed: false,
+          items: [
+            'clients/native/openai/gpt',
+            'clients/native/openai/assistant',
+          ],
+          link: {
+            type: 'doc',
+            id: 'clients/native/openai/index',
+          },
+        },
         'clients/native/slack',
         'clients/native/make',
-        'clients/native/openai',
         'clients/native/api',
         'clients/native/cli',
         'clients/native/langchain',
