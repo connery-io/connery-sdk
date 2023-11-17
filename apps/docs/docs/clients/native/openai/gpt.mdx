@@ -68,13 +68,13 @@ Once you have a Connery runner up and running and a GPT created, you can add Con
 
 1. **Get OpenAPI schema** with all the actions installed on your runner
 
-To get the OpenAPI schema, you must send a request to your runner's `GET /v1/actions/openapi` endpoint.
+To get the OpenAPI schema, you must send a request to your runner's `GET /v1/actions/specs/openapi` endpoint.
 The endpoint is private and requires an API Key for safety reasons.
 
 Use the following cURL to get the OpenAPI schema:
 
 ```
-curl -L '<PUBLIC_RUNNER_URL>/v1/actions/openapi' \
+curl -L '<PUBLIC_RUNNER_URL>/v1/actions/specs/openapi' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>'
 ```
 

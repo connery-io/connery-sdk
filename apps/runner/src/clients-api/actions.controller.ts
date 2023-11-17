@@ -3,6 +3,7 @@ import { ILlm } from ':src/shared/llm/llm.interface';
 import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from ':src/shared/llm/types';
 import { ObjectResponse } from ':src/shared/types';
 import { OpenApiForActions } from ':src/shared/openapi-for-actions';
+import { OpenAiFucntionsForActions } from ':src/shared/openai-functions-for-actions';
 
 type IdentifyActionBody = {
   prompt: string;
@@ -13,6 +14,7 @@ export class ActionsController {
   constructor(
     @Inject(ILlm) private llm: ILlm,
     @Inject(OpenApiForActions) private openApiForActions: OpenApiForActions,
+    @Inject(OpenAiFucntionsForActions) private openAiFucntionsForActions: OpenAiFucntionsForActions,
   ) {}
 
   // This endpoint is deprecated and will be removed in the future
@@ -31,9 +33,14 @@ export class ActionsController {
     return this.identifyAction(body);
   }
 
-  @Get('/v1/actions/openapi')
+  @Get('/v1/actions/specs/openapi')
   async getActionsOpenApi(): Promise<any> {
     return this.openApiForActions.getOpenApiSchema();
+  }
+
+  @Get('/v1/actions/specs/openai-fucntions')
+  async getOpenAiFunctionsSchemaForActions(): Promise<any> {
+    return this.openAiFucntionsForActions.getOpenAiFunctionsSchema();
   }
 
   private async identifyAction(
