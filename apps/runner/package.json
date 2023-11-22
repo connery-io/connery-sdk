@@ -21,7 +21,7 @@
     "@nestjs/core": "^9.4.3",
     "@nestjs/platform-express": "^9.4.3",
     "@nestjs/terminus": "^9.2.2",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "langchain": "^0.0.177",
     "lodash": "^4.17.21",
     "openapi-types": "^12.1.3",
