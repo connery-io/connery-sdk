@@ -8,8 +8,8 @@ import { OpenAiService } from './llm/openai.service';
 import { IConfig } from './config/config.interface';
 import { IPluginCache } from './plugin-cache/plugin-cache.interface';
 import { ILlm } from './llm/llm.interface';
-import { OpenApiForActions } from './openapi-for-actions';
-import { OpenAiFunctionsForActions } from './openai-functions-for-actions';
+import { OpenApiForActions } from './specs/openapi-for-actions';
+import { OpenAiFunctionsForActions } from './specs/openai-functions-for-actions';
 
 @Module({
   imports: [ConfigModule],

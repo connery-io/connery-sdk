@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IPluginCache } from './plugin-cache/plugin-cache.interface';
+import { IPluginCache } from '../plugin-cache/plugin-cache.interface';
 import { OpenAPIV3 } from 'openapi-types';
 import { ActionRuntime } from 'lib';
-import { IConfig } from './config/config.interface';
+import { IConfig } from '../config/config.interface';
 
 interface ExtendedOperationObject extends OpenAPIV3.OperationObject {
   // This custom extension property is used by OpenAI Actions to determine if the action requires a confirmation before running.

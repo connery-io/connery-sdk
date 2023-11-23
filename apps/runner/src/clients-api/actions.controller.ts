@@ -2,8 +2,8 @@ import { Body, Controller, Get, HttpException, HttpStatus, Inject, Post, Query }
 import { ILlm } from ':src/shared/llm/llm.interface';
 import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from ':src/shared/llm/types';
 import { ObjectResponse } from ':src/shared/types';
-import { OpenApiForActions } from ':src/shared/openapi-for-actions';
-import { OpenAiFunctionsForActions } from ':src/shared/openai-functions-for-actions';
+import { OpenApiForActions } from ':src/shared/specs/openapi-for-actions';
+import { OpenAiFunctionsForActions } from ':src/shared/specs/openai-functions-for-actions';
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 
 type IdentifyActionBody = {

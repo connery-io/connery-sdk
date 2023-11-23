@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IPluginCache } from './plugin-cache/plugin-cache.interface';
-import { OpenAiFunctionSchema } from './types';
+import { IPluginCache } from '../plugin-cache/plugin-cache.interface';
+import { OpenAiFunctionSchema } from '../types';
 
 @Injectable()
 export class OpenAiFunctionsForActions {
