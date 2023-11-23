@@ -25,68 +25,36 @@ export class PluginsController {
   // Public methods
   //
 
-  // This endpoint is deprecated and will be removed in the future
-  // TODO: Remove this endpoint once all the clients are updated to use the new one
-  @Get('/connectors')
-  async getPluginsV0(): Promise<PaginatedResponse<PluginListResponseType>> {
-    return this.getPlugins();
-  }
-
   @Get('/v1/plugins/')
   async getPluginsV1(): Promise<PaginatedResponse<PluginListResponseType>> {
     return this.getPlugins();
   }
 
-  // This endpoint is deprecated and will be removed in the future
-  // TODO: Remove this endpoint once all the clients are updated to use the new one
-  @Get('/connectors/:pluginKeyPart1/:pluginKeyPart2')
-  async getPluginV0(
-    @Param('pluginKeyPart1') pluginKeyPart1: string,
-    @Param('pluginKeyPart2') pluginKeyPart2: string,
-  ): Promise<ObjectResponse<PluginResponseType>> {
-    return this.getPlugin(pluginKeyPart1, pluginKeyPart2);
-  }
-
+  // We need to use two params here because the plugin contains a slash
+  // (e.g. "connery-io/connery-runner-administration@main")
   @Get('/v1/plugins/:pluginKeyPart1/:pluginKeyPart2')
   async getPluginV1(
     @Param('pluginKeyPart1') pluginKeyPart1: string,
     @Param('pluginKeyPart2') pluginKeyPart2: string,
   ): Promise<ObjectResponse<PluginResponseType>> {
-    return this.getPlugin(pluginKeyPart1, pluginKeyPart2);
+    const pluginKey = `${pluginKeyPart1}/${pluginKeyPart2}`;
+    return this.getPlugin(pluginKey);
   }
 
-  // This endpoint is deprecated and will be removed in the future
-  // TODO: Remove this endpoint once all the clients are updated to use the new one
-  @Get('/connectors/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey')
-  async getActionV0(
-    @Param('pluginKeyPart1') pluginKeyPart1: string,
-    @Param('pluginKeyPart2') pluginKeyPart2: string,
-    @Param('actionKey') actionKey: string,
-  ): Promise<ObjectResponse<ActionResponseType>> {
-    return this.getAction(pluginKeyPart1, pluginKeyPart2, actionKey);
-  }
-
+  // We need to use two params here because the plugin contains a slash
+  // (e.g. "connery-io/connery-runner-administration@main")
   @Get('/v1/plugins/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey')
   async getActionV1(
     @Param('pluginKeyPart1') pluginKeyPart1: string,
     @Param('pluginKeyPart2') pluginKeyPart2: string,
     @Param('actionKey') actionKey: string,
   ): Promise<ObjectResponse<ActionResponseType>> {
-    return this.getAction(pluginKeyPart1, pluginKeyPart2, actionKey);
+    const pluginKey = `${pluginKeyPart1}/${pluginKeyPart2}`;
+    return this.getAction(pluginKey, actionKey);
   }
 
-  // This endpoint is deprecated and will be removed in the future
+  // Deprecated endpoint
   // TODO: Remove this endpoint once all the clients are updated to use the new one
-  @Post('/connectors/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey/run')
-  async runActionV0(
-    @Param('pluginKeyPart1') pluginKeyPart1: string,
-    @Param('pluginKeyPart2') pluginKeyPart2: string,
-    @Param('actionKey') actionKey: string,
-    @Body() body: InputParametersObject,
-  ): Promise<ObjectResponse<ActionOutput>> {
-    return this.runAction(pluginKeyPart1, pluginKeyPart2, actionKey, body);
-  }
-
   @Post('/v1/plugins/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey/run')
   async runActionV1(
     @Param('pluginKeyPart1') pluginKeyPart1: string,
@@ -94,7 +62,8 @@ export class PluginsController {
     @Param('actionKey') actionKey: string,
     @Body() body: InputParametersObject,
   ): Promise<ObjectResponse<ActionOutput>> {
-    return this.runAction(pluginKeyPart1, pluginKeyPart2, actionKey, body);
+    const pluginKey = `${pluginKeyPart1}/${pluginKeyPart2}`;
+    return this.runAction(pluginKey, actionKey, body);
   }
 
   //
@@ -116,13 +85,8 @@ export class PluginsController {
     };
   }
 
-  // We need to use two params here because the plugin contains a slash
-  // (e.g. "connery-io/connery-runner-administration@main")
-  private async getPlugin(
-    @Param('pluginKeyPart1') pluginKeyPart1: string,
-    @Param('pluginKeyPart2') pluginKeyPart2: string,
-  ): Promise<ObjectResponse<PluginResponseType>> {
-    const plugin = await this.pluginCache.getPlugin(`${pluginKeyPart1}/${pluginKeyPart2}`);
+  private async getPlugin(pluginKey: string): Promise<ObjectResponse<PluginResponseType>> {
+    const plugin = await this.pluginCache.getPlugin(pluginKey);
 
     return {
       status: 'success',
@@ -135,14 +99,8 @@ export class PluginsController {
     };
   }
 
-  // We need to use two params here because the plugin contains a slash
-  // (e.g. "connery-io/connery-runner-administration@main")
-  private async getAction(
-    @Param('pluginKeyPart1') pluginKeyPart1: string,
-    @Param('pluginKeyPart2') pluginKeyPart2: string,
-    @Param('actionKey') actionKey: string,
-  ): Promise<ObjectResponse<ActionResponseType>> {
-    const plugin = await this.pluginCache.getPlugin(`${pluginKeyPart1}/${pluginKeyPart2}`);
+  private async getAction(pluginKey: string, actionKey: string): Promise<ObjectResponse<ActionResponseType>> {
+    const plugin = await this.pluginCache.getPlugin(pluginKey);
     const action = plugin.getAction(actionKey);
 
     return {
@@ -151,15 +109,12 @@ export class PluginsController {
     };
   }
 
-  // We need to use two params here because the plugin contains a slash
-  // (e.g. "connery-io/connery-runner-administration@main")
   private async runAction(
-    @Param('pluginKeyPart1') pluginKeyPart1: string,
-    @Param('pluginKeyPart2') pluginKeyPart2: string,
-    @Param('actionKey') actionKey: string,
-    @Body() body: InputParametersObject,
+    pluginKey: string,
+    actionKey: string,
+    body: InputParametersObject,
   ): Promise<ObjectResponse<ActionOutput>> {
-    const plugin = await this.pluginCache.getPlugin(`${pluginKeyPart1}/${pluginKeyPart2}`);
+    const plugin = await this.pluginCache.getPlugin(pluginKey);
     const action = plugin.getAction(actionKey);
     const actionResult = await action.run(body);
 

@@ -19,15 +19,6 @@ export class ActionsController {
     @Inject(IPluginCache) private pluginCache: IPluginCache,
   ) {}
 
-  // This endpoint is deprecated and will be removed in the future
-  // TODO: Remove this endpoint once all the clients are updated to use the new one
-  @Post('/actions/identify')
-  async identifyActionV0(
-    @Body() body: IdentifyActionBody,
-  ): Promise<ObjectResponse<ActionIdentifiedOutput | ActionNotIdentifiedOutput>> {
-    return this.identifyAction(body);
-  }
-
   @Post('/v1/actions/identify')
   async identifyActionV1(
     @Body() body: IdentifyActionBody,
@@ -50,6 +41,7 @@ export class ActionsController {
   // so that the client can use the Connery API usign the pluginKey and actionKey.
   // This is done becasue the OpenAI and OpenAPI specs have limitations for the action keys,
   // so we can not store the full action key (pluginKey/actionKey) in the specs.
+  // TODO: Remove this endpoint when we have a better solution.
   @Get('/v1/actions/specs/resolve-action-from-specs')
   async resolveActionFromSpecs(
     @Query('specActionKey') specActionKey: string,
