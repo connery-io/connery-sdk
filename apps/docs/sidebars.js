@@ -7,7 +7,6 @@ const sidebars = {
       collapsed: false,
       items: [
         'platform/introduction/core-concepts',
-        'platform/introduction/ecosystem',
         'platform/introduction/features',
       ],
       link: {

@@ -4,12 +4,12 @@ Use the Connery API to create your own client based on the Connery plugin infras
 
 ## Actions API
 
-Connery Runner exposes a dynamic OpenAPI schema that describes all the actions available on your runner.
+Connery Runner exposes a dynamic OpenAPI specification that describes all the actions available on your runner.
 
-To get the OpenAPI schema, send a request to your runner's `GET /v1/actions/specs/openapi` endpoint.
+To get the OpenAPI specification, send a request to your runner's `GET /v1/actions/specs/openapi` endpoint.
 The endpoint is private and requires an API Key for safety reasons.
 
-Use the following cURL to get the OpenAPI schema:
+Use the following cURL to get the OpenAPI specification:
 
 ```
 curl -L '<PUBLIC_RUNNER_URL>/v1/actions/specs/openapi' \
@@ -20,9 +20,9 @@ The `<PUBLIC_RUNNER_URL>` and `<CONNERY_RUNNER_API_KEY>` you should get during t
 
 :::info Runner Public URL
 
-OpenAPI schema contains the URL of your runner in the `servers` section.
+OpenAPI specification contains the URL of your runner in the `servers` section.
 Therefore, you need to configure the public URL of your runner in the `CONNERY_RUNNER_PUBLIC_URL` environment variable in the `.env` file.
 
 :::
 
-The open API schema contains complete information about all the actions available on your runner, including their input and output parameters.
+The OpenAPI specification contains complete information about all the actions available on your runner, including their input and output parameters.

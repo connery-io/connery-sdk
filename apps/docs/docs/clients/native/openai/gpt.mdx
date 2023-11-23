@@ -26,7 +26,7 @@ Connect GPTs to databases, plug them into emails, or make them your shopping ass
 
 And Connery can significantly help you with that.
 With Connery, you can easily create and manage your own custom actions and use them in your GPTs.
-Connery will take care of the action running, authorization, and provide you the OpenAPI schema compatible with OpenAI GPTs.
+Connery will take care of the action running, authorization, and provide you the OpenAPI specification compatible with OpenAI GPTs.
 
 :::note Helpful resources
 
@@ -45,7 +45,7 @@ There, you will find all the information required to set up Connery and start us
 
 :::info Runner Public URL
 
-OpenAPI schema contains the URL of your runner to let GPTs know where to send requests.
+OpenAPI specification contains the URL of your runner to let GPTs know where to send requests.
 Therefore, you need to configure the public URL of your runner in the `CONNERY_RUNNER_PUBLIC_URL` environment variable in the `.env` file.
 
 :::
@@ -66,12 +66,12 @@ In this demo, we use a GPT with the following configuration:
 
 Once you have a Connery runner up and running and a GPT created, you can add Connery actions to it.
 
-1. **Get OpenAPI schema** with all the actions installed on your runner
+1. **Get OpenAPI specification** with all the actions installed on your runner
 
-To get the OpenAPI schema, you must send a request to your runner's `GET /v1/actions/specs/openapi` endpoint.
+To get the OpenAPI specification, you must send a request to your runner's `GET /v1/actions/specs/openapi` endpoint.
 The endpoint is private and requires an API Key for safety reasons.
 
-Use the following cURL to get the OpenAPI schema:
+Use the following cURL to get the OpenAPI specification:
 
 ```
 curl -L '<PUBLIC_RUNNER_URL>/v1/actions/specs/openapi' \
@@ -90,8 +90,8 @@ The `<PUBLIC_RUNNER_URL>` and `<CONNERY_RUNNER_API_KEY>` you should get during t
   />
 </p>
 
-4. Paste the OpenAPI schema you got from the runner into the **Schema** field.
-5. Check the list of actions detected in the schema.
+4. Paste the OpenAPI specification you got from the runner into the **Schema** field.
+5. Check the list of actions detected in the specification.
 6. Click the **Edit** button in the **Authentication** section to configure the authentication method for the actions.
 
 <p align="center">
@@ -125,10 +125,3 @@ The `<PUBLIC_RUNNER_URL>` and `<CONNERY_RUNNER_API_KEY>` you should get during t
 </p>
 
 Now, you're ready to use the actions in your GPT.
-
-:::tip One action - multiple opportunities
-
-Once the action is configured on Connery Runner, you can use it not only in the GPT but also on many other platforms.
-Check the list of [Clients](/docs/clients/native/) to see what platforms are supported.
-
-:::

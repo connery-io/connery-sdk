@@ -83,8 +83,8 @@ In the response you will get the Plugin ID and Action ID which you can then use 
 
 :::info
 
-Because of the limitation of the OpenAI Function schema, we can not put the Plugin ID and Action ID in the function name.
-So, we use a short hashed action key in the OpenIA Function schema.
+Because of the limitation of the OpenAI Function specification, we can not put the Plugin ID and Action ID in the function name.
+So, we use a short hashed action key in the OpenAI Function specification.
 Then we resolve it to the Plugin ID and Action ID required to run the action on the runner.
 
 This is a temporary solution which will be adjusted in the future.
@@ -119,10 +119,3 @@ After the action is executed, you will get the result in the response.
 4. **Send the result back to the model.**
 
 See the [Submitting functions outputs](https://platform.openai.com/docs/assistants/tools/submitting-functions-outputs) section of the Assistants AI documentation for more information.
-
-:::tip One action - multiple opportunities
-
-Once the action is configured on Connery Runner, you can use it not only in the Assistants API but also on many other platforms.
-Check the list of [Clients](/docs/clients/native/) to see what platforms are supported.
-
-:::
