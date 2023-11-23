@@ -6,13 +6,6 @@ import { Controller, Get, Inject } from '@nestjs/common';
 export class PluginsController {
   constructor(@Inject(IPluginCache) private pluginCache: IPluginCache) {}
 
-  // This endpoint is deprecated and will be removed in the future
-  // TODO: Remove this endpoint once all the clients are updated to use the new one
-  @Get('/admin/connectors/refresh')
-  async refreshPluginCacheV0(): Promise<ObjectResponse<undefined>> {
-    return this.refreshPluginCache();
-  }
-
   @Get('/v1/admin/plugins/refresh')
   async refreshPluginCacheV1(): Promise<ObjectResponse<undefined>> {
     return this.refreshPluginCache();

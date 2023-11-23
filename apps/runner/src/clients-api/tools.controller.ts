@@ -15,13 +15,6 @@ export class ToolsController {
     };
   }
 
-  // This endpoint is deprecated and will be removed in the future
-  // TODO: Remove this endpoint once all the clients are updated to use the new one
-  @Get('/verify-access')
-  verifyAccessV0(): ObjectResponse<undefined> {
-    return this.verifyAccess();
-  }
-
   @Get('/v1/verify-access')
   verifyAccessV1(): ObjectResponse<undefined> {
     return this.verifyAccess();

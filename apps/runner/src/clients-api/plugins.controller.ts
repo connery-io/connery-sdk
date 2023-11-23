@@ -53,8 +53,6 @@ export class PluginsController {
     return this.getAction(pluginKey, actionKey);
   }
 
-  // Deprecated endpoint
-  // TODO: Remove this endpoint once all the clients are updated to use the new one
   @Post('/v1/plugins/:pluginKeyPart1/:pluginKeyPart2/actions/:actionKey/run')
   async runActionV1(
     @Param('pluginKeyPart1') pluginKeyPart1: string,
