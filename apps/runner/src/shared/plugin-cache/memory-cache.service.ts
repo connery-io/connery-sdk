@@ -1,7 +1,6 @@
 import { rmSync } from 'fs';
 import { PluginDownloader } from './plugin-downloader';
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
-import { find, filter } from 'lodash';
 import { IPluginCache } from './plugin-cache.interface';
 import { ActionRuntime, PluginRuntime } from 'lib';
 import { IConfig } from '../config/config.interface';
@@ -25,15 +24,15 @@ export class MemoryCacheService implements IPluginCache {
     return this._plugins;
   }
 
-  async getPlugin(pluginKey: string): Promise<PluginRuntime> {
+  async getPlugin(pluginId: string): Promise<PluginRuntime> {
     if (this._plugins.length === 0) {
       await this.initialize();
     }
 
-    const plugin = find(this._plugins, (action: PluginRuntime) => action.key === pluginKey);
+    const plugin = this._plugins.find((action: PluginRuntime) => action.id === pluginId);
 
     if (!plugin) {
-      throw new HttpException(`The plugin '${pluginKey}' is not found on the runner.`, HttpStatus.NOT_FOUND);
+      throw new HttpException(`The plugin '${pluginId}' is not found on the runner.`, HttpStatus.NOT_FOUND);
     }
 
     return plugin;
@@ -51,26 +50,18 @@ export class MemoryCacheService implements IPluginCache {
     return this._actions;
   }
 
-  async getAction(actionKey: string): Promise<ActionRuntime> {
+  async getAction(actionId: string): Promise<ActionRuntime> {
     if (this._actions.length === 0) {
       await this.initialize();
     }
 
-    const actions = filter(
-      this._actions,
-      (action: ActionRuntime) => action.definition.key === actionKey,
-    ) as ActionRuntime[];
+    const action = this._actions.find((action: ActionRuntime) => action.id === actionId);
 
-    if (actions.length === 0) {
-      throw new HttpException(`The action '${actionKey}' is not found on the runner.`, HttpStatus.NOT_FOUND);
-    } else if (actions.length > 1) {
-      // TODO: handle this case properly
-      throw new Error(
-        `The action '${actionKey}' is found on multiple plugins on the runner. This case is not supported yet.`,
-      );
-    } else {
-      return actions[0];
+    if (!action) {
+      throw new HttpException(`The action '${actionId}' is not found on the runner.`, HttpStatus.NOT_FOUND);
     }
+
+    return action;
   }
 
   //

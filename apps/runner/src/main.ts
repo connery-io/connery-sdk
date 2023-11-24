@@ -4,7 +4,7 @@ import { AllExceptionsFilter } from './all-exceptions.filter';
 
 async function bootstrap() {
   const runnerPort = 4201;
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
   app.useGlobalFilters(new AllExceptionsFilter());
   await app.listen(runnerPort);
   console.log(`✅ Runner is successfully started on port ${runnerPort}`);

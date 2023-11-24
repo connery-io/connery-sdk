@@ -1,5 +1,5 @@
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
-import { ObjectResponse } from ':src/shared/types';
+import { ObjectResponse } from ':src/shared/api-types';
 import { Controller, Get, Inject } from '@nestjs/common';
 
 @Controller()

@@ -1,34 +1,18 @@
 import { ChatOpenAI } from 'langchain/chat_models/openai';
 import { HumanMessage, SystemMessage } from 'langchain/schema';
-import { ActionDefinition, InputParametersObject } from '@connery-io/sdk';
+import { InputParametersObject } from '@connery-io/sdk';
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 import { IConfig } from ':src/shared/config/config.interface';
-import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from './types';
+import { ActionIdentifiedOutput, ActionNotIdentifiedOutput, OpenAiFunctionSchema } from './types';
 import { ILlm } from './llm.interface';
 import { Inject, Injectable } from '@nestjs/common';
-
-type ExposedAction = {
-  name: string;
-  description: string;
-  parameters: {
-    type: 'object';
-    properties: {
-      [key: string]: {
-        type: string;
-        description: string;
-      };
-    };
-    required: string[];
-  };
-};
+import { IOpenAI } from './openai.interface';
 
 @Injectable()
-export class OpenAiService implements ILlm {
+export class OpenAiService implements ILlm, IOpenAI {
   constructor(@Inject(IPluginCache) private pluginCache: IPluginCache, @Inject(IConfig) private config: IConfig) {}
 
   async identifyAction(prompt: string): Promise<ActionIdentifiedOutput | ActionNotIdentifiedOutput> {
-    // TODO implement
-
     console.log(JSON.stringify({ type: 'system', message: `Identifying action for prompt: '${prompt}'` }));
 
     const runnerConfig = this.config.getRunnerConfig();
@@ -40,7 +24,7 @@ export class OpenAiService implements ILlm {
       openAIApiKey: runnerConfig.openAiApiKey,
       modelName: 'gpt-3.5-turbo-0613',
     }).bind({
-      functions: await this.getExposedActionsJsonSchema(),
+      functions: await this.getOpenAiFunctionsSpec(false),
     });
 
     const result = await chat.invoke([
@@ -87,59 +71,56 @@ export class OpenAiService implements ILlm {
       };
     }
 
-    const inputParameters: InputParametersObject = JSON.parse(functionCall.arguments);
+    const input: InputParametersObject = JSON.parse(functionCall.arguments);
 
     return {
       identified: true,
-      pluginKey: action.plugin.key,
-      actionKey: action.definition.key,
-      inputParameters,
+      actionId: action.id,
+      input,
       used: {
         prompt,
       },
     };
   }
 
-  private async getExposedActionsJsonSchema(): Promise<ExposedAction[]> {
-    const exposedActions = [];
-
+  async getOpenAiFunctionsSpec(includeRequiredConfig = true): Promise<OpenAiFunctionSchema[]> {
     const actions = await this.pluginCache.getActions();
 
+    const openAiFunctions: OpenAiFunctionSchema[] = [];
+
     for (const action of actions) {
-      const actionJsonSchema = this.convertActionToJsonSchema(action.definition);
-      exposedActions.push(actionJsonSchema);
-    }
-
-    return exposedActions;
-  }
-
-  private convertActionToJsonSchema(actionDefinition: ActionDefinition): ExposedAction {
-    const exposedAction: ExposedAction = {
-      name: actionDefinition.key,
-      description: actionDefinition.description || actionDefinition.title,
-      parameters: {
-        type: 'object',
-        properties: {},
-        required: [],
-      },
-    };
-
-    for (const inputParameter of actionDefinition.inputParameters) {
-      exposedAction.parameters.properties[inputParameter.key] = {
-        type: inputParameter.type,
-        description: inputParameter.description || inputParameter.title,
+      const openAiFunction: OpenAiFunctionSchema = {
+        name: action.id, // We use Action ID as a function name to avoid collisions between plugins.
+        description: this.getDescription(action.definition.title, action.definition.description),
+        parameters: {
+          type: 'object',
+          properties: {},
+          required: [],
+        },
       };
 
-      // NOTE: The following code is commented out to let OpenAI classify the user prompt as a function call
-      // even if not all the required input parameters are provided by the user.
-      // TODO: Find proper solution
-      /*
-      if (inputParameter.Validation?.Required) {
-        exposedAction.parameters.required.push(inputParameter.Key);
+      for (const inputParameter of action.definition.inputParameters) {
+        openAiFunction.parameters.properties[inputParameter.key] = {
+          type: 'string',
+          description: this.getDescription(inputParameter.title, inputParameter.description),
+        };
+
+        // Internal action identification works better when we don't include required parameters.
+        // TODO: Come up with a better way of action identification with required parameters.
+        if (includeRequiredConfig) {
+          if (inputParameter.validation?.required) {
+            openAiFunction.parameters.required.push(inputParameter.key);
+          }
+        }
       }
-      */
+
+      openAiFunctions.push(openAiFunction);
     }
 
-    return exposedAction;
+    return openAiFunctions;
+  }
+
+  private getDescription(title: string, description?: string): string {
+    return description ? `${title}: ${description}` : title;
   }
 }

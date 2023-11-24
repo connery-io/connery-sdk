@@ -10,9 +10,19 @@ import {
   validateRequiredInputParameters,
   validateRequiredOutputParameters,
 } from './parameter-utils';
+import { generateActionHashId } from './id-utils';
 
 export class ActionRuntime {
-  constructor(private _actionDefinition: ActionDefinition, private _plugin: PluginRuntime) {}
+  // We use ID to identify action across many plugins and make it shorter.
+  private _id: string;
+
+  constructor(private _actionDefinition: ActionDefinition, private _plugin: PluginRuntime) {
+    this._id = generateActionHashId(_plugin.key, _actionDefinition.key);
+  }
+
+  get id(): string {
+    return this._id;
+  }
 
   get definition(): ActionDefinition {
     return this._actionDefinition;
@@ -22,16 +32,15 @@ export class ActionRuntime {
     return this._plugin;
   }
 
-  async run(input: InputParametersObject): Promise<ActionOutput> {
+  async run(input: InputParametersObject | undefined): Promise<ActionOutput> {
     const trimmedInput = trimInput(input);
     this.validateInput(trimmedInput);
 
     const result: ActionOutput = {
       output: {},
       used: {
-        pluginKey: this._plugin.key,
-        actionKey: this._actionDefinition.key,
-        inputParameters: trimmedInput,
+        actionId: this._id,
+        input: trimmedInput,
       },
     };
 

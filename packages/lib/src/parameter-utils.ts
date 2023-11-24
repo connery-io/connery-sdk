@@ -188,7 +188,7 @@ export function validateExtraConfigurationParameters(
 // Trim input parameters
 //
 
-export function trimInput(input: InputParametersObject): InputParametersObject {
+export function trimInput(input: InputParametersObject | undefined): InputParametersObject {
   const trimmedInput: InputParametersObject = {};
 
   forEach(input, (value, key) => {
