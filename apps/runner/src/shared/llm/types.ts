@@ -1,7 +1,7 @@
 import { InputParametersObject } from '@connery-io/sdk';
 
 //
-// General
+// Identify action
 //
 
 export type ActionIdentifiedOutput = {
@@ -14,6 +14,25 @@ export type ActionIdentifiedOutput = {
 };
 
 export type ActionNotIdentifiedOutput = {
+  identified: false;
+  used: {
+    prompt: string;
+  };
+};
+
+//
+// Identify action input parameters
+//
+
+export type ActionInputParametersIdentifiedOutput = {
+  identified: true;
+  input: InputParametersObject;
+  used: {
+    prompt: string;
+  };
+};
+
+export type ActionInputParametersNotIdentifiedOutput = {
   identified: false;
   used: {
     prompt: string;

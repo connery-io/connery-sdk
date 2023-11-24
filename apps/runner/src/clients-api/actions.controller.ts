@@ -15,6 +15,7 @@ import { OpenAPIV3 } from 'openapi-types';
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 import { ActionOutput } from 'lib';
 import { Public } from ':src/shared/auth.guard';
+import { InputParametersObject } from '@connery-io/sdk';
 
 @Controller()
 export class ActionsController {
@@ -63,7 +64,22 @@ export class ActionsController {
     @Body() body: RunActionRequest,
   ): Promise<ObjectResponse<ActionOutput>> {
     const action = await this.pluginCache.getAction(actionId);
-    const result = await action.run(body.input);
+
+    // Identify input parameters if the prompt is provided.
+    let inputFromPrompt: InputParametersObject = {};
+    if (body.prompt) {
+      const result = await this.llm.identifyActionInputParameters(body.prompt, action);
+      inputFromPrompt = result.identified ? result.input : {};
+    }
+
+    // Merge input parameters from the prompt and from the request body.
+    // The request body inout has higher priority.
+    const input = {
+      ...inputFromPrompt,
+      ...body.input,
+    };
+
+    const result = await action.run(input);
 
     return {
       status: 'success',
@@ -79,6 +95,6 @@ export class ActionsController {
 
   @Get('/v1/actions/specs/openai-functions')
   async getOpenAiFunctionsSchemaForActions(): Promise<OpenAiFunctionSchema[]> {
-    return this.openAi.getOpenAiFunctionsSpec();
+    return this.openAi.getOpenAiFunctionsSpec(true);
   }
 }

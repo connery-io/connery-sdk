@@ -18,6 +18,8 @@ export class OpenApiService {
       throw new Error('The CONNERY_RUNNER_PUBLIC_URL is not configured on the runner.');
     }
 
+    // This OpenAPI specification describes only the necessary minimum required for OpenAI GPTs to work.
+    // Not all the parameters and responses are described here.
     const openApiSchema: OpenAPIV3.Document = {
       openapi: '3.0.0',
       info: {
@@ -40,7 +42,7 @@ export class OpenApiService {
             operationId: 'listActions',
             summary: 'List available actions',
             description:
-              'List all available actions. If the user asked for the action you can not find in the list, try refreshing this list.',
+              'List all available actions. If the user asks for the action you can not find in the list or you encounter an error by running the action, try refreshing this list to get the latest actions and try again.',
             'x-openai-isConsequential': false,
             parameters: [],
             responses: {
@@ -218,14 +220,14 @@ export class OpenApiService {
           ActionRunRequest: {
             type: 'object',
             properties: {
-              input: {
-                title: 'Action input',
+              prompt: {
+                title: 'Prompt',
                 description:
-                  'All the user input for the action to run. This is a flat object with key-value pairs. The key must match the input parameter key of the action. The value must be a string. If the input parameter is optional, you can omit the key-value pair. If the input parameter is required, you must provide the key-value pair.',
-                type: 'object',
+                  'This is a plain english prompt with the input parameters to run the action. Provide as much detail as possible.',
+                type: 'string',
               },
             },
-            required: ['input'],
+            required: ['prompt'],
           },
           ActionRunResponse: {
             type: 'object',

@@ -87,5 +87,6 @@ export type IdentifyActionRequest = {
 };
 
 export type RunActionRequest = {
+  prompt?: string;
   input?: InputParametersObject;
 };
