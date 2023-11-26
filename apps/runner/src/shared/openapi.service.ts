@@ -126,6 +126,8 @@ export class OpenApiService {
         },
         schemas: {
           ActionListResponse: {
+            title: 'Action list response',
+            description: 'Action list response.',
             type: 'object',
             properties: {
               status: {
@@ -177,6 +179,8 @@ export class OpenApiService {
             required: ['id', 'title', 'inputParameters'],
           },
           InputParameter: {
+            title: 'Input parameter object',
+            description: 'Input parameter object.',
             type: 'object',
             properties: {
               key: {
@@ -207,9 +211,9 @@ export class OpenApiService {
                 type: 'object',
                 properties: {
                   required: {
-                    title: 'Specify if the parameter is required or not.',
+                    title: 'Specifies if the parameter is required or not',
                     description:
-                      'Specify if the parameter is required to run the action. If not specified, the input parameter is optional.',
+                      'Specifies if the parameter is required to run the action. If not specified, the input parameter is optional.',
                     type: 'boolean',
                   },
                 },
@@ -218,18 +222,22 @@ export class OpenApiService {
             required: ['key', 'title', 'type'],
           },
           ActionRunRequest: {
+            title: 'Action run request',
+            description: 'Action run request.',
             type: 'object',
             properties: {
               prompt: {
                 title: 'Prompt',
                 description:
-                  'This is a plain english prompt with the input parameters to run the action. Provide as much detail as possible.',
+                  'This is a plain English prompt with the input parameters to run the action. Provide as much detail as possible.',
                 type: 'string',
               },
             },
             required: ['prompt'],
           },
           ActionRunResponse: {
+            title: 'Action run response',
+            description: 'Action run response.',
             type: 'object',
             properties: {
               status: {
@@ -257,7 +265,7 @@ export class OpenApiService {
         },
         responses: {
           ErrorResponse: {
-            description: 'Error Response',
+            description: 'Error response.',
             content: {
               'application/json': {
                 schema: {

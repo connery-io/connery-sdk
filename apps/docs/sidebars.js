@@ -84,9 +84,9 @@ const sidebars = {
         },
         'clients/native/slack',
         'clients/native/make',
+        'clients/native/langchain',
         'clients/native/api',
         'clients/native/cli',
-        'clients/native/langchain',
       ],
       link: {
         type: 'doc',

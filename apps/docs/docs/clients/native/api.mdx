@@ -2,27 +2,6 @@
 
 Use the Connery API to create your own client based on the Connery plugin infrastructure.
 
-## Actions API
-
-Connery Runner exposes a dynamic OpenAPI specification that describes all the actions available on your runner.
-
-To get the OpenAPI specification, send a request to your runner's `GET /v1/actions/specs/openapi` endpoint.
-The endpoint is private and requires an API Key for safety reasons.
-
-Use the following cURL to get the OpenAPI specification:
-
-```
-curl -L '<PUBLIC_RUNNER_URL>/v1/actions/specs/openapi' \
--H 'x-api-key: <CONNERY_RUNNER_API_KEY>'
-```
-
-The `<PUBLIC_RUNNER_URL>` and `<CONNERY_RUNNER_API_KEY>` you should get during the runner setup in the [Quickstart](/docs/platform/quick-start/) guide.
-
-:::info Runner Public URL
-
-OpenAPI specification contains the URL of your runner in the `servers` section.
-Therefore, you need to configure the public URL of your runner in the `CONNERY_RUNNER_PUBLIC_URL` environment variable in the `.env` file.
-
+:::info
+Coming soon...
 :::
-
-The OpenAPI specification contains complete information about all the actions available on your runner, including their input and output parameters.
