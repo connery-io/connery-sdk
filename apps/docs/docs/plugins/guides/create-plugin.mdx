@@ -16,7 +16,7 @@ Open the [GitHub repository creation page](https://github.com/new) and follow th
 
 :::info
 The plugin will have an identification key comprising your GitHub username, repository name, and branch name.
-For example: `<username>/<repository-name>@main`.
+For example: `<USERNAME>/<REPOSITORY_NAME>@main`. This key is used to install the plugin on the runner.
 :::
 
 ![Slack App Configuration](/img/create-plugin/create-repository.png)
@@ -83,7 +83,7 @@ npm install
 ```
 
 During the development of the plugin, you may need to install additional dependencies.
-For example, the `axios` package to make HTTP requests to external services.
+For example, the `axios` package to make HTTP requests to external APIs.
 To install it and add it to the `./package.json` file, run the following command:
 
 ```
@@ -105,19 +105,19 @@ You will be asked a couple of questions about the action you want to add.
 After all the necessary information is provided, Connery CLI will add the action to the plugin
 by making a couple of changes to the files of your repository:
 
-- A new action file will be added to the `./src/actions` folder.
-- The new action will be included in the plugin definition in the `./src/index.ts` file.
-- A new test file will be added to the `./test/actions` folder.
-- The new action will be added to the "Available actions" table in the `./README.md` file.
+1. A new action file will be added to the `./src/actions` folder.
+2. The new action will be included in the plugin definition in the `./src/index.ts` file.
+3. A new test file will be added to the `./test/actions` folder.
+4. The new action will be added to the "Available actions" table in the `./README.md` file.
 
-Now, you can implement the logic of the action. Open the action definition file `./src/actions/<action-name>.ts`,
+Now, you can implement the logic of the action. Open the action definition file `./src/actions/<ACTION_NAME>.ts`,
 define input and output parameters of the action and implement the logic of the action in the `handler` function.
 
 :::note Helpful resources
 
 - Use the sample action as an example.
-- Check the [plugin definition schema](https://github.com/connery-io/connery-platform/blob/main/packages/lib/src/plugin.schema.ts)
-  to understand how the definition of the plugin and action works.
+- Check the [plugin definition schema](https://github.com/connery-io/connery-platform/blob/main/packages/lib/src/plugin-definition-validation-utils.ts)
+  to understand what is expected definition for the plugin and its actions.
 - Use the [existing open-source plugins](/docs/plugins/native) as an inspiration and example.
 
 :::
@@ -126,13 +126,13 @@ define input and output parameters of the action and implement the logic of the 
 
 To test the action, you can use the Connery CLI as well.
 Run the following command in the terminal to run the action.
-You will be asked to select the action you want to run, provide configuration parameters for the plugin, and input parameters for the action.
+You will be asked to provide the configuration parameters for the plugin, action you want to run, and input parameters for the action.
 
 ```
 npx connery@latest dev run-action
 ```
 
-:::info
+:::info Shortcut command
 
 After the action is successfully run, the CLI will give you a shortcut command to run the action with all the parameters you provided.
 It will save you time, especially during the intensive development and testing.
@@ -163,7 +163,7 @@ git add . && git commit -m "Init plugin repository" && git push origin main
 ```
 
 :::caution
-Please make sure you delete all the secrets you used during testing before pushing the changes to the repository.
+Please make sure you delete all the secrets you might be used during testing before pushing the changes to the repository.
 :::
 
 ### Next steps
