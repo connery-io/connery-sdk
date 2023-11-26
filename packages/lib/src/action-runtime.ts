@@ -6,6 +6,7 @@ import {
   validateExtraInputParameters,
   validateExtraOutputParameters,
   validateInputParameterTypes,
+  validateNumberOfInputParameters,
   validateOutputParameterTypes,
   validateRequiredInputParameters,
   validateRequiredOutputParameters,
@@ -42,6 +43,8 @@ export class ActionRuntime {
       ...identifiedInputFromPrompt,
       ...userInput,
     };
+
+    validateNumberOfInputParameters(input);
 
     const trimmedInput = trimInput(input);
     this.validateInput(trimmedInput);

@@ -13,6 +13,7 @@ import {
   validateExtraInputParameters,
   validateExtraOutputParameters,
   validateInputParameterTypes,
+  validateNumberOfInputParameters,
   validateOutputParameterTypes,
   validateRequiredConfigurationParameters,
   validateRequiredInputParameters,
@@ -488,7 +489,7 @@ describe('validateExtraConfigurationParameters()', () => {
 });
 
 //
-// Trim input parameters
+// Tools
 //
 
 describe('trimInput()', () => {
@@ -496,5 +497,46 @@ describe('trimInput()', () => {
     const input: InputParametersObject = { Name: '    John    ', Age: ' 25 ' };
 
     expect(trimInput(input)).toEqual({ Name: 'John', Age: '25' });
+  });
+});
+
+describe('validateNumberOfInputParameters()', () => {
+  it('throws an error if the number of input parameters more than 100', () => {
+    const input: InputParametersObject = {};
+    for (let i = 0; i < 101; i++) {
+      input[`Input${i}`] = 'value';
+    }
+
+    expect(() => validateNumberOfInputParameters(input)).toThrowError(
+      `[Input validation error] The input object is too large. The maximum number of input parameters is 100.`,
+    );
+  });
+
+  it('does not throw an error if the number of input parameters is 100', () => {
+    const input: InputParametersObject = {};
+    for (let i = 0; i < 100; i++) {
+      input[`Input${i}`] = 'value';
+    }
+
+    expect(() => validateNumberOfInputParameters(input)).not.toThrow();
+  });
+
+  it('does not throw an error if the number of input parameters is less than 100', () => {
+    const input: InputParametersObject = {};
+    for (let i = 0; i < 99; i++) {
+      input[`Input${i}`] = 'value';
+    }
+
+    expect(() => validateNumberOfInputParameters(input)).not.toThrow();
+  });
+
+  it('does not throw an error if the number of input parameters is 0', () => {
+    const input: InputParametersObject = {};
+
+    expect(() => validateNumberOfInputParameters(input)).not.toThrow();
+  });
+
+  it('does not throw an error if the input parameters are not defined', () => {
+    expect(() => validateNumberOfInputParameters()).not.toThrow();
   });
 });
