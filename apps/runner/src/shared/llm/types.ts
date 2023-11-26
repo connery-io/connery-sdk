@@ -21,25 +21,6 @@ export type ActionNotIdentifiedOutput = {
 };
 
 //
-// Identify action input parameters
-//
-
-export type ActionInputParametersIdentifiedOutput = {
-  identified: true;
-  input: InputParametersObject;
-  used: {
-    prompt: string;
-  };
-};
-
-export type ActionInputParametersNotIdentifiedOutput = {
-  identified: false;
-  used: {
-    prompt: string;
-  };
-};
-
-//
 // OpenAI
 //
 

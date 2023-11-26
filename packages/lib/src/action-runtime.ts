@@ -32,7 +32,17 @@ export class ActionRuntime {
     return this._plugin;
   }
 
-  async run(input: InputParametersObject | undefined): Promise<ActionOutput> {
+  async run(
+    userInput?: InputParametersObject,
+    identifiedInputFromPrompt?: InputParametersObject,
+  ): Promise<ActionOutput> {
+    // Merge the user input with the identified input from the prompt.
+    // The user input takes precedence over the identified input.
+    const input = {
+      ...identifiedInputFromPrompt,
+      ...userInput,
+    };
+
     const trimmedInput = trimInput(input);
     this.validateInput(trimmedInput);
 

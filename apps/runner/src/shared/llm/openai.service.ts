@@ -3,13 +3,7 @@ import { HumanMessage, SystemMessage } from 'langchain/schema';
 import { InputParametersObject } from '@connery-io/sdk';
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 import { IConfig } from ':src/shared/config/config.interface';
-import {
-  ActionIdentifiedOutput,
-  ActionInputParametersIdentifiedOutput,
-  ActionInputParametersNotIdentifiedOutput,
-  ActionNotIdentifiedOutput,
-  OpenAiFunctionSchema,
-} from './types';
+import { ActionIdentifiedOutput, ActionNotIdentifiedOutput, OpenAiFunctionSchema } from './types';
 import { ILlm } from './llm.interface';
 import { Inject, Injectable } from '@nestjs/common';
 import { IOpenAI } from './openai.interface';
@@ -90,10 +84,12 @@ export class OpenAiService implements ILlm, IOpenAI {
     };
   }
 
-  async identifyActionInputParameters(
-    prompt: string,
-    action: ActionRuntime,
-  ): Promise<ActionInputParametersIdentifiedOutput | ActionInputParametersNotIdentifiedOutput> {
+  async identifyActionInput(action: ActionRuntime, prompt?: string): Promise<InputParametersObject> {
+    // Return empty object if the prompt is not provided.
+    if (!prompt) {
+      return {};
+    }
+
     const runnerConfig = this.config.getRunnerConfig();
     if (!runnerConfig.openAiApiKey) {
       throw new Error('The OPENAI_API_KEY is not configured on the runner.');
@@ -117,27 +113,16 @@ export class OpenAiService implements ILlm, IOpenAI {
     if (!functionCall) {
       console.error(JSON.stringify({ type: 'error', message: 'Function call is not found in the result.' }));
 
-      return {
-        identified: false,
-        used: {
-          prompt,
-        },
-      };
+      // Return empty object if the function call is not found.
+      return {};
     }
 
     console.log(
       JSON.stringify({ type: 'system', message: `Identified function call: ${JSON.stringify(functionCall)}` }),
     );
 
-    const input: InputParametersObject = JSON.parse(functionCall.arguments);
-
-    return {
-      identified: true,
-      input,
-      used: {
-        prompt,
-      },
-    };
+    const identifiedInput: InputParametersObject = JSON.parse(functionCall.arguments);
+    return identifiedInput;
   }
 
   async getOpenAiFunctionsSpec(includeRequiredConfig: boolean): Promise<OpenAiFunctionSchema[]> {

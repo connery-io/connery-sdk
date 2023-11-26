@@ -64,22 +64,8 @@ export class ActionsController {
     @Body() body: RunActionRequest,
   ): Promise<ObjectResponse<ActionOutput>> {
     const action = await this.pluginCache.getAction(actionId);
-
-    // Identify input parameters if the prompt is provided.
-    let inputFromPrompt: InputParametersObject = {};
-    if (body.prompt) {
-      const result = await this.llm.identifyActionInputParameters(body.prompt, action);
-      inputFromPrompt = result.identified ? result.input : {};
-    }
-
-    // Merge input parameters from the prompt and from the request body.
-    // The request body inout has higher priority.
-    const input = {
-      ...inputFromPrompt,
-      ...body.input,
-    };
-
-    const result = await action.run(input);
+    const identifiedInputFromPrompt = await this.llm.identifyActionInput(action, body.prompt);
+    const result = await action.run(body.input, identifiedInputFromPrompt);
 
     return {
       status: 'success',
