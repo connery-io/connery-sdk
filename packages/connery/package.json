@@ -19,6 +19,6 @@
   "scripts": {
     "build": "tsc --noEmit && tsup src/index.ts --format esm --dts",
     "dev": "npm run build -- --watch",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   }
 }

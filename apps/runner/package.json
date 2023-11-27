@@ -6,7 +6,7 @@
     "start": "nest start --watch",
     "dev": "nest start --debug --watch",
     "build": "nest build",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "format": "prettier --write 'src/**/*.ts'",
     "start:prod": "node dist/main",
