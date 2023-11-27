@@ -37,7 +37,7 @@ Runner uses it for the Natural Language Actions feature to access the OpenAI API
 You can get it from [your OpenAI account](https://platform.openai.com/account/api-keys).
 This variable is not required to start the runner. However, some clients based on natural language, like [Slack App](/docs/clients/native/slack), won't work without it.
 
-## 3. Start runner
+## 3. Start the runner
 
 Open a new terminal window and run the following command to start the runner.
 
@@ -49,7 +49,7 @@ It will start the runner on port 4201.
 
 ## 4. Expose the runner to the internet
 
-Currently, the runner is running in your codespace and accessible only for you.
+Currently, the runner is running in your codespace and is accessible only to you.
 In the next steps of this guide, we will configure clients to call the action from your runner.
 To make it possible, the runner has to be accessible from the internet.
 
@@ -125,10 +125,10 @@ Once the action is identified, you can run it using the API call from the next s
 
 ### Run action using API
 
-Here is an example of how to run the `refreshPluginCache` action using API.
+Here is an example of how to run the `refreshPluginCache` action from the [connery-io/connery-runner-administration](https://github.com/connery-io/connery-runner-administration) plugin using API.
 
 ```
-curl '<PUBLIC_RUNNER_URL>/v1/plugins/connery-io/connery-runner-administration@main/actions/refreshPluginCache/run' \
+curl '<PUBLIC_RUNNER_URL>/v1/actions/CAF979E6D2FF4C8B946EEBAFCB3BA475/run' \
 -H 'Content-Type: application/json' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>' \
 -d '{}' | jq .
