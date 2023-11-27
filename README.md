@@ -26,29 +26,35 @@ This is where Connery comes into play.
 
 Connery consists of four main components that tightly work together:
 
-**Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing. For example, "Send an email" is an action in the "Gmail" _plugin_.
+**Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing.
+For example, "Send an email" is an action in the "Gmail" _plugin_.
 
-**Plugin** - This is a collection of related actions grouped together because they serve a similar purpose. Each plugin is represented by a GitHub repository with TypeScript code of a specific structure that adapts any API for use with the _runner_. It's a way to standardize different APIs so they work well within the Connery system.
+**Plugin** - This is a collection of related actions grouped together because they serve a similar purpose.
+Each plugin is represented by a GitHub repository with TypeScript code of a specific structure.
+Plugin must be installed on a _runner_ before its actions can be used.
 
-**Runner** - This is the heart of Connery, an open-source application that knows how to handle plugins and run actions. It's equipped with key features like authentication handling, security, and access management. Each organization or individual configures their own isolated runner with a unique plugin set and configuration. The runner provides a standardized API for every installed action as an output that can be consumed by _clients_.
+**Runner** - This is the heart of Connery, an open-source application that knows how to handle plugins and run actions.
+It's equipped with key features like authentication handling, security, and access management.
+Each organization or individual configures their own isolated runner with a unique plugin set and configuration.
+The runner provides a standardized API for every installed action that can be consumed by _clients_.
 
-**Client** - A client is a specific application for each platform that uses the API provided by the runner. It's like a translator that adapts the runner's capabilities to fit the platform's needs. For example, a Slack App client allows to run actions right from Slack.
+**Client** - A client is a specific application for each platform that uses the API provided by the runner.
+It's like a translator that adapts the runner's capabilities to fit the platform's needs.
+For example, a Slack App client allows to run actions right from Slack.
 
-The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same action from Slack, custom OpenAI GPT or Make.
-
-See examples below.
+The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same action from Slack, OpenAI GPT or Make.
 
 ## ✅ Example 1: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
-Read more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
+Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
 
 ## ✅ Example 2: Send email from a custom OpenAI GPT using Connery actions
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Read more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
+Learn more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
 
 ## 🌟 Support us and stay up-to-date
 
@@ -75,7 +81,7 @@ Please note that many features are still in development and will be released in 
 ## 🌳 Ecosystem
 
 We aim to build a community-driven ecosystem of open-source plugins and clients around Connery.
-So everyone can contribute to the shared marketplace and benefit from it.
+We believe that collective development accelerates innovation.
 
 Our vision is to build a marketplace where you can find open-source plugins and clients for any use case.
 
