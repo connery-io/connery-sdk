@@ -42,31 +42,37 @@ const config = {
         title: 'Connery Docs',
         items: [
           {
-            type: 'doc',
-            position: 'left',
-            docId: 'platform/introduction/index',
             label: 'Platform',
-          },
-          {
+            docId: 'platform/introduction/index',
             type: 'doc',
             position: 'left',
-            docId: 'plugins/native',
+          },
+          {
             label: 'Plugins',
-          },
-          {
+            docId: 'plugins/native',
             type: 'doc',
             position: 'left',
-            docId: 'clients/native/index',
-            label: 'Clients',
           },
           {
-            href: 'https://github.com/connery-io/connery-platform',
+            label: 'Clients',
+            docId: 'clients/native/index',
+            type: 'doc',
+            position: 'left',
+          },
+          {
+            label: 'Use cases',
+            docId: 'use-cases/index',
+            type: 'doc',
+            position: 'left',
+          },
+          {
             label: 'GitHub',
+            href: 'https://github.com/connery-io/connery-platform',
             position: 'right',
           },
           {
-            href: 'https://connery.io',
             label: 'Website',
+            href: 'https://connery.io',
             position: 'right',
           },
         ],

@@ -61,7 +61,7 @@ export default async function (
       collectedData.actionKey = await collectActionKey(plugin.definition.actions as ActionDefinition[]);
     }
 
-    const action = plugin.getAction(collectedData.actionKey);
+    const action = plugin.getActionByKey(collectedData.actionKey);
 
     // Collect input parameters if not provided
     if (Object.keys(collectedData.inputParameters).length === 0 && action.definition.inputParameters.length > 0) {

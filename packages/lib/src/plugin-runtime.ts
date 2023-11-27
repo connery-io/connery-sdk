@@ -6,8 +6,10 @@ import {
   validateRequiredConfigurationParameters,
 } from './parameter-utils';
 import { validateActionDefinitions } from './plugin-definition-validation-utils';
+import { generatePluginHashId } from './id-utils';
 
 export class PluginRuntime {
+  private _id: string | undefined;
   private _pluginKey: string | undefined;
   private _pluginDefinition: PluginDefinition | undefined;
   private _configurationParameters: ConfigurationParametersObject | undefined;
@@ -19,6 +21,7 @@ export class PluginRuntime {
     pluginDefinition: PluginDefinition,
     configurationParameters: ConfigurationParametersObject,
   ): Promise<void> {
+    this._id = generatePluginHashId(pluginKey);
     this._pluginKey = pluginKey;
     this._pluginDefinition = pluginDefinition;
 
@@ -37,6 +40,14 @@ export class PluginRuntime {
 
     // Load actions to memory
     this._actions = resolvedActionDefinitions.map((actionDefinition) => new ActionRuntime(actionDefinition, this));
+  }
+
+  get id(): string {
+    if (!this._id) {
+      throw new Error('Plugin is not initialized.');
+    }
+
+    return this._id;
   }
 
   get key(): string {
@@ -71,7 +82,7 @@ export class PluginRuntime {
     return this._actions;
   }
 
-  getAction(actionKey: string): ActionRuntime {
+  getActionByKey(actionKey: string): ActionRuntime {
     if (!this._actions) {
       throw new Error('Plugin is not initialized.');
     }

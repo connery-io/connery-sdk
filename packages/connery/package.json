@@ -1,7 +1,7 @@
 {
   "name": "connery",
   "description": "Connery CLI",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "license": "MIT",
   "bin": "./dist/index.mjs",
   "dependencies": {
@@ -19,6 +19,6 @@
   "scripts": {
     "build": "tsc --noEmit && tsup src/index.ts --format esm --dts",
     "dev": "npm run build -- --watch",
-    "test": "jest"
+    "test": "jest --passWithNoTests"
   }
 }

@@ -185,10 +185,10 @@ export function validateExtraConfigurationParameters(
 }
 
 //
-// Trim input parameters
+// Tools
 //
 
-export function trimInput(input: InputParametersObject): InputParametersObject {
+export function trimInput(input?: InputParametersObject): InputParametersObject {
   const trimmedInput: InputParametersObject = {};
 
   forEach(input, (value, key) => {
@@ -196,4 +196,14 @@ export function trimInput(input: InputParametersObject): InputParametersObject {
   });
 
   return trimmedInput;
+}
+
+export function validateNumberOfInputParameters(input?: InputParametersObject): void {
+  // This validation also prevents DoS attacks by limiting the length of the input parameters object:
+  // (https://github.com/connery-io/connery-platform/security/code-scanning/1)
+  if (Object.keys(input || {}).length > 100) {
+    throw new Error(
+      '[Input validation error] The input object is too large. The maximum number of input parameters is 100.',
+    );
+  }
 }

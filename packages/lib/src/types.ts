@@ -6,7 +6,6 @@ export type ActionOutput = {
 };
 
 export type UsedToRunAction = {
-  pluginKey: string;
-  actionKey: string;
-  inputParameters: InputParametersObject;
+  actionId: string;
+  input: InputParametersObject;
 };

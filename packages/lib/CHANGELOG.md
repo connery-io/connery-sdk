@@ -1,5 +1,12 @@
 # lib
 
+## 0.0.16
+
+### Patch Changes
+
+- Updated dependencies
+  - @connery-io/sdk@0.0.16
+
 ## 0.0.15
 
 ### Patch Changes

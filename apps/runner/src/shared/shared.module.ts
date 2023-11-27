@@ -8,8 +8,8 @@ import { OpenAiService } from './llm/openai.service';
 import { IConfig } from './config/config.interface';
 import { IPluginCache } from './plugin-cache/plugin-cache.interface';
 import { ILlm } from './llm/llm.interface';
-import { OpenApiForActions } from './openapi-for-actions';
-import { OpenAiFunctionsForActions } from './openai-functions-for-actions';
+import { OpenApiService } from './openapi.service';
+import { IOpenAI } from './llm/openai.interface';
 
 @Module({
   imports: [ConfigModule],
@@ -30,9 +30,12 @@ import { OpenAiFunctionsForActions } from './openai-functions-for-actions';
       provide: ILlm,
       useClass: OpenAiService,
     },
-    OpenApiForActions,
-    OpenAiFunctionsForActions,
+    {
+      provide: IOpenAI,
+      useClass: OpenAiService,
+    },
+    OpenApiService,
   ],
-  exports: [IConfig, IPluginCache, ILlm, OpenApiForActions, OpenAiFunctionsForActions],
+  exports: [IConfig, IPluginCache, ILlm, IOpenAI, OpenApiService],
 })
 export class SharedModule {}

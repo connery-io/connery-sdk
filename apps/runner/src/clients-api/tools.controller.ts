@@ -1,5 +1,5 @@
 import { Public } from ':src/shared/auth.guard';
-import { ObjectResponse } from ':src/shared/types';
+import { ObjectResponse } from ':src/shared/api-types';
 import { Controller, Get } from '@nestjs/common';
 
 @Controller()
@@ -13,13 +13,6 @@ export class ToolsController {
         message: 'Welcome to the Connery Runner API 👋',
       },
     };
-  }
-
-  // This endpoint is deprecated and will be removed in the future
-  // TODO: Remove this endpoint once all the clients are updated to use the new one
-  @Get('/verify-access')
-  verifyAccessV0(): ObjectResponse<undefined> {
-    return this.verifyAccess();
   }
 
   @Get('/v1/verify-access')

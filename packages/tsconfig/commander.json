@@ -5,8 +5,8 @@
     "target": "esnext",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "lib": ["es2022"],
     "strict": true,
+    "lib": ["es2022"],
     "esModuleInterop": true,
     "sourceMap": true,
     "allowJs": true
