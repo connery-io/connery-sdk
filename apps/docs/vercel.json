@@ -1,5 +1,14 @@
 {
   "redirects": [
-    { "source": "/test1", "destination": "/test2", "permanent": false }
+    {
+      "source": "/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack",
+      "destination": "/docs/use-cases/scale-back-end-service-on-aws-from-slack",
+      "permanent": true
+    },
+    {
+      "source": "/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions",
+      "destination": "/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions",
+      "permanent": true
+    }
   ]
 }
