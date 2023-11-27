@@ -1,5 +1,11 @@
 # connery
 
+## 0.0.40
+
+### Patch Changes
+
+- Add plugin and action IDs
+
 ## 0.0.39
 
 ### Patch Changes
