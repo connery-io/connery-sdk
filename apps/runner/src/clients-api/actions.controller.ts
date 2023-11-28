@@ -15,8 +15,9 @@ import { OpenAPIV3 } from 'openapi-types';
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 import { ActionOutput } from 'lib';
 import { Public } from ':src/shared/auth.guard';
-import { InputParametersObject } from '@connery-io/sdk';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Actions')
 @Controller()
 export class ActionsController {
   constructor(

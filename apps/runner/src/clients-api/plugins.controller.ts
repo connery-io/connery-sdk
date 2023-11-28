@@ -8,7 +8,9 @@ import {
   convertPlugin,
   convertPluginForList,
 } from ':src/shared/api-types';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Plugins')
 @Controller()
 export class PluginsController {
   constructor(@Inject(IPluginCache) private pluginCache: IPluginCache) {}

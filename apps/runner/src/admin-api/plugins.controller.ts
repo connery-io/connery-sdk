@@ -1,7 +1,9 @@
 import { IPluginCache } from ':src/shared/plugin-cache/plugin-cache.interface';
 import { ObjectResponse } from ':src/shared/api-types';
 import { Controller, Get, Inject } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Admin')
 @Controller()
 export class PluginsController {
   constructor(@Inject(IPluginCache) private pluginCache: IPluginCache) {}
