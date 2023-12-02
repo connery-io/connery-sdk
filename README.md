@@ -1,4 +1,4 @@
-# Plugin infrastructure for AI
+# Connery - Plugin infrastructure for AI
 
 [![Release](https://img.shields.io/github/v/release/connery-io/connery-platform?color=74C649&label=Release)](https://github.com/connery-io/connery-platform/releases)
 [![License](https://img.shields.io/github/license/connery-io/connery-platform?color=74C649&label=License)](https://github.com/connery-io/connery-platform/blob/main/LICENSE)
