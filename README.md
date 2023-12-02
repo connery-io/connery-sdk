@@ -1,4 +1,4 @@
-# Open-source plugin ecosystem for AI and No-code
+# Plugin infrastructure for AI
 
 [![Release](https://img.shields.io/github/v/release/connery-io/connery-platform?color=74C649&label=Release)](https://github.com/connery-io/connery-platform/releases)
 [![License](https://img.shields.io/github/license/connery-io/connery-platform?color=74C649&label=License)](https://github.com/connery-io/connery-platform/blob/main/LICENSE)
@@ -44,17 +44,17 @@ For example, a Slack App client allows to run actions right from Slack.
 
 The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same action from Slack, OpenAI GPT or Make.
 
-## ✅ Example 1: Scale back-end service on AWS from Slack
-
-<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
-
-Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
-
-## ✅ Example 2: Send email from a custom OpenAI GPT using Connery actions
+## ✅ Example 1: Send email from a custom OpenAI GPT using Connery actions
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
 Learn more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
+
+## ✅ Example 2: Scale back-end service on AWS from Slack
+
+<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
+
+Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
 
 ## 🌟 Support us and stay up-to-date
 
@@ -64,17 +64,16 @@ Please **give the repository a star** to support the project and stay up-to-date
 
 ## ✨ Features
 
-| Feature                        | Description                                                                                                                                                     |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Auth                           | Authentication and authorization handling for both users and clients.                                                                                           |
-| Security                       | Robust, enterprise-grade security measures ensuring data protection and privacy.                                                                                |
-| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for both users and clients.                                                                |
-| Secret Management              | Advanced and secure handling of sensitive data, such as API keys, passwords, and tokens.                                                                        |
-| Natural Language Actions       | Seamless interaction using natural language. The runner understands user requests, identifies the right action and its parameters, and suggest the user to run. |
-| Action Manual Approval         | Empower humans with the final say in executing actions, ensuring accuracy and relevance, especially when AI is involved.                                        |
-| AI Readiness                   | Future-proof architecture primed for integration with intelligent AI agents and chatbots.                                                                       |
-| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.                                                            |
-| Multi-Platform Plugins         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                                   |
+| Feature                        | Description                                                                                                              |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| Auth                           | Authentication and authorization management.                                                                             |
+| Security                       | Robust, enterprise-grade security measures ensuring data protection and privacy.                                         |
+| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for actions.                                        |
+| Secret Management              | Advanced and secure handling of sensitive data, such as API keys, passwords, and tokens.                                 |
+| Action Manual Approval         | Empower humans with the final say in executing actions, ensuring accuracy and relevance, especially when AI is involved. |
+| AI Readiness                   | Future-proof architecture primed for integration with intelligent AI agents and chatbots.                                |
+| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.                     |
+| Multi-Platform Plugins         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.            |
 
 Please note that many features are still in development and will be released in the upcoming versions.
 
