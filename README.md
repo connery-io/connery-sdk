@@ -7,15 +7,21 @@
 
 ## 🤔 What is this?
 
-**Connery is a middleware runtime between APIs and platforms. With Connery, you can turn any API into a standardized plugin with built-in auth, security, and access management and use it across different platforms.**
+**With Connery, you can create and use plugins across many AI platforms.
+Connery will handle the rest: isolated runtime, authorization, secret management, access management,
+audit logs, and other [vital features](#✨-features).**
 
-Many **AI platforms** are gaining momentum on the market — for instance, OpenAI with GPTs, LangChain, AI-powered chatbots, and agents.
+Many **AI platforms** are gaining momentum on the market — for instance, OpenAI with GPTs,
+LangChain, AI-powered chatbots, and agents.
 
-Also, many **no-code platforms**, such as Zapier and Make, allow you to connect different services together and build automation workflows.
+To fully leverage the capabilities of these platforms, it's essential to connect them with the real world:
+SaaS applications, APIs, databases, and so on.
 
-To fully leverage the capabilities of these platforms, it's essential to connect them with your APIs, like SaaS applications, databases, back-end services, and so on.
+While APIs provide a fundamental bridge for connectivity, their integration often requires
+customization into platform-specific applications, adhering to diverse platform standards.
 
-While APIs provide a fundamental bridge for connectivity, their integration often requires customization into platform-specific applications, adhering to diverse platform standards. This necessity introduces a complex array of challenges, particularly in areas of authentication, security, and access management, which are critical for seamless and secure operations.
+Crucially, AI platforms necessitate a new type of infrastructure adept at addressing plugin-related challenges,
+such as authorization, access management, and other vital features, ensuring robust security and control.
 
 This is where Connery comes into play.
 
@@ -39,7 +45,9 @@ The runner provides a standardized API for every installed action that can be co
 
 **Client** - A client is a specific application for each platform that uses the API provided by the runner.
 It's like a translator that adapts the runner's capabilities to fit the platform's needs.
-For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/native/openai/gpt) client allows you to run Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/native/slack) client will enable you to run Connery actions directly from Slack.
+For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/native/openai/gpt) client allows you to run
+Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/native/slack) client
+will enable you to run Connery actions directly from Slack.
 
 The combination of these components allows you to run actions from any platform supported by Connery. For example, you can use the same Connery action from OpenAI GPT, LangChain, Slack, and [many more](https://docs.connery.io/docs/clients/native/).
 
