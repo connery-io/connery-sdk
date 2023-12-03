@@ -27,7 +27,7 @@ This is where Connery comes into play.
 Connery consists of four main components that tightly work together:
 
 **Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing.
-For example, "Send an email" is an action in the "Gmail" _plugin_.
+For example, "Send an email" is an action in the ["Gmail"](https://github.com/connery-io/gmail) _plugin_.
 
 **Plugin** - This is a collection of related actions grouped together because they serve a similar purpose.
 Each plugin is represented by a GitHub repository with TypeScript code of a specific structure.
@@ -40,9 +40,9 @@ The runner provides a standardized API for every installed action that can be co
 
 **Client** - A client is a specific application for each platform that uses the API provided by the runner.
 It's like a translator that adapts the runner's capabilities to fit the platform's needs.
-For example, a Slack App client allows to run actions right from Slack.
+For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/native/openai/gpt) client allows you to run Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/native/slack) client will enable you to run Connery actions directly from Slack.
 
-The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same action from Slack, OpenAI GPT or Make.
+The combination of these components allows you to run actions from any platform supported by Connery. For example, you can use the same Connery action from OpenAI GPT, LangChain, Slack, and [many more](https://docs.connery.io/docs/clients/native/).
 
 ## ✅ Example 1: Send email from a custom OpenAI GPT using Connery actions
 
@@ -73,7 +73,7 @@ Please **give the repository a star** to support the project and stay up-to-date
 | Action Manual Approval         | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations. |
 | Audit Logs                     | Detailed audit logs, providing a comprehensive overview of all actions executed.                                |
 | AI Readiness                   | Future-proof architecture primed for integration with AI tools.                                                 |
-| Multi-Platform Plugins         | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                 |
+| Multi-platform Plugins         | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                 |
 | Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.            |
 
 Please note that many features are still in development and will be released in the upcoming versions.
@@ -104,7 +104,7 @@ Check out the [Documentation](https://docs.connery.io) to learn more.
 
 ## 💬 Feedback & Support
 
-Connery is still in beta, so not everything will be perfect yet. Please let us know of any suggestions, ideas, or bugs you encounter, and we will use your feedback to improve our upcoming releases.
+Connery is still in early beta, so not everything will be perfect yet. Please let us know of any suggestions, ideas, or bugs you encounter, and we will use your feedback to improve our upcoming releases.
 
 You can reach us via the following channels:
 
