@@ -11,17 +11,17 @@
 Connery will handle the rest: isolated runtime, authorization, secret management, access management,
 audit logs, and other [vital features](#-features).**
 
-Many **AI platforms** are gaining momentum on the market — for instance, OpenAI with GPTs,
+Many AI platforms are gaining momentum on the market — for instance, OpenAI with GPTs,
 LangChain, AI-powered chatbots, and agents.
 
 To fully leverage the capabilities of these platforms, it's essential to connect them with the real world:
 SaaS applications, APIs, databases, and so on.
 
-While APIs provide a fundamental bridge for connectivity, their integration often requires
-customization into platform-specific applications, adhering to diverse platform standards.
+While APIs provide a fundamental bridge for connectivity,
+they alone aren't sufficient to connect the real world to AI platforms.
 
-Crucially, AI platforms necessitate a new type of infrastructure adept at addressing plugin-related challenges,
-such as authorization, access management, and other vital features, ensuring robust security and control.
+AI platforms require a new type of infrastructure capable of handling plugin-related challenges,
+such as authorization, secret management, access management, and other vital features, ensuring robust security and control.
 
 This is where Connery comes into play.
 
