@@ -9,7 +9,7 @@
 
 **With Connery, you can create and use plugins across many AI platforms.
 Connery will handle the rest: isolated runtime, authorization, secret management, access management,
-audit logs, and other [vital features](#✨-features).**
+audit logs, and other [vital features](#-features).**
 
 Many **AI platforms** are gaining momentum on the market — for instance, OpenAI with GPTs,
 LangChain, AI-powered chatbots, and agents.
