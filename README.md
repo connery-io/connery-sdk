@@ -5,9 +5,6 @@
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery-platform?quickstart=1)
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery-platform)
 
-<br/>
-<img alt="Connery overview diagram" src="./apps/docs/static/img/repo/connery-overview-diagram.svg">
-
 ## 🤔 What is this?
 
 **Connery is a middleware runtime between APIs and platforms. With Connery, you can turn any API into a standardized plugin with built-in auth, security, and access management and use it across different platforms.**
