@@ -26,7 +26,7 @@ This is where Connery comes into play.
 
 Connery consists of four main components that tightly work together:
 
-<img alt="Four main components of Connery" src="./apps/docs/static/img/repo/four-main-components-of-connery1.svg">
+<img alt="Four main components of Connery" src="./apps/docs/static/img/repo/four-main-components-of-connery2.svg">
 
 **Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing.
 For example, "Send an email" is an action in the ["Gmail"](https://github.com/connery-io/gmail) _plugin_.
