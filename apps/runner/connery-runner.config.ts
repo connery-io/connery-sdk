@@ -22,6 +22,7 @@ const config: Config = {
     // The public URL of the runner.
     // This URL is used in an OpenAPI specification for the available actions on the runner.
     // It's optional if you don't use the feature.
+    // Example: https://runner.example.com
     publicUrl: process.env.CONNERY_RUNNER_PUBLIC_URL || '',
   },
 

@@ -1,24 +1,26 @@
-# Open-source plugin ecosystem for AI and No-code
+# Connery - Plugin infrastructure for AI
 
 [![Release](https://img.shields.io/github/v/release/connery-io/connery-platform?color=74C649&label=Release)](https://github.com/connery-io/connery-platform/releases)
 [![License](https://img.shields.io/github/license/connery-io/connery-platform?color=74C649&label=License)](https://github.com/connery-io/connery-platform/blob/main/LICENSE)
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery-platform?quickstart=1)
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery-platform)
 
-<br/>
-<img alt="Connery overview diagram" src="./apps/docs/static/img/repo/connery-overview-diagram.svg">
-
 ## 🤔 What is this?
 
-**Connery is a middleware runtime between APIs and platforms. With Connery, you can turn any API into a standardized plugin with built-in auth, security, and access management and use it across different platforms.**
+**With Connery, you can create and use plugins across many AI platforms.
+Connery will handle the rest: isolated runtime, authorization, secret management, access management,
+audit logs, and other [vital features](#-features).**
 
-Many **AI platforms** are gaining momentum on the market — for instance, OpenAI with GPTs, LangChain, AI-powered chatbots, and agents.
+Many AI platforms are gaining momentum on the market — for instance, OpenAI with GPTs,
+LangChain, AI-powered chatbots, and agents.
 
-Also, many **no-code platforms**, such as Zapier and Make, allow you to connect different services together and build automation workflows.
+To fully leverage the capabilities of these platforms, it's essential to connect them with the real world:
+SaaS applications, APIs, databases, and so on.
 
-To fully leverage the capabilities of these platforms, it's essential to connect them with your APIs, like SaaS applications, databases, back-end services, and so on.
-
-While APIs provide a fundamental bridge for connectivity, their integration often requires customization into platform-specific applications, adhering to diverse platform standards. This necessity introduces a complex array of challenges, particularly in areas of authentication, security, and access management, which are critical for seamless and secure operations.
+While APIs provide a fundamental bridge for connectivity,
+they alone aren't sufficient to connect the real world to AI platforms.
+The AI platforms require a new type of infrastructure capable of handling plugin-related challenges,
+such as authorization, secret management, access management, and other vital features, ensuring robust security and control.
 
 This is where Connery comes into play.
 
@@ -26,8 +28,10 @@ This is where Connery comes into play.
 
 Connery consists of four main components that tightly work together:
 
+<img alt="Four main components of Connery" src="./apps/docs/static/img/repo/four-main-components-of-connery4.svg">
+
 **Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing.
-For example, "Send an email" is an action in the "Gmail" _plugin_.
+For example, "Send an email" is an action in the ["Gmail"](https://github.com/connery-io/gmail) _plugin_.
 
 **Plugin** - This is a collection of related actions grouped together because they serve a similar purpose.
 Each plugin is represented by a GitHub repository with TypeScript code of a specific structure.
@@ -40,21 +44,23 @@ The runner provides a standardized API for every installed action that can be co
 
 **Client** - A client is a specific application for each platform that uses the API provided by the runner.
 It's like a translator that adapts the runner's capabilities to fit the platform's needs.
-For example, a Slack App client allows to run actions right from Slack.
+For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/native/openai/gpt) client allows you to run
+Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/native/slack) client
+will enable you to run Connery actions directly from Slack.
 
-The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same action from Slack, OpenAI GPT or Make.
+The combination of these components allows you to run actions from any platform supported by Connery. For example, you can use the same Connery action from OpenAI GPT, LangChain, Slack, and [many more](https://docs.connery.io/docs/clients/native/).
 
-## ✅ Example 1: Scale back-end service on AWS from Slack
-
-<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
-
-Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
-
-## ✅ Example 2: Send email from a custom OpenAI GPT using Connery actions
+## ✅ Example 1: Send email from a custom OpenAI GPT using Connery actions
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
 Learn more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
+
+## ✅ Example 2: Scale back-end service on AWS from Slack
+
+<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
+
+Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
 
 ## 🌟 Support us and stay up-to-date
 
@@ -64,17 +70,17 @@ Please **give the repository a star** to support the project and stay up-to-date
 
 ## ✨ Features
 
-| Feature                        | Description                                                                                                                                                     |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Auth                           | Authentication and authorization handling for both users and clients.                                                                                           |
-| Security                       | Robust, enterprise-grade security measures ensuring data protection and privacy.                                                                                |
-| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for both users and clients.                                                                |
-| Secret Management              | Advanced and secure handling of sensitive data, such as API keys, passwords, and tokens.                                                                        |
-| Natural Language Actions       | Seamless interaction using natural language. The runner understands user requests, identifies the right action and its parameters, and suggest the user to run. |
-| Action Manual Approval         | Empower humans with the final say in executing actions, ensuring accuracy and relevance, especially when AI is involved.                                        |
-| AI Readiness                   | Future-proof architecture primed for integration with intelligent AI agents and chatbots.                                                                       |
-| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.                                                            |
-| Multi-Platform Plugins         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                                   |
+| Feature                        | Description                                                                                                     |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| Auth                           | Authentication and authorization for users, clients and plugins.                                                |
+| Secrets Management             | Advanced and secure handling of sensitive data, such as API keys, passwords, and tokens.                        |
+| Isolated Runtime               | Isolated runtime for actions for each organization or individual, ensuring security and privacy.                |
+| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for actions in organizations.              |
+| Action Manual Approval         | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations. |
+| Audit Logs                     | Detailed audit logs, providing a comprehensive overview of all actions executed.                                |
+| AI Readiness                   | Future-proof architecture primed for integration with AI tools.                                                 |
+| Multi-platform Plugins         | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                 |
+| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.            |
 
 Please note that many features are still in development and will be released in the upcoming versions.
 
@@ -104,7 +110,7 @@ Check out the [Documentation](https://docs.connery.io) to learn more.
 
 ## 💬 Feedback & Support
 
-Connery is still in beta, so not everything will be perfect yet. Please let us know of any suggestions, ideas, or bugs you encounter, and we will use your feedback to improve our upcoming releases.
+Connery is still in early beta, so not everything will be perfect yet. Please let us know of any suggestions, ideas, or bugs you encounter, and we will use your feedback to improve our upcoming releases.
 
 You can reach us via the following channels:
 
