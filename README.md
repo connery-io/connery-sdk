@@ -19,8 +19,7 @@ SaaS applications, APIs, databases, and so on.
 
 While APIs provide a fundamental bridge for connectivity,
 they alone aren't sufficient to connect the real world to AI platforms.
-
-AI platforms require a new type of infrastructure capable of handling plugin-related challenges,
+The AI platforms require a new type of infrastructure capable of handling plugin-related challenges,
 such as authorization, secret management, access management, and other vital features, ensuring robust security and control.
 
 This is where Connery comes into play.
