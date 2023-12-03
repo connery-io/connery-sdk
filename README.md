@@ -64,16 +64,17 @@ Please **give the repository a star** to support the project and stay up-to-date
 
 ## ✨ Features
 
-| Feature                        | Description                                                                                                              |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| Auth                           | Authentication and authorization management.                                                                             |
-| Security                       | Robust, enterprise-grade security measures ensuring data protection and privacy.                                         |
-| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for actions.                                        |
-| Secret Management              | Advanced and secure handling of sensitive data, such as API keys, passwords, and tokens.                                 |
-| Action Manual Approval         | Empower humans with the final say in executing actions, ensuring accuracy and relevance, especially when AI is involved. |
-| AI Readiness                   | Future-proof architecture primed for integration with intelligent AI agents and chatbots.                                |
-| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.                     |
-| Multi-Platform Plugins         | Unprecedented compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.            |
+| Feature                        | Description                                                                                                     |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| Auth                           | Authentication and authorization for users, clients and plugins.                                                |
+| Secrets Management             | Advanced and secure handling of sensitive data, such as API keys, passwords, and tokens.                        |
+| Isolated Runtime               | Isolated runtime for actions for each organization or individual, ensuring security and privacy.                |
+| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for actions in organizations.              |
+| Action Manual Approval         | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations. |
+| Audit Logs                     | Detailed audit logs, providing a comprehensive overview of all actions executed.                                |
+| AI Readiness                   | Future-proof architecture primed for integration with AI tools.                                                 |
+| Multi-Platform Plugins         | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                 |
+| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.            |
 
 Please note that many features are still in development and will be released in the upcoming versions.
 
