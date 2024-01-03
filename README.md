@@ -1,9 +1,9 @@
 # Connery - Plugin infrastructure for AI
 
-[![Release](https://img.shields.io/github/v/release/connery-io/connery-platform?color=74C649&label=Release)](https://github.com/connery-io/connery-platform/releases)
-[![License](https://img.shields.io/github/license/connery-io/connery-platform?color=74C649&label=License)](https://github.com/connery-io/connery-platform/blob/main/LICENSE)
-[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery-platform?quickstart=1)
-[![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery-platform)
+[![Release](https://img.shields.io/github/v/release/connery-io/connery?color=74C649&label=Release)](https://github.com/connery-io/connery/releases)
+[![License](https://img.shields.io/github/license/connery-io/connery?color=74C649&label=License)](https://github.com/connery-io/connery/blob/main/LICENSE)
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery?quickstart=1)
+[![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
 
 ## 🤔 What is this?
 
@@ -54,13 +54,13 @@ The combination of these components allows you to run actions from any platform 
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Learn more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
+Learn more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
 
 ## ✅ Example 2: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
-Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
+Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/use-cases/scale-back-end-service-on-aws-from-slack).
 
 ## 🌟 Support us and stay up-to-date
 
@@ -102,7 +102,7 @@ To add your plugin or client to the lists, see our [contributing guide](/CONTRIB
 
 ## 🚀 Quickstart
 
-Check out the [Quickstart](https://docs.connery.io/docs/platform/quick-start/) guide to get started with Connery.
+Check out the [Quickstart](https://docs.connery.io/docs/runner/quick-start/) guide to get started with Connery.
 
 ## 📖 Documentation
 
@@ -114,8 +114,8 @@ Connery is still in early beta, so not everything will be perfect yet. Please le
 
 You can reach us via the following channels:
 
-- [Discussions](https://github.com/connery-io/connery-platform/discussions) - for feedback, questions, and discussions.
-- [Issues](https://github.com/connery-io/connery-platform/issues) - for bug reports and feature requests.
+- [Discussions](https://github.com/connery-io/connery/discussions) - for feedback, questions, and discussions.
+- [Issues](https://github.com/connery-io/connery/issues) - for bug reports and feature requests.
 - [Twitter](https://twitter.com/connery_io) - for updates and announcements.
 
 ## 🗄️ Repository structure

@@ -200,7 +200,7 @@ export function trimInput(input?: InputParametersObject): InputParametersObject 
 
 export function validateNumberOfInputParameters(input?: InputParametersObject): void {
   // This validation also prevents DoS attacks by limiting the length of the input parameters object:
-  // (https://github.com/connery-io/connery-platform/security/code-scanning/1)
+  // (https://github.com/connery-io/connery/security/code-scanning/1)
   if (Object.keys(input || {}).length > 100) {
     throw new Error(
       '[Input validation error] The input object is too large. The maximum number of input parameters is 100.',

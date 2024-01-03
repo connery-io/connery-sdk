@@ -9,6 +9,36 @@
       "source": "/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions",
       "destination": "/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions",
       "permanent": true
+    },
+    {
+      "source": "/docs/platform/introduction/",
+      "destination": "/docs/runner/introduction/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/platform/introduction/core-concepts",
+      "destination": "/docs/runner/introduction/core-concepts",
+      "permanent": true
+    },
+    {
+      "source": "/docs/platform/quick-start/",
+      "destination": "/docs/runner/quick-start/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/platform/quick-start/set-up-runner",
+      "destination": "/docs/runner/quick-start/set-up-runner",
+      "permanent": true
+    },
+    {
+      "source": "/docs/platform/quick-start/install-plugin-on-the-runner",
+      "destination": "/docs/runner/quick-start/install-plugin-on-the-runner",
+      "permanent": true
+    },
+    {
+      "source": "/docs/platform/quick-start/use-clients-to-call-actions",
+      "destination": "/docs/runner/quick-start/use-clients-to-call-actions",
+      "permanent": true
     }
   ]
 }

@@ -21,12 +21,12 @@ See below how to configure and use it.
 
 :::
 
-## Configuration
+## Usage
 
 ### Prerequisites
 
 1. Make sure you have a Connery runner up and running.
-   You can use the [Quickstart](/docs/platform/quick-start/) guide to set it up.
+   You can use the [Quickstart](/docs/runner/quick-start/) guide to set it up.
 2. Install plugins with actions you want to use with the Assistants API.
    You can find the list of available plugins in the [Plugins](/docs/plugins/native) page.
 
@@ -47,7 +47,7 @@ curl -L '<PUBLIC_RUNNER_URL>/v1/actions/specs/openai-functions' \
 -H 'x-api-key: <CONNERY_RUNNER_API_KEY>'
 ```
 
-The `<PUBLIC_RUNNER_URL>` and `<CONNERY_RUNNER_API_KEY>` you should get during the runner setup in the [Quickstart](/docs/platform/quick-start/) guide.
+The `<PUBLIC_RUNNER_URL>` and `<CONNERY_RUNNER_API_KEY>` you should get during the runner setup in the [Quickstart](/docs/runner/quick-start/) guide.
 
 In response, you will get an OpenAI Function specification for every action available on your Connery runner.
 For example, below is the specification for the "Send email" action from the [connery-io/gmail](https://github.com/connery-io/gmail) plugin installed on the runner.
@@ -86,7 +86,7 @@ See the [Defining functions](https://platform.openai.com/docs/assistants/tools/d
 
 Once you add the functions, you can use them as any other functions in the Function Calling tool of the Assistants API.
 
-## Usage
+### Run Connery actions with the Assistants API
 
 1. **Get functions from the model that have to be called.**
 

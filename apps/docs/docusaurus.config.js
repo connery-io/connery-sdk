@@ -22,7 +22,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/connery-io/connery-platform/tree/main/apps/docs/',
+          editUrl: 'https://github.com/connery-io/connery/tree/main/apps/docs/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -42,8 +42,8 @@ const config = {
         title: 'Connery Docs',
         items: [
           {
-            label: 'Platform',
-            docId: 'platform/introduction/index',
+            label: 'Runner',
+            docId: 'runner/introduction/index',
             type: 'doc',
             position: 'left',
           },
@@ -67,7 +67,7 @@ const config = {
           },
           {
             label: 'GitHub',
-            href: 'https://github.com/connery-io/connery-platform',
+            href: 'https://github.com/connery-io/connery',
             position: 'right',
           },
           {
