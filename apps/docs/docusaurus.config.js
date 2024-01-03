@@ -42,7 +42,7 @@ const config = {
         title: 'Connery Docs',
         items: [
           {
-            label: 'Platform',
+            label: 'Runner',
             docId: 'platform/introduction/index',
             type: 'doc',
             position: 'left',

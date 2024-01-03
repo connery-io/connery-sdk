@@ -54,13 +54,13 @@ The combination of these components allows you to run actions from any platform 
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Learn more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/platform/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
+Learn more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
 
 ## ✅ Example 2: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
-Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/platform/use-cases/scale-back-end-service-on-aws-from-slack).
+Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/use-cases/scale-back-end-service-on-aws-from-slack).
 
 ## 🌟 Support us and stay up-to-date
 
