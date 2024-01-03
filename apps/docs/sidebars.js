@@ -7,10 +7,10 @@ const sidebars = {
       collapsed: false,
       link: {
         type: 'doc',
-        id: 'platform/introduction/index',
+        id: 'runner/introduction/index',
       },
       items: [
-        'platform/introduction/core-concepts',
+        'runner/introduction/core-concepts',
       ],
     },
     {
@@ -20,12 +20,12 @@ const sidebars = {
       collapsed: false,
       link: {
         type: 'doc',
-        id: 'platform/quick-start/index',
+        id: 'runner/quick-start/index',
       },
       items: [
-        'platform/quick-start/set-up-runner',
-        'platform/quick-start/install-plugin-on-the-runner',
-        'platform/quick-start/use-clients-to-call-actions',
+        'runner/quick-start/set-up-runner',
+        'runner/quick-start/install-plugin-on-the-runner',
+        'runner/quick-start/use-clients-to-call-actions',
       ],
     },
   ],

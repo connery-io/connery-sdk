@@ -29,7 +29,7 @@ Learn more about Connery:
 
 - [Documentation](https://docs.connery.io)
 - [Source code](https://github.com/connery-io/connery)
-- [How to start using this plugin with Connery?](https://docs.connery.io/docs/platform/quick-start/)
+- [How to start using this plugin with Connery?](https://docs.connery.io/docs/runner/quick-start/)
 
 ## Support
 

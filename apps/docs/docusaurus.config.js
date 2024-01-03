@@ -43,7 +43,7 @@ const config = {
         items: [
           {
             label: 'Runner',
-            docId: 'platform/introduction/index',
+            docId: 'runner/introduction/index',
             type: 'doc',
             position: 'left',
           },

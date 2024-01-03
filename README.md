@@ -102,7 +102,7 @@ To add your plugin or client to the lists, see our [contributing guide](/CONTRIB
 
 ## 🚀 Quickstart
 
-Check out the [Quickstart](https://docs.connery.io/docs/platform/quick-start/) guide to get started with Connery.
+Check out the [Quickstart](https://docs.connery.io/docs/runner/quick-start/) guide to get started with Connery.
 
 ## 📖 Documentation
 
