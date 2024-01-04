@@ -11,7 +11,7 @@
 Connery will handle the rest: isolated runtime, authorization, secret management, access management,
 audit logs, and other [vital features](#-features).**
 
-Many AI platforms are gaining momentum on the market — for instance, OpenAI with GPTs,
+Many AI platforms are gaining momentum on the market — for instance, OpenAI GPTs,
 LangChain, AI-powered chatbots, and agents.
 
 To fully leverage the capabilities of these platforms, it's essential to connect them with the real world:
@@ -50,11 +50,11 @@ will enable you to run Connery actions directly from Slack.
 
 The combination of these components allows you to run actions from any platform supported by Connery. For example, you can use the same Connery action from OpenAI GPT, LangChain, Slack, and [many more](https://docs.connery.io/docs/clients/native/).
 
-## ✅ Example 1: Send email from a custom OpenAI GPT using Connery actions
+## ✅ Example 1: Send email from a custom OpenAI GPT
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Learn more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
+Learn more: [Send email from a custom OpenAI GPT](https://docs.connery.io/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
 
 ## ✅ Example 2: Scale back-end service on AWS from Slack
 
@@ -82,7 +82,9 @@ Please **give the repository a star** to support the project and stay up-to-date
 | Multi-platform Plugins         | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                 |
 | Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.            |
 
-Please note that many features are still in development and will be released in the upcoming versions.
+Please note that Connery is still in early beta, so not all features are available yet.
+This list represents our vision for the future of Connery.
+We're working hard to make it a reality.
 
 ## 🌳 Ecosystem
 
@@ -125,10 +127,10 @@ This is a monorepo that contains the following components:
 | Name   | Path                 | Description                                                                                                     |
 | ------ | -------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Runner | `./apps/runner`      | The core of Connery that knows how to handle plugins, run actions, and provide a standardized API as an output. |
-| Docs   | `./apps/docs`        | The documentation website.                                                                                      |
-| CLI    | `./packages/connery` | CLI for plugin development.                                                                                     |
-| SDK    | `./packages/sdk`     | SDK for plugin development.                                                                                     |
-| Lib    | `./packages/lib`     | Shared library for the runner and CLI.                                                                          |
+| Docs   | `./apps/docs`        | The [documentation](https://docs.connery.io/) website.                                                          |
+| CLI    | `./packages/connery` | [`connery`](https://www.npmjs.com/package/connery) CLI package for plugin development.                          |
+| SDK    | `./packages/sdk`     | [`@connery-io/sdk`](https://www.npmjs.com/package/@connery-io/sdk) SDK package for plugin development.          |
+| Lib    | `./packages/lib`     | Shared library for the runner and the CLI.                                                                      |
 
 ## 👨‍💻 Contributing
 
