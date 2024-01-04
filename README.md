@@ -70,17 +70,20 @@ Please **give the repository a star** to support the project and stay up-to-date
 
 ## ✨ Features
 
-| Feature                        | Description                                                                                                     |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| Auth                           | Authentication and authorization for users, clients and plugins.                                                |
-| Secrets Management             | Advanced and secure handling of sensitive data, such as API keys, passwords, and tokens.                        |
-| Isolated Runtime               | Isolated runtime for actions for each organization or individual, ensuring security and privacy.                |
-| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for actions in organizations.              |
-| Action Manual Approval         | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations. |
-| Audit Logs                     | Detailed audit logs, providing a comprehensive overview of all actions executed.                                |
-| AI Readiness                   | Future-proof architecture primed for integration with AI tools.                                                 |
-| Multi-platform Plugins         | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                 |
-| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.            |
+| Feature                        | Description                                                                                                                             |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Auth                           | Authentication and authorization for users, clients and plugins.                                                                        |
+| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for actions in organizations.                                      |
+| Secrets Management             | Secure storage and management of sensitive data, such as API keys, passwords, and tokens, and their injection into plugins and actions. |
+| Isolated Runtime               | Isolated runtime for plugins and actions for each organization or individual, ensuring security and privacy.                            |
+| Human in the Loop              | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations.                         |
+| Audit Logs                     | Detailed audit logs, providing a comprehensive overview of all actions executed. See who did what and when.                             |
+| Plugin Versioning              | Versioning of plugins and actions, ensuring smooth upgrades and rollbacks.                                                              |
+| Multi-platform Plugins         | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                         |
+| Analytics and Insights         | Track and analyze your actions, plugins, and clients to gain valuable insights into your operations.                                    |
+| Monitoring                     | Monitor your plugins and actions to ensure smooth operations.                                                                           |
+| AI Readiness                   | Future-proof architecture primed for integration with AI tools.                                                                         |
+| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.                                    |
 
 Please note that Connery is still in early beta, so not all features are available yet.
 This list represents our vision for the future of Connery.
