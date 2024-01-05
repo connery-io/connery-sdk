@@ -11,7 +11,7 @@
 Connery will handle the rest: isolated runtime, authorization, secret management, access management,
 audit logs, and other [vital features](#-features).**
 
-Many AI platforms are gaining momentum on the market — for instance, OpenAI with GPTs,
+Many AI platforms are gaining momentum on the market — for instance, OpenAI GPTs,
 LangChain, AI-powered chatbots, and agents.
 
 To fully leverage the capabilities of these platforms, it's essential to connect them with the real world:
@@ -50,11 +50,11 @@ will enable you to run Connery actions directly from Slack.
 
 The combination of these components allows you to run actions from any platform supported by Connery. For example, you can use the same Connery action from OpenAI GPT, LangChain, Slack, and [many more](https://docs.connery.io/docs/clients/native/).
 
-## ✅ Example 1: Send email from a custom OpenAI GPT using Connery actions
+## ✅ Example 1: Send email from a custom OpenAI GPT
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Learn more: [Send email from a custom OpenAI GPT using Connery actions](https://docs.connery.io/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
+Learn more: [Send email from a custom OpenAI GPT](https://docs.connery.io/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
 
 ## ✅ Example 2: Scale back-end service on AWS from Slack
 
@@ -70,19 +70,31 @@ Please **give the repository a star** to support the project and stay up-to-date
 
 ## ✨ Features
 
-| Feature                        | Description                                                                                                     |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| Auth                           | Authentication and authorization for users, clients and plugins.                                                |
-| Secrets Management             | Advanced and secure handling of sensitive data, such as API keys, passwords, and tokens.                        |
-| Isolated Runtime               | Isolated runtime for actions for each organization or individual, ensuring security and privacy.                |
-| Access Management              | Flexible, role-based access controls allowing fine-tuned permissions for actions in organizations.              |
-| Action Manual Approval         | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations. |
-| Audit Logs                     | Detailed audit logs, providing a comprehensive overview of all actions executed.                                |
-| AI Readiness                   | Future-proof architecture primed for integration with AI tools.                                                 |
-| Multi-platform Plugins         | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                 |
-| Open-source Plugin Marketplace | Dive into a rich ecosystem of plugins, expand functionalities and customize to your heart's content.            |
+| Feature                | Description                                                                                                                                                                                                                                                 |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Auth                   | Authentication and authorization for users, clients, and plugins.                                                                                                                                                                                           |
+| Developer Experience   | Developers deserve to have the best experience when developing plugins. This includes documentation, tooling, and ecosystem like CLI and SDK, SDLC, community and support, and many other things that let developers focus on what matters most - building. |
+| Isolated Runtime       | Isolated runtime for each organization or individual, ensuring security and privacy.                                                                                                                                                                        |
+| Versioning             | Versioning of plugins and actions, ensuring smooth upgrades and rollbacks.                                                                                                                                                                                  |
+| Secrets Management     | Secure storage and management of sensitive data, such as API keys, passwords, and tokens, and their injection into plugins and actions.                                                                                                                     |
+| Connection Management  | Secure storage and management of connections to external services, such as databases, APIs, and SaaS applications.                                                                                                                                          |
+| Access Management      | Flexible, role-based access controls allowing fine-tuned permissions for actions in organizations.                                                                                                                                                          |
+| Human in the Loop      | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations.                                                                                                                                             |
+| Audit Logs             | Detailed audit logs providing a comprehensive overview of all actions executed. See who did what and when.                                                                                                                                                  |
+| Plugin Marketplace     | A rich ecosystem of open-source plugins based on GitHub infrastructure. Every plugin is a separate GitHub repository ready to be forked and customized.                                                                                                     |
+| Monitoring             | Monitor your plugins and actions to ensure smooth operations.                                                                                                                                                                                               |
+| Analytics and Insights | Track and analyze your actions, plugins, and clients to gain valuable insights.                                                                                                                                                                             |
+| Multi-platform Plugins | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                                                                                                                                             |
+| Multi-language Plugins | Support for plugins written in the most popular programming languages like TypeScript and Python.                                                                                                                                                           |
+| CRUD Actions           | Actions for creating, reading, updating, and deleting data in external services.                                                                                                                                                                            |
+| Async Actions          | Actions that run asynchronously allow you to run long-running tasks or tasks that require human input.                                                                                                                                                      |
+| Trigger Actions        | Actions that proactively trigger clients when something happens in the external service. For example, trigger an AI agent when a new email arrives.                                                                                                         |
 
-Please note that many features are still in development and will be released in the upcoming versions.
+Please note that Connery is still in early beta, so not all features are available yet.
+This list represents our vision for the future of Connery.
+We're working hard to make it a reality.
+
+The order of features does not represent the priority.
 
 ## 🌳 Ecosystem
 
@@ -125,10 +137,10 @@ This is a monorepo that contains the following components:
 | Name   | Path                 | Description                                                                                                     |
 | ------ | -------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Runner | `./apps/runner`      | The core of Connery that knows how to handle plugins, run actions, and provide a standardized API as an output. |
-| Docs   | `./apps/docs`        | The documentation website.                                                                                      |
-| CLI    | `./packages/connery` | CLI for plugin development.                                                                                     |
-| SDK    | `./packages/sdk`     | SDK for plugin development.                                                                                     |
-| Lib    | `./packages/lib`     | Shared library for the runner and CLI.                                                                          |
+| Docs   | `./apps/docs`        | The [documentation](https://docs.connery.io/) website.                                                          |
+| CLI    | `./packages/connery` | [`connery`](https://www.npmjs.com/package/connery) CLI package for plugin development.                          |
+| SDK    | `./packages/sdk`     | [`@connery-io/sdk`](https://www.npmjs.com/package/@connery-io/sdk) SDK package for plugin development.          |
+| Lib    | `./packages/lib`     | Shared library for the runner and the CLI.                                                                      |
 
 ## 👨‍💻 Contributing
 
