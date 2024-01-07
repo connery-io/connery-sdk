@@ -22,7 +22,7 @@ installedPlugins: [
   {
     key: 'connery-io/connery-runner-administration@main',
     configurationParameters: {
-      runenrUrl: 'http://localhost:4201',
+      runnerUrl: 'http://localhost:4201',
       runnerApiKey: process.env.CONNERY_RUNNER_API_KEY,
     },
   },
@@ -42,7 +42,7 @@ The `configurationParameters` is a flat key-value object containing the plugin's
 Configuration parameters are specific for each plugin; you can find them in the plugin definition file in the related GitHub repository.
 For example, the `connery-io/connery-runner-administration@main` plugin has the configuration parameters
 defined in the `configurationParameters` section of its definition file [index.ts](https://github.com/connery-io/connery-runner-administration/blob/main/src/index.ts) in the root of the GitHub repository.
-The definition file shows that both `runenrUrl` and `runnerApiKey` configuration parameters are required, so they must be provided in the plugin configuration.
+The definition file shows that both `runnerUrl` and `runnerApiKey` configuration parameters are required, so they must be provided in the plugin configuration.
 
 The actions of this plugin use the configuration parameters to perform their tasks.
 
