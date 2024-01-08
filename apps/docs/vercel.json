@@ -39,6 +39,16 @@
       "source": "/docs/platform/quick-start/use-clients-to-call-actions",
       "destination": "/docs/runner/quick-start/use-clients-to-call-actions",
       "permanent": true
+    },
+    {
+      "source": "/docs/use-cases/scale-back-end-service-on-aws-from-slack",
+      "destination": "/docs/use-cases/automations-in-team-collaboration-tools/scale-back-end-service-on-aws-from-slack",
+      "permanent": true
+    },
+    {
+      "source": "/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions",
+      "destination": "/docs/use-cases/actions-in-gpts/send-email-from-a-custom-openai-gpt",
+      "permanent": true
     }
   ]
 }
