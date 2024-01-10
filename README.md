@@ -50,17 +50,25 @@ will enable you to run Connery actions directly from Slack.
 
 The combination of these components allows you to run actions from any platform supported by Connery. For example, you can use the same Connery action from OpenAI GPT, LangChain, Slack, and [many more](https://docs.connery.io/docs/clients/native/).
 
+## 💡 Use cases
+
+- [Actions in GPTs](https://docs.connery.io/docs/use-cases/actions-in-gpts/)
+- [Actions in AI agents and apps](https://docs.connery.io/docs/use-cases/actions-in-ai-agents-and-apps/)
+- [Automations in Team Collaboration tools](https://docs.connery.io/docs/use-cases/automations-in-team-collaboration-tools/)
+- [Custom actions in No-Code tools](https://docs.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
+- [CI/CD automations](https://docs.connery.io/docs/use-cases/ci-cd-automations/)
+
 ## ✅ Example 1: Send email from a custom OpenAI GPT
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Learn more: [Send email from a custom OpenAI GPT](https://docs.connery.io/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions).
+Learn more: [Send email from a custom OpenAI GPT](https://docs.connery.io/docs/use-cases/actions-in-gpts/send-email-from-a-custom-openai-gpt).
 
 ## ✅ Example 2: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
-Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/use-cases/scale-back-end-service-on-aws-from-slack).
+Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/use-cases/automations-in-team-collaboration-tools/scale-back-end-service-on-aws-from-slack).
 
 ## 🌟 Support us and stay up-to-date
 

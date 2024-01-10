@@ -71,9 +71,22 @@ const sidebars = {
             'clients/native/openai/assistant',
           ],
         },
+        {
+          label: "LangChain",
+          type: "category",
+          collapsible: false,
+          collapsed: false,
+          link: {
+            type: 'doc',
+            id: 'clients/native/langchain/index',
+          },
+          items: [
+            'clients/native/langchain/tools',
+            'clients/native/langchain/opengpts',
+          ],
+        },
         'clients/native/slack',
         'clients/native/make',
-        'clients/native/langchain',
         'clients/native/api',
         'clients/native/cli',
       ],
@@ -91,8 +104,35 @@ const sidebars = {
         id: 'use-cases/index',
       },
       items: [
-        'use-cases/scale-back-end-service-on-aws-from-slack',
-        'use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions',
+        {
+          label: "Actions in GPTs",
+          type: "category",
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'use-cases/actions-in-gpts/index',
+          },
+          items: [
+            'use-cases/actions-in-gpts/send-email-from-a-custom-openai-gpt',
+          ]
+        },
+        'use-cases/actions-in-ai-agents-and-apps/index',
+        {
+          label: "Automations in Team Collaboration tools",
+          type: "category",
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'use-cases/automations-in-team-collaboration-tools/index',
+          },
+          items: [
+            'use-cases/automations-in-team-collaboration-tools/scale-back-end-service-on-aws-from-slack',
+          ]
+        },
+        'use-cases/custom-actions-in-no-code-tools/index',
+        'use-cases/ci-cd-automations/index',
       ],
     }
   ],
