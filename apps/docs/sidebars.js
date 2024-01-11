@@ -118,7 +118,7 @@ const sidebars = {
           ]
         },
         'use-cases/actions-in-ai-agents-and-apps/index',
-        'use-cases/actions-in-ai-wareables/index',
+        'use-cases/actions-in-ai-wearables/index',
         'use-cases/private-ai-actions-control-center/index',
         {
           label: "Automations in Team Collaboration tools",

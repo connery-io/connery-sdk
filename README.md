@@ -54,7 +54,7 @@ The combination of these components allows you to run actions from any platform 
 
 - [Actions in GPTs](https://docs.connery.io/docs/use-cases/actions-in-gpts/)
 - [Actions in AI agents and apps](https://docs.connery.io/docs/use-cases/actions-in-ai-agents-and-apps/)
-- [Actions in AI wareables](https://docs.connery.io/docs/use-cases/actions-in-ai-wareables/)
+- [Actions in AI wearables](https://docs.connery.io/docs/use-cases/actions-in-ai-wearables/)
 - [Private AI-actions control center](https://docs.connery.io/docs/use-cases/private-ai-actions-control-center/)
 - [Automations in Team Collaboration tools](https://docs.connery.io/docs/use-cases/automations-in-team-collaboration-tools/)
 - [Custom actions in No-Code tools](https://docs.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
