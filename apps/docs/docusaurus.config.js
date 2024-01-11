@@ -72,7 +72,7 @@ const config = {
             position: 'left',
           },
           {
-            label: 'GitHub',
+            label: '⭐ GitHub',
             href: 'https://github.com/connery-io/connery',
             position: 'right',
           },

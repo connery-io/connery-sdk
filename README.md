@@ -12,13 +12,13 @@ Connery will handle the rest: isolated runtime, authorization, secret management
 audit logs, and other [vital features](#-features).**
 
 Many AI platforms are gaining momentum on the market — for instance, OpenAI GPTs,
-LangChain, AI-powered chatbots, and agents.
+LangChain, AI-powered chatbots, agents and wearable devices.
 
 To fully leverage the capabilities of these platforms, it's essential to connect them with the real world:
 SaaS applications, APIs, databases, and so on.
 
 While APIs provide a fundamental bridge for connectivity,
-they alone aren't sufficient to connect the real world to AI platforms.
+they alone aren't sufficient to connect the real world to the AI platforms.
 The AI platforms require a new type of infrastructure capable of handling plugin-related challenges,
 such as authorization, secret management, access management, and other vital features, ensuring robust security and control.
 
@@ -54,6 +54,8 @@ The combination of these components allows you to run actions from any platform 
 
 - [Actions in GPTs](https://docs.connery.io/docs/use-cases/actions-in-gpts/)
 - [Actions in AI agents and apps](https://docs.connery.io/docs/use-cases/actions-in-ai-agents-and-apps/)
+- [Actions in AI wareables](https://docs.connery.io/docs/use-cases/actions-in-ai-wareables/)
+- [Private AI-actions control center](https://docs.connery.io/docs/use-cases/private-ai-actions-control-center/)
 - [Automations in Team Collaboration tools](https://docs.connery.io/docs/use-cases/automations-in-team-collaboration-tools/)
 - [Custom actions in No-Code tools](https://docs.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
 - [CI/CD automations](https://docs.connery.io/docs/use-cases/ci-cd-automations/)
