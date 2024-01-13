@@ -7,7 +7,7 @@
 
 ## 🤔 What is this?
 
-**With Connery, you can create and use plugins across many AI platforms.
+**With Connery, you can create plugins and use them across many platforms.
 Connery will handle the rest: isolated runtime, authorization, secret management, access management,
 audit logs, and other [vital features](#-features).**
 
