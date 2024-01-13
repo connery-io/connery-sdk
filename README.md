@@ -26,12 +26,12 @@ This is where Connery comes into play.
 
 ## ⚙️ How does it work?
 
+<img alt="Connery diagram" src="./apps/docs/static/img/repo/connery-diagram.png">
+
 Connery consists of four main components that tightly work together:
 
-<img alt="Four main components of Connery" src="./apps/docs/static/img/repo/four-main-components-of-connery4.svg">
-
 **Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing.
-For example, "Send an email" is an action in the ["Gmail"](https://github.com/connery-io/gmail) _plugin_.
+For example, "Send email" is an action in the ["Gmail"](https://github.com/connery-io/gmail) _plugin_.
 
 **Plugin** - This is a collection of related actions grouped together because they serve a similar purpose.
 Each plugin is represented by a GitHub repository with TypeScript code of a specific structure.
@@ -47,8 +47,9 @@ It's like a translator that adapts the runner's capabilities to fit the platform
 For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/native/openai/gpt) client allows you to run
 Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/native/slack) client
 will enable you to run Connery actions directly from Slack.
+Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://docs.connery.io/docs/clients/native/langchain/tools) or [API](https://docs.connery.io/docs/clients/native/api) clients.
 
-The combination of these components allows you to run actions from any platform supported by Connery. For example, you can use the same Connery action from OpenAI GPT, LangChain, Slack, and [many more](https://docs.connery.io/docs/clients/native/).
+The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://docs.connery.io/docs/clients/native/).
 
 ## 💡 Use cases
 
