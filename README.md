@@ -81,26 +81,42 @@ Please **give the repository a star** to support the project and stay up-to-date
 
 ## ✨ Features
 
-| Feature                  | Description                                                                                                                                                                                                                                                 |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Auth                     | Authentication and authorization for users, clients, and plugins.                                                                                                                                                                                           |
-| Developer Experience     | Developers deserve to have the best experience when developing plugins. This includes documentation, tooling, and ecosystem like CLI and SDK, SDLC, community and support, and many other things that let developers focus on what matters most - building. |
-| Isolated Runtime         | Isolated runtime for each organization or individual, ensuring security and privacy.                                                                                                                                                                        |
-| Versioning               | Versioning of plugins and actions, ensuring smooth upgrades and rollbacks.                                                                                                                                                                                  |
-| Secrets Management       | Secure storage and management of sensitive data, such as API keys, passwords, and tokens, and their injection into plugins and actions.                                                                                                                     |
-| Connection Management    | Secure storage and management of connections to external services, such as databases, APIs, and SaaS applications.                                                                                                                                          |
-| Access Management        | Flexible, role-based access controls allowing fine-tuned permissions for actions in organizations.                                                                                                                                                          |
-| Configuration Management | Allows plugins configuration without changing the code.                                                                                                                                                                                                     |
-| Human in the Loop        | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations.                                                                                                                                             |
-| Audit Logs               | Detailed audit logs providing a comprehensive overview of all actions executed. See who did what and when.                                                                                                                                                  |
-| Plugin Marketplace       | A rich ecosystem of open-source plugins based on GitHub infrastructure. Every plugin is a separate GitHub repository ready to be forked and customized.                                                                                                     |
-| Monitoring               | Monitor your plugins and actions to ensure smooth operations.                                                                                                                                                                                               |
-| Analytics and Insights   | Track and analyze your actions, plugins, and clients to gain valuable insights.                                                                                                                                                                             |
-| Multi-platform Plugins   | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                                                                                                                                             |
-| Multi-language Plugins   | Support for plugins written in the most popular programming languages like TypeScript and Python.                                                                                                                                                           |
-| CRUD Actions             | Actions for creating, reading, updating, and deleting data in external services.                                                                                                                                                                            |
-| Async Actions            | Actions that run asynchronously allow you to run long-running tasks or tasks that require human input.                                                                                                                                                      |
-| Trigger Actions          | Actions that proactively trigger clients when something happens in the external service. For example, trigger an AI agent when a new email arrives.                                                                                                         |
+### For users and organizations
+
+| Feature                  | Description                                                                                                                                             |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Auth                     | Authentication and authorization for users, clients, and plugins.                                                                                       |
+| Connection Management    | Secure storage and management of connections to external services, such as databases, APIs, and SaaS applications.                                      |
+| Configuration Management | Allows plugins configuration without changing the code.                                                                                                 |
+| Secrets Management       | Secure storage and management of sensitive data, such as API keys, passwords, and tokens, and their injection into plugins and actions.                 |
+| Access Management        | Flexible, role-based access controls allowing fine-tuned permissions for actions in organizations.                                                      |
+| Human in the Loop        | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations.                                         |
+| Audit Logs               | Detailed audit logs providing a comprehensive overview of all actions executed. See who did what and when.                                              |
+| Multi-platform Plugins   | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                                         |
+| Plugin Marketplace       | A rich ecosystem of open-source plugins based on GitHub infrastructure. Every plugin is a separate GitHub repository ready to be forked and customized. |
+| Isolated Runtime         | Isolated runtime for each organization or individual, ensuring security and privacy.                                                                    |
+
+### For app developers
+
+| Feature                                | Description                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------- |
+| Seamless integration into the app code |                                                                                 |
+| Management UI for users                | (with the features above)                                                       |
+| Monitoring                             | Monitor your plugins and actions to ensure smooth operations.                   |
+| Analytics and Insights                 | Track and analyze your actions, plugins, and clients to gain valuable insights. |
+
+### For plugin developers
+
+| Feature                | Description                                                                                                                                                                                                                                                 |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Developer Experience   | Developers deserve to have the best experience when developing plugins. This includes documentation, tooling, and ecosystem like CLI and SDK, SDLC, community and support, and many other things that let developers focus on what matters most - building. |
+| Plugin Authorization   | Plugin authorization with the third-party services.                                                                                                                                                                                                         |
+| Plugin Configuration   |                                                                                                                                                                                                                                                             |
+| Versioning             | Versioning of plugins and actions, ensuring smooth upgrades and rollbacks.                                                                                                                                                                                  |
+| CRUD Actions           | Actions for creating, reading, updating, and deleting data in external services.                                                                                                                                                                            |
+| Async Actions          | Actions that run asynchronously allow you to run long-running tasks or tasks that require human input.                                                                                                                                                      |
+| Trigger Actions        | Actions that proactively trigger clients when something happens in the external service. For example, trigger an AI agent when a new email arrives.                                                                                                         |
+| Multi-language Plugins | Support for plugins written in the most popular programming languages like TypeScript and Python.                                                                                                                                                           |
 
 Please note that Connery is still in early beta, so not all features are available yet.
 This list represents our vision for the future of Connery.
