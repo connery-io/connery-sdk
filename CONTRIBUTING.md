@@ -119,11 +119,11 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/conner
 
 ### Adding plugin to the list of plugins
 
-If you have a plugin you would like to add to the [list of community plugins](https://docs.connery.io/docs/plugins/community), please open a pull request to update the [./apps/docs/docs/plugins/community.mdx](https://github.com/connery-io/connery/blob/main/apps/docs/docs/plugins/community.mdx) file in this repository.
+If you have a plugin you would like to add to the [list of plugins](https://docs.connery.io/docs/plugins/), please open a pull request to update the [./apps/docs/docs/plugins/index.mdx](https://github.com/connery-io/connery/blob/main/apps/docs/docs/plugins/index.mdx) file in this repository.
 
 ### Adding client to the list of clients
 
-If you have a client you would like to add to the [list of community clients](https://docs.connery.io/docs/clients/community), please open a pull request to update the [./apps/docs/docs/clients/community.mdx](https://github.com/connery-io/connery/blob/main/apps/docs/docs/clients/community.mdx) file in this repository.
+If you have a client you would like to add to the [list of clients](https://docs.connery.io/docs/clients/), please open a pull request to add a new page to the [./apps/docs/docs/clients/](https://github.com/connery-io/connery/blob/main/apps/docs/docs/clients/) folder in this repository.
 
 ## Attribution
 

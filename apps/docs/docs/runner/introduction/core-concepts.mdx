@@ -3,7 +3,7 @@
 Connery consists of the following four main components that tightly work together.
 
 The combination of these components allows you to run actions from any platform supported by Connery.
-For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](/docs/clients/native/).
+For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](/docs/clients/).
 
 ## Action
 
@@ -44,14 +44,14 @@ The runner provides a standardized API for every installed action that can be co
 
 A client is a specific application for each platform that uses the API provided by the runner.
 It's like a translator that adapts the runner's capabilities to fit the platform's needs.
-For example, an [OpenAI GPTs](/docs/clients/native/openai/gpt) client allows you to run
-Connery actions from OpenAI GPT, or a [Slack](/docs/clients/native/slack) client
+For example, an [OpenAI GPTs](/docs/clients/openai/gpt) client allows you to run
+Connery actions from OpenAI GPT, or a [Slack](/docs/clients/slack) client
 will enable you to run Connery actions directly from Slack.
-Also, there are clients you can use to call actions from your own applications, such as [LangChain](/docs/clients/native/langchain/tools) or [API](/docs/clients/native/api) clients.
+Also, there are clients you can use to call actions from your own applications, such as [LangChain](/docs/clients/langchain/tools) or [API](/docs/clients/api) clients.
 
 :::info Example
 
-[Slack](/docs/clients/native/slack) is a client that allows users to run actions from the runner right
+[Slack](/docs/clients/slack) is a client that allows users to run actions from the runner right
 from the Slack workspace using natural language.
 
 :::
