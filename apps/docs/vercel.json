@@ -49,6 +49,76 @@
       "source": "/docs/use-cases/send-email-from-a-custom-openai-gpt-using-connery-actions",
       "destination": "/docs/use-cases/actions-in-gpts/send-email-from-a-custom-openai-gpt",
       "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/",
+      "destination": "/docs/clients/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/community",
+      "destination": "/docs/clients/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/openai/",
+      "destination": "/docs/clients/openai/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/openai/gpt",
+      "destination": "/docs/clients/openai/gpt",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/openai/assistant",
+      "destination": "/docs/clients/openai/assistant",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/langchain/",
+      "destination": "/docs/clients/langchain/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/langchain/tools",
+      "destination": "/docs/clients/langchain/tools",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/langchain/opengpts",
+      "destination": "/docs/clients/langchain/opengpts",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/slack",
+      "destination": "/docs/clients/slack",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/make",
+      "destination": "/docs/clients/make",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/api",
+      "destination": "/docs/clients/api",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/native/cli",
+      "destination": "/docs/clients/cli",
+      "permanent": true
+    },
+    {
+      "source": "/docs/plugins/native",
+      "destination": "/docs/plugins/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/plugins/community",
+      "destination": "/docs/plugins/",
+      "permanent": true
     }
   ]
 }

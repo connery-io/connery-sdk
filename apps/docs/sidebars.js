@@ -30,8 +30,7 @@ const sidebars = {
     },
   ],
   pluginsSidebar: [
-    'plugins/native',
-    'plugins/community',
+    'plugins/index',
     {
       label: "Guides",
       type: "category",
@@ -48,13 +47,13 @@ const sidebars = {
   ],
   clientsSidebar: [
     {
-      label: "Native clients",
+      label: "Clients",
       type: "category",
       collapsible: false,
       collapsed: false,
       link: {
         type: 'doc',
-        id: 'clients/native/index',
+        id: 'clients/index',
       },
       items: [
         {
@@ -64,11 +63,11 @@ const sidebars = {
           collapsed: false,
           link: {
             type: 'doc',
-            id: 'clients/native/openai/index',
+            id: 'clients/openai/index',
           },
           items: [
-            'clients/native/openai/gpt',
-            'clients/native/openai/assistant',
+            'clients/openai/gpt',
+            'clients/openai/assistant',
           ],
         },
         {
@@ -78,20 +77,19 @@ const sidebars = {
           collapsed: false,
           link: {
             type: 'doc',
-            id: 'clients/native/langchain/index',
+            id: 'clients/langchain/index',
           },
           items: [
-            'clients/native/langchain/tools',
-            'clients/native/langchain/opengpts',
+            'clients/langchain/tools',
+            'clients/langchain/opengpts',
           ],
         },
-        'clients/native/slack',
-        'clients/native/make',
-        'clients/native/api',
-        'clients/native/cli',
+        'clients/slack',
+        'clients/make',
+        'clients/api',
+        'clients/cli',
       ],
     },
-    'clients/community',
   ],
   useCasesSidebar: [
     {
