@@ -98,25 +98,26 @@ Please **give the repository a star** to support the project and stay up-to-date
 
 ### For app developers
 
-| Feature                                | Description                                                                     |
-| -------------------------------------- | ------------------------------------------------------------------------------- |
-| Seamless integration into the app code |                                                                                 |
-| Management UI for users                | (with the features above)                                                       |
-| Monitoring                             | Monitor your plugins and actions to ensure smooth operations.                   |
-| Analytics and Insights                 | Track and analyze your actions, plugins, and clients to gain valuable insights. |
+| Feature                                | Description                                                                        |
+| -------------------------------------- | ---------------------------------------------------------------------------------- |
+| Runtime                                | Runtime for plugins and actions.                                                   |
+| Seamless integration into the app code | With LangChain Toolkit or API                                                      |
+| Management UI for users                | (with the features above) To manage connections to their services (like Gmail) and |
+| Monitoring                             | Monitor your plugins and actions to ensure smooth operations.                      |
+| Analytics and Insights                 | Track and analyze your actions, plugins, and clients to gain valuable insights.    |
 
 ### For plugin developers
 
-| Feature                | Description                                                                                                                                                                                                                                                 |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Developer Experience   | Developers deserve to have the best experience when developing plugins. This includes documentation, tooling, and ecosystem like CLI and SDK, SDLC, community and support, and many other things that let developers focus on what matters most - building. |
-| Plugin Authorization   | Plugin authorization with the third-party services.                                                                                                                                                                                                         |
-| Plugin Configuration   |                                                                                                                                                                                                                                                             |
-| Versioning             | Versioning of plugins and actions, ensuring smooth upgrades and rollbacks.                                                                                                                                                                                  |
-| CRUD Actions           | Actions for creating, reading, updating, and deleting data in external services.                                                                                                                                                                            |
-| Async Actions          | Actions that run asynchronously allow you to run long-running tasks or tasks that require human input.                                                                                                                                                      |
-| Trigger Actions        | Actions that proactively trigger clients when something happens in the external service. For example, trigger an AI agent when a new email arrives.                                                                                                         |
-| Multi-language Plugins | Support for plugins written in the most popular programming languages like TypeScript and Python.                                                                                                                                                           |
+| Feature                          | Description                                                                                                                                                                                                                                                 |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tooling and Developer Experience | Developers deserve to have the best experience when developing plugins. This includes documentation, tooling, and ecosystem like CLI and SDK, SDLC, community and support, and many other things that let developers focus on what matters most - building. |
+| Plugin Authorization             | Plugin authorization with the third-party services.                                                                                                                                                                                                         |
+| Plugin Configuration             |                                                                                                                                                                                                                                                             |
+| Versioning                       | Versioning of plugins and actions, ensuring smooth upgrades and rollbacks.                                                                                                                                                                                  |
+| CRUD Actions                     | Actions for creating, reading, updating, and deleting data in external services.                                                                                                                                                                            |
+| Async Actions                    | Actions that run asynchronously allow you to run long-running tasks or tasks that require human input.                                                                                                                                                      |
+| Trigger Actions                  | Actions that proactively trigger clients when something happens in the external service. For example, trigger an AI agent when a new email arrives.                                                                                                         |
+| Multi-language Plugins           | Support for plugins written in the most popular programming languages like TypeScript and Python.                                                                                                                                                           |
 
 Please note that Connery is still in early beta, so not all features are available yet.
 This list represents our vision for the future of Connery.
