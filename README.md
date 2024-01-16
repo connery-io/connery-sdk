@@ -26,7 +26,7 @@ This is where Connery comes into play.
 
 ## ⚙️ How does it work?
 
-<img alt="Connery diagram" src="./apps/docs/static/img/repo/connery-diagram3.png">
+<img alt="Connery diagram" src="./apps/docs/static/img/repo/connery-diagram4.png">
 
 Connery consists of four main components that tightly work together:
 
