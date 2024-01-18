@@ -86,15 +86,17 @@ Please **give the repository a star** to support the project and stay up-to-date
 | Feature                  | Description                                                                                                                                             |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Auth                     | Authentication and authorization for users, clients, and plugins.                                                                                       |
+| Management UI            |                                                                                                                                                         |
 | Connection Management    | Secure storage and management of connections to external services, such as databases, APIs, and SaaS applications.                                      |
 | Configuration Management | Allows plugins configuration without changing the code.                                                                                                 |
 | Secrets Management       | Secure storage and management of sensitive data, such as API keys, passwords, and tokens, and their injection into plugins and actions.                 |
 | Access Management        | Flexible, role-based access controls allowing fine-tuned permissions for actions in organizations.                                                      |
-| Human in the Loop        | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations.                                         |
+| Human-in-the-loop        | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations.                                         |
 | Audit Logs               | Detailed audit logs providing a comprehensive overview of all actions executed. See who did what and when.                                              |
 | Multi-platform Plugins   | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                                         |
 | Plugin Marketplace       | A rich ecosystem of open-source plugins based on GitHub infrastructure. Every plugin is a separate GitHub repository ready to be forked and customized. |
 | Isolated Runtime         | Isolated runtime for each organization or individual, ensuring security and privacy.                                                                    |
+| Personalization          | Action metadata adjustment, personal context information, etc.                                                                                          |
 
 ### For app developers
 
@@ -118,6 +120,7 @@ Please **give the repository a star** to support the project and stay up-to-date
 | Async Actions                    | Actions that run asynchronously allow you to run long-running tasks or tasks that require human input.                                                                                                                                                      |
 | Trigger Actions                  | Actions that proactively trigger clients when something happens in the external service. For example, trigger an AI agent when a new email arrives.                                                                                                         |
 | Multi-language Plugins           | Support for plugins written in the most popular programming languages like TypeScript and Python.                                                                                                                                                           |
+| Metadata                         | Purpose, input, validation, output, ...                                                                                                                                                                                                                     |
 
 Please note that Connery is still in early beta, so not all features are available yet.
 This list represents our vision for the future of Connery.
