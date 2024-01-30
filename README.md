@@ -26,7 +26,7 @@ This is where Connery comes into play.
 
 ## ⚙️ How does it work?
 
-<img alt="Connery diagram" src="./apps/docs/static/img/repo/connery-diagram1.png">
+<img alt="Connery diagram" src="./apps/docs/static/img/repo/connery-diagram.png">
 
 Connery consists of four main components that tightly work together:
 
@@ -48,12 +48,12 @@ Connery consists of four main components that tightly work together:
 
 - **Client** - A client is a specific application for each platform that uses the API provided by the runner.
   It's like a translator that adapts the runner's capabilities to fit the platform's needs.
-  For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/native/openai/gpt) client allows you to run
-  Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/native/slack) client
+  For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/openai/gpt) client allows you to run
+  Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/slack) client
   will enable you to run Connery actions directly from Slack.
-  Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://docs.connery.io/docs/clients/native/langchain/tools) or [API](https://docs.connery.io/docs/clients/native/api) clients.
+  Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://docs.connery.io/docs/clients/langchain/tools) or [API](https://docs.connery.io/docs/clients/api) clients.
 
-The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://docs.connery.io/docs/clients/native/).
+The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://docs.connery.io/docs/clients/).
 
 ## 💡 Use cases
 
@@ -119,10 +119,8 @@ Our vision is to build a marketplace where you can find open-source plugins and 
 
 Below are manually curated lists of plugins and clients available for Connery:
 
-- [Native plugins](https://docs.connery.io/docs/plugins/native)
-- [Community plugins](https://docs.connery.io/docs/plugins/community)
-- [Native clients](https://docs.connery.io/docs/clients/native)
-- [Community clients](https://docs.connery.io/docs/clients/community)
+- [Plugins](https://docs.connery.io/docs/plugins/)
+- [Clients](https://docs.connery.io/docs/clients/)
 
 To add your plugin or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
 

@@ -55,13 +55,13 @@ const config = {
           },
           {
             label: 'Plugins',
-            docId: 'plugins/native',
+            docId: 'plugins/index',
             type: 'doc',
             position: 'left',
           },
           {
             label: 'Clients',
-            docId: 'clients/native/index',
+            docId: 'clients/index',
             type: 'doc',
             position: 'left',
           },
