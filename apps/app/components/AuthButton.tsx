@@ -2,6 +2,8 @@ import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { buttonVariants } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 export default async function AuthButton() {
   const cookieStore = cookies();
@@ -32,7 +34,10 @@ export default async function AuthButton() {
   ) : (
     <Link
       href="/login"
-      className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-btn-background-hover"
+      className={cn(
+        buttonVariants({ variant: "secondary", size: "sm" }),
+        "px-4"
+      )}
     >
       Login
     </Link>
