@@ -30,24 +30,28 @@ This is where Connery comes into play.
 
 Connery consists of four main components that tightly work together:
 
-**Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing.
-For example, "Send email" is an action in the ["Gmail"](https://github.com/connery-io/gmail) _plugin_.
+**Plugin ecosystem**
 
-**Plugin** - This is a collection of related actions grouped together because they serve a similar purpose.
-Each plugin is represented by a GitHub repository with TypeScript code of a specific structure.
-Plugin must be installed on a _runner_ before its actions can be used.
+- **Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing.
+  For example, "Send email" is an action in the ["Gmail"](https://github.com/connery-io/gmail) _plugin_.
 
-**Runner** - This is the heart of Connery, an open-source application that knows how to handle plugins and run actions.
-It's equipped with key features like authentication handling, security, and access management.
-Each organization or individual configures their own isolated runner with a unique plugin set and configuration.
-The runner provides a standardized API for every installed action that can be consumed by _clients_.
+- **Plugin** - This is a collection of related actions grouped together because they serve a similar purpose.
+  Each plugin is represented by a GitHub repository with TypeScript code of a specific structure.
+  Plugin must be installed on a _runner_ before its actions can be used.
 
-**Client** - A client is a specific application for each platform that uses the API provided by the runner.
-It's like a translator that adapts the runner's capabilities to fit the platform's needs.
-For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/native/openai/gpt) client allows you to run
-Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/native/slack) client
-will enable you to run Connery actions directly from Slack.
-Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://docs.connery.io/docs/clients/native/langchain/tools) or [API](https://docs.connery.io/docs/clients/native/api) clients.
+**Plugin infrastructure**
+
+- **Runner** - This is the heart of Connery, an open-source application that knows how to handle plugins and run actions.
+  It's equipped with a user interface and and a set of features for connection management, personalization, and safety.
+  Each organization or individual can configure their own isolated runner with a unique plugin set and configuration.
+  The runner provides a standardized API for every installed action that can be consumed by _clients_.
+
+- **Client** - A client is a specific application for each platform that uses the API provided by the runner.
+  It's like a translator that adapts the runner's capabilities to fit the platform's needs.
+  For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/native/openai/gpt) client allows you to run
+  Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/native/slack) client
+  will enable you to run Connery actions directly from Slack.
+  Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://docs.connery.io/docs/clients/native/langchain/tools) or [API](https://docs.connery.io/docs/clients/native/api) clients.
 
 The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://docs.connery.io/docs/clients/native/).
 
@@ -81,46 +85,24 @@ Please **give the repository a star** to support the project and stay up-to-date
 
 ## ✨ Features
 
-### For users and organizations
+### Plugin infrastructure and runtime
 
-| Feature                  | Description                                                                                                                                             |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Auth                     | Authentication and authorization for users, clients, and plugins.                                                                                       |
-| Management UI            |                                                                                                                                                         |
-| Connection Management    | Secure storage and management of connections to external services, such as databases, APIs, and SaaS applications.                                      |
-| Configuration Management | Allows plugins configuration without changing the code.                                                                                                 |
-| Secrets Management       | Secure storage and management of sensitive data, such as API keys, passwords, and tokens, and their injection into plugins and actions.                 |
-| Access Management        | Flexible, role-based access controls allowing fine-tuned permissions for actions in organizations.                                                      |
-| Human-in-the-loop        | Empower humans with the final say in executing actions by AI tools, ensuring full control over your operations.                                         |
-| Audit Logs               | Detailed audit logs providing a comprehensive overview of all actions executed. See who did what and when.                                              |
-| Multi-platform Plugins   | Compatibility with diverse platforms, ensuring smooth operations regardless of your tech stack.                                                         |
-| Plugin Marketplace       | A rich ecosystem of open-source plugins based on GitHub infrastructure. Every plugin is a separate GitHub repository ready to be forked and customized. |
-| Isolated Runtime         | Isolated runtime for each organization or individual, ensuring security and privacy.                                                                    |
-| Personalization          | Action metadata adjustment, personal context information, etc.                                                                                          |
+- **Runtime** for plugins’ code and **runtime isolation** for every user.
+- **Plugin authorization** with third-party services using OAuth, API Keys, etc.
+- **Multiple action types** to handle different integration challenges: CRUD actions, async actions, trigger actions, etc.
+- **Tooling** and **Developer Experience** for plugin development like CLI, SDK, documentation, SDLC, versioning, ecosystem, community, and support to let developers concentrate on what matters the most.
 
-### For app developers
+### Personalization and security
 
-| Feature                                | Description                                                                        |
-| -------------------------------------- | ---------------------------------------------------------------------------------- |
-| Runtime                                | Runtime for plugins and actions.                                                   |
-| Seamless integration into the app code | With LangChain Toolkit or API                                                      |
-| Management UI for users                | (with the features above) To manage connections to their services (like Gmail) and |
-| Monitoring                             | Monitor your plugins and actions to ensure smooth operations.                      |
-| Analytics and Insights                 | Track and analyze your actions, plugins, and clients to gain valuable insights.    |
+- **Authentication, authorization,** and a **management interface** for users to manage connections and personalization.
+- **Connection management**: Users need a secure way to authorize AI-powered apps to access their services, such as Gmail, using OAuth. For services not supporting OAuth, like AWS, secure storage of access keys is essential through **Secrets Management**.
+- **Personalization**: The user can configure and personalize integrations. For example, specify a custom signature for all the emails. Or personalize metadata for actions so LLMs better understand the personal use case. They can also provide personal information such as name and email so LLMs can use it as additional context when calling actions.
 
-### For plugin developers
+### AI safety and control
 
-| Feature                          | Description                                                                                                                                                                                                                                                 |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tooling and Developer Experience | Developers deserve to have the best experience when developing plugins. This includes documentation, tooling, and ecosystem like CLI and SDK, SDLC, community and support, and many other things that let developers focus on what matters most - building. |
-| Plugin Authorization             | Plugin authorization with the third-party services.                                                                                                                                                                                                         |
-| Plugin Configuration             |                                                                                                                                                                                                                                                             |
-| Versioning                       | Versioning of plugins and actions, ensuring smooth upgrades and rollbacks.                                                                                                                                                                                  |
-| CRUD Actions                     | Actions for creating, reading, updating, and deleting data in external services.                                                                                                                                                                            |
-| Async Actions                    | Actions that run asynchronously allow you to run long-running tasks or tasks that require human input.                                                                                                                                                      |
-| Trigger Actions                  | Actions that proactively trigger clients when something happens in the external service. For example, trigger an AI agent when a new email arrives.                                                                                                         |
-| Multi-language Plugins           | Support for plugins written in the most popular programming languages like TypeScript and Python.                                                                                                                                                           |
-| Metadata                         | Purpose, input, validation, output, ...                                                                                                                                                                                                                     |
+- **Metadata** allows LLMs to better understand available actions and consequently reduce the error rate in selecting and executing them. It includes an action description with a clear purpose, an input schema describing the available parameters and validation rules, and the action outcome.
+- **Human-in-the-loop** to empower the user with the final say in executing actions (depending on criticality). Also, editing suggested input parameters before running an action, for example, reviewing an email before sending.
+- **Audit logs** for consistency, compliance, and transparency.
 
 Please note that Connery is still in early beta, so not all features are available yet.
 This list represents our vision for the future of Connery.
