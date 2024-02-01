@@ -8,13 +8,14 @@
     "build": "next build"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-toast": "^1.1.5",
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
     "autoprefixer": "10.4.17",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "geist": "^1.2.1",
     "lucide-react": "^0.316.0",
     "next": "latest",
     "postcss": "8.4.33",
