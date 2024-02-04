@@ -5,10 +5,15 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/icons";
+import { useRouter } from "next/navigation";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+  const router = useRouter();
+
+  // TODO: If a user is already logged in, redirect them to the dashboard.
+
   const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false);
 
   return (
@@ -18,7 +23,10 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         className={cn(buttonVariants({ variant: "outline" }))}
         onClick={() => {
           setIsGitHubLoading(true);
-          //signIn("github");
+
+          setTimeout(() => {
+            router.push("/dashboard");
+          }, 1000);
         }}
         disabled={isGitHubLoading}
       >
