@@ -68,16 +68,19 @@ The combination of these components allows you to run actions from any platform 
 ## ✅ Example 1: Summarize a webpage and send it by email from OpenGPTs
 
 <img alt="Summarize a webpage and send it by email from OpenGPTs" src="./apps/docs/static/img/repo/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
+
 Learn more: [LangChain OpenGPTs client](https://docs.connery.io/docs/clients/langchain/opengpts).
 
 ## ✅ Example 2: Send email from an OpenAI GPT
 
 <img alt="Send email from an OpenAI GPT" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
+
 Learn more: [OpenAI GPT client](https://docs.connery.io/docs/clients/openai/gpt).
 
 ## ✅ Example 3: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
+
 Learn more: [Slack client](https://docs.connery.io/docs/clients/slack).
 
 ## 🌟 Support us and stay up-to-date
