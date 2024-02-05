@@ -119,6 +119,11 @@
       "source": "/docs/plugins/community",
       "destination": "/docs/plugins/",
       "permanent": true
+    },
+    {
+      "source": "/docs/clients/langchain/tools",
+      "destination": "/docs/clients/langchain/toolkit",
+      "permanent": true
     }
   ]
 }

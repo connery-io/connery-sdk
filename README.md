@@ -51,7 +51,7 @@ Connery consists of four main components that tightly work together:
   For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/openai/gpt) client allows you to run
   Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/slack) client
   will enable you to run Connery actions directly from Slack.
-  Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://docs.connery.io/docs/clients/langchain/tools) or [API](https://docs.connery.io/docs/clients/api) clients.
+  Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://docs.connery.io/docs/clients/langchain/toolkit) or [API](https://docs.connery.io/docs/clients/api) clients.
 
 The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://docs.connery.io/docs/clients/).
 
@@ -65,17 +65,23 @@ The combination of these components allows you to run actions from any platform 
 - [Custom actions in No-Code tools](https://docs.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
 - [CI/CD automations](https://docs.connery.io/docs/use-cases/ci-cd-automations/)
 
-## ✅ Example 1: Send email from a custom OpenAI GPT
+## ✅ Example 1: Summarize a webpage and send it by email from OpenGPTs
 
-<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
+<img alt="Summarize a webpage and send it by email from OpenGPTs" src="./apps/docs/static/img/repo/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
 
-Learn more: [Send email from a custom OpenAI GPT](https://docs.connery.io/docs/use-cases/actions-in-gpts/send-email-from-a-custom-openai-gpt).
+Learn more: [LangChain OpenGPTs client](https://docs.connery.io/docs/clients/langchain/opengpts).
 
-## ✅ Example 2: Scale back-end service on AWS from Slack
+## ✅ Example 2: Send email from an OpenAI GPT
+
+<img alt="Send email from an OpenAI GPT" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
+
+Learn more: [OpenAI GPT client](https://docs.connery.io/docs/clients/openai/gpt).
+
+## ✅ Example 3: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
-Learn more: [Scale back-end service on AWS from Slack](https://docs.connery.io/docs/use-cases/automations-in-team-collaboration-tools/scale-back-end-service-on-aws-from-slack).
+Learn more: [Slack client](https://docs.connery.io/docs/clients/slack).
 
 ## 🌟 Support us and stay up-to-date
 
