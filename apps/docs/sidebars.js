@@ -80,7 +80,7 @@ const sidebars = {
             id: 'clients/langchain/index',
           },
           items: [
-            'clients/langchain/tools',
+            'clients/langchain/toolkit',
             'clients/langchain/opengpts',
           ],
         },

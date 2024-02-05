@@ -1,7 +1,30 @@
-# LangChain OpenGPTs
+# OpenGPTs
 
-OpenGPTs is an open-source effort to create a similar experience to OpenAI's GPTs and Assistants API.
+[OpenGPTs](https://github.com/langchain-ai/opengpts) is an open-source effort from LangChain to create a similar experience to OpenAI's GPTs and Assistants API.
 
-OpenGPTs is built upon other LangChain products, so you can use the [Connery Action Tool and Connery Toolkit](/docs/clients/langchain/tools) to integrate Connery actions into your OpenGPTs application.
+Connery is integrated with OpenGPTs so you can run Connery actions from OpenGPTs without any additional setup.
 
-Check out the [OpenGPTs repository](https://github.com/langchain-ai/opengpts) for more information and examples.
+# Demo
+
+[Here](https://opengpts-example-vz4y4ooboq-uc.a.run.app/), you'll find a demo version of OpenGPTs hosted by LangChain.
+It comes with a preconfigured Connery Runner and all the necessary actions for the demo below.
+You can summarize any article you like and send it to your email, like in the following video.
+
+<iframe
+  width="100%"
+  height="600"
+  src="https://www.youtube.com/embed/ok4z-Ox-1_o?si=f3VBBwYNyiwadySW"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+
+# How to set up OpenGPTs with Connery
+
+To configure your own OpenGPT and actions, perform the following steps:
+
+1. Set up the Connery Runner using the [Quickstart](/docs/runner/quick-start/) guide.
+2. Install plugins with the actions you want to use in your agent.
+3. Fork the [OpenGPTs repo](https://github.com/langchain-ai/opengpts) and configure it as specified in the README.
+4. Specify the `CONNERY_RUNNER_URL` and `CONNERY_RUNNER_API_KEY` environment variables in the `.env` file of the OpenGPTs to connect it to your Connery Runner.
