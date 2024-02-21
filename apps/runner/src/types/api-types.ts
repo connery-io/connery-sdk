@@ -1,6 +1,7 @@
 import { ActionRuntime } from ':src/lib/action-runtime';
 import { PluginRuntime } from ':src/lib/plugin-runtime';
-import { ActionDefinition, InputParametersObject } from ':src/sdk/types';
+import { ActionDefinition } from ':src/types/definition';
+import { InputParametersObject } from './context';
 
 //
 // API generic response types

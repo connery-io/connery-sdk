@@ -1,4 +1,6 @@
-import { ActionDefinition, ConfigurationParametersObject, Context, PluginDefinition } from ':src/sdk/types';
+import { ActionDefinition, PluginDefinition } from ':src/types/definition';
+import { Context } from ':src/types/context';
+import { ConfigurationParametersObject } from ':src/types/context';
 import { ActionRuntime } from './action-runtime';
 import {
   validateConfigurationParameterTypes,

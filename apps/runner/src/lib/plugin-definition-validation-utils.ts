@@ -1,4 +1,4 @@
-import { ActionDefinition, PluginDefinition } from ':src/sdk/types';
+import { ActionDefinition, PluginDefinition } from ':src/types/definition';
 import { fromZodError } from 'zod-validation-error';
 import * as zod from 'zod';
 

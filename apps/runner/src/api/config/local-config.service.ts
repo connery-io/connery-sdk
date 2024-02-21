@@ -1,6 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { ApiKeyConfig, InstalledPluginConfig, RunnerConfig } from './types';
+import { ApiKeyConfig, InstalledPluginConfig, RunnerConfig } from '../../types/config-types';
 import { IConfig } from './config.interface';
 
 @Injectable()

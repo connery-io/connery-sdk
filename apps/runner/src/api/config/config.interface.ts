@@ -1,4 +1,4 @@
-import { InstalledPluginConfig, RunnerConfig } from './types';
+import { InstalledPluginConfig, RunnerConfig } from '../../types/config-types';
 
 export interface IConfig {
   verifyAccess(apiKey: string): boolean;

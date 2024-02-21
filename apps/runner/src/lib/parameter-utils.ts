@@ -1,11 +1,11 @@
 import {
   ConfigurationParameterDefinition,
-  ConfigurationParametersObject,
   InputParameterDefinition,
-  InputParametersObject,
   OutputParameterDefinition,
-  OutputParametersObject,
-} from ':src/sdk/types';
+} from ':src/types/definition';
+import { ConfigurationParametersObject } from ':src/types/context';
+import { OutputParametersObject } from ':src/types/context';
+import { InputParametersObject } from ':src/types/context';
 import { trim, forEach } from 'lodash';
 
 //

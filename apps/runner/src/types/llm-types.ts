@@ -1,4 +1,4 @@
-import { InputParametersObject } from ':src/sdk/types';
+import { InputParametersObject } from ':src/types/context';
 
 //
 // Identify action

@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Inject, Param, Post } from '@nestjs/common';
 import { ILlm } from ':src/api/llm/llm.interface';
-import { ActionIdentifiedOutput, ActionNotIdentifiedOutput, OpenAiFunctionSchema } from ':src/api/llm/types';
+import { ActionIdentifiedOutput, ActionNotIdentifiedOutput, OpenAiFunctionSchema } from ':src/types/llm-types';
 import {
   ActionResponseType,
   IdentifyActionRequest,
@@ -14,7 +14,7 @@ import { IOpenAI } from ':src/api/llm/openai.interface';
 import { OpenAPIV3 } from 'openapi-types';
 import { IPluginCache } from ':src/api/plugin-cache/plugin-cache.interface';
 import { Public } from ':src/api/auth/auth.guard';
-import { ActionOutput } from ':src/lib/types';
+import { ActionOutput } from ':src/types/action-types';
 
 @Controller()
 export class ActionsController {

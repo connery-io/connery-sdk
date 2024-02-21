@@ -1,9 +1,9 @@
 import { ChatOpenAI } from 'langchain/chat_models/openai';
 import { HumanMessage, SystemMessage } from 'langchain/schema';
-import { InputParametersObject } from ':src/sdk/types';
+import { InputParametersObject } from ':src/types/context';
 import { IPluginCache } from ':src/api/plugin-cache/plugin-cache.interface';
 import { IConfig } from ':src/api/config/config.interface';
-import { ActionIdentifiedOutput, ActionNotIdentifiedOutput, OpenAiFunctionSchema } from './types';
+import { ActionIdentifiedOutput, ActionNotIdentifiedOutput, OpenAiFunctionSchema } from '../../types/llm-types';
 import { ILlm } from './llm.interface';
 import { Inject, Injectable } from '@nestjs/common';
 import { IOpenAI } from './openai.interface';

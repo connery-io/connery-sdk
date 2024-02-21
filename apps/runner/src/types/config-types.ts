@@ -1,4 +1,4 @@
-import { ConfigurationParametersObject } from ':src/sdk/types';
+import { ConfigurationParametersObject } from ':src/types/context';
 
 export type ApiKeyConfig = {
   title: string;

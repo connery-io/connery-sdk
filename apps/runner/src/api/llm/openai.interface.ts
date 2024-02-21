@@ -1,4 +1,4 @@
-import { OpenAiFunctionSchema } from './types';
+import { OpenAiFunctionSchema } from '../../types/llm-types';
 
 export interface IOpenAI {
   getOpenAiFunctionsSpec(includeRequiredConfig: boolean): Promise<OpenAiFunctionSchema[]>;

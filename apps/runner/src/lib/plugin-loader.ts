@@ -1,4 +1,5 @@
-import { ConfigurationParameterDefinition, ConfigurationParametersObject, PluginDefinition } from ':src/sdk/types';
+import { ConfigurationParameterDefinition, PluginDefinition } from ':src/types/definition';
+import { ConfigurationParametersObject } from ':src/types/context';
 import { validatePluginDefinitionWithoutActions } from './plugin-definition-validation-utils';
 import { PluginRuntime } from './plugin-runtime';
 import { PluginFileNotFoundError } from './errors';

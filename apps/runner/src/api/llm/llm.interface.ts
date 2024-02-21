@@ -1,6 +1,6 @@
 import { ActionRuntime } from ':src/lib/action-runtime';
-import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from './types';
-import { InputParametersObject } from ':src/sdk/types';
+import { ActionIdentifiedOutput, ActionNotIdentifiedOutput } from '../../types/llm-types';
+import { InputParametersObject } from ':src/types/context';
 
 export interface ILlm {
   identifyAction(prompt: string): Promise<ActionIdentifiedOutput | ActionNotIdentifiedOutput>;

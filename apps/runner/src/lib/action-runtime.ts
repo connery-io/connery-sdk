@@ -1,4 +1,4 @@
-import { ActionOutput } from './types';
+import { ActionOutput } from '../types/action-types';
 import { PluginRuntime } from './plugin-runtime';
 import {
   trimInput,
@@ -11,7 +11,10 @@ import {
   validateRequiredOutputParameters,
 } from './parameter-utils';
 import { generateActionHashId } from './id-utils';
-import { ActionContext, ActionDefinition, InputParametersObject, OutputParametersObject } from ':src/sdk/types';
+import { ActionDefinition } from ':src/types/definition';
+import { ActionContext } from ':src/types/context';
+import { OutputParametersObject } from ':src/types/context';
+import { InputParametersObject } from ':src/types/context';
 
 export class ActionRuntime {
   // We use ID to identify action across many plugins and make it shorter.

@@ -1,4 +1,5 @@
-import { InputParametersObject, OutputParametersObject } from ':src/sdk/types';
+import { OutputParametersObject } from ':src/types/context';
+import { InputParametersObject } from ':src/types/context';
 
 export type ActionOutput = {
   output: OutputParametersObject;

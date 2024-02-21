@@ -1,5 +1,5 @@
 import { simpleGit } from 'simple-git';
-import { InstalledPluginConfig } from '../config/types';
+import { InstalledPluginConfig } from '../../types/config-types';
 import { PluginRuntime } from ':src/lib/plugin-runtime';
 import { PluginLoader } from ':src/lib/plugin-loader';
 import { PluginFileNotFoundError } from ':src/lib/errors';
