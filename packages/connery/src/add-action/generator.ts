@@ -25,7 +25,7 @@ export async function addAction(parameters: AddActionParameters) {
       {
         type: 'modify', // Import the new action in the index.ts file
         path: 'src/index.ts',
-        transform: (fileContents, answers) => {
+        transform: (fileContents: any, answers: any) => {
           const sdkImport = "import { PluginDefinition } from '@connery-io/sdk';\n";
           const newImport = `import ${answers.key} from './actions/${answers.key}';\n`;
 
@@ -41,14 +41,14 @@ export async function addAction(parameters: AddActionParameters) {
       {
         type: 'modify', // Add the new action to the actions array
         path: 'src/index.ts',
-        transform: (fileContents, answers) => {
+        transform: (fileContents: any, answers: any) => {
           // Define the newItem to be added
           const newItem = answers.key;
           // Define a RegExp pattern to match the actions array
           const actionsPattern = /actions:\s*\[\s*([^]*?)\s*\]/gm;
 
           // Replace the content by using String.replace with a callback function
-          return fileContents.replace(actionsPattern, (match, actionContent) => {
+          return fileContents.replace(actionsPattern, (match: any, actionContent: any) => {
             // Check if 'newItem' already exists to prevent duplicates
             if (actionContent.includes(newItem)) {
               return match; // If it exists, return the original match

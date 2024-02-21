@@ -10,7 +10,7 @@ import {
   showResult,
   showShortcutCommand,
 } from './utils';
-import { ActionDefinition, ConfigurationParametersObject, InputParametersObject } from '@connery-io/sdk';
+import { ActionDefinition, ConfigurationParametersObject, InputParametersObject } from ':src/sdk/types';
 
 export default async function (
   actionKey: string,
