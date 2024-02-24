@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
-import { AllExceptionsFilter } from './all-exceptions.filter';
-import { PluginDefinition } from ':src/types/definition';
+import { AppModule } from './app.module.js';
+import { AllExceptionsFilter } from './all-exceptions.filter.js';
+import { PluginDefinition } from './../types/definition.js';
 
 export async function serve(pluginDefinition: PluginDefinition) {
   // CORS is required for the OpenAPI specification.

@@ -3,6 +3,10 @@
   "description": "Connery SDK",
   "version": "0.0.16",
   "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "dependencies": {
     "@nestjs/axios": "^2.0.0",
     "@nestjs/common": "^9.4.3",

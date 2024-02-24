@@ -3,9 +3,9 @@ import {
   InputParameterDefinition,
   MaintainerDefinition,
   OutputParameterDefinition,
-} from ':src/types/definition';
-import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from './context';
-import { ActionRuntime, PluginRuntime } from './runtime';
+} from './definition.js';
+import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from './context.js';
+import { ActionRuntime, PluginRuntime } from './runtime.js';
 
 //
 // Generic response types

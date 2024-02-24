@@ -1,4 +1,4 @@
-import { ActionContext, OutputParametersObject } from './context';
+import { ActionContext, OutputParametersObject } from './context.js';
 
 export interface PluginDefinition {
   title: string;

@@ -6,7 +6,7 @@
 // The .env file is not committed to the repository for security reasons.
 // ##################
 
-import { Config } from ':src/types/config';
+import { Config } from './types/config';
 
 const config: Config = {
   runnerConfig: {

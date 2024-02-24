@@ -2,11 +2,10 @@ import {
   ConfigurationParameterDefinition,
   InputParameterDefinition,
   OutputParameterDefinition,
-} from ':src/types/definition';
-import { ConfigurationParametersObject } from ':src/types/context';
-import { OutputParametersObject } from ':src/types/context';
-import { InputParametersObject } from ':src/types/context';
-import { trim, forEach } from 'lodash';
+} from './../types/definition.js';
+import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from './../types/context.js';
+import pkg from 'lodash';
+const { trim, forEach } = pkg; // TODO deprecate lodash
 
 //
 // Input parameters validation

@@ -1,4 +1,4 @@
-import { ConfigurationParametersObject } from ':src/types/context';
+import { ConfigurationParametersObject } from './../types/context.js';
 
 export type ApiKeyConfig = {
   title: string;

@@ -6,8 +6,8 @@ import {
   RunActionRequest,
   RunActionResponse,
   convertActionRuntimeToActionResponse,
-} from ':src/types/api';
-import { Plugin } from ':src/runtime/plugin';
+} from '../../types/api.js';
+import { Plugin } from '../../runtime/plugin.js';
 
 @Controller()
 export class ActionsController {

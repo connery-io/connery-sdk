@@ -1,12 +1,12 @@
-import { RunActionResponse } from './api';
-import { ConfigurationParametersObject, InputParametersObject } from './context';
+import { RunActionResponse } from './api.js';
+import { ConfigurationParametersObject, InputParametersObject } from './context.js';
 import {
   ConfigurationParameterDefinition,
   InputParameterDefinition,
   MaintainerDefinition,
   OperationDefinition,
   OutputParameterDefinition,
-} from './definition';
+} from './definition.js';
 
 export interface PluginRuntime {
   title: string;

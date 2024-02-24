@@ -1,6 +1,6 @@
 import { Controller, Get, Inject } from '@nestjs/common';
-import { ObjectResponse, PluginResponse, convertPluginRuntimeToPluginResponse } from ':src/types/api';
-import { Plugin } from ':src/runtime/plugin';
+import { ObjectResponse, PluginResponse, convertPluginRuntimeToPluginResponse } from '../../types/api.js';
+import { Plugin } from '../../runtime/plugin.js';
 
 @Controller()
 export class PluginsController {

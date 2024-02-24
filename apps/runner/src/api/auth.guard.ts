@@ -8,7 +8,7 @@ import {
   SetMetadata,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { LocalConfigService } from './services/local-config.service';
+import { LocalConfigService } from './services/local-config.service.js';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

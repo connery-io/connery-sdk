@@ -2,10 +2,8 @@ import {
   InputParameterDefinition,
   OutputParameterDefinition,
   ConfigurationParameterDefinition,
-} from ':src/types/definition';
-import { ConfigurationParametersObject } from ':src/types/context';
-import { OutputParametersObject } from ':src/types/context';
-import { InputParametersObject } from ':src/types/context';
+} from './../../types/definition';
+import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from './../../types/context';
 import {
   trimInput,
   validateConfigurationParameterTypes,

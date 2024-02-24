@@ -1,7 +1,7 @@
-import { ConfigurationParameterDefinition, MaintainerDefinition, PluginDefinition } from ':src/types/definition';
-import { ActionRuntime, PluginRuntime } from ':src/types/runtime';
-import { Action } from './action';
-import { validatePluginDefinition } from './plugin-definition-validation-utils';
+import { ConfigurationParameterDefinition, MaintainerDefinition, PluginDefinition } from './../types/definition.js';
+import { ActionRuntime, PluginRuntime } from './../types/runtime.js';
+import { Action } from './action.js';
+import { validatePluginDefinition } from './plugin-definition-validation-utils.js';
 
 export class Plugin implements PluginRuntime {
   title: string;

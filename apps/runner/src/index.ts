@@ -1,3 +1,3 @@
-export * from './types/definition';
-export * from './types/context';
-export { serve } from './api';
+export * from './types/definition.js';
+export * from './types/context.js';
+export { serve } from './api/index.js';

@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { OpenAPIV3 } from 'openapi-types';
-import { OpenAiFunctionSchema } from ':src/types/llm';
-import { LocalConfigService } from './local-config.service';
+import { OpenAiFunctionSchema } from '../../types/llm.js';
+import { LocalConfigService } from './local-config.service.js';
 
 interface ExtendedOperationObject extends OpenAPIV3.OperationObject {
   // This custom extension property is used by OpenAI Actions to determine if the action requires a confirmation before running.
