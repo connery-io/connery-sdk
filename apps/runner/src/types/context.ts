@@ -5,22 +5,19 @@ export type InputParameterValue = string;
 export type OutputParameterValue = string;
 export type ConfigurationParameterValue = string;
 
-export type InputParametersObject = {
+export interface InputParametersObject {
   [key: string]: InputParameterValue;
-};
+}
 
-export type OutputParametersObject = {
+export interface OutputParametersObject {
   [key: string]: OutputParameterValue;
-};
+}
 
-export type ConfigurationParametersObject = {
+export interface ConfigurationParametersObject {
   [key: string]: ConfigurationParameterValue;
-};
+}
 
-export type Context = {
-  configurationParameters: ConfigurationParametersObject;
-};
-
-export type ActionContext = Context & {
+export interface ActionContext {
   inputParameters: InputParametersObject;
-};
+  configurationParameters: ConfigurationParametersObject;
+}

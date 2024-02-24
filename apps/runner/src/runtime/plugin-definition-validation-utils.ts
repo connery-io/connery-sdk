@@ -1,4 +1,4 @@
-import { ActionDefinition, PluginDefinition } from ':src/types/definition';
+import { PluginDefinition } from ':src/types/definition';
 import { fromZodError } from 'zod-validation-error';
 import * as zod from 'zod';
 
@@ -11,24 +11,13 @@ const prefixSeparator = ' ';
 // Validation functions
 //
 
-export function validatePluginDefinitionWithoutActions(plugin: PluginDefinition): void {
+export function validatePluginDefinition(plugin: PluginDefinition): void {
   try {
     PluginSchema.parse(plugin);
   } catch (error: any) {
     const userFriendlyValidationError = fromZodError(error, { prefix, prefixSeparator });
     throw new Error(userFriendlyValidationError.message);
   }
-}
-
-export function validateActionDefinitions(actions: ActionDefinition[]): void {
-  actions.forEach((action) => {
-    try {
-      ActionSchema.parse(action);
-    } catch (error: any) {
-      const userFriendlyValidationError = fromZodError(error, { prefix, prefixSeparator });
-      throw new Error(userFriendlyValidationError.message);
-    }
-  });
 }
 
 //
@@ -100,12 +89,6 @@ const MaintainerSchema = zod
   })
   .strict();
 
-const ConnerySchema = zod
-  .object({
-    runnerVersion: zod.enum(['0']),
-  })
-  .strict();
-
 const ActionsType = zod.union([
   zod.array(ActionSchema).min(1).refine(uniqueKeysValidator, { message: 'Actions must have unique keys' }),
   zod.function(),
@@ -120,7 +103,6 @@ const PluginSchema = zod
       .array(ConfigurationParameterSchema)
       .refine(uniqueKeysValidator, { message: 'Configuration parameters must have unique keys' }),
     maintainers: zod.array(MaintainerSchema).min(1),
-    connery: ConnerySchema,
   })
   .strict();
 

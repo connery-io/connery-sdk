@@ -1,17 +1,14 @@
-import { Context } from './context';
-import { ActionContext } from './context';
-import { OutputParametersObject } from './context';
+import { ActionContext, OutputParametersObject } from './context';
 
-export type PluginDefinition = {
+export interface PluginDefinition {
   title: string;
   description?: string;
-  actions: ActionDefinition[] | ((context: Context) => Promise<ActionDefinition[]>);
+  actions: ActionDefinition[];
   configurationParameters: ConfigurationParameterDefinition[];
   maintainers: MaintainerDefinition[];
-  connery: ConneryDefinition;
-};
+}
 
-export type ActionDefinition = {
+export interface ActionDefinition {
   key: string;
   title: string;
   description?: string;
@@ -19,45 +16,41 @@ export type ActionDefinition = {
   inputParameters: InputParameterDefinition[];
   outputParameters: OutputParameterDefinition[];
   operation: OperationDefinition;
-};
+}
 
-export type InputParameterDefinition = {
+export interface InputParameterDefinition {
   key: string;
   title: string;
   description?: string;
   type: 'string';
   validation?: ValidationDefinition;
-};
+}
 
-export type OutputParameterDefinition = {
+export interface OutputParameterDefinition {
   key: string;
   title: string;
   description?: string;
   type: 'string';
   validation?: ValidationDefinition;
-};
+}
 
-export type OperationDefinition = {
+export interface OperationDefinition {
   handler: (context: ActionContext) => Promise<OutputParametersObject>;
-};
+}
 
-export type ConfigurationParameterDefinition = {
+export interface ConfigurationParameterDefinition {
   key: string;
   title: string;
   description?: string;
   type: 'string';
   validation?: ValidationDefinition;
-};
+}
 
-export type MaintainerDefinition = {
+export interface MaintainerDefinition {
   name: string;
   email: string;
-};
+}
 
-export type ConneryDefinition = {
-  runnerVersion: '0';
-};
-
-export type ValidationDefinition = {
+export interface ValidationDefinition {
   required?: boolean;
-};
+}

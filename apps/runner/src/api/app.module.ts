@@ -1,55 +1,41 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import config from '../../connery-runner.config';
+import config from '../connery-runner.config';
 import { ActionsController } from './controllers/actions.controller';
 import { PluginsController } from './controllers/plugins.controller';
 import { ToolsController } from './controllers/tools.controller';
-import { HealthController } from './controllers/health.controller';
 import { TerminusModule } from '@nestjs/terminus';
 import { HttpModule } from '@nestjs/axios';
-import { OpenApiService } from './openapi/openapi.service';
+import { OpenAiSpecsService } from './services/openai-specs.service';
 import { APP_GUARD } from '@nestjs/core';
-import { AuthGuard } from './auth/auth.guard';
-import { IConfig } from './config/config.interface';
-import { LocalConfigService } from './config/local-config.service';
-import { IPluginCache } from './plugin-cache/plugin-cache.interface';
-import { MemoryCacheService } from './plugin-cache/memory-cache.service';
-import { ILlm } from './llm/llm.interface';
-import { OpenAiService } from './llm/openai.service';
-import { IOpenAI } from './llm/openai.interface';
+import { AuthGuard } from './auth.guard';
+import { LocalConfigService } from './services/local-config.service';
+import { OpenAiController } from './controllers/openai.controller';
 
 @Module({
   imports: [
-    TerminusModule, // usef for health checks
-    HttpModule, // used for health checks
+    TerminusModule, // required for health checks
+    HttpModule, // required for health checks
     ConfigModule.forRoot({
       load: [config],
     }),
     ConfigModule,
   ],
-  controllers: [ActionsController, PluginsController, ToolsController, HealthController],
+  controllers: [ActionsController, OpenAiController, PluginsController, ToolsController],
   providers: [
     {
       provide: APP_GUARD,
       useClass: AuthGuard,
     },
-    {
-      provide: IConfig,
-      useClass: LocalConfigService,
-    },
-    {
-      provide: IPluginCache,
-      useClass: MemoryCacheService,
-    },
-    {
-      provide: ILlm,
-      useClass: OpenAiService,
-    },
-    {
-      provide: IOpenAI,
-      useClass: OpenAiService,
-    },
-    OpenApiService,
+    OpenAiSpecsService,
+    LocalConfigService,
   ],
 })
-export class AppModule {}
+export class AppModule {
+  // TODO: refactor
+  //private plugin: Plugin;
+  //
+  //configure(pluginDefinition: PluginDefinition) {
+  //  this.plugin = new Plugin(pluginDefinition);
+  //}
+}

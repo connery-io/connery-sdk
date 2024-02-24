@@ -1,10 +1,9 @@
 import { ConfigService } from '@nestjs/config';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { ApiKeyConfig, InstalledPluginConfig, RunnerConfig } from '../../types/config-types';
-import { IConfig } from './config.interface';
+import { ApiKeyConfig, InstalledPluginConfig, RunnerConfig } from '../../types/config';
 
 @Injectable()
-export class LocalConfigService implements IConfig {
+export class LocalConfigService {
   constructor(private configService: ConfigService) {}
 
   verifyAccess(apiKey: string): boolean {

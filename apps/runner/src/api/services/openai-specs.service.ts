@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { OpenAPIV3 } from 'openapi-types';
-import { IConfig } from ':src/api/config/config.interface';
+import { OpenAiFunctionSchema } from ':src/types/llm';
+import { LocalConfigService } from './local-config.service';
 
 interface ExtendedOperationObject extends OpenAPIV3.OperationObject {
   // This custom extension property is used by OpenAI Actions to determine if the action requires a confirmation before running.
@@ -8,11 +9,12 @@ interface ExtendedOperationObject extends OpenAPIV3.OperationObject {
   'x-openai-isConsequential'?: boolean;
 }
 
+// TODO
 @Injectable()
-export class OpenApiService {
-  constructor(@Inject(IConfig) private config: IConfig) {}
+export class OpenAiSpecsService {
+  constructor(@Inject(LocalConfigService) private config: LocalConfigService) {}
 
-  getOpenApiSpecForActions(): OpenAPIV3.Document {
+  getOpenApiSpec(): OpenAPIV3.Document {
     const runnerConfig = this.config.getRunnerConfig();
     if (!runnerConfig.publicUrl) {
       throw new Error('The CONNERY_RUNNER_PUBLIC_URL is not configured on the runner.');
@@ -299,5 +301,46 @@ export class OpenApiService {
     };
 
     return openApiSchema;
+  }
+
+  async getFunctionsSpec(includeRequiredConfig: boolean, actions: any): Promise<OpenAiFunctionSchema[]> {
+    //const actions = await this.pluginCache.getActions();
+
+    const openAiFunctions: OpenAiFunctionSchema[] = [];
+
+    for (const action of [actions]) {
+      const openAiFunction: OpenAiFunctionSchema = {
+        name: action.id, // We use Action ID as a function name to avoid collisions between plugins.
+        description: this.getDescription(action.definition.title, action.definition.description),
+        parameters: {
+          type: 'object',
+          properties: {},
+          required: [],
+        },
+      };
+
+      for (const inputParameter of action.definition.inputParameters) {
+        openAiFunction.parameters.properties[inputParameter.key] = {
+          type: 'string',
+          description: this.getDescription(inputParameter.title, inputParameter.description),
+        };
+
+        // Internal action identification works better when we don't include required parameters.
+        // TODO: Come up with a better way of action identification with required parameters.
+        if (includeRequiredConfig) {
+          if (inputParameter.validation?.required) {
+            openAiFunction.parameters.required.push(inputParameter.key);
+          }
+        }
+      }
+
+      openAiFunctions.push(openAiFunction);
+    }
+
+    return openAiFunctions;
+  }
+
+  private getDescription(title: string, description?: string): string {
+    return description ? `${title}: ${description}` : title;
   }
 }

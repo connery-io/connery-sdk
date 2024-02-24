@@ -1,4 +1,4 @@
-import { generateActionHashId, generatePluginHashId } from '../id-utils';
+import { generateActionHashId, generatePluginHashId } from './id-utils';
 
 describe('generatePluginHashId()', () => {
   it('generates correct HashId for given input', () => {

@@ -1,19 +1,8 @@
 {
-  "name": "runner",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "nest start --watch",
-    "dev": "nest start --debug --watch",
-    "build": "nest build",
-    "test": "jest --passWithNoTests",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "format": "prettier --write 'src/**/*.ts'",
-    "start:prod": "node dist/main",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
-  },
+  "name": "@connery-io/sdk",
+  "description": "Connery SDK",
+  "version": "0.0.16",
+  "license": "MIT",
   "dependencies": {
     "@nestjs/axios": "^2.0.0",
     "@nestjs/common": "^9.4.3",
@@ -59,21 +48,9 @@
     "@types/crypto-js": "^4.2.1",
     "@types/lodash": "^4.14.197"
   },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "rootDir": "src",
-    "testRegex": ".*\\.spec\\.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "collectCoverageFrom": [
-      "**/*.(t|j)s"
-    ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "jest --passWithNoTests"
   }
 }

@@ -8,11 +8,11 @@ import {
   SetMetadata,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { IConfig } from '../config/config.interface';
+import { LocalConfigService } from './services/local-config.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(@Inject(IConfig) private config: IConfig, private reflector: Reflector) {}
+  constructor(@Inject(LocalConfigService) private config: LocalConfigService, private reflector: Reflector) {}
 
   canActivate(context: ExecutionContext): boolean {
     // Allow access to public routes

@@ -1,85 +1,60 @@
-import { Body, Controller, Get, Inject, Param, Post } from '@nestjs/common';
-import { ILlm } from ':src/api/llm/llm.interface';
-import { ActionIdentifiedOutput, ActionNotIdentifiedOutput, OpenAiFunctionSchema } from ':src/types/llm-types';
+import { Body, Controller, Get, HttpException, Inject, Param, Post } from '@nestjs/common';
 import {
-  ActionResponseType,
-  IdentifyActionRequest,
+  ActionResponse,
   ObjectResponse,
   PaginatedResponse,
   RunActionRequest,
-  convertAction,
-} from ':src/types/api-types';
-import { OpenApiService } from ':src/api/openapi/openapi.service';
-import { IOpenAI } from ':src/api/llm/openai.interface';
-import { OpenAPIV3 } from 'openapi-types';
-import { IPluginCache } from ':src/api/plugin-cache/plugin-cache.interface';
-import { Public } from ':src/api/auth/auth.guard';
-import { ActionOutput } from ':src/types/action-types';
+  RunActionResponse,
+  convertActionRuntimeToActionResponse,
+} from ':src/types/api';
+import { Plugin } from ':src/runtime/plugin';
 
 @Controller()
 export class ActionsController {
-  constructor(
-    @Inject(IPluginCache) private pluginCache: IPluginCache,
-    @Inject(ILlm) private llm: ILlm,
-    @Inject(IOpenAI) private openAi: IOpenAI,
-    @Inject(OpenApiService) private openApiService: OpenApiService,
-  ) {}
+  constructor(@Inject(Plugin) private plugin: Plugin) {}
 
-  @Get('/v1/actions')
-  async getActions(): Promise<PaginatedResponse<ActionResponseType>> {
-    const actions = await this.pluginCache.getActions();
+  @Get('/actions')
+  getActions(): PaginatedResponse<ActionResponse> {
+    const actions = this.plugin.actions;
 
     return {
       status: 'success',
-      data: actions.map(convertAction),
+      data: actions.map(convertActionRuntimeToActionResponse),
     };
   }
 
-  @Get('/v1/actions/:actionId')
-  async getAction(@Param('actionId') actionId: string): Promise<ObjectResponse<ActionResponseType>> {
-    const action = await this.pluginCache.getAction(actionId);
+  @Get('/actions/:key')
+  getAction(@Param('key') key: string): ObjectResponse<ActionResponse> {
+    const action = this.plugin.findActionByKey(key);
+
+    if (!action) {
+      throw new HttpException('Action not found ', 404);
+    }
 
     return {
       status: 'success',
-      data: convertAction(action),
+      data: convertActionRuntimeToActionResponse(action),
     };
   }
 
-  @Post('/v1/actions/identify')
-  async identifyAction(
-    @Body() body: IdentifyActionRequest,
-  ): Promise<ObjectResponse<ActionIdentifiedOutput | ActionNotIdentifiedOutput>> {
-    const result = await this.llm.identifyAction(body.prompt);
-
-    return {
-      status: 'success',
-      data: result,
-    };
-  }
-
-  @Post('/v1/actions/:actionId/run')
+  @Post('/actions/:key/run')
   async runAction(
-    @Param('actionId') actionId: string,
+    @Param('key') key: string,
     @Body() body: RunActionRequest,
-  ): Promise<ObjectResponse<ActionOutput>> {
-    const action = await this.pluginCache.getAction(actionId);
-    const identifiedInputFromPrompt = await this.llm.identifyActionInput(action, body.prompt);
-    const result = await action.run(body.input, identifiedInputFromPrompt);
+  ): Promise<ObjectResponse<RunActionResponse>> {
+    const action = this.plugin.findActionByKey(key);
+
+    if (!action) {
+      throw new HttpException('Action not found', 404);
+    }
+
+    // TODO: get default config from the ENV config
+    const defaultConfiguration = {};
+    const result = await action.run(body.input, defaultConfiguration, body.configuration);
 
     return {
       status: 'success',
       data: result,
     };
-  }
-
-  @Public()
-  @Get('/v1/actions/specs/openapi')
-  async getActionsOpenApi(): Promise<OpenAPIV3.Document> {
-    return this.openApiService.getOpenApiSpecForActions();
-  }
-
-  @Get('/v1/actions/specs/openai-functions')
-  async getOpenAiFunctionsSchemaForActions(): Promise<OpenAiFunctionSchema[]> {
-    return this.openAi.getOpenAiFunctionsSpec(true);
   }
 }
