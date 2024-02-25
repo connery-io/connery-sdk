@@ -1,12 +1,9 @@
 import { Public } from './../auth.guard.js';
 import { ObjectResponse } from './../../types/api.js';
 import { Controller, Get } from '@nestjs/common';
-import { HealthCheckService, HealthCheck } from '@nestjs/terminus';
 
 @Controller()
 export class ToolsController {
-  constructor(private health: HealthCheckService) {}
-
   // TODO return HTML page with the information about the plugin, docs, and links to the OpenAPI schema
   @Public()
   @Get('/')
@@ -21,10 +18,7 @@ export class ToolsController {
 
   @Public()
   @Get('/health')
-  @HealthCheck()
   async check(): Promise<ObjectResponse<undefined>> {
-    await this.health.check([]);
-
     return {
       status: 'success',
       data: undefined,
