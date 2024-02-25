@@ -2,8 +2,8 @@
 import nodePlop from 'node-plop';
 import { AddActionParameters } from './types.js';
 
-import actionTemplate from './templates/action.ts';
-import actionTestTemplate from './templates/action.test.ts';
+import actionTemplate from './templates/action.ts.js';
+import actionTestTemplate from './templates/action.test.ts.js';
 
 export async function addAction(parameters: AddActionParameters) {
   const plot = await nodePlop('');

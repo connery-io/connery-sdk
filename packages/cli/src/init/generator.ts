@@ -8,12 +8,12 @@ import indexTemplate from './templates/src/index.ts';
 import sampleActionTestTemplate from './templates/test/actions/sampleAction.test.ts';
 import gitignoreTemplate from './templates/.gitignore';
 import prettierTemplate from './templates/.prettierrc';
-import jestConfigTemplate from './templates/jest.config.js';
+import jestConfigTemplate from './templates/jest.config.js.js';
 import licenseTemplate from './templates/LICENSE';
 import packageJsonTemplate from './templates/package.json';
 import readmeTemplate from './templates/README.md';
 import tsconfigTemplate from './templates/tsconfig.json';
-import webpackConfigTemplate from './templates/webpack.config.js';
+import webpackConfigTemplate from './templates/webpack.config.js.js';
 
 export async function initRepository(parameters: InitRepositoryParameters) {
   const plot = await nodePlop('');
