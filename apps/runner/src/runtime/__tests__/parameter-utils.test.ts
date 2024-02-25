@@ -16,7 +16,7 @@ import {
   validateRequiredConfigurationParameters,
   validateRequiredInputParameters,
   validateRequiredOutputParameters,
-} from '../parameter-utils';
+} from './../parameter-utils';
 
 //
 // Input parameters validation

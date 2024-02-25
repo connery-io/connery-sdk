@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpException, Inject, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, Param, Post } from '@nestjs/common';
 import {
   ActionResponse,
   ObjectResponse,
@@ -6,16 +6,16 @@ import {
   RunActionRequest,
   RunActionResponse,
   convertActionRuntimeToActionResponse,
-} from '../../types/api.js';
-import { Plugin } from '../../runtime/plugin.js';
+} from './../../types/api.js';
+import { ConfigService } from './../services/config.service.js';
 
 @Controller()
 export class ActionsController {
-  constructor(@Inject(Plugin) private plugin: Plugin) {}
+  constructor(private configService: ConfigService) {}
 
   @Get('/actions')
   getActions(): PaginatedResponse<ActionResponse> {
-    const actions = this.plugin.actions;
+    const actions = this.configService.plugin.actions;
 
     return {
       status: 'success',
@@ -25,7 +25,7 @@ export class ActionsController {
 
   @Get('/actions/:key')
   getAction(@Param('key') key: string): ObjectResponse<ActionResponse> {
-    const action = this.plugin.findActionByKey(key);
+    const action = this.configService.plugin.findActionByKey(key);
 
     if (!action) {
       throw new HttpException('Action not found ', 404);
@@ -42,7 +42,7 @@ export class ActionsController {
     @Param('key') key: string,
     @Body() body: RunActionRequest,
   ): Promise<ObjectResponse<RunActionResponse>> {
-    const action = this.plugin.findActionByKey(key);
+    const action = this.configService.plugin.findActionByKey(key);
 
     if (!action) {
       throw new HttpException('Action not found', 404);

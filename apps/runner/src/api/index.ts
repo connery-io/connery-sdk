@@ -2,13 +2,18 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
 import { AllExceptionsFilter } from './all-exceptions.filter.js';
 import { PluginDefinition } from './../types/definition.js';
+import { Plugin } from './../runtime/plugin.js';
 
 export async function serve(pluginDefinition: PluginDefinition) {
-  // CORS is required for the OpenAPI specification.
-  const app = await NestFactory.create(AppModule, { cors: true });
+  const app = await NestFactory.create(AppModule, {
+    cors: true, // CORS is required for the OpenAPI specification
+    logger: false,
+  });
+
+  const plugin = new Plugin(pluginDefinition);
 
   const appModule = app.get(AppModule);
-  //appModule.configure(pluginDefinition);
+  appModule.configure(plugin);
 
   app.useGlobalFilters(new AllExceptionsFilter());
 

@@ -14,7 +14,7 @@ export class ToolsController {
     return {
       status: 'success',
       data: {
-        message: 'Welcome to the Connery Runner API 👋',
+        message: 'Welcome to the plugin API 👋',
       },
     };
   }

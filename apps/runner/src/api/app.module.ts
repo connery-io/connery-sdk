@@ -11,6 +11,8 @@ import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth.guard.js';
 import { LocalConfigService } from './services/local-config.service.js';
 import { OpenAiController } from './controllers/openai.controller.js';
+import { ConfigService } from './services/config.service.js';
+import { PluginRuntime } from './../types/runtime.js';
 
 @Module({
   imports: [
@@ -29,13 +31,13 @@ import { OpenAiController } from './controllers/openai.controller.js';
     },
     OpenAiSpecsService,
     LocalConfigService,
+    ConfigService,
   ],
 })
 export class AppModule {
-  // TODO: refactor
-  //private plugin: Plugin;
-  //
-  //configure(pluginDefinition: PluginDefinition) {
-  //  this.plugin = new Plugin(pluginDefinition);
-  //}
+  constructor(private configService: ConfigService) {}
+
+  configure(plugin: PluginRuntime) {
+    this.configService.plugin = plugin;
+  }
 }
