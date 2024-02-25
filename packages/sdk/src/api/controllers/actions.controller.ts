@@ -6,7 +6,7 @@ import {
   RunActionRequest,
   RunActionResponse,
   convertActionRuntimeToActionResponse,
-} from './../../types/api.js';
+} from '../../types/api.js';
 import { PluginService } from '../services/plugin.service.js';
 
 @Controller()

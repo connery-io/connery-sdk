@@ -2,8 +2,8 @@ import {
   InputParameterDefinition,
   OutputParameterDefinition,
   ConfigurationParameterDefinition,
-} from './../../types/definition';
-import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from './../../types/context';
+} from '../../types/definition';
+import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from '../../types/context';
 import {
   trimInput,
   validateConfigurationParameterTypes,
@@ -16,7 +16,7 @@ import {
   validateRequiredConfigurationParameters,
   validateRequiredInputParameters,
   validateRequiredOutputParameters,
-} from './../parameter-utils';
+} from '../parameter-utils';
 
 //
 // Input parameters validation

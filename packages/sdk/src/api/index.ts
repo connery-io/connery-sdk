@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
 import { AllExceptionsFilter } from './all-exceptions.filter.js';
-import { PluginDefinition } from './../types/definition.js';
-import { Plugin } from './../runtime/plugin.js';
+import { PluginDefinition } from '../types/definition.js';
+import { Plugin } from '../runtime/plugin.js';
 import { PluginService } from './services/plugin.service.js';
 
 export async function serve(pluginDefinition: PluginDefinition) {

@@ -2,8 +2,8 @@ import {
   ConfigurationParameterDefinition,
   InputParameterDefinition,
   OutputParameterDefinition,
-} from './../types/definition.js';
-import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from './../types/context.js';
+} from '../types/definition.js';
+import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from '../types/context.js';
 
 //
 // Input parameters validation

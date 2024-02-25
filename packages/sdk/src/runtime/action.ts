@@ -11,20 +11,20 @@ import {
   validateRequiredInputParameters,
   validateRequiredOutputParameters,
 } from './parameter-utils.js';
-import { RunActionResponse } from './../types/api.js';
+import { RunActionResponse } from '../types/api.js';
 import {
   ActionContext,
   ConfigurationParametersObject,
   InputParametersObject,
   OutputParametersObject,
-} from './../types/context.js';
+} from '../types/context.js';
 import {
   ActionDefinition,
   InputParameterDefinition,
   OperationDefinition,
   OutputParameterDefinition,
-} from './../types/definition.js';
-import { ActionRuntime, PluginRuntime } from './../types/runtime.js';
+} from '../types/definition.js';
+import { ActionRuntime, PluginRuntime } from '../types/runtime.js';
 
 export class Action implements ActionRuntime {
   key: string;

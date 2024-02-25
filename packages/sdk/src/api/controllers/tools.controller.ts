@@ -1,5 +1,5 @@
-import { Public } from './../auth.guard.js';
-import { ObjectResponse } from './../../types/api.js';
+import { Public } from '../auth.guard.js';
+import { ObjectResponse } from '../../types/api.js';
 import { Controller, Get } from '@nestjs/common';
 
 @Controller()
