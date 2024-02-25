@@ -4,8 +4,6 @@ import {
   OutputParameterDefinition,
 } from './../types/definition.js';
 import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from './../types/context.js';
-import pkg from 'lodash';
-const { trim, forEach } = pkg; // TODO deprecate lodash
 
 //
 // Input parameters validation
@@ -190,8 +188,12 @@ export function validateExtraConfigurationParameters(
 export function trimInput(input?: InputParametersObject): InputParametersObject {
   const trimmedInput: InputParametersObject = {};
 
-  forEach(input, (value, key) => {
-    trimmedInput[key] = trim(value);
+  if (!input) {
+    return trimmedInput;
+  }
+
+  Object.keys(input).forEach((key) => {
+    trimmedInput[key] = input[key].trim();
   });
 
   return trimmedInput;
