@@ -40,7 +40,9 @@
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "format": "prettier --write .",
+    "lint": "eslint src/**/*.ts"
   },
   "jest": {
     "preset": "ts-jest",
@@ -50,6 +52,30 @@
     ]
   },
   "prettier": {
-    "printWidth": 120
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ],
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "root": true,
+    "env": {
+      "node": true,
+      "jest": true
+    },
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "off"
+    }
   }
 }
