@@ -3,6 +3,7 @@ import { AppModule } from './app.module.js';
 import { AllExceptionsFilter } from './all-exceptions.filter.js';
 import { PluginDefinition } from './../types/definition.js';
 import { Plugin } from './../runtime/plugin.js';
+import { PluginService } from './services/plugin.service.js';
 
 export async function serve(pluginDefinition: PluginDefinition) {
   const app = await NestFactory.create(AppModule, {
@@ -11,9 +12,8 @@ export async function serve(pluginDefinition: PluginDefinition) {
   });
 
   const plugin = new Plugin(pluginDefinition);
-
-  const appModule = app.get(AppModule);
-  appModule.configure(plugin);
+  const pluginService = app.get(PluginService);
+  pluginService.plugin = plugin;
 
   app.useGlobalFilters(new AllExceptionsFilter());
 

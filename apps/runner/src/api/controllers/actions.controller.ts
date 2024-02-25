@@ -7,15 +7,15 @@ import {
   RunActionResponse,
   convertActionRuntimeToActionResponse,
 } from './../../types/api.js';
-import { ConfigService } from './../services/config.service.js';
+import { PluginService } from '../services/plugin.service.js';
 
 @Controller()
 export class ActionsController {
-  constructor(private configService: ConfigService) {}
+  constructor(private pluginService: PluginService) {}
 
   @Get('/actions')
   getActions(): PaginatedResponse<ActionResponse> {
-    const actions = this.configService.plugin.actions;
+    const actions = this.pluginService.plugin.actions;
 
     return {
       status: 'success',
@@ -25,7 +25,7 @@ export class ActionsController {
 
   @Get('/actions/:key')
   getAction(@Param('key') key: string): ObjectResponse<ActionResponse> {
-    const action = this.configService.plugin.findActionByKey(key);
+    const action = this.pluginService.plugin.findActionByKey(key);
 
     if (!action) {
       throw new HttpException('Action not found ', 404);
@@ -42,7 +42,7 @@ export class ActionsController {
     @Param('key') key: string,
     @Body() body: RunActionRequest,
   ): Promise<ObjectResponse<RunActionResponse>> {
-    const action = this.configService.plugin.findActionByKey(key);
+    const action = this.pluginService.plugin.findActionByKey(key);
 
     if (!action) {
       throw new HttpException('Action not found', 404);

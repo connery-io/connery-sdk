@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { PluginRuntime } from './../../types/runtime';
+import { PluginRuntime } from '../../types/runtime';
 
 @Injectable()
-export class ConfigService {
+export class PluginService {
   private _plugin: PluginRuntime | undefined;
 
   set plugin(plugin: PluginRuntime) {
