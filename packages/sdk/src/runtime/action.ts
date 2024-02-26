@@ -11,7 +11,6 @@ import {
   validateRequiredInputParameters,
   validateRequiredOutputParameters,
 } from './parameter-utils.js';
-import { RunActionResponse } from '../types/api.js';
 import {
   ActionContext,
   ConfigurationParametersObject,
@@ -25,6 +24,7 @@ import {
   OutputParameterDefinition,
 } from '../types/definition.js';
 import { ActionRuntime, PluginRuntime } from '../types/runtime.js';
+import { RunActionResponse } from '../api/dto.js';
 
 export class Action implements ActionRuntime {
   key: string;

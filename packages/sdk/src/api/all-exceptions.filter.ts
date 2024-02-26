@@ -1,6 +1,6 @@
 import { ExceptionFilter, Catch, ArgumentsHost, HttpException, HttpStatus } from '@nestjs/common';
 import { Response } from 'express';
-import { ErrorResponse } from '../types/api.js';
+import { GenericErrorResponse } from './dto';
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
@@ -27,7 +27,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
       message = (exception as Error).message;
     }
 
-    const errorObject: ErrorResponse = {
+    const errorObject: GenericErrorResponse = {
       status: 'error',
       error: {
         message: message.toString(),

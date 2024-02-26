@@ -1,4 +1,4 @@
-import { RunActionResponse } from './api.js';
+import { RunActionResponse } from '../api/dto.js';
 import { ConfigurationParametersObject, InputParametersObject } from './context.js';
 import {
   ConfigurationParameterDefinition,

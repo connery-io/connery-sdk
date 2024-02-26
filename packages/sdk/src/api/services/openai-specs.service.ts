@@ -26,9 +26,9 @@ export class OpenAiSpecsService {
     const openApiSchema: OpenAPIV3.Document = {
       openapi: '3.0.0',
       info: {
-        title: 'OpenAPI Specification for Connery actions',
-        description: 'This is the OpenAPI Specification actions available on the Connery runner.',
-        version: '1.0.0',
+        title: 'OpenAPI Specification for Connery actions', // TODO update
+        description: 'This is the OpenAPI Specification actions available on the Connery runner.', // TODO update
+        version: '1.0.0', // TODO: update
       },
       externalDocs: {
         url: 'https://docs.connery.io',

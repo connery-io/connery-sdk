@@ -19,6 +19,7 @@
     "@nestjs/config": "^2.3.4",
     "@nestjs/core": "^9.4.3",
     "@nestjs/platform-express": "^9.4.3",
+    "@nestjs/swagger": "^7.3.0",
     "openapi-types": "^12.1.3",
     "reflect-metadata": "^0.1.13",
     "zod": "^3.22.3",
