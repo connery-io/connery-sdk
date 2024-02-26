@@ -8,9 +8,17 @@ import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth.guard.js';
 import { OpenAiController } from './controllers/openai.controller.js';
 import { PluginService } from './services/plugin.service.js';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join, dirname } from 'path';
 
 @Module({
-  imports: [ConfigModule.forRoot(), ConfigModule],
+  imports: [
+    ConfigModule.forRoot(),
+    ConfigModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(dirname(new URL(import.meta.url).pathname), 'static'),
+    }),
+  ],
   controllers: [ActionsController, OpenAiController, PluginController, ToolsController],
   providers: [
     {
