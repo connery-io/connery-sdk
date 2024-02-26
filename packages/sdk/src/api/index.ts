@@ -7,7 +7,7 @@ import { PluginService } from './services/plugin.service.js';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
 
-export async function serve(pluginDefinition: PluginDefinition) {
+export async function startPluginServer(pluginDefinition: PluginDefinition) {
   const app = await NestFactory.create(AppModule, {
     cors: true, // CORS is required for the OpenAPI specification
     logger: false,
@@ -20,7 +20,7 @@ export async function serve(pluginDefinition: PluginDefinition) {
 
   const runnerPort = 4201;
   await app.listen(runnerPort);
-  console.log(`✅ The plugin is running on port ${runnerPort}`);
+  console.log(`✅ The plugin server is running on port ${runnerPort}`);
 }
 
 function initPlugin(app: INestApplication, pluginDefinition: PluginDefinition) {
