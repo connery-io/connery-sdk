@@ -27,7 +27,6 @@ import { GenericErrorResponse } from '../dto.js';
 export class OpenAiController {
   constructor(@Inject(OpenAiSpecsService) private openAiSpecsService: OpenAiSpecsService) {}
 
-  // TODO
   @ApiOperation({
     summary: 'Get the "OpenAPI specification" for OpenAI GPTs.',
     description: 'Learn more: [Use Connery actions in OpenAI GPT](https://docs.connery.io/docs/clients/openai/gpt).',
@@ -44,7 +43,6 @@ export class OpenAiController {
     return this.openAiSpecsService.getOpenApiSpec();
   }
 
-  // TODO
   @ApiOperation({
     summary: 'Get the "OpenAI Functions specification" for OpenAI Assistant API.',
     description:
@@ -66,8 +64,6 @@ export class OpenAiController {
   @ApiSecurity('ApiKey')
   @Get('/openai/specs/assistants-api')
   async getFunctionsSpec(): Promise<OpenAiFunctionSchema[]> {
-    return this.openAiSpecsService.getFunctionsSpec(true, null);
+    return this.openAiSpecsService.getFunctionsSpec();
   }
-
-  // TODO: implement API endpoints based on shortenned APIs for GPTs (if needed)
 }
