@@ -32,9 +32,9 @@ function initPlugin(app: INestApplication, pluginDefinition: PluginDefinition) {
 function initOpeApiSpec(app: INestApplication) {
   const config = new DocumentBuilder()
     .setTitle('Plugin API')
-    .setDescription('This is an OpenAPI specification for the Connery plugin and its actions.')
-    //.setVersion() // TODO: add version from package.json
-    .addApiKey({ type: 'apiKey', in: 'header', name: 'x-api-key' }, 'API Key')
+    .setDescription('This is a standartized API for the Connery plugin and its actions.')
+    .setVersion('0.0.16') // TODO: add version from package.json
+    .addApiKey({ type: 'apiKey', in: 'header', name: 'x-api-key' }, 'ApiKey')
     .addTag('Plugin')
     .addTag('Actions')
     .addTag('OpenAI', 'Specifications for integration with OpenAI.')
@@ -42,10 +42,10 @@ function initOpeApiSpec(app: INestApplication) {
     //.addServer('http://localhost:4201', 'Plugin URL') // TODO: add server
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  document.externalDocs = {
-    description: 'Connery Documentation',
-    url: 'https://docs.connery.io/',
-  };
+  //document.externalDocs = {
+  //  description: 'Connery Documentation',
+  //  url: 'https://docs.connery.io/',
+  //};
 
   SwaggerModule.setup('api', app, document);
 }

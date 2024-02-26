@@ -144,6 +144,8 @@ export class Plugin {
     type: ConfigurationParameter,
     isArray: true,
     title: 'Metadata of the plugin configuration parameters.',
+    description:
+      'The configuration parameters are used to configure the plugin and its actions. For example, the API keys, the URLs, credentials, etc., can be configured here to be used in the actions. Configuration parameters can be set in the environment variables of the plugin. But also, they can be set when running an action. The configuration parameters set when running an action will override the configuration parameters set in the environment variables.',
   })
   configurationParameters: ConfigurationParameter[];
 
