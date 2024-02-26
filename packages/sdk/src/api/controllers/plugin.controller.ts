@@ -28,7 +28,7 @@ import { GenericErrorResponse, GenericObjectResponse, Plugin } from '../dto.js';
   },
 })
 @Controller()
-export class PluginsController {
+export class PluginController {
   constructor(private pluginService: PluginService) {}
 
   @ApiOperation({

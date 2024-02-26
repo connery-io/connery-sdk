@@ -3,7 +3,7 @@
 import { Command } from 'commander';
 import init from './init';
 import addAction from './add-action';
-import validate from './validate';
+import validate from './_validate';
 import runAction from './run-action';
 import { pluginFilePath } from './shared';
 
@@ -49,12 +49,12 @@ devCommand
   .helpOption('-h, --help', 'Display help for command');
 
 // prettier-ignore
-devCommand
-  .command('validate')
-  .description(`Validate plugin definition`)
-  .addHelpText('after', `\nThe plugin must be built before running this command and the plugin file should be located at '${pluginFilePath}'.`,)
-  .action(validate)
-  .helpOption('-h, --help', 'Display help for command');
+//devCommand
+//  .command('validate')
+//  .description(`Validate plugin definition`)
+//  .addHelpText('after', `\nThe plugin must be built before running this command and the plugin file should be located at '${pluginFilePath}'.`,)
+//  .action(validate)
+//  .helpOption('-h, --help', 'Display help for command');
 
 program.addCommand(devCommand);
 program.parse();

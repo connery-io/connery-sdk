@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ActionsController } from './controllers/actions.controller.js';
-import { PluginsController } from './controllers/plugins.controller.js';
+import { PluginController } from './controllers/plugin.controller.js';
 import { ToolsController } from './controllers/tools.controller.js';
 import { OpenAiSpecsService } from './services/openai-specs.service.js';
 import { APP_GUARD } from '@nestjs/core';
@@ -11,7 +11,7 @@ import { PluginService } from './services/plugin.service.js';
 
 @Module({
   imports: [ConfigModule.forRoot(), ConfigModule],
-  controllers: [ActionsController, OpenAiController, PluginsController, ToolsController],
+  controllers: [ActionsController, OpenAiController, PluginController, ToolsController],
   providers: [
     {
       provide: APP_GUARD,
