@@ -36,7 +36,7 @@ import {
     $ref: getSchemaPath(GenericErrorResponse),
   },
 })
-@Controller()
+@Controller('/api/actions')
 export class ActionsController {
   constructor(private pluginService: PluginService) {}
 
@@ -63,7 +63,7 @@ export class ActionsController {
       ],
     },
   })
-  @Get('/actions')
+  @Get('/')
   getActions(): GenericPaginatedResponse<Action> {
     const actions = this.pluginService.plugin.actions;
 
@@ -99,7 +99,7 @@ export class ActionsController {
       $ref: getSchemaPath(GenericErrorResponse),
     },
   })
-  @Get('/actions/:key')
+  @Get('/:key')
   getAction(@Param('key') key: string): GenericObjectResponse<Action> {
     const action = this.pluginService.plugin.findActionByKey(key);
 
@@ -142,7 +142,7 @@ export class ActionsController {
       $ref: getSchemaPath(GenericErrorResponse),
     },
   })
-  @Post('/actions/:key/run')
+  @Post('/:key/run')
   async runAction(
     @Param('key') key: string,
     @Body() body: RunActionRequest,

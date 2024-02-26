@@ -21,21 +21,8 @@ import { GenericErrorResponse, GenericObjectResponse } from '../dto.js';
     $ref: getSchemaPath(GenericErrorResponse),
   },
 })
-@Controller()
+@Controller('/api')
 export class ToolsController {
-  // TODO return HTML page with the information about the plugin, docs, and links to the OpenAPI schema
-  @ApiExcludeEndpoint()
-  @Public()
-  @Get('/')
-  getMainPage(): GenericObjectResponse<{ message: string }> {
-    return {
-      status: 'success',
-      data: {
-        message: 'Welcome to the plugin API 👋',
-      },
-    };
-  }
-
   @ApiOperation({
     summary: 'Check if the plugin is healthy.',
     description: 'Check if the plugin is healthy.',

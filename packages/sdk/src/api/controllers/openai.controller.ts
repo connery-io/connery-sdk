@@ -23,7 +23,7 @@ import { GenericErrorResponse } from '../dto.js';
     $ref: getSchemaPath(GenericErrorResponse),
   },
 })
-@Controller()
+@Controller('/api/openai')
 export class OpenAiController {
   constructor(@Inject(OpenAiSpecsService) private openAiSpecsService: OpenAiSpecsService) {}
 
@@ -38,7 +38,7 @@ export class OpenAiController {
     },
   })
   @Public()
-  @Get('/openai/specs/gpts')
+  @Get('/specs/gpts')
   async getOpenApiSpec(): Promise<OpenAPIV3.Document> {
     return this.openAiSpecsService.getOpenApiSpec();
   }
@@ -62,7 +62,7 @@ export class OpenAiController {
     },
   })
   @ApiSecurity('ApiKey')
-  @Get('/openai/specs/assistants-api')
+  @Get('/specs/assistants-api')
   async getFunctionsSpec(): Promise<OpenAiFunctionSchema[]> {
     return this.openAiSpecsService.getFunctionsSpec();
   }
