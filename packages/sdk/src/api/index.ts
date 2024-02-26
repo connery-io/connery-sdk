@@ -47,5 +47,13 @@ function initOpeApiSpec(app: INestApplication) {
   //  url: 'https://docs.connery.io/',
   //};
 
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('api', app, document, {
+    customfavIcon: '',
+    customSiteTitle: 'Plugin API',
+    customCss: `
+      .swagger-ui .topbar { display: none } `,
+    swaggerOptions: {
+      persistAuthorization: true,
+    },
+  });
 }
