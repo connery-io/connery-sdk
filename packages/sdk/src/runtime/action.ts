@@ -11,12 +11,7 @@ import {
   validateRequiredInputParameters,
   validateRequiredOutputParameters,
 } from './parameter-utils.js';
-import {
-  ActionContext,
-  ConfigurationParametersObject,
-  InputParametersObject,
-  OutputParametersObject,
-} from '../types/context.js';
+import { ActionContext, ConfigurationObject, InputObject, OutputObject } from '../types/context.js';
 import {
   ActionDefinition,
   InputParameterDefinition,
@@ -48,9 +43,9 @@ export class Action implements ActionRuntime {
   }
 
   async run(
-    input: InputParametersObject,
-    defaultConfiguration: ConfigurationParametersObject | undefined,
-    customConfiguration: ConfigurationParametersObject | undefined,
+    input: InputObject,
+    defaultConfiguration: ConfigurationObject | undefined,
+    customConfiguration: ConfigurationObject | undefined,
   ): Promise<RunActionResponse> {
     const trimmedInput = this.validateInput(input);
 
@@ -73,7 +68,7 @@ export class Action implements ActionRuntime {
     return result;
   }
 
-  private validateInput(input: InputParametersObject): InputParametersObject {
+  private validateInput(input: InputObject): InputObject {
     validateNumberOfInputParameters(input);
     const trimmedInput = trimInput(input);
     validateRequiredInputParameters(this.inputParameters, trimmedInput);
@@ -83,7 +78,7 @@ export class Action implements ActionRuntime {
     return trimmedInput;
   }
 
-  private validateConfiguration(configuration: ConfigurationParametersObject): ConfigurationParametersObject {
+  private validateConfiguration(configuration: ConfigurationObject): ConfigurationObject {
     // TODO: validate number of configuration parameters, trim
 
     validateRequiredConfigurationParameters(this.plugin.configurationParameters, configuration);
@@ -93,7 +88,7 @@ export class Action implements ActionRuntime {
     return configuration;
   }
 
-  private validateOutput(output: OutputParametersObject): void {
+  private validateOutput(output: OutputObject): void {
     // TODO: validate number of configuration parameters, trim
 
     validateRequiredOutputParameters(this.outputParameters, output);
@@ -101,17 +96,17 @@ export class Action implements ActionRuntime {
     validateExtraOutputParameters(this.outputParameters, output);
   }
 
-  private getActionContext(input: InputParametersObject, configuration: ConfigurationParametersObject): ActionContext {
+  private getActionContext(input: InputObject, configuration: ConfigurationObject): ActionContext {
     return {
-      inputParameters: input,
-      configurationParameters: configuration,
+      input: input,
+      configuration: configuration,
     };
   }
 
   private resolveConfiguration(
-    defaultConfiguration: ConfigurationParametersObject | undefined,
-    customConfiguration: ConfigurationParametersObject | undefined,
-  ): ConfigurationParametersObject {
+    defaultConfiguration: ConfigurationObject | undefined,
+    customConfiguration: ConfigurationObject | undefined,
+  ): ConfigurationObject {
     // The order of the spread operator is important here.
     // The custom configuration should override the default configuration.
     return {

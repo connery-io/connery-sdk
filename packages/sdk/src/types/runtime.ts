@@ -1,5 +1,5 @@
 import { RunActionResponse } from '../api/dto.js';
-import { ConfigurationParametersObject, InputParametersObject } from './context.js';
+import { ConfigurationObject, InputObject } from './context.js';
 import {
   ConfigurationParameterDefinition,
   InputParameterDefinition,
@@ -29,8 +29,8 @@ export interface ActionRuntime {
   plugin: PluginRuntime;
 
   run(
-    input: InputParametersObject,
-    defaultConfiguration: ConfigurationParametersObject | undefined,
-    customConfiguration: ConfigurationParametersObject | undefined,
+    input: InputObject,
+    defaultConfiguration: ConfigurationObject | undefined,
+    customConfiguration: ConfigurationObject | undefined,
   ): Promise<RunActionResponse>;
 }

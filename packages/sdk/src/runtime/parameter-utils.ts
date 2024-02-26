@@ -3,7 +3,7 @@ import {
   InputParameterDefinition,
   OutputParameterDefinition,
 } from '../types/definition.js';
-import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from '../types/context.js';
+import { ConfigurationObject, InputObject, OutputObject } from '../types/context.js';
 
 //
 // Input parameters validation
@@ -12,7 +12,7 @@ import { ConfigurationParametersObject, InputParametersObject, OutputParametersO
 // Validate if all required input parameters are present
 export function validateRequiredInputParameters(
   inputDefinitions: InputParameterDefinition[],
-  input: InputParametersObject,
+  input: InputObject,
 ): void {
   inputDefinitions.forEach((inputDefinition) => {
     if (inputDefinition.validation?.required && !input[inputDefinition.key]) {
@@ -24,10 +24,7 @@ export function validateRequiredInputParameters(
 }
 
 // Validate if the type of the input parameters are correct
-export function validateInputParameterTypes(
-  inputDefinitions: InputParameterDefinition[],
-  input: InputParametersObject,
-): void {
+export function validateInputParameterTypes(inputDefinitions: InputParameterDefinition[], input: InputObject): void {
   inputDefinitions.forEach((inputDefinition) => {
     if (inputDefinition.type !== typeof input[inputDefinition.key]) {
       // Ignore the validation if the input parameter is not required and the value is empty or not provided
@@ -47,10 +44,7 @@ export function validateInputParameterTypes(
 }
 
 // Validate if there are no extra input parameters that are not defined in the schema
-export function validateExtraInputParameters(
-  inputDefinitions: InputParameterDefinition[],
-  input: InputParametersObject,
-): void {
+export function validateExtraInputParameters(inputDefinitions: InputParameterDefinition[], input: InputObject): void {
   Object.keys(input).forEach((inputKey) => {
     if (!inputDefinitions.find((inputDefinition) => inputDefinition.key === inputKey)) {
       throw new Error(`[Input validation error] Input parameter '${inputKey}' is not defined in the action schema.`);
@@ -65,7 +59,7 @@ export function validateExtraInputParameters(
 // Validate if all required output parameters are present
 export function validateRequiredOutputParameters(
   outputDefinitions: OutputParameterDefinition[],
-  output: OutputParametersObject,
+  output: OutputObject,
 ): void {
   outputDefinitions.forEach((outputDefinition) => {
     if (outputDefinition.validation?.required && !output[outputDefinition.key]) {
@@ -79,7 +73,7 @@ export function validateRequiredOutputParameters(
 // Validate if the type of the output parameters are correct
 export function validateOutputParameterTypes(
   outputDefinitions: OutputParameterDefinition[],
-  output: OutputParametersObject,
+  output: OutputObject,
 ): void {
   outputDefinitions.forEach((outputDefinition) => {
     if (outputDefinition.type !== typeof output[outputDefinition.key]) {
@@ -102,7 +96,7 @@ export function validateOutputParameterTypes(
 // Validate if there are no extra output parameters that are not defined in the schema
 export function validateExtraOutputParameters(
   outputDefinitions: OutputParameterDefinition[],
-  output: OutputParametersObject,
+  output: OutputObject,
 ): void {
   Object.keys(output).forEach((outputKey) => {
     if (!outputDefinitions.find((outputDefinition) => outputDefinition.key === outputKey)) {
@@ -120,7 +114,7 @@ export function validateExtraOutputParameters(
 // Validate if all required configuration parameters are present
 export function validateRequiredConfigurationParameters(
   configurationParametersDefinitions: ConfigurationParameterDefinition[],
-  configurationParameters: ConfigurationParametersObject,
+  configurationParameters: ConfigurationObject,
 ): void {
   configurationParametersDefinitions.forEach((configurationParameterDefinition) => {
     if (
@@ -137,7 +131,7 @@ export function validateRequiredConfigurationParameters(
 // Validate if the type of the configuration parameters are correct
 export function validateConfigurationParameterTypes(
   configurationParametersDefinitions: ConfigurationParameterDefinition[],
-  configurationParameters: ConfigurationParametersObject,
+  configurationParameters: ConfigurationObject,
 ): void {
   configurationParametersDefinitions.forEach((configurationParameterDefinition) => {
     if (
@@ -166,7 +160,7 @@ export function validateConfigurationParameterTypes(
 // Validate if there are no extra configuration parameters that are not defined in the schema
 export function validateExtraConfigurationParameters(
   configurationParametersDefinitions: ConfigurationParameterDefinition[],
-  configurationParameters: ConfigurationParametersObject,
+  configurationParameters: ConfigurationObject,
 ): void {
   Object.keys(configurationParameters).forEach((configurationParameterKey) => {
     if (
@@ -185,8 +179,8 @@ export function validateExtraConfigurationParameters(
 // Tools
 //
 
-export function trimInput(input?: InputParametersObject): InputParametersObject {
-  const trimmedInput: InputParametersObject = {};
+export function trimInput(input?: InputObject): InputObject {
+  const trimmedInput: InputObject = {};
 
   if (!input) {
     return trimmedInput;
@@ -199,7 +193,7 @@ export function trimInput(input?: InputParametersObject): InputParametersObject 
   return trimmedInput;
 }
 
-export function validateNumberOfInputParameters(input?: InputParametersObject): void {
+export function validateNumberOfInputParameters(input?: InputObject): void {
   // This validation also prevents DoS attacks by limiting the length of the input parameters object:
   // (https://github.com/connery-io/connery/security/code-scanning/1)
   if (Object.keys(input || {}).length > 100) {

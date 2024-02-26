@@ -1,4 +1,4 @@
-import { ActionContext, OutputParametersObject } from './context.js';
+import { ActionContext, OutputObject } from './context.js';
 
 export interface PluginDefinition {
   title: string;
@@ -35,7 +35,7 @@ export interface OutputParameterDefinition {
 }
 
 export interface OperationDefinition {
-  handler: (context: ActionContext) => Promise<OutputParametersObject>;
+  handler: (context: ActionContext) => Promise<OutputObject>;
 }
 
 export interface ConfigurationParameterDefinition {

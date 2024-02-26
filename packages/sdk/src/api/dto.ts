@@ -7,7 +7,7 @@ import {
   OutputParameterDefinition,
   ValidationDefinition,
 } from '../types/definition';
-import { ConfigurationParametersObject, InputParametersObject, OutputParametersObject } from '../types/context';
+import { ConfigurationObject, InputObject, OutputObject } from '../types/context';
 
 //
 // Generic response types
@@ -277,7 +277,7 @@ export class RunActionResponse {
     [key: string]: any;
   };
 
-  constructor(output: OutputParametersObject) {
+  constructor(output: OutputObject) {
     this.output = output;
   }
 }
@@ -314,7 +314,7 @@ export class RunActionRequest {
     [key: string]: any;
   };
 
-  constructor(input: InputParametersObject, configuration?: ConfigurationParametersObject) {
+  constructor(input: InputObject, configuration?: ConfigurationObject) {
     this.input = input;
     this.configuration = configuration;
   }
