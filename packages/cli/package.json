@@ -12,8 +12,6 @@
   },
   "devDependencies": {
     "jest": "^29.6.2",
-    "lib": "*",
-    "tsconfig": "*",
     "tsup": "^7.1.0"
   },
   "scripts": {

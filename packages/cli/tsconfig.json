@@ -1,7 +1,15 @@
 {
-  "extends": "tsconfig/commander.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "target": "esnext",
+    "module": "nodenext",
+    "lib": ["es2022"],
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "nodenext",
+    "sourceMap": true,
+    "allowJs": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
