@@ -31,18 +31,19 @@ function initPlugin(app: INestApplication, pluginDefinition: PluginDefinition) {
 
 function initOpeApiSpec(app: INestApplication) {
   const config = new DocumentBuilder()
-    .setTitle('Connery Plugin API')
-    .setDescription('This is the OpenAPI specification for the Connery Plugin API.')
-    //.setVersion('v1') // TODO add version
-    .addApiKey({ type: 'apiKey', in: 'header', name: 'x-api-key' }, 'ApiKey')
+    .setTitle('Plugin API')
+    .setDescription('This is an OpenAPI specification for the Connery plugin and its actions.')
+    //.setVersion() // TODO: add version from package.json
+    .addApiKey({ type: 'apiKey', in: 'header', name: 'x-api-key' }, 'API Key')
     .addTag('Plugin')
     .addTag('Actions')
     .addTag('OpenAI', 'Specifications for integration with OpenAI.')
     .addTag('Tools', 'Different tooling endpoints.')
+    //.addServer('http://localhost:4201', 'Plugin URL') // TODO: add server
     .build();
   const document = SwaggerModule.createDocument(app, config);
   document.externalDocs = {
-    description: 'Connery documentation.',
+    description: 'Connery Documentation',
     url: 'https://docs.connery.io/',
   };
 
