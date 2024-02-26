@@ -31,7 +31,7 @@ function initPlugin(app: INestApplication, pluginDefinition: PluginDefinition) {
 
 function initOpeApiSpec(app: INestApplication) {
   const config = new DocumentBuilder()
-    .setTitle('Plugin API')
+    .setTitle('Connery Plugin API')
     .setDescription('This is an OpenAPI specification for the Connery plugin and its actions.')
     //.setVersion() // TODO: add version from package.json
     .addApiKey({ type: 'apiKey', in: 'header', name: 'x-api-key' }, 'API Key')
