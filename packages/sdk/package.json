@@ -1,12 +1,12 @@
 {
-  "name": "@connery-io/sdk",
-  "description": "Connery SDK",
+  "name": "connery",
+  "description": "Connery SDK and CLI",
   "version": "0.0.16",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/sdk.js",
+  "module": "./dist/sdk.js",
+  "types": "./dist/sdk.d.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc && copyfiles -u 1 ./src/api/static/* ./dist",

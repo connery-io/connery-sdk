@@ -4,7 +4,6 @@ import {
   ApiSecurity,
   ApiTags,
   ApiOperation,
-  ApiExcludeEndpoint,
   ApiExtraModels,
   ApiInternalServerErrorResponse,
   getSchemaPath,
@@ -35,7 +34,7 @@ export class ToolsController {
   })
   @Public()
   @Get('/health')
-  async check(): Promise<GenericObjectResponse<undefined>> {
+  async health(): Promise<GenericObjectResponse<undefined>> {
     return {
       status: 'success',
       data: undefined,

@@ -33,9 +33,6 @@ export class OpenAiController {
   })
   @ApiOkResponse({
     description: 'The "OpenAPI specification" for OpenAI GPTs.',
-    schema: {
-      type: 'object',
-    },
   })
   @Public()
   @Get('/specs/gpts')
@@ -50,9 +47,6 @@ export class OpenAiController {
   })
   @ApiOkResponse({
     description: 'The "OpenAI Functions specification" for OpenAI Assistant API.',
-    schema: {
-      type: 'object',
-    },
   })
   @ApiExtraModels(GenericErrorResponse)
   @ApiUnauthorizedResponse({

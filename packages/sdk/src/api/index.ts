@@ -39,7 +39,7 @@ function initOpeApiSpec(app: INestApplication) {
     .addTag('Actions')
     .addTag('OpenAI', 'Specifications for integration with OpenAI.')
     .addTag('Tools', 'Different tooling endpoints.')
-    //.addServer('http://localhost:4201', 'Plugin URL') // TODO: add server
+    .addServer('https://3b53-95-90-245-40.ngrok-free.app/api-json', 'Plugin URL') // TODO: add server
     .build();
   const document = SwaggerModule.createDocument(app, config);
   //document.externalDocs = {
