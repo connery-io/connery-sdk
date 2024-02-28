@@ -23,6 +23,13 @@ import { GenericErrorResponse } from '../dto.js';
     $ref: getSchemaPath(GenericErrorResponse),
   },
 })
+@ApiUnauthorizedResponse({
+  description: 'Unauthorized.',
+  schema: {
+    $ref: getSchemaPath(GenericErrorResponse),
+  },
+})
+@ApiSecurity('ApiKey')
 @Controller('/api/openai')
 export class OpenAiController {
   constructor(private openAiSpecsService: OpenAiSpecsService) {}
@@ -34,7 +41,6 @@ export class OpenAiController {
   @ApiOkResponse({
     description: 'The "OpenAPI specification" for OpenAI GPTs.',
   })
-  @Public()
   @Get('/specs/gpts')
   async getOpenApiSpec(): Promise<OpenAPIV3.Document> {
     return this.openAiSpecsService.getOpenApiSpec();
@@ -48,14 +54,6 @@ export class OpenAiController {
   @ApiOkResponse({
     description: 'The "OpenAI Functions specification" for OpenAI Assistant API.',
   })
-  @ApiExtraModels(GenericErrorResponse)
-  @ApiUnauthorizedResponse({
-    description: 'Unauthorized.',
-    schema: {
-      $ref: getSchemaPath(GenericErrorResponse),
-    },
-  })
-  @ApiSecurity('ApiKey')
   @Get('/specs/assistants-api')
   async getFunctionsSpec(): Promise<OpenAiFunctionSchema[]> {
     return this.openAiSpecsService.getFunctionsSpec();
