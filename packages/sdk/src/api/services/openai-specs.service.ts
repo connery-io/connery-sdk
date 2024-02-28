@@ -16,7 +16,7 @@ export class OpenAiSpecsService {
   constructor(private pluginConfigService: PluginConfigService, private pluginService: PluginService) {}
 
   // TODO
-  getOpenApiSpec(): OpenAPIV3.Document {
+  async getOpenApiSpec(): Promise<OpenAPIV3.Document> {
     // This OpenAPI specification describes only the necessary minimum required for OpenAI GPTs to work.
     // Not all the parameters and responses are described here.
     const openApiSchema: OpenAPIV3.Document = {
@@ -24,7 +24,7 @@ export class OpenAiSpecsService {
       info: {
         title: 'OpenAPI Specification for Connery actions', // TODO update
         description: 'This is the OpenAPI Specification actions available on the Connery runner.', // TODO update
-        version: '1.0.0', // TODO: update
+        version: await this.pluginConfigService.getSdkVersion(),
       },
       externalDocs: {
         url: 'https://docs.connery.io',
@@ -300,7 +300,6 @@ export class OpenAiSpecsService {
     return openApiSchema;
   }
 
-  // TODO move schema to API types and Open API spec
   async getFunctionsSpec(): Promise<OpenAiFunctionSchema[]> {
     const openAiFunctions: OpenAiFunctionSchema[] = [];
 
