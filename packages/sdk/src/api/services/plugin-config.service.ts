@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { readFile } from 'fs/promises';
 
 @Injectable()
 export class PluginConfigService {
@@ -19,5 +20,11 @@ export class PluginConfigService {
       throw new Error('API_KEY environment variable is not set');
     }
     return apiKey;
+  }
+
+  async getSdkVersion(): Promise<string> {
+    const data = await readFile(new URL('./../../../package.json', import.meta.url), { encoding: 'utf8' });
+    const packageJson = JSON.parse(data);
+    return packageJson.version as string;
   }
 }

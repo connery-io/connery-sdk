@@ -15,7 +15,7 @@ export async function startPluginServer(pluginDefinition: PluginDefinition) {
   });
 
   initPlugin(app, pluginDefinition);
-  initOpeApiSpec(app);
+  await initOpeApiSpec(app);
 
   app.useGlobalFilters(new AllExceptionsFilter());
 
@@ -30,13 +30,13 @@ function initPlugin(app: INestApplication, pluginDefinition: PluginDefinition) {
   pluginService.plugin = plugin;
 }
 
-function initOpeApiSpec(app: INestApplication) {
+async function initOpeApiSpec(app: INestApplication) {
   const pluginConfigService = app.get(PluginConfigService);
 
   const config = new DocumentBuilder()
     .setTitle('Plugin API')
     .setDescription('This is a standartized API for the Connery plugin and its actions.')
-    .setVersion('0.0.16') // TODO: add version from package.json
+    .setVersion(await pluginConfigService.getSdkVersion())
     .addApiKey({ type: 'apiKey', in: 'header', name: 'x-api-key' }, 'ApiKey')
     .addTag('Plugin')
     .addTag('Actions')
