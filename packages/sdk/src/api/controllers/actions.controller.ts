@@ -113,7 +113,10 @@ export class ActionsController {
     };
   }
 
-  @ApiOperation({ summary: 'Run action.', description: 'Run action.' })
+  @ApiOperation({
+    summary: 'Run action.',
+    description: 'Run an action with the given input and configuration.',
+  })
   @ApiExtraModels(GenericObjectResponse, RunActionResponse, GenericErrorResponse)
   @ApiOkResponse({
     description: 'The result of the action run.',

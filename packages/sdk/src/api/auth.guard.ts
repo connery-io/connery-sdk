@@ -1,10 +1,10 @@
 import { CanActivate, ExecutionContext, Injectable, SetMetadata, UnauthorizedException } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { Reflector } from '@nestjs/core';
+import { PluginConfigService } from './services/plugin-config.service.js';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private reflector: Reflector, private configService: ConfigService) {}
+  constructor(private reflector: Reflector, private pluginConfigService: PluginConfigService) {}
 
   canActivate(context: ExecutionContext): boolean {
     // Allow access to public routes
@@ -21,11 +21,7 @@ export class AuthGuard implements CanActivate {
     const apiKey = request.headers['x-api-key'];
     if (!apiKey) throw new UnauthorizedException('API key is not provided in the x-api-key request header.');
 
-    // TODO: move to centralized config and validate on startup
-    const envApiKey = this.configService.get<string>('API_KEY');
-    if (!envApiKey) throw new Error('The API_KEY environment variable is not defined.');
-
-    const isAccessAllowed = envApiKey === apiKey;
+    const isAccessAllowed = this.pluginConfigService.apiKey === apiKey;
     if (isAccessAllowed) {
       return true;
     } else {

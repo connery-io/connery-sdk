@@ -6,6 +6,7 @@ import { Plugin } from '../runtime/plugin.js';
 import { PluginService } from './services/plugin.service.js';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
+import { PluginConfigService } from './services/plugin-config.service.js';
 
 export async function startPluginServer(pluginDefinition: PluginDefinition) {
   const app = await NestFactory.create(AppModule, {
@@ -30,6 +31,8 @@ function initPlugin(app: INestApplication, pluginDefinition: PluginDefinition) {
 }
 
 function initOpeApiSpec(app: INestApplication) {
+  const pluginConfigService = app.get(PluginConfigService);
+
   const config = new DocumentBuilder()
     .setTitle('Plugin API')
     .setDescription('This is a standartized API for the Connery plugin and its actions.')
@@ -39,7 +42,7 @@ function initOpeApiSpec(app: INestApplication) {
     .addTag('Actions')
     .addTag('OpenAI', 'Specifications for integration with OpenAI.')
     .addTag('Tools', 'Different tooling endpoints.')
-    .addServer('https://3b53-95-90-245-40.ngrok-free.app/api-json', 'Plugin URL') // TODO: add server
+    .addServer(pluginConfigService.pluginUrl, 'Plugin URL')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   //document.externalDocs = {

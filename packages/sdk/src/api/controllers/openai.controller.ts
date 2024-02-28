@@ -1,4 +1,4 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { Public } from '../auth.guard.js';
 import { OpenAiFunctionSchema } from '../../types/llm.js';
 import { OpenAPIV3 } from 'openapi-types';
@@ -25,7 +25,7 @@ import { GenericErrorResponse } from '../dto.js';
 })
 @Controller('/api/openai')
 export class OpenAiController {
-  constructor(@Inject(OpenAiSpecsService) private openAiSpecsService: OpenAiSpecsService) {}
+  constructor(private openAiSpecsService: OpenAiSpecsService) {}
 
   @ApiOperation({
     summary: 'Get the "OpenAPI specification" for OpenAI GPTs.',

@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { OpenAPIV3 } from 'openapi-types';
 import { OpenAiFunctionSchema } from '../../types/llm.js';
-import { ConfigService } from '@nestjs/config';
 import { PluginService } from './plugin.service.js';
+import { PluginConfigService } from './plugin-config.service.js';
 
 interface ExtendedOperationObject extends OpenAPIV3.OperationObject {
   // This custom extension property is used by OpenAI Actions to determine if the action requires a confirmation before running.
@@ -13,16 +13,10 @@ interface ExtendedOperationObject extends OpenAPIV3.OperationObject {
 // TODO
 @Injectable()
 export class OpenAiSpecsService {
-  constructor(private configService: ConfigService, private pluginService: PluginService) {}
+  constructor(private pluginConfigService: PluginConfigService, private pluginService: PluginService) {}
 
   // TODO
   getOpenApiSpec(): OpenAPIV3.Document {
-    // TODO: move to centralized config and validate on startup
-    const publicUrl = this.configService.get<string>('PUBLIC_URL');
-    if (!publicUrl) {
-      throw new Error('The PUBLIC_URL environment variable is not defined.');
-    }
-
     // This OpenAPI specification describes only the necessary minimum required for OpenAI GPTs to work.
     // Not all the parameters and responses are described here.
     const openApiSchema: OpenAPIV3.Document = {
@@ -38,7 +32,7 @@ export class OpenAiSpecsService {
       servers: [
         {
           description: 'Runner URL',
-          url: publicUrl,
+          url: this.pluginConfigService.pluginUrl,
         },
       ],
       paths: {
