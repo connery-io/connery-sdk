@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { fromZodError } from 'zod-validation-error';
 
-export function validateConfig(config: Record<string, any>): Record<string, any> {
+export function validateEnvConfig(config: Record<string, any>): Record<string, any> {
   const requiredEnvSchema = z.object({
     PLUGIN_URL: z
       .string()

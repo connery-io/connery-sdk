@@ -1,4 +1,4 @@
-import { PluginDefinition } from '../types/definition.js';
+import { PluginDefinition } from '../../types/definition.js';
 import { fromZodError } from 'zod-validation-error';
 import * as zod from 'zod';
 

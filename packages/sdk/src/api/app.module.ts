@@ -11,11 +11,11 @@ import { PluginService } from './services/plugin.service.js';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join, dirname } from 'path';
 import { PluginConfigService } from './services/plugin-config.service.js';
-import { validateConfig } from './utils/config-utils.js';
+import { validateEnvConfig } from './utils/config-utils.js';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ validate: validateConfig }),
+    ConfigModule.forRoot({ validate: validateEnvConfig }),
     ConfigModule,
     ServeStaticModule.forRoot({
       rootPath: join(dirname(new URL(import.meta.url).pathname), 'static'),

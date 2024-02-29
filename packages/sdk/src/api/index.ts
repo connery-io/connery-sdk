@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
 import { AllExceptionsFilter } from './all-exceptions.filter.js';
 import { PluginDefinition } from '../types/definition.js';
-import { Plugin } from '../runtime/plugin.js';
+import { Plugin } from '../core/plugin.js';
 import { PluginService } from './services/plugin.service.js';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
