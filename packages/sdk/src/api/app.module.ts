@@ -11,7 +11,7 @@ import { PluginService } from './services/plugin.service.js';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join, dirname } from 'path';
 import { PluginConfigService } from './services/plugin-config.service.js';
-import { validateEnvConfig } from './utils/config-utils.js';
+import { validateEnvConfig } from './utils/env-config-utils.js';
 
 @Module({
   imports: [
