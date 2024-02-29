@@ -1,5 +1,4 @@
 import { Controller, Get } from '@nestjs/common';
-import { Public } from '../auth.guard.js';
 import { OpenAiFunctionSchema } from '../../types/llm.js';
 import { OpenAPIV3 } from 'openapi-types';
 import { OpenAiSpecsService } from '../services/openai-specs.service.js';
