@@ -108,7 +108,7 @@ export class OpenAiSpecsService {
                   If not provided, the plugin will use the default configuration set in environment variables.
                   If provided, it will override the default configuration.
                   If the default configuration values are not set, the values in the configuration object will be required.
-                  In case you receive an error, please ask the user to specify the configuration to proceed. Desribe to the user what configuration is required.`,
+                  In case you receive an error, please ask the user to specify the configuration to proceed.`,
                   properties: action.plugin.configurationParameters.reduce(
                     (
                       accumulator: Record<string, OpenAPIV3.SchemaObject>,
