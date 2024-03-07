@@ -45,10 +45,6 @@ async function initOpeApiSpec(app: INestApplication) {
     .addServer(pluginConfigService.pluginUrl, 'Plugin URL')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  //document.externalDocs = {
-  //  description: 'Connery Documentation',
-  //  url: 'https://docs.connery.io/',
-  //};
 
   SwaggerModule.setup('api', app, document, {
     customfavIcon: '',
