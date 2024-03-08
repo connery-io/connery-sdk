@@ -27,7 +27,7 @@ import { GenericErrorResponse, GenericObjectResponse, Plugin } from '../dto.js';
     $ref: getSchemaPath(GenericErrorResponse),
   },
 })
-@Controller('/api/plugin')
+@Controller('/plugin')
 export class PluginController {
   constructor(private pluginService: PluginService) {}
 

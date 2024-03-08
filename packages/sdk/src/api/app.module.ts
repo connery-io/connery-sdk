@@ -6,7 +6,7 @@ import { ToolsController } from './controllers/tools.controller.js';
 import { OpenAiSpecsService } from './services/openai-specs.service.js';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth.guard.js';
-import { OpenAiController } from './controllers/openai.controller.js';
+import { OpenAiController } from './controllers/specs.controller.js';
 import { PluginService } from './services/plugin.service.js';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join, dirname } from 'path';

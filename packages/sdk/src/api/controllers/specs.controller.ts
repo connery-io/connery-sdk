@@ -14,7 +14,7 @@ import {
 } from '@nestjs/swagger';
 import { GenericErrorResponse } from '../dto.js';
 
-@ApiTags('OpenAI')
+@ApiTags('Specs')
 @ApiExtraModels(GenericErrorResponse)
 @ApiInternalServerErrorResponse({
   description: 'Internal server error.',
@@ -29,7 +29,7 @@ import { GenericErrorResponse } from '../dto.js';
   },
 })
 @ApiSecurity('ApiKey')
-@Controller('/api/openai')
+@Controller('/specs')
 export class OpenAiController {
   constructor(private openAiSpecsService: OpenAiSpecsService) {}
 
@@ -40,7 +40,7 @@ export class OpenAiController {
   @ApiOkResponse({
     description: 'The "OpenAPI specification" for OpenAI GPTs.',
   })
-  @Get('/specs/gpts')
+  @Get('/openai/gpts')
   async getOpenApiSpec(): Promise<OpenAPIV3.Document> {
     return this.openAiSpecsService.getOpenApiSpec();
   }
@@ -53,7 +53,7 @@ export class OpenAiController {
   @ApiOkResponse({
     description: 'The "OpenAI Functions specification" for OpenAI Assistant API.',
   })
-  @Get('/specs/assistants-api')
+  @Get('/openai/assistants-api')
   async getFunctionsSpec(): Promise<OpenAiFunctionSchema[]> {
     return this.openAiSpecsService.getFunctionsSpec();
   }

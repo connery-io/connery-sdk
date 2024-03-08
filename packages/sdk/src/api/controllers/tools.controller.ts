@@ -20,7 +20,7 @@ import { GenericErrorResponse, GenericObjectResponse } from '../dto.js';
     $ref: getSchemaPath(GenericErrorResponse),
   },
 })
-@Controller('/api')
+@Controller()
 export class ToolsController {
   @ApiOperation({
     summary: 'Check if the plugin is healthy.',

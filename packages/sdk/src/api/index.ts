@@ -14,6 +14,8 @@ export async function startPluginServer(pluginDefinition: PluginDefinition) {
     logger: false,
   });
 
+  app.setGlobalPrefix('api');
+
   initPlugin(app, pluginDefinition);
   await initOpeApiSpec(app);
 
@@ -40,7 +42,7 @@ async function initOpeApiSpec(app: INestApplication) {
     .addApiKey({ type: 'apiKey', in: 'header', name: 'x-api-key' }, 'ApiKey')
     .addTag('Plugin')
     .addTag('Actions')
-    .addTag('OpenAI', 'Specifications for integration with OpenAI.')
+    .addTag('Specs', 'Action specifications for different clients.')
     .addTag('Tools', 'Different tooling endpoints.')
     .addServer(pluginConfigService.pluginUrl, 'Plugin URL')
     .build();
