@@ -1,10 +1,10 @@
-import { OutputParameterDefinition, OutputObject } from '../../sdk';
+import { OutputObject } from '../../types/context';
+import { OutputParameterDefinition } from '../../types/definition';
 
 //
 // Validation
 //
 
-// TODO: test: if empty object in, empty object out
 export function validateOutput(outputDefinitions: OutputParameterDefinition[], output: OutputObject): OutputObject {
   validateNumberOfOutputParameters(output);
   const trimmedOutput = trimOutput(output);
@@ -14,7 +14,6 @@ export function validateOutput(outputDefinitions: OutputParameterDefinition[], o
   return trimmedOutput;
 }
 
-// TODO test
 export function validateNumberOfOutputParameters(output?: OutputObject): void {
   // This validation also prevents DoS attacks by limiting the length of the input parameters object:
   // (https://github.com/connery-io/connery/security/code-scanning/1)
@@ -25,7 +24,6 @@ export function validateNumberOfOutputParameters(output?: OutputObject): void {
   }
 }
 
-// Validate if all required output parameters are present
 export function validateRequiredOutputParameters(
   outputDefinitions: OutputParameterDefinition[],
   output: OutputObject,
@@ -39,7 +37,6 @@ export function validateRequiredOutputParameters(
   });
 }
 
-// Validate if the type of the output parameters are correct
 export function validateOutputParameterTypes(
   outputDefinitions: OutputParameterDefinition[],
   output: OutputObject,
@@ -62,7 +59,6 @@ export function validateOutputParameterTypes(
   });
 }
 
-// Validate if there are no extra output parameters that are not defined in the schema
 export function validateExtraOutputParameters(
   outputDefinitions: OutputParameterDefinition[],
   output: OutputObject,
@@ -80,8 +76,7 @@ export function validateExtraOutputParameters(
 // Other
 //
 
-// TODO: test
-export function trimOutput(output?: OutputObject): OutputObject {
+export function trimOutput(output: OutputObject): OutputObject {
   const trimmedOutput: OutputObject = {};
 
   if (!output) {

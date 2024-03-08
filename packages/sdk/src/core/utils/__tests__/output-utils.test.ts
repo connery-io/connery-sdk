@@ -1,9 +1,71 @@
-import { OutputParameterDefinition, OutputObject } from '../../../sdk';
+import { OutputObject } from '../../../types/context';
+import { OutputParameterDefinition } from '../../../types/definition';
 import {
   validateRequiredOutputParameters,
   validateOutputParameterTypes,
   validateExtraOutputParameters,
+  validateOutput,
+  validateNumberOfOutputParameters,
+  trimOutput,
 } from '../output-utils';
+
+//
+// Validation
+//
+
+describe('validateOutput()', () => {
+  xit('validates the output parameters by calling all validation functions', () => {
+    // TODO: implement the test
+  });
+
+  it('returns empty object if the output is empty', () => {
+    const outputDefinitions: OutputParameterDefinition[] = [];
+    const output: OutputObject = {};
+
+    expect(validateOutput(outputDefinitions, output)).toEqual({});
+  });
+
+  it('returns the trimmed output', () => {
+    const outputDefinitions: OutputParameterDefinition[] = [
+      { key: 'Name', title: 'Name', type: 'string' },
+      { key: 'Age', title: 'Age', type: 'string' },
+    ];
+    const output: OutputObject = { Name: '    John    ', Age: ' 25 ' };
+
+    expect(validateOutput(outputDefinitions, output)).toEqual({ Name: 'John', Age: '25' });
+  });
+});
+
+describe('validateNumberOfOutputParameters()', () => {
+  it('throws an error if the number of output parameters more than 100', () => {
+    const output: OutputObject = {};
+    for (let i = 0; i < 101; i++) {
+      output[`Output${i}`] = 'value';
+    }
+
+    expect(() => validateNumberOfOutputParameters(output)).toThrowError(
+      `[Output validation error] The output object is too large. The maximum number of output parameters is 100.`,
+    );
+  });
+
+  it('does not throw an error if the number of output parameters is 100', () => {
+    const output: OutputObject = {};
+    for (let i = 0; i < 100; i++) {
+      output[`Output${i}`] = 'value';
+    }
+
+    expect(() => validateNumberOfOutputParameters(output)).not.toThrow();
+  });
+
+  it('does not throw an error if the number of output parameters is less than 100', () => {
+    const output: OutputObject = {};
+    for (let i = 0; i < 99; i++) {
+      output[`Output${i}`] = 'value';
+    }
+
+    expect(() => validateNumberOfOutputParameters(output)).not.toThrow();
+  });
+});
 
 describe('validateRequiredOutputParameters()', () => {
   it('throws an error if a required output parameter is missing', () => {
@@ -154,5 +216,29 @@ describe('validateExtraOutputParameters()', () => {
     const output: OutputObject = {};
 
     expect(() => validateExtraOutputParameters(outputDefinitions, output)).not.toThrow();
+  });
+});
+
+//
+// Other
+//
+
+describe('trimOutput()', () => {
+  it('returns the trimmed output', () => {
+    const output: OutputObject = { Name: '    John    ', Age: ' 25 ' };
+
+    expect(trimOutput(output)).toEqual({ Name: 'John', Age: '25' });
+  });
+
+  it('returns empty object if the output is empty', () => {
+    const output: OutputObject = {};
+
+    expect(trimOutput(output)).toEqual({});
+  });
+
+  it('returns the same object if the output is already trimmed', () => {
+    const output: OutputObject = { Name: 'John', Age: '25' };
+
+    expect(trimOutput(output)).toEqual(output);
   });
 });

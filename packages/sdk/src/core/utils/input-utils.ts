@@ -1,10 +1,10 @@
-import { InputParameterDefinition, InputObject } from '../../sdk';
+import { InputObject } from '../../types/context';
+import { InputParameterDefinition } from '../../types/definition';
 
 //
 // Validation
 //
 
-// TODO: test: if empty object in, empty object out
 export function validateInput(inputDefinitions: InputParameterDefinition[], input: InputObject): InputObject {
   validateNumberOfInputParameters(input);
   const trimmedInput = trimInput(input);
@@ -24,7 +24,6 @@ export function validateNumberOfInputParameters(input?: InputObject): void {
   }
 }
 
-// Validate if all required input parameters are present
 export function validateRequiredInputParameters(
   inputDefinitions: InputParameterDefinition[],
   input: InputObject,
@@ -38,7 +37,6 @@ export function validateRequiredInputParameters(
   });
 }
 
-// Validate if the type of the input parameters are correct
 export function validateInputParameterTypes(inputDefinitions: InputParameterDefinition[], input: InputObject): void {
   inputDefinitions.forEach((inputDefinition) => {
     if (inputDefinition.type !== typeof input[inputDefinition.key]) {
@@ -58,7 +56,6 @@ export function validateInputParameterTypes(inputDefinitions: InputParameterDefi
   });
 }
 
-// Validate if there are no extra input parameters that are not defined in the schema
 export function validateExtraInputParameters(inputDefinitions: InputParameterDefinition[], input: InputObject): void {
   Object.keys(input).forEach((inputKey) => {
     if (!inputDefinitions.find((inputDefinition) => inputDefinition.key === inputKey)) {
@@ -71,8 +68,7 @@ export function validateExtraInputParameters(inputDefinitions: InputParameterDef
 // Other
 //
 
-// TODO: test
-export function trimInput(input?: InputObject): InputObject {
+export function trimInput(input: InputObject): InputObject {
   const trimmedInput: InputObject = {};
 
   if (!input) {

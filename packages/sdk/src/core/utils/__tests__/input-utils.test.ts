@@ -1,11 +1,40 @@
-import { InputParameterDefinition, InputObject } from '../../../sdk';
+import { InputObject } from '../../../types/context';
+import { InputParameterDefinition } from '../../../types/definition';
 import {
   validateRequiredInputParameters,
   validateInputParameterTypes,
   validateExtraInputParameters,
   validateNumberOfInputParameters,
   trimInput,
+  validateInput,
 } from '../input-utils';
+
+//
+// Validation
+//
+
+describe('validateInput()', () => {
+  xit('validates the input parameters by calling all validation functions', () => {
+    // TODO: implement the test
+  });
+
+  it('returns empty object if the input is empty', () => {
+    const inputDefinitions: InputParameterDefinition[] = [];
+    const input: InputObject = {};
+
+    expect(validateInput(inputDefinitions, input)).toEqual({});
+  });
+
+  it('returns the trimmed input', () => {
+    const inputDefinitions: InputParameterDefinition[] = [
+      { key: 'name', title: 'Name', type: 'string' },
+      { key: 'age', title: 'Age', type: 'string' },
+    ];
+    const input: InputObject = { name: '    John    ', age: ' 25 ' };
+
+    expect(validateInput(inputDefinitions, input)).toEqual({ name: 'John', age: '25' });
+  });
+});
 
 describe('validateNumberOfInputParameters()', () => {
   it('throws an error if the number of input parameters more than 100', () => {
@@ -200,10 +229,26 @@ describe('validateExtraInputParameters()', () => {
   });
 });
 
+//
+// Other
+//
+
 describe('trimInput()', () => {
-  it('trims the input parameters', () => {
+  it('returns the trimmed input', () => {
     const input: InputObject = { Name: '    John    ', Age: ' 25 ' };
 
     expect(trimInput(input)).toEqual({ Name: 'John', Age: '25' });
+  });
+
+  it('returns empty object if the input is empty', () => {
+    const input: InputObject = {};
+
+    expect(trimInput(input)).toEqual({});
+  });
+
+  it('returns the same input if the input is already trimmed', () => {
+    const input: InputObject = { Name: 'John', Age: '25' };
+
+    expect(trimInput(input)).toEqual(input);
   });
 });

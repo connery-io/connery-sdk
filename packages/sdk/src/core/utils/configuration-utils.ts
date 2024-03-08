@@ -4,7 +4,6 @@ import { ConfigurationObject, ConfigurationParameterDefinition } from '../../sdk
 // Validation
 //
 
-// TODO: test: if empty object in, empty object out
 export function validateConfiguration(
   configurationDefinitions: ConfigurationParameterDefinition[],
   configuration: ConfigurationObject,
@@ -17,7 +16,6 @@ export function validateConfiguration(
   return trimmedConfiguration;
 }
 
-// TODO: test
 export function validateNumberOfConfigurationParameters(configuration?: ConfigurationObject): void {
   // This validation also prevents DoS attacks by limiting the length of the input parameters object:
   // (https://github.com/connery-io/connery/security/code-scanning/1)
@@ -28,7 +26,6 @@ export function validateNumberOfConfigurationParameters(configuration?: Configur
   }
 }
 
-// Validate if all required configuration parameters are present
 export function validateRequiredConfigurationParameters(
   configurationParametersDefinitions: ConfigurationParameterDefinition[],
   configurationParameters: ConfigurationObject,
@@ -45,7 +42,6 @@ export function validateRequiredConfigurationParameters(
   });
 }
 
-// Validate if the type of the configuration parameters are correct
 export function validateConfigurationParameterTypes(
   configurationParametersDefinitions: ConfigurationParameterDefinition[],
   configurationParameters: ConfigurationObject,
@@ -74,7 +70,6 @@ export function validateConfigurationParameterTypes(
   });
 }
 
-// Validate if there are no extra configuration parameters that are not defined in the schema
 export function validateExtraConfigurationParameters(
   configurationParametersDefinitions: ConfigurationParameterDefinition[],
   configurationParameters: ConfigurationObject,
@@ -96,8 +91,7 @@ export function validateExtraConfigurationParameters(
 // Other
 //
 
-// TODO: test
-export function trimConfiguration(configuration?: ConfigurationObject): ConfigurationObject {
+export function trimConfiguration(configuration: ConfigurationObject): ConfigurationObject {
   const trimmedConfiguration: ConfigurationObject = {};
 
   if (!configuration) {
@@ -111,19 +105,20 @@ export function trimConfiguration(configuration?: ConfigurationObject): Configur
   return trimmedConfiguration;
 }
 
-// TODO: test
 export function resolveConfiguration(
   defaultConfiguration: ConfigurationObject | undefined,
   customConfiguration: ConfigurationObject | undefined,
 ): ConfigurationObject {
-  // The order of the spread operator is important here.
-  // The custom configuration should override the default configuration.
+  // If customConfiguration is not provided (undefined), return defaultConfiguration if it exists, or an empty object
+  if (customConfiguration === undefined) {
+    return defaultConfiguration ?? {};
+  }
 
-  // TODO: if at least one parameter of the custom configuration is defined, the default configuration should be ignored completely to prevent potential security issues.
-  // TODO: cover this with tests
+  // If customConfiguration is provided and not an empty object, return customConfiguration
+  if (Object.keys(customConfiguration).length > 0) {
+    return customConfiguration;
+  }
 
-  return {
-    ...defaultConfiguration,
-    ...customConfiguration,
-  };
+  // If customConfiguration is an empty object, return defaultConfiguration if it exists, or an empty object
+  return defaultConfiguration ?? {};
 }
