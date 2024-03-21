@@ -10,7 +10,7 @@ import { PluginConfigService } from './services/plugin-config.service.js';
 
 export async function startPluginServer(pluginDefinition: PluginDefinition) {
   const app = await NestFactory.create(AppModule, {
-    cors: true, // CORS is required for the OpenAPI specification
+    cors: true,
     logger: false,
   });
 
@@ -37,7 +37,7 @@ async function initOpeApiSpec(app: INestApplication) {
 
   const config = new DocumentBuilder()
     .setTitle('Plugin API')
-    .setDescription('This is a standartized API for the Connery plugin and its actions.')
+    .setDescription('This is a standartized API genarated by Connery SDK for the plugin.')
     .setVersion(await pluginConfigService.getSdkVersion())
     .addApiKey({ type: 'apiKey', in: 'header', name: 'x-api-key' }, 'ApiKey')
     .addTag('Plugin')
