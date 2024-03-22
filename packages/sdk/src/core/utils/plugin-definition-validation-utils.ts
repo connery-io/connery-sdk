@@ -89,10 +89,10 @@ const MaintainerSchema = zod
   })
   .strict();
 
-const ActionsType = zod.union([
-  zod.array(ActionSchema).min(1).refine(uniqueKeysValidator, { message: 'Actions must have unique keys' }),
-  zod.function(),
-]);
+const ActionsType = zod
+  .array(ActionSchema)
+  .min(1)
+  .refine(uniqueKeysValidator, { message: 'Actions must have unique keys' });
 
 const PluginSchema = zod
   .object({

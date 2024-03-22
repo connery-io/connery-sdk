@@ -11,12 +11,11 @@ interface ExtendedOperationObject extends OpenAPIV3.OperationObject {
   'x-openai-isConsequential'?: boolean;
 }
 
-// TODO
 @Injectable()
 export class OpenAiSpecsService {
   constructor(private pluginConfigService: PluginConfigService, private pluginService: PluginService) {}
 
-  // TODO
+  // TODO: Cover with tests
   async getOpenApiSpec(): Promise<OpenAPIV3.Document> {
     // This OpenAPI specification describes only the necessary minimum required for OpenAI GPTs to work.
     // Not all the parameters and responses are described here.
@@ -187,8 +186,7 @@ export class OpenAiSpecsService {
           // For 'read' action type we set the 'x-openai-isConsequential' to false, otherwise we set it to true.
           // This mean that the 'read' actions will not require a user confirmation before running.
           // But all other action types (ceate, update delete) will require a user confirmation before running.
-          //'x-openai-isConsequential': action.type !== 'read',
-          'x-openai-isConsequential': false,
+          'x-openai-isConsequential': action.type !== 'read',
           requestBody,
           responses,
           security: [
@@ -203,6 +201,7 @@ export class OpenAiSpecsService {
     return openApiSchema;
   }
 
+  // TODO: Cover with tests
   async getFunctionsSpec(): Promise<OpenAiFunctionSchema[]> {
     const openAiFunctions: OpenAiFunctionSchema[] = [];
 
