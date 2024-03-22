@@ -14,8 +14,6 @@ export async function startPluginServer(pluginDefinition: PluginDefinition) {
     logger: false,
   });
 
-  app.setGlobalPrefix('api');
-
   initPlugin(app, pluginDefinition);
   await initOpeApiSpec(app);
 
@@ -34,11 +32,12 @@ function initPlugin(app: INestApplication, pluginDefinition: PluginDefinition) {
 
 async function initOpeApiSpec(app: INestApplication) {
   const pluginConfigService = app.get(PluginConfigService);
+  const sdkVersion = await pluginConfigService.getSdkVersion();
 
   const config = new DocumentBuilder()
     .setTitle('Plugin API')
-    .setDescription('This is a standartized API genarated by Connery SDK for the plugin.')
-    .setVersion(await pluginConfigService.getSdkVersion())
+    .setDescription(`This is a standartized API genarated by Connery SDK (${sdkVersion}) for the plugin.`)
+    .setVersion(sdkVersion)
     .addApiKey({ type: 'apiKey', in: 'header', name: 'x-api-key' }, 'ApiKey')
     .addTag('Plugin')
     .addTag('Actions')

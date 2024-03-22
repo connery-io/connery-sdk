@@ -36,7 +36,7 @@ import {
     $ref: getSchemaPath(GenericErrorResponse),
   },
 })
-@Controller('/actions')
+@Controller('/api/actions')
 export class ActionsController {
   constructor(private pluginService: PluginService) {}
 

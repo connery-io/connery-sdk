@@ -8,20 +8,13 @@ import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth.guard.js';
 import { OpenAiController } from './controllers/specs.controller.js';
 import { PluginService } from './services/plugin.service.js';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join, dirname } from 'path';
 import { PluginConfigService } from './services/plugin-config.service.js';
 import { validateEnvConfig } from './utils/env-config-utils.js';
+import { HomeController } from './controllers/home.controller.js';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({ validate: validateEnvConfig }),
-    ConfigModule,
-    ServeStaticModule.forRoot({
-      rootPath: join(dirname(new URL(import.meta.url).pathname), 'static'),
-    }),
-  ],
-  controllers: [ActionsController, OpenAiController, PluginController, ToolsController],
+  imports: [ConfigModule.forRoot({ validate: validateEnvConfig }), ConfigModule],
+  controllers: [HomeController, ActionsController, OpenAiController, PluginController, ToolsController],
   providers: [
     {
       provide: APP_GUARD,

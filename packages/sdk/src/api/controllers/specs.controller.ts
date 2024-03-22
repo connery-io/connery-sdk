@@ -29,7 +29,7 @@ import { GenericErrorResponse } from '../dto.js';
   },
 })
 @ApiSecurity('ApiKey')
-@Controller('/specs')
+@Controller('/api/specs')
 export class OpenAiController {
   constructor(private openAiSpecsService: OpenAiSpecsService) {}
 

@@ -19,7 +19,6 @@
     "@nestjs/config": "^2.3.4",
     "@nestjs/core": "^9.4.3",
     "@nestjs/platform-express": "^9.4.3",
-    "@nestjs/serve-static": "^4.0.1",
     "@nestjs/swagger": "^7.3.0",
     "copyfiles": "^2.4.1",
     "openapi-types": "^12.1.3",
