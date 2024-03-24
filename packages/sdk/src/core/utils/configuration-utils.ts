@@ -109,16 +109,9 @@ export function resolveConfiguration(
   defaultConfiguration: ConfigurationObject | undefined,
   customConfiguration: ConfigurationObject | undefined,
 ): ConfigurationObject {
-  // If customConfiguration is not provided (undefined), return defaultConfiguration if it exists, or an empty object
-  if (customConfiguration === undefined) {
+  if (customConfiguration !== undefined) {
+    return customConfiguration;
+  } else {
     return defaultConfiguration ?? {};
   }
-
-  // If customConfiguration is provided and not an empty object, return customConfiguration
-  if (Object.keys(customConfiguration).length > 0) {
-    return customConfiguration;
-  }
-
-  // If customConfiguration is an empty object, return defaultConfiguration if it exists, or an empty object
-  return defaultConfiguration ?? {};
 }

@@ -257,44 +257,31 @@ describe('trimConfiguration()', () => {
 });
 
 describe('resolveConfiguration()', () => {
-  it('returns the custom configuration if the custom configuration is provided', () => {
+  it('returns the custom configuration if the custom configuration object is provided', () => {
     const defaultConfiguration: ConfigurationObject = { Name: 'John', Age: '25' };
     const customConfiguration: ConfigurationObject = { Name: 'Jane', Age: '30' };
 
     expect(resolveConfiguration(defaultConfiguration, customConfiguration)).toEqual(customConfiguration);
   });
 
-  it('returns the custom configuration if the custom configuration contains at least one parameter', () => {
-    // if at least one parameter of the custom configuration is defined, the default configuration should be ignored completely to prevent potential security issues
+  it('returns the custom configuration if the empty custom configuration object is provided', () => {
     const defaultConfiguration: ConfigurationObject = { Name: 'John', Age: '25' };
-    const customConfiguration: ConfigurationObject = { Name: 'Jane' };
+    const customConfiguration: ConfigurationObject = {};
 
     expect(resolveConfiguration(defaultConfiguration, customConfiguration)).toEqual(customConfiguration);
   });
 
-  it('returns the default configuration if the custom configuration is empty', () => {
-    const defaultConfiguration: ConfigurationObject = { Name: 'John', Age: '25' };
-
-    expect(resolveConfiguration(defaultConfiguration, {})).toEqual(defaultConfiguration);
-  });
-
-  it('returns the default configuration if the custom configuration is not provided', () => {
+  it('returns the default configuration if the custom configuration is not defined', () => {
     const defaultConfiguration: ConfigurationObject = { Name: 'John', Age: '25' };
 
     expect(resolveConfiguration(defaultConfiguration, undefined)).toEqual(defaultConfiguration);
   });
 
-  it('returns the custom configuration if the default configuration is not provided', () => {
-    const customConfiguration: ConfigurationObject = { Name: 'Jane', Age: '30' };
-
-    expect(resolveConfiguration(undefined, customConfiguration)).toEqual(customConfiguration);
-  });
-
-  it('returns an empty object if both the default and custom configurations are not provided', () => {
+  it('returns an empty default configuration object if both the default and custom configurations are not defined', () => {
     expect(resolveConfiguration(undefined, undefined)).toEqual({});
   });
 
-  it('returns an empty object if both the default and custom configurations are empty objects', () => {
+  it('returns an empty custom configuration object if both the default and custom configurations are empty objects', () => {
     expect(resolveConfiguration({}, {})).toEqual({});
   });
 });

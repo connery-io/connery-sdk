@@ -9,11 +9,10 @@ import { AuthGuard } from './auth.guard.js';
 import { OpenAiController } from './controllers/specs.controller.js';
 import { PluginService } from './services/plugin.service.js';
 import { PluginConfigService } from './services/plugin-config.service.js';
-import { validateEnvConfig } from './utils/env-config-utils.js';
 import { HomeController } from './controllers/home.controller.js';
 
 @Module({
-  imports: [ConfigModule.forRoot({ validate: validateEnvConfig }), ConfigModule],
+  imports: [ConfigModule.forRoot({ validate: PluginConfigService.validateEnvConfig }), ConfigModule],
   controllers: [HomeController, ActionsController, OpenAiController, PluginController, ToolsController],
   providers: [
     {

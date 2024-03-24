@@ -20,6 +20,7 @@ import {
   RunActionResponse,
   GenericErrorResponse,
 } from '../dto.js';
+import { PluginConfigService } from '../services/plugin-config.service.js';
 
 @ApiTags('Actions')
 @ApiSecurity('ApiKey')
@@ -38,7 +39,7 @@ import {
 })
 @Controller('/api/actions')
 export class ActionsController {
-  constructor(private pluginService: PluginService) {}
+  constructor(private pluginService: PluginService, private pluginConfigService: PluginConfigService) {}
 
   @ApiOperation({
     summary: 'List all actions from the plugin.',
@@ -156,9 +157,8 @@ export class ActionsController {
       throw new HttpException('Action not found.', 404);
     }
 
-    // TODO: get default config from the ENV config
     // TODO: throw validation errors as HTTP 400
-    const defaultConfiguration = {};
+    const defaultConfiguration = this.pluginConfigService.configuration;
     const result = await action.run(body.input, defaultConfiguration, body.configuration);
 
     return {
