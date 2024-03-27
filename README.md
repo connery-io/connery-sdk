@@ -5,6 +5,30 @@
 [![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery?quickstart=1)
 [![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
 
+## 🚀 Quickstart
+
+1. Initialize a new AI plugin with a sample action.
+
+```bash
+npx connery dev init
+```
+
+2. Install the dependencies.
+
+```bash
+npm install
+```
+
+3. Run the plugin.
+
+```bash
+npm start
+```
+
+4. Explore the plugin in your browser at [http://localhost:4201](http://localhost:4201).
+
+5. [Learn how to use the plugin and its actions.](https://docs.connery.io/docs/runner/quick-start/).
+
 ## 🤔 What is this?
 
 **With Connery, you can create plugins and use them across many platforms.
