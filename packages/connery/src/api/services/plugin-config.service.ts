@@ -14,7 +14,7 @@ export class PluginConfigService {
       /^(http:\/\/|https:\/\/)[^\s\/]+[^\/]$/,
       'The URL must start with http:// or https:// and not end with a slash',
     );
-  private static readonly apiKeySchema = z.string().min(32);
+  private static readonly apiKeySchema = z.string().min(1);
   private static readonly validationErrorConfig = {
     prefix: '[Environment configuration validation error]',
     prefixSeparator: ' ',

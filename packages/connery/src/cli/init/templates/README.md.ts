@@ -4,22 +4,18 @@ export default `# {{plugin.title}}
 
 ## Repository structure
 
-| Path                            | Description                                                                                                                                 |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| [./src/index.ts](/src/index.ts) | The entry point for the plugin. It contains the plugin definition and references to all the actions.                                        |
-| [./src/actions/](/src/actions/) | Contains all the actions this plugin defines. Every action is represented by a separate file with the action definition and implementation. |
+This repository contains the plugin's source code.
 
-## Connery
+| Path                            | Description                                                                                                                                          |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [./src/index.ts](/src/index.ts) | **The entry point for the plugin.** It contains the plugin definition and references to all the actions.                                             |
+| [./src/actions/](/src/actions/) | **This folder contains all the actions of the plugin.** Each action is represented by a separate file with the action definition and implementation. |
 
-This repository is a plugin for [Connery](https://connery.io).
+## Built using Connery SDK
 
-Connery is an open-source plugin ecosystem for AI and No-Code.
+This plugin is built using [Connery SDK](https://github.com/connery-io/connery), an open-source project for plugin development.
 
-Learn more about Connery:
-
-- [Documentation](https://docs.connery.io)
-- [Source code](https://github.com/connery-io/connery)
-- [How to start using this plugin with Connery?](https://docs.connery.io/docs/runner/quick-start/)
+[Learn how to use the plugin and its actions.](https://docs.connery.io/docs/runner/quick-start/)
 
 ## Support
 
