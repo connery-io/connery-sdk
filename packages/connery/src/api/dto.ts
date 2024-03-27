@@ -1,4 +1,4 @@
-import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiHideProperty, ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { ActionRuntime, PluginRuntime } from '../types/runtime';
 import {
   ConfigurationParameterDefinition,
@@ -300,16 +300,9 @@ export class RunActionRequest {
     [key: string]: any;
   };
 
-  @ApiPropertyOptional({
-    type: 'object',
-    title: 'The configuration for the action.',
-    description:
-      'You can find the configuration parameters metadata in the plugin. If not provided, the default plugin configuration will be used from the environment variables.',
-    example: {
-      configurationParameterKey1: 'value1',
-      configurationParameterKey2: 'value2',
-    },
-  })
+  // Hide this property in the Swagger UI to avoid confusing users and improve the user experience.
+  // This property is supposed to be used in rare cases.
+  @ApiHideProperty()
   configuration?: {
     [key: string]: any;
   };

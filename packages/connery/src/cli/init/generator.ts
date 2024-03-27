@@ -4,6 +4,8 @@ import { InitRepositoryParameters } from './types.js';
 import sampleActionTemplate from './templates/src/actions/sampleAction.ts.js';
 import indexTemplate from './templates/src/index.ts.js';
 import sampleActionTestTemplate from './templates/test/actions/sampleAction.test.ts.js';
+import dotEnvExampleTemplate from './templates/.env.example.js';
+import dotEnvTemplate from './templates/.env.js';
 import gitignoreTemplate from './templates/.gitignore.js';
 import licenseTemplate from './templates/LICENSE.js';
 import packageJsonTemplate from './templates/package.json.js';
@@ -31,6 +33,16 @@ export async function initRepository(parameters: InitRepositoryParameters) {
         type: 'add',
         path: 'test/actions/sampleAction.test.ts',
         template: sampleActionTestTemplate,
+      },
+      {
+        type: 'add',
+        path: '.env.example',
+        template: dotEnvExampleTemplate,
+      },
+      {
+        type: 'add',
+        path: '.env',
+        template: dotEnvTemplate,
       },
       {
         type: 'add',

@@ -33,7 +33,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
         message: message.toString(),
       },
     };
-    console.error(JSON.stringify({ type: 'all-exceptions-filter', message }));
+    console.error(exception);
     response.status(status).json(errorObject);
   }
 }
