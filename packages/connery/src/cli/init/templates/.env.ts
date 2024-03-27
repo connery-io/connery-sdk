@@ -1,0 +1,3 @@
+export default `PLUGIN_URL=http://localhost:4201
+API_KEY=00000000000000000000000000000000
+`;
