@@ -27,7 +27,7 @@ npm start
 
 4. Explore the plugin in your browser at [http://localhost:4201](http://localhost:4201).
 
-5. [Learn how to use the plugin and its actions.](https://docs.connery.io/docs/runner/quick-start/).
+5. [Learn how to use the plugin and its actions.](https://docs.connery.io/docs/runner/quick-start/)
 
 ## 🤔 What is this?
 
