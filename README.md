@@ -1,4 +1,4 @@
-# Connery - Plugin infrastructure for AI
+# The open-source SDK for AI plugins and actions development
 
 [![Release](https://img.shields.io/github/v/release/connery-io/connery?color=74C649&label=Release)](https://github.com/connery-io/connery/releases)
 [![License](https://img.shields.io/github/license/connery-io/connery?color=74C649&label=License)](https://github.com/connery-io/connery/blob/main/LICENSE)
