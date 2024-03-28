@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { Command } from 'commander';
 import init from './init/index.js';
 import addAction from './add-action/index.js';
