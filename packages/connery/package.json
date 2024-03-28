@@ -1,6 +1,7 @@
 {
   "name": "connery",
   "description": "Connery SDK and CLI",
+  "repository": "https://github.com/connery-io/connery",
   "version": "0.0.16",
   "license": "MIT",
   "type": "module",
@@ -84,5 +85,43 @@
     "rules": {
       "@typescript-eslint/no-explicit-any": "off"
     }
+  },
+  "release": {
+    "dryRun": true,
+    "branches": [
+      "sdk-v2"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "releaseRules": [
+            {
+              "breaking": true,
+              "release": "minor"
+            },
+            {
+              "revert": true,
+              "release": "patch"
+            },
+            {
+              "type": "feat",
+              "release": "patch"
+            },
+            {
+              "type": "fix",
+              "release": "patch"
+            },
+            {
+              "type": "docs",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
   }
 }

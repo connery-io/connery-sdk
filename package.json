@@ -15,7 +15,6 @@
     "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
     "dotenv-cli": "^7.2.1",
     "turbo": "latest"
   }
