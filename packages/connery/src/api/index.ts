@@ -7,7 +7,7 @@ import { PluginService } from './services/plugin.service.js';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
 import { PluginConfigService } from './services/plugin-config.service.js';
-import { logError, logSuccess } from '../cli/shared.js'; // TODO move this out of CLI and share between CLI and SDK
+import { logAdditionalData, logError, logSuccess } from '../cli/shared.js'; // TODO move this out of CLI and share between CLI and SDK
 
 export async function startPluginServer(pluginDefinition: PluginDefinition) {
   try {
@@ -22,7 +22,8 @@ export async function startPluginServer(pluginDefinition: PluginDefinition) {
     app.useGlobalFilters(new AllExceptionsFilter());
 
     await app.listen(4201);
-    logSuccess(`The plugin server is up and running. You can access it in a browser at http://localhost:4201.`);
+    logSuccess('The plugin server is up and running.');
+    logAdditionalData('You can access it in a browser at http://localhost:4201.');
   } catch (error: any) {
     logError(error);
   }
