@@ -19,7 +19,7 @@ jobs:
       - run: yarn install
         working-directory: ./packages/connery
 
-      - run: yarn format
+      - run: yarn run format:check
         working-directory: ./packages/connery
 
   lint:
@@ -35,7 +35,7 @@ jobs:
       - run: yarn install
         working-directory: ./packages/connery
 
-      - run: yarn lint
+      - run: yarn run lint
         working-directory: ./packages/connery
 
   test:
@@ -51,7 +51,7 @@ jobs:
       - run: yarn install
         working-directory: ./packages/connery
 
-      - run: yarn test
+      - run: yarn run test
         working-directory: ./packages/connery
 
   release:
