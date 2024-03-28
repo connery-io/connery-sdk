@@ -14,7 +14,9 @@ export class HomeController {
   getHomePage(@Res() res: Response) {
     const pluginTitle = this.pluginService.plugin.title;
     const pluginDescription = this.pluginService.plugin.description;
-    const listOfActions = this.pluginService.plugin.actions.map((action) => '"' + action.title + '"').join(', ');
+    const listOfActions = this.pluginService.plugin.actions
+      .map((action) => '<span class="italic">' + action.title + '</span>')
+      .join(', ');
 
     const htmlContent = `
       <html>
@@ -36,7 +38,7 @@ export class HomeController {
               <section class="grid gap-8 md:gap-16">
                 <div class="space-y-4">
                   <h2 class="text-2xl font-bold tracking-tighter sm:text-3xl">Available actions</h2>
-                  <p class="text-gray-500">This <a class="underline" href="#">plugin</a> contains the following <a class="underline" href="#">actions</a>: ${listOfActions}</p>
+                  <p class="text-gray-500">This <a class="underline" href="#">plugin</a> contains the following <a class="underline" href="#">actions</a>:<br/> ${listOfActions}</p>
                   <div class="flex justify-center gap-4">
                   <a
                     class="inline-flex items-center justify-center h-10 px-4 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-900 shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950"

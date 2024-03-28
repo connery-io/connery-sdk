@@ -3,7 +3,7 @@ import { OpenAPIV3 } from 'openapi-types';
 import { OpenAiFunctionSchema } from '../../types/llm.js';
 import { PluginService } from './plugin.service.js';
 import { PluginConfigService } from './plugin-config.service.js';
-import { ConfigurationParameter, InputParameter, OutputParameter } from '../dto.js';
+import { InputParameter, OutputParameter } from '../dto.js';
 
 interface ExtendedOperationObject extends OpenAPIV3.OperationObject {
   // This custom extension property is used by OpenAI Actions to determine if the action requires a confirmation before running.
@@ -99,29 +99,6 @@ export class OpenAiSpecsService {
                   required: action.inputParameters
                     .filter((inputParameter) => inputParameter.validation?.required)
                     .map((inputParameter) => inputParameter.key),
-                },
-                configuration: {
-                  type: 'object',
-                  title: 'Configuration (optional)',
-                  description: `This object contains the configuration for the plugin. 
-                  If not provided, the plugin will use the default configuration set in environment variables.
-                  If provided, it will override the default configuration.
-                  If the default configuration values are not set, the values in the configuration object will be required.
-                  In case you receive an error, please ask the user to specify the configuration to proceed.`,
-                  properties: action.plugin.configurationParameters.reduce(
-                    (
-                      accumulator: Record<string, OpenAPIV3.SchemaObject>,
-                      configurationParameter: ConfigurationParameter,
-                    ) => {
-                      accumulator[configurationParameter.key] = {
-                        type: 'string',
-                        title: configurationParameter.title,
-                        description: configurationParameter.description,
-                      };
-                      return accumulator;
-                    },
-                    {},
-                  ),
                 },
               },
               required: ['input'],

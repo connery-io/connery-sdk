@@ -1,3 +1,4 @@
+import { logEmptyLine } from '../shared.js';
 import { initRepository } from './generator.js';
 import { collectUserInput, removeFile, showErrorMessage, showSuccessMessage } from './utils.js';
 
@@ -13,9 +14,10 @@ export default async function () {
 
     await initRepository(userInput);
 
+    logEmptyLine();
     showSuccessMessage();
   } catch (error: any) {
+    logEmptyLine();
     showErrorMessage(error.message);
-    throw error;
   }
 }

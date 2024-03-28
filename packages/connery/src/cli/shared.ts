@@ -29,6 +29,11 @@ export function logSuccess(message: string) {
   console.log(`✅ ${logMessage}`);
 }
 
+export function logAdditionalData(message: string) {
+  const logMessage = chalk.reset.hex(additionalDataColor)(message);
+  console.log(logMessage);
+}
+
 export function logError(message: string) {
   const logMessage = chalk.reset.hex(errorColor).bold(message);
   console.log(`🔴 ${logMessage}`);

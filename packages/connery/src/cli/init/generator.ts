@@ -11,6 +11,7 @@ import licenseTemplate from './templates/LICENSE.js';
 import packageJsonTemplate from './templates/package.json.js';
 import readmeTemplate from './templates/README.md.js';
 import tsconfigTemplate from './templates/tsconfig.json.js';
+import { logAdditionalData, logEmptyLine } from '../shared.js';
 
 export async function initRepository(parameters: InitRepositoryParameters) {
   const plot = await nodePlop('');
@@ -36,13 +37,13 @@ export async function initRepository(parameters: InitRepositoryParameters) {
       },
       {
         type: 'add',
-        path: '.env.example',
-        template: dotEnvExampleTemplate,
+        path: '.env',
+        template: dotEnvTemplate,
       },
       {
         type: 'add',
-        path: '.env',
-        template: dotEnvTemplate,
+        path: '.env.example',
+        template: dotEnvExampleTemplate,
       },
       {
         type: 'add',
@@ -73,5 +74,19 @@ export async function initRepository(parameters: InitRepositoryParameters) {
   });
 
   const generator = plot.getGenerator(generatorName);
-  await generator.runActions(parameters);
+  const results = await generator.runActions(parameters);
+
+  if (results.changes.length > 0) {
+    logEmptyLine();
+    logAdditionalData('Changes made:');
+    results.changes.forEach((change) => {
+      logAdditionalData(`- ${change.type} ${change.path}`);
+    });
+  }
+
+  if (results.failures.length) {
+    throw new Error(
+      results.failures.map((failure) => ` - ${failure.type} ${failure.path}: ${failure.error}`).join('\n'),
+    );
+  }
 }

@@ -7,7 +7,7 @@ export async function collectUserInput(): Promise<AddActionParameters> {
 
   const answers = {
     actionTitle: await input({
-      message: styleQuestion('What is the action title?', '(e.g.: My test action)'),
+      message: styleQuestion('What is the action title?', '(e.g.: Send email)'),
       transformer: styleAnswer,
       validate: (value: string) => {
         if (value.trim() === '') {

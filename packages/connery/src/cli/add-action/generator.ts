@@ -1,8 +1,10 @@
 import nodePlop from 'node-plop';
+import { Project, PropertyAssignment, SyntaxKind } from 'ts-morph';
 import { AddActionParameters } from './types.js';
 
 import actionTemplate from './templates/action.ts.js';
 import actionTestTemplate from './templates/action.test.ts.js';
+import { logAdditionalData, logEmptyLine } from '../shared.js';
 
 export async function addAction(parameters: AddActionParameters) {
   const plot = await nodePlop('');
@@ -22,62 +24,76 @@ export async function addAction(parameters: AddActionParameters) {
         template: actionTestTemplate,
       },
       {
-        type: 'modify', // Import the new action in the index.ts file
+        type: 'modify',
         path: 'src/index.ts',
         transform: (fileContents: any, answers: any) => {
-          const sdkImport = "import { PluginDefinition } from '@connery-io/sdk';\n";
-          const newImport = `import ${answers.key} from './actions/${answers.key}';\n`;
+          const project = new Project();
+          const sourceFile = project.createSourceFile('tmp.ts', fileContents);
 
-          // Check if the import statement already exists to prevent duplicates
-          if (fileContents.includes(newImport.trim())) {
-            return fileContents; // If it exists, return the file contents unmodified
+          // Add the new action import
+          sourceFile.addImportDeclaration({
+            moduleSpecifier: `./actions/${answers.key}.js`,
+            defaultImport: answers.key,
+          });
+
+          const pluginDefinition = sourceFile.getVariableDeclaration('pluginDefinition');
+          if (!pluginDefinition) {
+            throw new Error("The 'pluginDefinition' variable is not found in the ./src/index.ts file.");
           }
 
-          // Replace the sdkImport line with itself followed by the new import line
-          return fileContents.replace(sdkImport, sdkImport + newImport);
-        },
-      },
-      {
-        type: 'modify', // Add the new action to the actions array
-        path: 'src/index.ts',
-        transform: (fileContents: any, answers: any) => {
-          // Define the newItem to be added
-          const newItem = answers.key;
-          // Define a RegExp pattern to match the actions array
-          const actionsPattern = /actions:\s*\[\s*([^]*?)\s*\]/gm;
+          const pluginDefinitionInitializer = pluginDefinition.getInitializerIfKind(SyntaxKind.ObjectLiteralExpression);
+          if (!pluginDefinitionInitializer) {
+            throw new Error("The 'pluginDefinition' is not an object.");
+          }
 
-          // Replace the content by using String.replace with a callback function
-          return fileContents.replace(actionsPattern, (match: any, actionContent: any) => {
-            // Check if 'newItem' already exists to prevent duplicates
-            if (actionContent.includes(newItem)) {
-              return match; // If it exists, return the original match
+          const actionsProperty = pluginDefinitionInitializer.getProperty('actions');
+          if (!actionsProperty) {
+            throw new Error("The 'actions' property is not found in the 'pluginDefinition' object.");
+          }
+
+          if (actionsProperty instanceof PropertyAssignment) {
+            const actionsArrayLiteral = actionsProperty.getInitializerIfKind(SyntaxKind.ArrayLiteralExpression);
+            if (!actionsArrayLiteral) {
+              throw new Error("The 'actions' property is not an array.");
             }
 
-            // Determine if the action array is multiline based on the match
-            const isMultiline = match.trim().endsWith('],');
-
-            // Prepare the formatted new action string
-            const newActionFormatted = isMultiline ? `  ${newItem},\n` : `${newItem}, `;
-
-            // Insert 'newItem' at the beginning of the actionContent
-            // Preserve formatting by including new lines and spaces if multiline
-            if (isMultiline) {
-              return match.replace(/\[\s*/, `[\n  ${newActionFormatted}`);
-            } else {
-              return match.replace(/\[\s*/, `[${newActionFormatted}`);
+            const isAlreadyAdded = actionsArrayLiteral
+              .getElements()
+              .some((element) => element.getText() === answers.key);
+            if (isAlreadyAdded) {
+              throw new Error(
+                `The action '${answers.key}' is already exists in the 'actions' array in the ./src/index.ts file.`,
+              );
             }
-          });
+
+            // Add the new action to the actions array
+            actionsArrayLiteral.addElement(answers.key);
+          } else {
+            throw new Error(
+              "The 'actions' should be a direct property of the 'pluginDefinition' object (like 'actions: [value]'), but it appears to be defined in a different manner.",
+            );
+          }
+
+          return sourceFile.getFullText();
         },
-      },
-      {
-        type: 'modify',
-        path: 'README.md',
-        pattern: /(Description\s*\|\s*.*?\|(\r?\n))/g, // Add the new action to the beginning of the table
-        template: '$1| [{{title}}](/src/actions/{{key}}.ts) | {{description}} |\n',
       },
     ],
   });
 
   const generator = plot.getGenerator(generatorName);
-  await generator.runActions(parameters);
+  const results = await generator.runActions(parameters);
+
+  if (results.changes.length > 0) {
+    logEmptyLine();
+    logAdditionalData('Changes made:');
+    results.changes.forEach((change) => {
+      logAdditionalData(`- ${change.type} ${change.path}`);
+    });
+  }
+
+  if (results.failures.length) {
+    throw new Error(
+      results.failures.map((failure) => ` - ${failure.type} ${failure.path}: ${failure.error}`).join('\n'),
+    );
+  }
 }

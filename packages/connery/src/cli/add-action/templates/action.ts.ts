@@ -1,6 +1,6 @@
-export default `import { ActionDefinition, ActionContext, OutputParametersObject } from '@connery-io/sdk';
+export default `import { ActionDefinition, ActionContext, OutputObject } from 'connery';
 
-const action: ActionDefinition = {
+const actionDefinition: ActionDefinition = {
   key: '{{key}}',
   title: '{{title}}',
   description: '{{description}}',
@@ -11,12 +11,9 @@ const action: ActionDefinition = {
   },
   outputParameters: [],
 };
-export default action;
+export default actionDefinition;
 
-export async function handler({
-  inputParameters,
-  configurationParameters,
-}: ActionContext): Promise<OutputParametersObject> {
+export async function handler({ input, configuration }: ActionContext): Promise<OutputObject> {
   // TODO: Implement the action logic.
 
   return {};
