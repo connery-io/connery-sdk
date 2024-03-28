@@ -1,9 +1,31 @@
-# Connery - Plugin infrastructure for AI
+# The open-source SDK for AI plugins and actions development
 
 [![Release](https://img.shields.io/github/v/release/connery-io/connery?color=74C649&label=Release)](https://github.com/connery-io/connery/releases)
 [![License](https://img.shields.io/github/license/connery-io/connery?color=74C649&label=License)](https://github.com/connery-io/connery/blob/main/LICENSE)
-[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery?quickstart=1)
-[![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
+
+## 🚀 Quickstart
+
+1. Initialize a new AI plugin with a sample action.
+
+```bash
+npx connery dev init
+```
+
+2. Install the dependencies.
+
+```bash
+npm install
+```
+
+3. Run the plugin.
+
+```bash
+npm start
+```
+
+4. Explore the plugin in your browser at [http://localhost:4201](http://localhost:4201).
+
+5. [Learn how to use the plugin and its actions.](https://docs.connery.io/docs/runner/quick-start/)
 
 ## 🤔 What is this?
 
@@ -152,13 +174,11 @@ You can reach us via the following channels:
 
 This is a monorepo that contains the following components:
 
-| Name   | Path                 | Description                                                                                                     |
-| ------ | -------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Runner | `./apps/runner`      | The core of Connery that knows how to handle plugins, run actions, and provide a standardized API as an output. |
-| Docs   | `./apps/docs`        | The [documentation](https://docs.connery.io/) website.                                                          |
-| CLI    | `./packages/connery` | [`connery`](https://www.npmjs.com/package/connery) CLI package for plugin development.                          |
-| SDK    | `./packages/sdk`     | [`@connery-io/sdk`](https://www.npmjs.com/package/@connery-io/sdk) SDK package for plugin development.          |
-| Lib    | `./packages/lib`     | Shared library for the runner and the CLI.                                                                      |
+| Name | Path             | Description                                                                                            |
+| ---- | ---------------- | ------------------------------------------------------------------------------------------------------ |
+| Docs | `./apps/docs`    | The [documentation](https://docs.connery.io/) website.                                                 |
+| CLI  | `./packages/cli` | [`connery`](https://www.npmjs.com/package/connery) CLI package for plugin development.                 |
+| SDK  | `./packages/sdk` | [`@connery-io/sdk`](https://www.npmjs.com/package/@connery-io/sdk) SDK package for plugin development. |
 
 ## 👨‍💻 Contributing
 

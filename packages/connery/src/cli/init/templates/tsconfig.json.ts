@@ -1,4 +1,4 @@
-{
+export default `{
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
@@ -15,8 +15,10 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "declaration": true
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
+`;
