@@ -2,7 +2,7 @@
   "name": "connery",
   "description": "Connery SDK and CLI",
   "repository": "https://github.com/connery-io/connery",
-  "version": "0.0.16",
+  "version": "0.1.0",
   "license": "MIT",
   "type": "module",
   "main": "./dist/sdk.js",
