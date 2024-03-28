@@ -3,7 +3,8 @@ name: Release
 on:
   push:
     branches:
-      - sdk-v2
+      - main
+      - beta
 
 jobs:
   format:
