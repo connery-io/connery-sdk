@@ -88,7 +88,6 @@
     }
   },
   "release": {
-    "dryRun": true,
     "branches": [
       "main",
       {
