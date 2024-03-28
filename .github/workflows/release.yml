@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: "20"
 
-      - run: npm install
+      - run: yarn install
         working-directory: ./packages/connery
 
       - run: npx semantic-release
