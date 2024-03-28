@@ -89,7 +89,11 @@
   "release": {
     "dryRun": true,
     "branches": [
-      "sdk-v2"
+      "main",
+      {
+        "name": "beta",
+        "prerelease": true
+      }
     ],
     "plugins": [
       [
@@ -101,7 +105,7 @@
               "release": "minor"
             },
             {
-              "revert": true,
+              "type": "fix",
               "release": "patch"
             },
             {
@@ -109,12 +113,20 @@
               "release": "patch"
             },
             {
-              "type": "fix",
+              "type": "refactor",
               "release": "patch"
             },
             {
+              "type": "chore",
+              "release": false
+            },
+            {
+              "type": "test",
+              "release": false
+            },
+            {
               "type": "docs",
-              "release": "patch"
+              "release": false
             }
           ]
         }
