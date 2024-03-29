@@ -68,7 +68,7 @@
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-      "project": "./packages/connery/tsconfig.json",
+      "project": true,
       "sourceType": "module"
     },
     "plugins": [
