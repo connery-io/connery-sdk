@@ -11,7 +11,7 @@
   "bin": "./dist/cli.js",
   "scripts": {
     "dev": "tsc -w",
-    "build": "tsc",
+    "build": "tsc && chmod +x dist/cli.js",
     "test": "jest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
