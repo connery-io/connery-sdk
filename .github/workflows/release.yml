@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - beta
+      - con-79-2
 
 jobs:
   format:
