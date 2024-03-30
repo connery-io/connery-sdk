@@ -7,9 +7,6 @@ on:
       - beta
       - con-79-2
 
-concurrency:
-  group: release
-
 jobs:
   format:
     name: Format
