@@ -96,10 +96,6 @@
     "branches": [
       "main",
       {
-        "name": "con-79-2",
-        "prerelease": true
-      },
-      {
         "name": "beta",
         "prerelease": true
       }
