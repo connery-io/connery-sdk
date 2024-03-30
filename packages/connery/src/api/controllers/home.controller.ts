@@ -64,18 +64,8 @@ export class HomeController {
                 <div class="space-y-4">
                   <h2 class="text-2xl font-bold tracking-tighter sm:text-3xl">Built using Connery SDK</h2>
                   <p class="text-gray-500">
-                    This plugin is built using Connery SDK, an open-source project for plugin development.<br/>
-                    Check out the GitHub repository to learn more.
+                    This plugin is built using <a class="underline" href="https://github.com/connery-io/connery" target="_blank">Connery SDK</a>,<br/>the open-source SDK for AI plugins and actions development.
                   </p>
-                  <div class="flex justify-center gap-4">
-                    <a
-                      class="inline-flex items-center justify-center h-10 px-4 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-900 shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950"
-                      href="https://github.com/connery-io/connery"
-                      target="_blank"
-                    >
-                      GitHub Repository
-                    </a>
-                  </div>
                 </div>
               </section>
             </main>
