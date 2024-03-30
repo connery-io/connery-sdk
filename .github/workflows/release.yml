@@ -69,6 +69,9 @@ jobs:
       - run: yarn install
         working-directory: ./packages/connery
 
+      - run: yarn run build
+        working-directory: ./packages/connery
+
       - run: npx semantic-release
         working-directory: ./packages/connery
         env:
