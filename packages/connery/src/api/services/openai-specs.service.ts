@@ -29,7 +29,7 @@ export class OpenAiSpecsService {
       servers: [
         {
           description: 'Plugin URL',
-          url: this.pluginConfigService.pluginUrl,
+          url: this.pluginConfigService.pluginServerUrl,
         },
       ],
       paths: {},
