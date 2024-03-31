@@ -3,8 +3,8 @@ const sidebars = {
     {
       label: "Introduction",
       type: "category",
-      collapsible: false,
-      collapsed: false,
+      collapsible: true,
+      collapsed: true,
       link: {
         type: 'doc',
         id: 'introduction/index',
@@ -16,8 +16,8 @@ const sidebars = {
     {
       label: "Quickstart",
       type: "category",
-      collapsible: false,
-      collapsed: false,
+      collapsible: true,
+      collapsed: true,
       link: {
         type: 'doc',
         id: 'quickstart/index',
@@ -30,23 +30,35 @@ const sidebars = {
     {
       label: "SDK",
       type: "category",
-      collapsible: false,
-      collapsed: false,
+      collapsible: true,
+      collapsed: true,
       link: {
         type: 'doc',
         id: 'sdk/index',
       },
       items: [
-        'sdk/configuration',
-        'sdk/plugin-api',
-        'sdk/sdk-api-reference',
+        {
+          label: "Plugin server",
+          type: "category",
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'sdk/plugin-server/index',
+          },
+          items: [
+            'sdk/plugin-server/configuration',
+            'sdk/plugin-server/rest-api',
+          ],
+        },
+        'sdk/api-reference',
       ],
     },
     {
       label: "CLI",
       type: "category",
-      collapsible: false,
-      collapsed: false,
+      collapsible: true,
+      collapsed: true,
       link: {
         type: 'doc',
         id: 'cli/index',
@@ -87,8 +99,8 @@ const sidebars = {
         {
           label: "OpenAI",
           type: "category",
-          collapsible: false,
-          collapsed: false,
+          collapsible: true,
+          collapsed: true,
           link: {
             type: 'doc',
             id: 'clients/openai/index',
@@ -101,8 +113,8 @@ const sidebars = {
         {
           label: "LangChain",
           type: "category",
-          collapsible: false,
-          collapsed: false,
+          collapsible: true,
+          collapsed: true,
           link: {
             type: 'doc',
             id: 'clients/langchain/index',
