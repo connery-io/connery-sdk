@@ -1,5 +1,5 @@
 const sidebars = {
-  platformSidebar: [
+  docsSidebar: [
     {
       label: "Introduction",
       type: "category",
@@ -7,10 +7,10 @@ const sidebars = {
       collapsed: false,
       link: {
         type: 'doc',
-        id: 'runner/introduction/index',
+        id: 'introduction/index',
       },
       items: [
-        'runner/introduction/core-concepts',
+        'introduction/core-concepts',
       ],
     },
     {
@@ -20,12 +20,40 @@ const sidebars = {
       collapsed: false,
       link: {
         type: 'doc',
-        id: 'runner/quick-start/index',
+        id: 'quickstart/index',
       },
       items: [
-        'runner/quick-start/set-up-runner',
-        'runner/quick-start/install-plugin-on-the-runner',
-        'runner/quick-start/use-clients-to-call-actions',
+        'quickstart/create-plugin',
+        'quickstart/use-plugin',
+      ],
+    },
+    {
+      label: "SDK",
+      type: "category",
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'sdk/index',
+      },
+      items: [
+        'sdk/configuration',
+        'sdk/plugin-api',
+        'sdk/sdk-api-reference',
+      ],
+    },
+    {
+      label: "CLI",
+      type: "category",
+      collapsible: false,
+      collapsed: false,
+      link: {
+        type: 'doc',
+        id: 'cli/index',
+      },
+      items: [
+        'cli/connery-dev-init',
+        'cli/connery-dev-add-action',
       ],
     },
   ],

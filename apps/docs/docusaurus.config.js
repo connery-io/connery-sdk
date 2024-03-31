@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Connery',
+  title: 'Connery SDK',
   url: 'https://docs.connery.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -45,11 +45,11 @@ const config = {
     ({
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'Connery Docs',
+        title: 'Connery SDK',
         items: [
           {
-            label: 'Runner',
-            docId: 'runner/introduction/index',
+            label: 'Docs',
+            docId: 'introduction/index',
             type: 'doc',
             position: 'left',
           },
