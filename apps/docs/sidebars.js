@@ -100,7 +100,7 @@ const sidebars = {
           label: "OpenAI",
           type: "category",
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           link: {
             type: 'doc',
             id: 'clients/openai/index',
@@ -114,7 +114,7 @@ const sidebars = {
           label: "LangChain",
           type: "category",
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           link: {
             type: 'doc',
             id: 'clients/langchain/index',
@@ -126,8 +126,6 @@ const sidebars = {
         },
         'clients/slack',
         'clients/make',
-        'clients/api',
-        'clients/cli',
       ],
     },
   ],
