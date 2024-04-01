@@ -1,3 +1,154 @@
-# Create plugin
+# Create a plugin
 
-A quickstart guide to creating a new plugin with actions.
+Learn how to create a new plugin with actions and run it locally.
+
+## 1. Create a new GitHub repository
+
+The repository will be used to store the plugin code and configuration.
+
+Open the [GitHub repository creation page](https://github.com/new) and follow the instructions below.
+
+1. Select the **Owner** of the repository.
+2. Enter the **Repository name**. This is also the name of your future plugin.
+   We recommend using the snake case naming convention.
+   For example, if you decide to call your plugin **My first plugin**, the repository name should be `my-first-plugin`.
+3. Select the **Public** repository visibility.
+4. Select the **Add a README file** option to initialize the repository with a README file.
+   It will also create a new default branch for the repository.
+5. Choose the **MIT License** as the license for the repository.
+6. Please ensure the branch name is `main` as it is used across the docs.
+   You can use any branch name but must be aware of it when following the docs.
+7. Click the **Create repository** button.
+
+:::tip
+We sincerely encourage making plugins public and open-source under the MIT license
+to make them available to the community and grow the plugin ecosystem.
+:::
+
+## 2. Create a codespace
+
+Codespace development environment is the fastest way to start plugin development without installing additional software on your machine.
+
+Use the green **Code** button in the top right corner of your repository.
+Then open the **Codespaces** tab and click **Create codespace on main**.
+It will start the codespace creation process.
+
+:::info
+GitHub Codespaces are [free of charge for 120 hours per month](https://docs.github.com/en/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts) for personal accounts.
+The codespace will stop running after a period of inactivity to safe resources.
+[By default, this period is 30 minutes.](https://docs.github.com/en/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces?tool=webui#about-the-idle-timeout)
+:::
+
+If you prefer a local development environment, skip this
+step, clone the repository, open it in your favorite IDE, and continue with
+the next steps. In this case, ensure you have the latest stable version of Node.js installed.
+
+## 3. Initialize the plugin repository
+
+Use the [`connery dev init`](/docs/cli/connery-dev-init) CLI command to initialize the plugin repository with all the necessary files and configuration.
+
+```
+npx connery@latest dev init
+```
+
+## 4. Install dependencies
+
+To continue the plugin development, you must install all the dependencies defined in the `./package.json` file.
+Run the following command in the terminal to install the dependencies.
+
+```
+npm install
+```
+
+## 5. Add a new action to the plugin (optional)
+
+Use the [`connery dev add-action`](/docs/cli/connery-dev-add-action) CLI command to add a new action to the plugin.
+
+```
+npx connery@latest dev add-action
+```
+
+## 6. Implement the action (optional)
+
+Open the `./src/actions` directory and find the newly created action file,
+define input and output parameters of the action and implement the logic of the action in the `handler` function.
+
+During the development, you may need to install additional dependencies.
+For example, the [`axios`](https://github.com/axios/axios) package to make HTTP requests to external APIs.
+To install it and add it to the `./package.json` file, run the following command:
+
+```
+npm install axios --save
+```
+
+In the same way, you can install any other NPM package.
+
+:::note Helpful resources
+
+- Use the sample action as an example.
+- Check the [plugin definition types](/docs/sdk/api-reference#plugin-definition-types)
+  to understand what is expected definition for the plugin and its actions.
+- Use the [existing open-source plugins](/docs/plugins/) as an inspiration and example.
+
+:::
+
+## 7. Start the plugin server
+
+Run the following command to start the plugin server:
+
+```
+npm start
+```
+
+The plugin server is configured with default values in the `.env` file generated during the initialization.
+So you can start the server without any additional configuration.
+
+Once the plugin server is running, you can access its main page at [http://localhost:4201](http://localhost:4201) in your browser.
+
+:::note Helpful resources
+
+Learn more about the [plugin server](/docs/sdk/plugin-server/).
+
+:::
+
+## 8. Run the action (optional)
+
+Let's run the sample action from the plugin to see how it works.
+This is helpful to test the action during the development process.
+
+Use the following command to run the action from the plugin.
+The plugin server must be running to call the action.
+
+```
+curl -X 'POST' \
+  'http://localhost:4201/api/actions/sampleAction/run' \
+  -H 'accept: application/json' \
+  -H 'x-api-key: 123456' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "input": {
+    "number1": "1",
+    "number2": "2"
+  }
+}'
+```
+
+Also, you can run the action using the [Interactive OpenAPI docs](/docs/sdk/plugin-server/rest-api) in your browser.
+
+## 9. Commit the files
+
+Run the following command to commit and push all the files to GitHub.
+
+```
+
+git add . && git commit -m "Init plugin repository" && git push origin main
+
+```
+
+:::caution
+Please make sure you delete all the secrets you might be used during testing before pushing the changes to the repository.
+:::
+
+## Next steps
+
+Now, when you have a new plugin, let's learn [how to use the plugin and its actions](/docs/quickstart/use-plugin) using clients.

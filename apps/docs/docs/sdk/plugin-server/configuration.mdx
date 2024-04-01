@@ -23,6 +23,8 @@ The API key that the plugin server will use to validate incoming requests.
 
 Required: Depends on the configuration parameter validation rules in the plugin definition.
 
+Use this environment variable to set the value of a configuration parameter of the plugin.
+
 Replace the `<configurationParameterKey>` with the key of the configuration parameter from the plugin definition.
 For example, if the plugin definition has a configuration parameter with the key `emailAdress`, you would set the environment variable `CONFIG_emailAdress` to the value you want to use.
 Then, the plugin server passes this value to the plugin and its actions.

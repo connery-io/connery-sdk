@@ -48,6 +48,7 @@ const sidebars = {
           },
           items: [
             'sdk/plugin-server/configuration',
+            'sdk/plugin-server/connection-string',
             'sdk/plugin-server/rest-api',
           ],
         },
@@ -71,19 +72,6 @@ const sidebars = {
   ],
   pluginsSidebar: [
     'plugins/index',
-    {
-      label: "Guides",
-      type: "category",
-      collapsible: false,
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'plugins/guides/index',
-      },
-      items: [
-        'plugins/guides/create-plugin',
-      ],
-    }
   ],
   clientsSidebar: [
     {
