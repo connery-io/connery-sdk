@@ -5,29 +5,29 @@
 
 ## 🚀 Quickstart
 
-1. Initialize a new AI plugin with a sample action.
+1. Initialize a new plugin with a sample action:
 
 ```bash
-npx connery dev init
+npx connery@latest dev init
 ```
 
-2. Install the dependencies.
+2. Install the dependencies:
 
 ```bash
 npm install
 ```
 
-3. Run the plugin.
+3. Run the plugin server:
 
 ```bash
 npm start
 ```
 
-4. Explore the plugin in your browser at [http://localhost:4201](http://localhost:4201).
+And open the plugin in the browser: [http://localhost:4201](http://localhost:4201)
 
-5. [Learn how to use the plugin and its actions.](https://sdk.connery.io/docs/runner/quick-start/)
+👉 Check our [Quickstart](https://sdk.connery.io/docs/quickstart/) guide to learn more.
 
-## 🤔 What is this?
+## 🤔 What is this? - TODO
 
 **With Connery, you can create plugins and use them across many platforms.
 Connery will handle the rest: isolated runtime, authorization, secret management, access management,
@@ -46,7 +46,7 @@ such as authorization, secret management, access management, and other vital fea
 
 This is where Connery comes into play.
 
-## ⚙️ How does it work?
+## ⚙️ How does it work? - TODO
 
 <img alt="Connery diagram" src="./apps/docs/static/img/repo/connery-diagram1.png">
 
@@ -77,27 +77,17 @@ Connery consists of four main components that tightly work together:
 
 The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://sdk.connery.io/docs/clients/).
 
-## 💡 Use cases
-
-- [Actions in GPTs](https://sdk.connery.io/docs/use-cases/actions-in-gpts/)
-- [Actions in AI agents and apps](https://sdk.connery.io/docs/use-cases/actions-in-ai-agents-and-apps/)
-- [Actions in AI wearables](https://sdk.connery.io/docs/use-cases/actions-in-ai-wearables/)
-- [Private AI-actions control center](https://sdk.connery.io/docs/use-cases/private-ai-actions-control-center/)
-- [Automations in Team Collaboration tools](https://sdk.connery.io/docs/use-cases/automations-in-team-collaboration-tools/)
-- [Custom actions in No-Code tools](https://sdk.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
-- [CI/CD automations](https://sdk.connery.io/docs/use-cases/ci-cd-automations/)
-
-## ✅ Example 1: Summarize a webpage and send it by email from OpenGPTs
-
-<img alt="Summarize a webpage and send it by email from OpenGPTs" src="./apps/docs/static/img/repo/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
-
-Learn more: [LangChain OpenGPTs client](https://sdk.connery.io/docs/clients/langchain/opengpts).
-
-## ✅ Example 2: Send email from an OpenAI GPT
+## ✅ Example 1: Send email from an OpenAI GPT
 
 <img alt="Send email from an OpenAI GPT" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
 Learn more: [OpenAI GPT client](https://sdk.connery.io/docs/clients/openai/gpt).
+
+## ✅ Example 2: Summarize a webpage and send it by email from OpenGPTs
+
+<img alt="Summarize a webpage and send it by email from OpenGPTs" src="./apps/docs/static/img/repo/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
+
+Learn more: [LangChain OpenGPTs client](https://sdk.connery.io/docs/clients/langchain/opengpts).
 
 ## ✅ Example 3: Scale back-end service on AWS from Slack
 
@@ -111,7 +101,16 @@ Please **give the repository a star** to support the project and stay up-to-date
 
 <img src="./apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
 
-## ✨ Features
+## 💡 Use cases
+
+- [Actions in GPTs](https://sdk.connery.io/docs/use-cases/actions-in-gpts/)
+- [Actions in AI agents and apps](https://sdk.connery.io/docs/use-cases/actions-in-ai-agents-and-apps/)
+- [Actions in AI wearables](https://sdk.connery.io/docs/use-cases/actions-in-ai-wearables/)
+- [Actions in team collaboration tools](https://sdk.connery.io/docs/use-cases/actions-in-team-collaboration-tools/)
+- [Custom actions in No-Code tools](https://sdk.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
+- [Actions in CI/CD pipelines](https://sdk.connery.io/docs/use-cases/actions-in-ci-cd-pipelines)
+
+## ✨ Features - TODO
 
 ### Plugin infrastructure and runtime
 
@@ -138,7 +137,7 @@ We're working hard to make it a reality.
 
 The order of features does not represent the priority.
 
-## 🌳 Ecosystem
+## 🌳 Ecosystem - TODO
 
 We aim to build a community-driven ecosystem of open-source plugins and clients around Connery.
 We believe that collective development accelerates innovation.
@@ -151,10 +150,6 @@ Below are manually curated lists of plugins and clients available for Connery:
 - [Clients](https://sdk.connery.io/docs/clients/)
 
 To add your plugin or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
-
-## 🚀 Quickstart
-
-Check out the [Quickstart](https://sdk.connery.io/docs/runner/quick-start/) guide to get started with Connery.
 
 ## 📖 Documentation
 
@@ -181,6 +176,6 @@ This is a monorepo that contains the following components:
 
 ## 👨‍💻 Contributing
 
-We are extremely open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
+We are open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
 
 For detailed information on how to contribute, see our [contributing guide](/CONTRIBUTING.md).
