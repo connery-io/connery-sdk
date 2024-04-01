@@ -174,11 +174,10 @@ You can reach us via the following channels:
 
 This is a monorepo that contains the following components:
 
-| Name | Path             | Description                                                                                            |
-| ---- | ---------------- | ------------------------------------------------------------------------------------------------------ |
-| Docs | `./apps/docs`    | The [documentation](https://sdk.connery.io/) website.                                                  |
-| CLI  | `./packages/cli` | [`connery`](https://www.npmjs.com/package/connery) CLI package for plugin development.                 |
-| SDK  | `./packages/sdk` | [`@connery-io/sdk`](https://www.npmjs.com/package/@connery-io/sdk) SDK package for plugin development. |
+| Name      | Path                 | Description                                                                                                                        |
+| --------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Docs      | `./apps/docs`        | The [documentation](https://sdk.connery.io/) website.                                                                              |
+| SDK & CLI | `./packages/connery` | [`connery`](https://www.npmjs.com/package/connery) package that contains both the SDK and CLI for plugins and actions development. |
 
 ## 👨‍💻 Contributing
 
