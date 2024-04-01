@@ -25,7 +25,7 @@ npm start
 
 4. Explore the plugin in your browser at [http://localhost:4201](http://localhost:4201).
 
-5. [Learn how to use the plugin and its actions.](https://docs.connery.io/docs/runner/quick-start/)
+5. [Learn how to use the plugin and its actions.](https://sdk.connery.io/docs/runner/quick-start/)
 
 ## 🤔 What is this?
 
@@ -70,40 +70,40 @@ Connery consists of four main components that tightly work together:
 
 - **Client** - A client is a specific application for each platform that uses the API provided by the runner.
   It's like a translator that adapts the runner's capabilities to fit the platform's needs.
-  For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/openai/gpt) client allows you to run
-  Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/slack) client
+  For example, an [OpenAI GPTs](https://sdk.connery.io/docs/clients/openai/gpt) client allows you to run
+  Connery actions from OpenAI GPT, or a [Slack](https://sdk.connery.io/docs/clients/slack) client
   will enable you to run Connery actions directly from Slack.
-  Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://docs.connery.io/docs/clients/langchain/toolkit) or [API](https://docs.connery.io/docs/clients/api) clients.
+  Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://sdk.connery.io/docs/clients/langchain/toolkit) or [API](https://sdk.connery.io/docs/clients/api) clients.
 
-The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://docs.connery.io/docs/clients/).
+The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://sdk.connery.io/docs/clients/).
 
 ## 💡 Use cases
 
-- [Actions in GPTs](https://docs.connery.io/docs/use-cases/actions-in-gpts/)
-- [Actions in AI agents and apps](https://docs.connery.io/docs/use-cases/actions-in-ai-agents-and-apps/)
-- [Actions in AI wearables](https://docs.connery.io/docs/use-cases/actions-in-ai-wearables/)
-- [Private AI-actions control center](https://docs.connery.io/docs/use-cases/private-ai-actions-control-center/)
-- [Automations in Team Collaboration tools](https://docs.connery.io/docs/use-cases/automations-in-team-collaboration-tools/)
-- [Custom actions in No-Code tools](https://docs.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
-- [CI/CD automations](https://docs.connery.io/docs/use-cases/ci-cd-automations/)
+- [Actions in GPTs](https://sdk.connery.io/docs/use-cases/actions-in-gpts/)
+- [Actions in AI agents and apps](https://sdk.connery.io/docs/use-cases/actions-in-ai-agents-and-apps/)
+- [Actions in AI wearables](https://sdk.connery.io/docs/use-cases/actions-in-ai-wearables/)
+- [Private AI-actions control center](https://sdk.connery.io/docs/use-cases/private-ai-actions-control-center/)
+- [Automations in Team Collaboration tools](https://sdk.connery.io/docs/use-cases/automations-in-team-collaboration-tools/)
+- [Custom actions in No-Code tools](https://sdk.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
+- [CI/CD automations](https://sdk.connery.io/docs/use-cases/ci-cd-automations/)
 
 ## ✅ Example 1: Summarize a webpage and send it by email from OpenGPTs
 
 <img alt="Summarize a webpage and send it by email from OpenGPTs" src="./apps/docs/static/img/repo/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
 
-Learn more: [LangChain OpenGPTs client](https://docs.connery.io/docs/clients/langchain/opengpts).
+Learn more: [LangChain OpenGPTs client](https://sdk.connery.io/docs/clients/langchain/opengpts).
 
 ## ✅ Example 2: Send email from an OpenAI GPT
 
 <img alt="Send email from an OpenAI GPT" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Learn more: [OpenAI GPT client](https://docs.connery.io/docs/clients/openai/gpt).
+Learn more: [OpenAI GPT client](https://sdk.connery.io/docs/clients/openai/gpt).
 
 ## ✅ Example 3: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
-Learn more: [Slack client](https://docs.connery.io/docs/clients/slack).
+Learn more: [Slack client](https://sdk.connery.io/docs/clients/slack).
 
 ## 🌟 Support us and stay up-to-date
 
@@ -147,18 +147,18 @@ Our vision is to build a marketplace where you can find open-source plugins and 
 
 Below are manually curated lists of plugins and clients available for Connery:
 
-- [Plugins](https://docs.connery.io/docs/plugins/)
-- [Clients](https://docs.connery.io/docs/clients/)
+- [Plugins](https://sdk.connery.io/docs/plugins/)
+- [Clients](https://sdk.connery.io/docs/clients/)
 
 To add your plugin or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
 
 ## 🚀 Quickstart
 
-Check out the [Quickstart](https://docs.connery.io/docs/runner/quick-start/) guide to get started with Connery.
+Check out the [Quickstart](https://sdk.connery.io/docs/runner/quick-start/) guide to get started with Connery.
 
 ## 📖 Documentation
 
-Check out the [Documentation](https://docs.connery.io) to learn more.
+Check out the [Documentation](https://sdk.connery.io) to learn more.
 
 ## 💬 Feedback & Support
 
@@ -176,7 +176,7 @@ This is a monorepo that contains the following components:
 
 | Name | Path             | Description                                                                                            |
 | ---- | ---------------- | ------------------------------------------------------------------------------------------------------ |
-| Docs | `./apps/docs`    | The [documentation](https://docs.connery.io/) website.                                                 |
+| Docs | `./apps/docs`    | The [documentation](https://sdk.connery.io/) website.                                                  |
 | CLI  | `./packages/cli` | [`connery`](https://www.npmjs.com/package/connery) CLI package for plugin development.                 |
 | SDK  | `./packages/sdk` | [`@connery-io/sdk`](https://www.npmjs.com/package/@connery-io/sdk) SDK package for plugin development. |
 
