@@ -42,26 +42,26 @@ The plugin server will start and listen on the `4201` port by default.
 
 :::info Important
 
-Once you share the port and get the public URL of the runner server, update the [`PLUGIN_SERVER_URL`](/docs/sdk/plugin-server/configuration#plugin_server_url) environment variable and restart the plugin server.
+Once you share the port and get the public URL of the plugin server, update the [`PLUGIN_SERVER_URL`](/docs/sdk/plugin-server/configuration#plugin_server_url) environment variable and restart the plugin server.
 This is required to make the OpenAPI spec of the plugin server work properly.
 
 :::
 
 ### Share port on Codespaces
 
-If you run the plugin server on GitHub Codespaces, you can share the `4201` port of the runner server and make it accessible from the Internet.
+If you run the plugin server on GitHub Codespaces, you can share the `4201` port of the plugin server and make it accessible from the Internet.
 To share the port, follow the official [Sharing port](https://docs.github.com/en/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace#sharing-a-port) guide from GitHub.
 
 ### Expose port from local machine
 
-If you run the plugin server on your local machine, you can use ngrok to expose the port `4201` of the runner server and make it accessible from the Internet.
+If you run the plugin server on your local machine, you can use ngrok to expose the port `4201` of the plugin server and make it accessible from the Internet.
 To expose the port, run the following command.
 
 ```
 ngrok http 4201
 ```
 
-The command will return a public URL that you can use to access the runner server from the Internet.
+The command will return a public URL that you can use to access the plugin server from the Internet.
 
 ## 6. Configure the client
 
