@@ -6,7 +6,9 @@ All configuration is done through environment variables.
 During the development, you can set them in the `.env` file at the root of the project.
 By default, the `.env` file is added to the `.gitignore` file of the plugin repository, so it won't be committed to the repository.
 
-## `PLUGIN_SERVER_URL`
+## Environment variables
+
+### `PLUGIN_SERVER_URL`
 
 Required: Yes.
 
@@ -14,13 +16,13 @@ The URL of the plugin server.
 This is a public URL where the plugin server is available.
 It is required by the OpenAPI spec to work properly.
 
-## `API_KEY`
+### `API_KEY`
 
 Required: Yes.
 
 The API key that the plugin server will use to validate incoming requests.
 
-## `CONFIG_<configurationParameterKey>`
+### `CONFIG_<configurationParameterKey>`
 
 Required: Depends on the configuration parameter validation rules in the plugin definition.
 
