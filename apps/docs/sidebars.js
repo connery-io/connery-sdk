@@ -143,22 +143,21 @@ const sidebars = {
         },
         'use-cases/actions-in-ai-agents-and-apps/index',
         'use-cases/actions-in-ai-wearables/index',
-        'use-cases/private-ai-actions-control-center/index',
         {
-          label: "Automations in Team Collaboration tools",
+          label: "Actions in team collaboration tools",
           type: "category",
           collapsible: true,
           collapsed: true,
           link: {
             type: 'doc',
-            id: 'use-cases/automations-in-team-collaboration-tools/index',
+            id: 'use-cases/actions-in-team-collaboration-tools/index',
           },
           items: [
-            'use-cases/automations-in-team-collaboration-tools/scale-back-end-service-on-aws-from-slack',
+            'use-cases/actions-in-team-collaboration-tools/scale-back-end-service-on-aws-from-slack',
           ]
         },
         'use-cases/custom-actions-in-no-code-tools/index',
-        'use-cases/ci-cd-automations/index',
+        'use-cases/actions-in-ci-cd-pipelines/index',
       ],
     }
   ],
