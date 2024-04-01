@@ -76,11 +76,6 @@ const config = {
             href: 'https://github.com/connery-io/connery',
             position: 'right',
           },
-          {
-            label: 'Website',
-            href: 'https://connery.io',
-            position: 'right',
-          },
         ],
       },
       prism: {
