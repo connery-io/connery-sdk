@@ -35,7 +35,7 @@ export class OpenAiController {
 
   @ApiOperation({
     summary: 'Get the "OpenAPI specification" for OpenAI GPTs.',
-    description: 'Learn more: [Use Connery actions in OpenAI GPT](https://docs.connery.io/docs/clients/openai/gpt).',
+    description: 'Learn more: [Use Connery actions in OpenAI GPT](https://sdk.connery.io/docs/clients/openai/gpt).',
   })
   @ApiOkResponse({
     description: 'The "OpenAPI specification" for OpenAI GPTs.',
@@ -48,7 +48,7 @@ export class OpenAiController {
   @ApiOperation({
     summary: 'Get the "OpenAI Functions specification" for OpenAI Assistant API.',
     description:
-      'Learn more: [Use Connery actions with OpenAI Assistants API](https://docs.connery.io/docs/clients/openai/assistant).',
+      'Learn more: [Use Connery actions with OpenAI Assistants API](https://sdk.connery.io/docs/clients/openai/assistant).',
   })
   @ApiOkResponse({
     description: 'The "OpenAI Functions specification" for OpenAI Assistant API.',
