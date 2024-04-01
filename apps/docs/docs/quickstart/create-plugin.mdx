@@ -1,4 +1,4 @@
-# Create a plugin
+# Create plugin
 
 Learn how to create a new plugin with actions and run it locally.
 
@@ -53,8 +53,8 @@ npx connery@latest dev init
 
 ## 4. Install dependencies
 
-To continue the plugin development, you must install all the dependencies defined in the `./package.json` file.
-Run the following command in the terminal to install the dependencies.
+To continue, you must install all the dependencies defined in the `./package.json` file.
+Run the following command to install the dependencies.
 
 ```
 npm install
@@ -94,7 +94,7 @@ In the same way, you can install any other NPM package.
 
 ## 7. Start the plugin server
 
-Run the following command to start the plugin server:
+Run the following command to start the plugin server.
 
 ```
 npm start
@@ -105,11 +105,7 @@ So you can start the server without any additional configuration.
 
 Once the plugin server is running, you can access its main page at [http://localhost:4201](http://localhost:4201) in your browser.
 
-:::note Helpful resources
-
-Learn more about the [plugin server](/docs/sdk/plugin-server/).
-
-:::
+Check the [Plugin server](/docs/sdk/plugin-server/) documentation to learn more.
 
 ## 8. Run the action (optional)
 
@@ -117,6 +113,7 @@ Let's run the sample action from the plugin to see how it works.
 This is helpful to test the action during the development process.
 
 Use the following command to run the action from the plugin.
+You should receive a response with the result of the action execution.
 The plugin server must be running to call the action.
 
 ```
@@ -133,7 +130,8 @@ curl -X 'POST' \
 }'
 ```
 
-Also, you can run the action using the [Interactive OpenAPI docs](/docs/sdk/plugin-server/rest-api) in your browser.
+In this example, we use a default URL of the plugin server `http://localhost:4201`, the name of the sample action `sampleAction` generated during the initialization process, and the input parameters expected by the action: `number1`, `number2`.
+Also, we use a default `x-api-key` value, `123456`, to authenticate the request.
 
 ## 9. Commit the files
 
