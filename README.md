@@ -73,9 +73,9 @@ Run the plugin server:
 npm start
 ```
 
-Open the plugin in the browser: [http://localhost:4201](http://localhost:4201)
+Open the plugin in the browser: [localhost:4201](http://localhost:4201).
 
-👉 **Check out the [Quickstart](https://sdk.connery.io/docs/quickstart/) guide to learn more.**
+👉 _Check out the [full quickstart guide](https://sdk.connery.io/docs/quickstart/) to learn more._
 
 ## ✅ Usage Example 1: Send email from an OpenAI GPT
 
@@ -110,50 +110,9 @@ Please **give the repository a star** to support the project and stay up-to-date
 - [Custom actions in No-Code tools](https://sdk.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
 - [Actions in CI/CD pipelines](https://sdk.connery.io/docs/use-cases/actions-in-ci-cd-pipelines)
 
-## ✨ Features - TODO
-
-### Plugin infrastructure and runtime
-
-- **Runtime** for plugins’ code and **runtime isolation** for every user.
-- **Plugin authorization** with third-party services using OAuth, API Keys, etc.
-- **Multiple action types** to handle different integration challenges: CRUD actions, async actions, trigger actions, etc.
-- **Tooling** and **Developer Experience** for plugin development like CLI, SDK, documentation, SDLC, versioning, ecosystem, community, and support to let developers concentrate on what matters the most.
-
-### Personalization and security
-
-- **Authentication, authorization,** and a **management interface** for users to manage connections and personalization.
-- **Connection management**: Users need a secure way to authorize AI-powered apps to access their services, such as Gmail, using OAuth. For services not supporting OAuth, like AWS, secure storage of access keys is essential through **Secrets Management**.
-- **Personalization**: The user can configure and personalize integrations. For example, specify a custom signature for all the emails. Or personalize metadata for actions so LLMs better understand the personal use case. They can also provide personal information such as name and email so LLMs can use it as additional context when calling actions.
-
-### AI safety and control
-
-- **Metadata** allows LLMs to better understand available actions and consequently reduce the error rate in selecting and executing them. It includes an action description with a clear purpose, an input schema describing the available parameters and validation rules, and the action outcome.
-- **Human-in-the-loop** to empower the user with the final say in executing actions (depending on criticality). Also, editing suggested input parameters before running an action, for example, reviewing an email before sending.
-- **Audit logs** for consistency, compliance, and transparency.
-
-Please note that Connery is still in early beta, so not all features are available yet.
-This list represents our vision for the future of Connery.
-We're working hard to make it a reality.
-
-The order of features does not represent the priority.
-
-## 🌳 Ecosystem - TODO
-
-We aim to build a community-driven ecosystem of open-source plugins and clients around Connery.
-We believe that collective development accelerates innovation.
-
-Our vision is to build a marketplace where you can find open-source plugins and clients for any use case.
-
-Below are manually curated lists of plugins and clients available for Connery:
-
-- [Plugins](https://sdk.connery.io/docs/plugins/)
-- [Clients](https://sdk.connery.io/docs/clients/)
-
-To add your plugin or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
-
 ## 📖 Documentation
 
-Check out the [Documentation](https://sdk.connery.io) to learn more.
+Check out the [documentation](https://sdk.connery.io) to learn more.
 
 ## 💬 Feedback & Support
 
