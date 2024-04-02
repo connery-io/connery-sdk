@@ -3,30 +3,6 @@
 [![Release](https://img.shields.io/github/v/release/connery-io/connery?color=74C649&label=Release)](https://github.com/connery-io/connery/releases)
 [![License](https://img.shields.io/github/license/connery-io/connery?color=74C649&label=License)](https://github.com/connery-io/connery/blob/main/LICENSE)
 
-## 🚀 Quickstart
-
-1. Initialize a new plugin with a sample action:
-
-```bash
-npx connery@latest dev init
-```
-
-2. Install the dependencies:
-
-```bash
-npm install
-```
-
-3. Run the plugin server:
-
-```bash
-npm start
-```
-
-And open the plugin in the browser: [http://localhost:4201](http://localhost:4201)
-
-👉 Check our [Quickstart](https://sdk.connery.io/docs/quickstart/) guide to learn more.
-
 ## 🤔 What is this? - TODO
 
 **With Connery, you can create plugins and use them across many platforms.
@@ -77,19 +53,43 @@ Connery consists of four main components that tightly work together:
 
 The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://sdk.connery.io/docs/clients/).
 
-## ✅ Example 1: Send email from an OpenAI GPT
+## 🚀 Quickstart
+
+Initialize a new plugin with a sample action:
+
+```bash
+npx connery@latest dev init
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+Run the plugin server:
+
+```bash
+npm start
+```
+
+Open the plugin in the browser: [http://localhost:4201](http://localhost:4201)
+
+👉 **Check out the [Quickstart](https://sdk.connery.io/docs/quickstart/) guide to learn more.**
+
+## ✅ Usage Example 1: Send email from an OpenAI GPT
 
 <img alt="Send email from an OpenAI GPT" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
 Learn more: [OpenAI GPT client](https://sdk.connery.io/docs/clients/openai/gpt).
 
-## ✅ Example 2: Summarize a webpage and send it by email from OpenGPTs
+## ✅ Usage Example 2: Summarize a webpage and send it by email from OpenGPTs
 
 <img alt="Summarize a webpage and send it by email from OpenGPTs" src="./apps/docs/static/img/repo/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
 
 Learn more: [LangChain OpenGPTs client](https://sdk.connery.io/docs/clients/langchain/opengpts).
 
-## ✅ Example 3: Scale back-end service on AWS from Slack
+## ✅ Usage Example 3: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
@@ -157,7 +157,7 @@ Check out the [Documentation](https://sdk.connery.io) to learn more.
 
 ## 💬 Feedback & Support
 
-Connery is still in early beta, so not everything will be perfect yet. Please let us know of any suggestions, ideas, or bugs you encounter, and we will use your feedback to improve our upcoming releases.
+Connery is still in early beta, so not everything is perfect yet. Please let us know of any suggestions, ideas, or bugs you encounter, and we will use your feedback to improve our upcoming releases.
 
 You can reach us via the following channels:
 
@@ -171,8 +171,8 @@ This is a monorepo that contains the following components:
 
 | Name                | Path                 | Description                                                                                                                            |
 | ------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Docs                | `./apps/docs`        | The [documentation](https://sdk.connery.io/) website.                                                                                  |
 | SDK&nbsp;&&nbsp;CLI | `./packages/connery` | The [`connery`](https://www.npmjs.com/package/connery) package that contains both the SDK and CLI for plugins and actions development. |
+| Docs                | `./apps/docs`        | The [documentation](https://sdk.connery.io/) website.                                                                                  |
 
 ## 👨‍💻 Contributing
 
