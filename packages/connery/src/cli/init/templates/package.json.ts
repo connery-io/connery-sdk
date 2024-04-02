@@ -11,8 +11,8 @@ export default `{
   "devDependencies": {
     "@types/jest": "^29.5.6",
     "jest": "^29.6.1",
-    "ts-jest": "^29.1.1"
-    "prettier": "^3.2.5",
+    "ts-jest": "^29.1.1",
+    "prettier": "^3.2.5"
   },
   "jest": {
     "preset": "ts-jest",
