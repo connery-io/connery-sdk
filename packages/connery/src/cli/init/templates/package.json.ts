@@ -6,14 +6,13 @@ export default `{
     "format": "prettier --write ."
   },
   "dependencies": {
-    "connery": "^0.0.40"
+    "connery": "^0.1.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.6",
-    "@types/nodemailer": "^6.4.14",
     "jest": "^29.6.1",
-    "prettier": "^3.2.5",
     "ts-jest": "^29.1.1"
+    "prettier": "^3.2.5",
   },
   "jest": {
     "preset": "ts-jest",
