@@ -5,17 +5,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "scripts": {
-    "dev": "dotenv -- turbo run dev",
-    "build": "turbo run build",
-    "test": "turbo run test",
-    "format": "turbo run format",
-    "lint": "turbo run lint",
-    "publish-packages": "turbo run build && changeset version && changeset publish"
-  },
-  "devDependencies": {
-    "dotenv-cli": "^7.2.1",
-    "turbo": "latest"
-  }
+  ]
 }
