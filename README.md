@@ -5,13 +5,24 @@
 
 ## 🤔 What is this?
 
-Connery SDK is an NPM package that includes both an SDK and a CLI, designed for the development of [_plugins_](https://sdk.connery.io/docs/introduction/core-concepts#plugin) and [_actions_](https://sdk.connery.io/docs/introduction/core-concepts#action).
+Connery SDK is an NPM package that includes both an SDK and a CLI, designed for the development
+of [_plugins_](https://sdk.connery.io/docs/introduction/core-concepts#plugin)
+and [_actions_](https://sdk.connery.io/docs/introduction/core-concepts#action).
 
-The CLI automates many things in the development process. Meanwhile, the SDK offers a JavaScript API for defining plugins and actions and packaging them into a [_plugin server_](https://sdk.connery.io/docs/introduction/core-concepts#plugin-server) with a standardized REST API generated from the metadata. The plugin server handles authorization, input validation, and logging. So you can focus on the logic of your actions.
+The CLI automates many things in the development process.
+Meanwhile, the SDK offers a JavaScript API for defining plugins and actions and packaging them
+into a [_plugin server_](https://sdk.connery.io/docs/introduction/core-concepts#plugin-server) with a standardized REST API generated from the metadata.
+The plugin server handles authorization, input validation, and logging.
+So you can focus on the logic of your actions.
 
-The standardized API enables various [_clients_](https://sdk.connery.io/docs/introduction/core-concepts#client) to interact with actions in a unified way, regardless of the underlying implementation.
+The standardized API enables various [_clients_](https://sdk.connery.io/docs/introduction/core-concepts#client) to interact
+with actions in a unified way, regardless of the underlying implementation.
 
-An action consists of JavaSctipt code that defines its logic and metadata that describes its input and output. The action can communicate with external APIs, databases, or other services
+An action consists of JavaSctipt code that defines its logic and metadata that describes its input and output.
+The action can communicate with external APIs, databases, or other services.
+
+👉 _Example: [Send email](https://github.com/connery-io/gmail/blob/main/src/actions/sendEmail.ts)
+is an action in the [connery-io/gmail](https://github.com/connery-io/gmail) plugin._
 
 <div align="center">
 <img width="500px" alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk2.png">
