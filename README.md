@@ -6,16 +6,16 @@
 ## 🤔 What is this?
 
 Connery SDK is an NPM package that includes both an SDK and a CLI, designed for the development
-of [_plugins_](https://sdk.connery.io/docs/introduction/core-concepts#plugin)
-and [_actions_](https://sdk.connery.io/docs/introduction/core-concepts#action).
+of [plugins](https://sdk.connery.io/docs/introduction/core-concepts#plugin)
+and [actions](https://sdk.connery.io/docs/introduction/core-concepts#action).
 
 The CLI automates many things in the development process.
 Meanwhile, the SDK offers a JavaScript API for defining plugins and actions and packaging them
-into a [_plugin server_](https://sdk.connery.io/docs/introduction/core-concepts#plugin-server) with a standardized REST API generated from the metadata.
+into a [plugin server](https://sdk.connery.io/docs/introduction/core-concepts#plugin-server) with a standardized REST API generated from the metadata.
 The plugin server handles authorization, input validation, and logging.
 So you can focus on the logic of your actions.
 
-The standardized API enables various [_clients_](https://sdk.connery.io/docs/introduction/core-concepts#client) to interact
+The standardized API enables various [clients](https://sdk.connery.io/docs/introduction/core-concepts#client) to interact
 with actions in a unified way, regardless of the underlying implementation.
 
 An action consists of JavaSctipt code that defines its logic and metadata that describes its input and output.
