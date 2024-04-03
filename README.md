@@ -60,19 +60,19 @@ Open the plugin in the browser: [localhost:4201](http://localhost:4201).
 
 <img alt="Send email from an OpenAI GPT" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Learn more: [OpenAI GPT client](https://sdk.connery.io/docs/clients/openai/gpt).
+👉 _Learn more: [OpenAI GPT client](https://sdk.connery.io/docs/clients/openai/gpt)._
 
 ## ✅ Example 2: Summarize a webpage and send it by email from OpenGPTs
 
 <img alt="Summarize a webpage and send it by email from OpenGPTs" src="./apps/docs/static/img/repo/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
 
-Learn more: [LangChain OpenGPTs client](https://sdk.connery.io/docs/clients/langchain/opengpts).
+👉 _Learn more: [LangChain OpenGPTs client](https://sdk.connery.io/docs/clients/langchain/opengpts)._
 
 ## ✅ Example 3: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
-Learn more: [Slack client](https://sdk.connery.io/docs/clients/slack).
+👉 _Learn more: [Slack client](https://sdk.connery.io/docs/clients/slack)._
 
 ## 🌟 Support us and stay up-to-date
 
