@@ -45,7 +45,7 @@ export class HomeController {
               <section class="grid gap-8 md:gap-16">
                 <div class="space-y-4">
                   <h2 class="text-2xl font-bold tracking-tighter sm:text-3xl">Available actions</h2>
-                  <p class="text-gray-500">This plugin contains the following actions:<br/> ${listOfActions}</p>
+                  <p class="text-gray-500">This plugin contains the following actions:<br/> ${listOfActions}.</p>
                 </div>
                 <div class="space-y-4">
                   <h2 class="text-2xl font-bold tracking-tighter sm:text-3xl">Plugin API</h2>
