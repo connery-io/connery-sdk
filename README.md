@@ -22,9 +22,7 @@ such as authorization, secret management, access management, and other vital fea
 
 This is where Connery comes into play.
 
-## ⚙️ How does it work? - TODO
-
-<img alt="Connery diagram" src="./apps/docs/static/img/repo/connery-diagram1.png">
+<img alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk.png">
 
 Connery consists of four main components that tightly work together:
 
