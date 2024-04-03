@@ -89,6 +89,16 @@ Please **give the repository a star** to support the project and stay up-to-date
 - [Custom actions in No-Code tools](https://sdk.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
 - [Actions in CI/CD pipelines](https://sdk.connery.io/docs/use-cases/actions-in-ci-cd-pipelines)
 
+## 🌳 Ecosystem
+
+We aim to build a community-driven ecosystem of open-source plugins and clients.
+So, anyone can benefit from the shared knowledge and resources to accelerate innovation.
+
+Below are manually curated lists of open-source plugins built with Connery SDK and clients for interacting with them:
+
+- [Plugins](https://sdk.connery.io/docs/plugins/)
+- [Clients](https://sdk.connery.io/docs/clients/)
+
 ## 📖 Documentation
 
 Check out the [documentation](https://sdk.connery.io) to learn more.
