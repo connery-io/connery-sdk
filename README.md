@@ -25,7 +25,7 @@ The action can communicate with external APIs, databases, or other services.
 is an action in the [connery-io/gmail](https://github.com/connery-io/gmail) plugin._
 
 <div align="center">
-<img width="500px" alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk2.png">
+<img width="600px" alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk2.png">
 </div>
 
 ## 🚀 Quickstart
