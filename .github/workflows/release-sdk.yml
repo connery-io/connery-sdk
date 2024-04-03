@@ -1,0 +1,79 @@
+name: Release SDK
+
+on:
+  push:
+    branches:
+      - main
+      - beta
+
+jobs:
+  format:
+    name: Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: yarn install
+        working-directory: ./packages/connery
+
+      - run: yarn run format:check
+        working-directory: ./packages/connery
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: yarn install
+        working-directory: ./packages/connery
+
+      - run: yarn run lint
+        working-directory: ./packages/connery
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: yarn install
+        working-directory: ./packages/connery
+
+      - run: yarn run test
+        working-directory: ./packages/connery
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    needs: [format, lint, test]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - run: yarn install
+        working-directory: ./packages/connery
+
+      - run: yarn run build
+        working-directory: ./packages/connery
+
+      - run: npx semantic-release
+        working-directory: ./packages/connery
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

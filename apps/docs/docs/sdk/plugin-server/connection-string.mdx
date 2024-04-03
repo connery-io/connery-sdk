@@ -1,0 +1,43 @@
+# Connection string
+
+The connection string is a universal way to securely connect clients to your plugin server and allow them to work with the actions defined in the plugin.
+
+## Basic connection string
+
+The connection string consists of key-value pairs separated by a semicolon. The key-value pairs are separated by an equal sign.
+
+Example of connection string:
+
+```
+PLUGIN_SERVER_URL=http://localhost:4201;API_KEY=123456
+```
+
+## Multi-connection string
+
+Multi-connection string consist of multiple connection strings separated by a comma.
+The client that uses the multi-connection string has access to all the plugin servers and actions defined in them.
+
+Example of multi-connection string:
+
+```
+PLUGIN_SERVER_URL=https://plugin1.com:4201;API_KEY=123456,PLUGIN_SERVER_URL=https://plugin2.com:4201;API_KEY=654321
+```
+
+## Parameters
+
+### `PLUGIN_SERVER_URL`
+
+Required: Yes.
+
+URL of the plugin server.
+
+It should be the same value as the [`PLUGIN_SERVER_URL`](/docs/sdk/plugin-server/configuration#plugin_server_url) in the plugin server configuration,
+and it should be the URL where the plugin server is running.
+
+### `API_KEY`
+
+Required: Yes.
+
+API key for the plugin server.
+
+It should be the same value as the [`API_KEY`](/docs/sdk/plugin-server/configuration#api_key) in the plugin server configuration.

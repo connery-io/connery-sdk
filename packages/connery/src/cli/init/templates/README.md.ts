@@ -13,9 +13,9 @@ This repository contains the plugin's source code.
 
 ## Built using Connery SDK
 
-This plugin is built using [Connery SDK](https://github.com/connery-io/connery), an open-source project for plugin development.
+This plugin is built using [Connery SDK](https://github.com/connery-io/connery), the open-source SDK for AI plugins and actions development.
 
-[Learn how to use the plugin and its actions.](https://docs.connery.io/docs/runner/quick-start/)
+[Learn how to use the plugin and its actions.](https://sdk.connery.io/docs/quickstart/use-plugin)
 
 ## Support
 

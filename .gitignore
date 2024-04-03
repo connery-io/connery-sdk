@@ -8,15 +8,5 @@ out
 # local env files
 .env
 
-# turbo
-.turbo
-
-# vscode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
 # misc
 .DS_Store

@@ -1,0 +1,43 @@
+# Configuration
+
+Here, you can find how to configure the plugin server.
+
+All configuration is done through environment variables.
+During the development, you can set them in the `.env` file at the root of the project.
+By default, the `.env` file is added to the `.gitignore` file of the plugin repository, so it won't be committed to the repository.
+
+## Environment variables
+
+### `PLUGIN_SERVER_URL`
+
+Required: Yes.
+
+The URL of the plugin server.
+This is a public URL where the plugin server is available.
+It is required by the OpenAPI spec to work properly.
+
+### `API_KEY`
+
+Required: Yes.
+
+The API key that the plugin server will use to validate incoming requests.
+
+### `CONFIG_<configurationParameterKey>`
+
+Required: Depends on the configuration parameter validation rules in the plugin definition.
+
+Use this environment variable to set the value of a configuration parameter of the plugin.
+
+Replace the `<configurationParameterKey>` with the key of the configuration parameter from the plugin definition.
+For example, if the plugin definition has a configuration parameter with the key `emailAdress`, you would set the environment variable `CONFIG_emailAdress` to the value you want to use.
+Then, the plugin server passes this value to the plugin and its actions.
+So you can access it in the action handler from the [action context object](/docs/sdk/api-reference#action-context-types):
+
+```typescript
+async function actionHandler(context: ActionContext): Promise<OutputObject> {
+  // This will print the value of the CONFIG_emailAdress environment variable
+  console.log(context.configuration.emailAdress);
+
+  return {};
+}
+```
