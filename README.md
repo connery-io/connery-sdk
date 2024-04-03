@@ -7,7 +7,7 @@
 
 </div>
 
-## 🤔 What is this?
+## 🤔 What is Connery SDK?
 
 Connery SDK is an NPM package that includes both an SDK and a CLI, designed for the development
 of [plugins](https://sdk.connery.io/docs/introduction/core-concepts#plugin)
@@ -29,7 +29,7 @@ The action can communicate with external APIs, databases, or other services.
 is an action in the [connery-io/gmail](https://github.com/connery-io/gmail) plugin._
 
 <div align="center">
-<img width="600px" alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk2.png">
+  <img width="550px" alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk2.png">
 </div>
 
 ## 🚀 Quickstart
