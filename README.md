@@ -3,55 +3,19 @@
 [![Release](https://img.shields.io/github/v/release/connery-io/connery?color=74C649&label=Release)](https://github.com/connery-io/connery/releases)
 [![License](https://img.shields.io/github/license/connery-io/connery?color=74C649&label=License)](https://github.com/connery-io/connery/blob/main/LICENSE)
 
-## 🤔 What is this? - TODO
+## 🤔 What is this?
 
-**With Connery, you can create plugins and use them across many platforms.
-Connery will handle the rest: isolated runtime, authorization, secret management, access management,
-audit logs, and other [vital features](#-features).**
+Connery SDK is an NPM package that includes both an SDK and a CLI, designed for the development of [_plugins_](https://sdk.connery.io/docs/introduction/core-concepts#plugin) and [_actions_](https://sdk.connery.io/docs/introduction/core-concepts#action).
 
-Many AI platforms are gaining momentum on the market — for instance, OpenAI GPTs,
-LangChain, AI-powered chatbots, agents and wearable devices.
+The CLI automates many things in the development process. Meanwhile, the SDK offers a JavaScript API for defining plugins and actions and packaging them into a [_plugin server_](https://sdk.connery.io/docs/introduction/core-concepts#plugin-server) with a standardized REST API generated from the metadata. The plugin server handles authorization, input validation, and logging. So you can focus on the logic of your actions.
 
-To fully leverage the capabilities of these platforms, it's essential to connect them with the real world:
-SaaS applications, APIs, databases, and so on.
+The standardized API enables various [_clients_](https://sdk.connery.io/docs/introduction/core-concepts#client) to interact with actions in a unified way, regardless of the underlying implementation.
 
-While APIs provide a fundamental bridge for connectivity,
-they alone aren't sufficient to connect the real world to the AI platforms.
-The AI platforms require a new type of infrastructure capable of handling plugin-related challenges,
-such as authorization, secret management, access management, and other vital features, ensuring robust security and control.
-
-This is where Connery comes into play.
+An action consists of JavaSctipt code that defines its logic and metadata that describes its input and output. The action can communicate with external APIs, databases, or other services
 
 <div align="center">
 <img width="500px" alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk2.png">
 </div>
-
-Connery consists of four main components that tightly work together:
-
-**Plugin ecosystem**
-
-- **Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing.
-  For example, "Send email" is an action in the ["Gmail"](https://github.com/connery-io/gmail) _plugin_.
-
-- **Plugin** - This is a collection of related actions grouped together because they serve a similar purpose.
-  Each plugin is represented by a GitHub repository with TypeScript code of a specific structure.
-  Plugin must be installed on a _runner_ before its actions can be used.
-
-**Plugin infrastructure**
-
-- **Runner** - This is the heart of Connery, an open-source application that knows how to handle plugins and run actions.
-  It's equipped with a user interface and and a set of features for connection management, personalization, and safety.
-  Each organization or individual can configure their own isolated runner with a unique plugin set and configuration.
-  The runner provides a standardized API for every installed action that can be consumed by _clients_.
-
-- **Client** - A client is a specific application for each platform that uses the API provided by the runner.
-  It's like a translator that adapts the runner's capabilities to fit the platform's needs.
-  For example, an [OpenAI GPTs](https://sdk.connery.io/docs/clients/openai/gpt) client allows you to run
-  Connery actions from OpenAI GPT, or a [Slack](https://sdk.connery.io/docs/clients/slack) client
-  will enable you to run Connery actions directly from Slack.
-  Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://sdk.connery.io/docs/clients/langchain/toolkit) or [API](https://sdk.connery.io/docs/clients/api) clients.
-
-The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://sdk.connery.io/docs/clients/).
 
 ## 🚀 Quickstart
 
