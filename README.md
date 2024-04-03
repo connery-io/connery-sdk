@@ -23,7 +23,7 @@ such as authorization, secret management, access management, and other vital fea
 This is where Connery comes into play.
 
 <div align="center">
-<img width="500px" alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk.png">
+<img width="500px" alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk1.png">
 </div>
 
 Connery consists of four main components that tightly work together:
