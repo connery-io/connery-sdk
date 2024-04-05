@@ -1,87 +1,78 @@
-# Connery - Plugin infrastructure for AI
+<div align="center">
+
+# The open-source SDK for<br>AI plugins and actions development
 
 [![Release](https://img.shields.io/github/v/release/connery-io/connery?color=74C649&label=Release)](https://github.com/connery-io/connery/releases)
 [![License](https://img.shields.io/github/license/connery-io/connery?color=74C649&label=License)](https://github.com/connery-io/connery/blob/main/LICENSE)
-[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in%20GitHub%20Codespaces-black?logo=github)](https://github.com/codespaces/new/connery-io/connery?quickstart=1)
-[![Open in Dev Containers](https://img.shields.io/badge/Open%20in%20Dev%20Container-blue?logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/connery-io/connery)
 
-## 🤔 What is this?
+</div>
 
-**With Connery, you can create plugins and use them across many platforms.
-Connery will handle the rest: isolated runtime, authorization, secret management, access management,
-audit logs, and other [vital features](#-features).**
+## 🤔 What is Connery SDK?
 
-Many AI platforms are gaining momentum on the market — for instance, OpenAI GPTs,
-LangChain, AI-powered chatbots, agents and wearable devices.
+Connery SDK is an NPM package that includes both an SDK and a CLI, designed for the development
+of [plugins](https://sdk.connery.io/docs/introduction/core-concepts#plugin)
+and [actions](https://sdk.connery.io/docs/introduction/core-concepts#action).
 
-To fully leverage the capabilities of these platforms, it's essential to connect them with the real world:
-SaaS applications, APIs, databases, and so on.
+The CLI automates many things in the development process.
+Meanwhile, the SDK offers a JavaScript API for defining plugins and actions and packaging them
+into a [plugin server](https://sdk.connery.io/docs/introduction/core-concepts#plugin-server) with a standardized REST API generated from the metadata.
+The plugin server handles authorization, input validation, and logging.
+So you can focus on the logic of your actions.
 
-While APIs provide a fundamental bridge for connectivity,
-they alone aren't sufficient to connect the real world to the AI platforms.
-The AI platforms require a new type of infrastructure capable of handling plugin-related challenges,
-such as authorization, secret management, access management, and other vital features, ensuring robust security and control.
+The standardized API enables various [clients](https://sdk.connery.io/docs/introduction/core-concepts#client) to interact
+with actions in a unified way, regardless of the underlying implementation.
 
-This is where Connery comes into play.
+An action consists of JavaSctipt code that defines its logic and metadata that describes its input and output.
+The action can communicate with external APIs, databases, or other services.
 
-## ⚙️ How does it work?
+👉 _Example: [Send email](https://github.com/connery-io/gmail/blob/main/src/actions/sendEmail.ts)
+is an action in the [connery-io/gmail](https://github.com/connery-io/gmail) plugin._
 
-<img alt="Connery diagram" src="./apps/docs/static/img/repo/connery-diagram1.png">
+<div align="center">
+  <img width="550px" alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk2.png">
+</div>
 
-Connery consists of four main components that tightly work together:
+## 🚀 Quickstart
 
-**Plugin ecosystem**
+Initialize a new plugin with a sample action:
 
-- **Action** - Think of an action as a basic task, something like a function with input and output parameters designed to do one specific thing.
-  For example, "Send email" is an action in the ["Gmail"](https://github.com/connery-io/gmail) _plugin_.
+```bash
+npx connery@latest dev init
+```
 
-- **Plugin** - This is a collection of related actions grouped together because they serve a similar purpose.
-  Each plugin is represented by a GitHub repository with TypeScript code of a specific structure.
-  Plugin must be installed on a _runner_ before its actions can be used.
+Install the dependencies:
 
-**Plugin infrastructure**
+```bash
+npm install
+```
 
-- **Runner** - This is the heart of Connery, an open-source application that knows how to handle plugins and run actions.
-  It's equipped with a user interface and and a set of features for connection management, personalization, and safety.
-  Each organization or individual can configure their own isolated runner with a unique plugin set and configuration.
-  The runner provides a standardized API for every installed action that can be consumed by _clients_.
+Run the plugin server:
 
-- **Client** - A client is a specific application for each platform that uses the API provided by the runner.
-  It's like a translator that adapts the runner's capabilities to fit the platform's needs.
-  For example, an [OpenAI GPTs](https://docs.connery.io/docs/clients/openai/gpt) client allows you to run
-  Connery actions from OpenAI GPT, or a [Slack](https://docs.connery.io/docs/clients/slack) client
-  will enable you to run Connery actions directly from Slack.
-  Also, there are clients you can use to call actions from your own applications, such as [LangChain](https://docs.connery.io/docs/clients/langchain/toolkit) or [API](https://docs.connery.io/docs/clients/api) clients.
+```bash
+npm start
+```
 
-The combination of these components allows you to run actions from any platform supported by Connery. For example, you can run the same Connery action using OpenAI GPT, LangChain, Slack, and [other clients](https://docs.connery.io/docs/clients/).
+Open the plugin in the browser: [localhost:4201](http://localhost:4201).
 
-## 💡 Use cases
+👉 _Check out the [full quickstart guide](https://sdk.connery.io/docs/quickstart/) to learn more._
 
-- [Actions in GPTs](https://docs.connery.io/docs/use-cases/actions-in-gpts/)
-- [Actions in AI agents and apps](https://docs.connery.io/docs/use-cases/actions-in-ai-agents-and-apps/)
-- [Actions in AI wearables](https://docs.connery.io/docs/use-cases/actions-in-ai-wearables/)
-- [Private AI-actions control center](https://docs.connery.io/docs/use-cases/private-ai-actions-control-center/)
-- [Automations in Team Collaboration tools](https://docs.connery.io/docs/use-cases/automations-in-team-collaboration-tools/)
-- [Custom actions in No-Code tools](https://docs.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
-- [CI/CD automations](https://docs.connery.io/docs/use-cases/ci-cd-automations/)
-
-## ✅ Example 1: Summarize a webpage and send it by email from OpenGPTs
-
-<img alt="Summarize a webpage and send it by email from OpenGPTs" src="./apps/docs/static/img/repo/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
-
-Learn more: [LangChain OpenGPTs client](https://docs.connery.io/docs/clients/langchain/opengpts).
-
-## ✅ Example 2: Send email from an OpenAI GPT
+## ✅ Example 1: Send email from an OpenAI GPT
 
 <img alt="Send email from an OpenAI GPT" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
-Learn more: [OpenAI GPT client](https://docs.connery.io/docs/clients/openai/gpt).
+👉 _Learn more: [OpenAI GPT client](https://sdk.connery.io/docs/clients/openai/gpt)._
+
+## ✅ Example 2: Summarize a webpage and send it by email from OpenGPTs
+
+<img alt="Summarize a webpage and send it by email from OpenGPTs" src="./apps/docs/static/img/repo/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
+
+👉 _Learn more: [LangChain OpenGPTs client](https://sdk.connery.io/docs/clients/langchain/opengpts)._
 
 ## ✅ Example 3: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
-Learn more: [Slack client](https://docs.connery.io/docs/clients/slack).
+👉 _Learn more: [Slack client](https://sdk.connery.io/docs/clients/slack)._
 
 ## 🌟 Support us and stay up-to-date
 
@@ -89,58 +80,32 @@ Please **give the repository a star** to support the project and stay up-to-date
 
 <img src="./apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
 
-## ✨ Features
+## 💡 Use cases
 
-### Plugin infrastructure and runtime
-
-- **Runtime** for plugins’ code and **runtime isolation** for every user.
-- **Plugin authorization** with third-party services using OAuth, API Keys, etc.
-- **Multiple action types** to handle different integration challenges: CRUD actions, async actions, trigger actions, etc.
-- **Tooling** and **Developer Experience** for plugin development like CLI, SDK, documentation, SDLC, versioning, ecosystem, community, and support to let developers concentrate on what matters the most.
-
-### Personalization and security
-
-- **Authentication, authorization,** and a **management interface** for users to manage connections and personalization.
-- **Connection management**: Users need a secure way to authorize AI-powered apps to access their services, such as Gmail, using OAuth. For services not supporting OAuth, like AWS, secure storage of access keys is essential through **Secrets Management**.
-- **Personalization**: The user can configure and personalize integrations. For example, specify a custom signature for all the emails. Or personalize metadata for actions so LLMs better understand the personal use case. They can also provide personal information such as name and email so LLMs can use it as additional context when calling actions.
-
-### AI safety and control
-
-- **Metadata** allows LLMs to better understand available actions and consequently reduce the error rate in selecting and executing them. It includes an action description with a clear purpose, an input schema describing the available parameters and validation rules, and the action outcome.
-- **Human-in-the-loop** to empower the user with the final say in executing actions (depending on criticality). Also, editing suggested input parameters before running an action, for example, reviewing an email before sending.
-- **Audit logs** for consistency, compliance, and transparency.
-
-Please note that Connery is still in early beta, so not all features are available yet.
-This list represents our vision for the future of Connery.
-We're working hard to make it a reality.
-
-The order of features does not represent the priority.
+- [Actions in GPTs](https://sdk.connery.io/docs/use-cases/actions-in-gpts/)
+- [Actions in AI agents and apps](https://sdk.connery.io/docs/use-cases/actions-in-ai-agents-and-apps/)
+- [Actions in AI wearables](https://sdk.connery.io/docs/use-cases/actions-in-ai-wearables/)
+- [Actions in team collaboration tools](https://sdk.connery.io/docs/use-cases/actions-in-team-collaboration-tools/)
+- [Custom actions in No-Code tools](https://sdk.connery.io/docs/use-cases/custom-actions-in-no-code-tools/)
+- [Actions in CI/CD pipelines](https://sdk.connery.io/docs/use-cases/actions-in-ci-cd-pipelines)
 
 ## 🌳 Ecosystem
 
-We aim to build a community-driven ecosystem of open-source plugins and clients around Connery.
-We believe that collective development accelerates innovation.
+We aim to build a community-driven ecosystem of open-source plugins and clients.
+So, anyone can benefit from the shared knowledge and resources to accelerate innovation.
 
-Our vision is to build a marketplace where you can find open-source plugins and clients for any use case.
+Below are manually curated lists of open-source plugins built with Connery SDK and clients for interacting with them:
 
-Below are manually curated lists of plugins and clients available for Connery:
-
-- [Plugins](https://docs.connery.io/docs/plugins/)
-- [Clients](https://docs.connery.io/docs/clients/)
-
-To add your plugin or client to the lists, see our [contributing guide](/CONTRIBUTING.md).
-
-## 🚀 Quickstart
-
-Check out the [Quickstart](https://docs.connery.io/docs/runner/quick-start/) guide to get started with Connery.
+- [Plugins](https://sdk.connery.io/docs/plugins/)
+- [Clients](https://sdk.connery.io/docs/clients/)
 
 ## 📖 Documentation
 
-Check out the [Documentation](https://docs.connery.io) to learn more.
+Check out the [documentation](https://sdk.connery.io) to learn more.
 
 ## 💬 Feedback & Support
 
-Connery is still in early beta, so not everything will be perfect yet. Please let us know of any suggestions, ideas, or bugs you encounter, and we will use your feedback to improve our upcoming releases.
+Connery is still in early beta, so not everything is perfect yet. Please let us know of any suggestions, ideas, or bugs you encounter, and we will use your feedback to improve our upcoming releases.
 
 You can reach us via the following channels:
 
@@ -152,16 +117,13 @@ You can reach us via the following channels:
 
 This is a monorepo that contains the following components:
 
-| Name   | Path                 | Description                                                                                                     |
-| ------ | -------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Runner | `./apps/runner`      | The core of Connery that knows how to handle plugins, run actions, and provide a standardized API as an output. |
-| Docs   | `./apps/docs`        | The [documentation](https://docs.connery.io/) website.                                                          |
-| CLI    | `./packages/connery` | [`connery`](https://www.npmjs.com/package/connery) CLI package for plugin development.                          |
-| SDK    | `./packages/sdk`     | [`@connery-io/sdk`](https://www.npmjs.com/package/@connery-io/sdk) SDK package for plugin development.          |
-| Lib    | `./packages/lib`     | Shared library for the runner and the CLI.                                                                      |
+| Name                | Path                 | Description                                                                                                                            |
+| ------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| SDK&nbsp;&&nbsp;CLI | `./packages/connery` | The [`connery`](https://www.npmjs.com/package/connery) package that contains both the SDK and CLI for plugins and actions development. |
+| Docs                | `./apps/docs`        | The [documentation](https://sdk.connery.io/) website.                                                                                  |
 
 ## 👨‍💻 Contributing
 
-We are extremely open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
+We are open to contributions, whether it be in the form of a new feature, improved infrastructure, or better documentation.
 
 For detailed information on how to contribute, see our [contributing guide](/CONTRIBUTING.md).

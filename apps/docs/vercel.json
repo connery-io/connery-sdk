@@ -124,6 +124,76 @@
       "source": "/docs/clients/langchain/tools",
       "destination": "/docs/clients/langchain/toolkit",
       "permanent": true
+    },
+    {
+      "source": "/docs/runner/introduction/",
+      "destination": "/docs/introduction/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/runner/introduction/core-concepts",
+      "destination": "/docs/introduction/core-concepts",
+      "permanent": true
+    },
+    {
+      "source": "/docs/runner/quick-start/",
+      "destination": "/docs/quickstart/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/runner/quick-start/set-up-runner",
+      "destination": "/docs/quickstart/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/runner/quick-start/install-plugin-on-the-runner",
+      "destination": "/docs/quickstart/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/runner/quick-start/use-clients-to-call-actions",
+      "destination": "/docs/quickstart/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/plugins/guides/",
+      "destination": "/docs/plugins/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/plugins/guides/create-plugin",
+      "destination": "/docs/quickstart/create-plugin",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/api",
+      "destination": "/docs/clients/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/clients/cli",
+      "destination": "/docs/clients/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/use-cases/private-ai-actions-control-center/",
+      "destination": "/docs/use-cases/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/use-cases/automations-in-team-collaboration-tools/",
+      "destination": "/docs/use-cases/actions-in-team-collaboration-tools/",
+      "permanent": true
+    },
+    {
+      "source": "/docs/use-cases/automations-in-team-collaboration-tools/scale-back-end-service-on-aws-from-slack",
+      "destination": "/docs/use-cases/actions-in-team-collaboration-tools/scale-back-end-service-on-aws-from-slack",
+      "permanent": true
+    },
+    {
+      "source": "/docs/use-cases/ci-cd-automations/",
+      "destination": "/docs/use-cases/actions-in-ci-cd-pipelines",
+      "permanent": true
     }
   ]
 }

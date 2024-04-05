@@ -1,0 +1,37 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import DocCardList from "@theme/DocCardList";
+
+# CLI
+
+The CLI allows you to streamline the development process of plugins and actions.
+
+## Usage
+
+The easiest way to use the CLI by using the `npx` command.
+It will download the latest version of the CLI and run the command you pass to it.
+Alternatively, you can install the CLI globally with `npm` and then run the command.
+
+<Tabs>
+  <TabItem value="npx" label="npx" default>
+
+```
+npx connery@latest [command]
+```
+
+We recommend using `@latest` to ensure you use the latest CLI version.
+
+  </TabItem>
+  <TabItem value="npm" label="npm">
+
+```
+npm install -g connery
+connery [command]
+```
+
+  </TabItem>
+</Tabs>
+
+## Available commands
+
+<DocCardList />

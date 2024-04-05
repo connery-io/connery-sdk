@@ -1,0 +1,78 @@
+# Use plugin
+
+Learn how to use a plugin and its actions.
+
+:::note Helpful resources
+
+- [What is a plugin?](/docs/introduction/core-concepts#plugin)
+- [What is an action?](/docs/introduction/core-concepts#action)
+
+:::
+
+## 1. Find the plugin
+
+[Find](/docs/plugins/) or [create](/docs/quickstart/create-plugin) a plugin that provides the actions you need.
+Then, open the plugin repository in Codespaces or clone it on your local machine.
+
+If you clone the plugin repository on your local machine, ensure you have the latest stable version of Node.js installed.
+
+## 2. Install dependencies
+
+To continue, you must install all the dependencies defined in the `./package.json` file.
+Run the following command to install the dependencies.
+
+```
+npm install
+```
+
+## 3. Configure the plugin server
+
+Copy the `.env.example` file to `.env` and update the environment variables with your values.
+
+```
+cp .env.example .env
+```
+
+Check the [Plugin server configuration](/docs/sdk/plugin-server/configuration) to learn more about the available environment variables.
+
+## 4. Start the plugin server
+
+Run the following command to start the plugin server.
+
+```
+npm start
+```
+
+The plugin server will start and listen on the `4201` port by default.
+
+## 5. Expose the plugin server to the Internet
+
+:::info Important
+
+Once you share the port and get the public URL of the plugin server, update the [`PLUGIN_SERVER_URL`](/docs/sdk/plugin-server/configuration#plugin_server_url) environment variable and restart the plugin server.
+This is required to make the OpenAPI spec of the plugin server work properly.
+
+:::
+
+### Share port on Codespaces
+
+If you run the plugin server on GitHub Codespaces, you can share the `4201` port of the plugin server and make it accessible from the Internet.
+To share the port, follow the official [Sharing port](https://docs.github.com/en/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace#sharing-a-port) guide from GitHub.
+
+### Expose port from local machine
+
+If you run the plugin server on your local machine, you can use ngrok to expose the port `4201` of the plugin server and make it accessible from the Internet.
+To expose the port, run the following command.
+
+```
+ngrok http 4201
+```
+
+The command will return a public URL that you can use to access the plugin server from the Internet.
+
+## 6. Configure the client
+
+Now, you can select the client from the [list of supported clients](/docs/clients/) and connect it to the plugin server using the [connection string](/docs/sdk/plugin-server/connection-string).
+In this way, the client will have access to the actions provided by the plugin, and you can start using them.
+
+Follow instructions from the client documentation to connect it to the plugin server.

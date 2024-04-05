@@ -1,49 +1,77 @@
 const sidebars = {
-  platformSidebar: [
+  docsSidebar: [
     {
       label: "Introduction",
       type: "category",
-      collapsible: false,
-      collapsed: false,
+      collapsible: true,
+      collapsed: true,
       link: {
         type: 'doc',
-        id: 'runner/introduction/index',
+        id: 'introduction/index',
       },
       items: [
-        'runner/introduction/core-concepts',
+        'introduction/core-concepts',
       ],
     },
     {
       label: "Quickstart",
       type: "category",
-      collapsible: false,
-      collapsed: false,
+      collapsible: true,
+      collapsed: true,
       link: {
         type: 'doc',
-        id: 'runner/quick-start/index',
+        id: 'quickstart/index',
       },
       items: [
-        'runner/quick-start/set-up-runner',
-        'runner/quick-start/install-plugin-on-the-runner',
-        'runner/quick-start/use-clients-to-call-actions',
+        'quickstart/create-plugin',
+        'quickstart/use-plugin',
+      ],
+    },
+    {
+      label: "SDK",
+      type: "category",
+      collapsible: true,
+      collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'sdk/index',
+      },
+      items: [
+        {
+          label: "Plugin server",
+          type: "category",
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'doc',
+            id: 'sdk/plugin-server/index',
+          },
+          items: [
+            'sdk/plugin-server/configuration',
+            'sdk/plugin-server/connection-string',
+            'sdk/plugin-server/rest-api',
+          ],
+        },
+        'sdk/api-reference',
+      ],
+    },
+    {
+      label: "CLI",
+      type: "category",
+      collapsible: true,
+      collapsed: true,
+      link: {
+        type: 'doc',
+        id: 'cli/index',
+      },
+      items: [
+        'cli/connery-dev-init',
+        'cli/connery-dev-add-action',
       ],
     },
   ],
   pluginsSidebar: [
     'plugins/index',
-    {
-      label: "Guides",
-      type: "category",
-      collapsible: false,
-      collapsed: false,
-      link: {
-        type: 'doc',
-        id: 'plugins/guides/index',
-      },
-      items: [
-        'plugins/guides/create-plugin',
-      ],
-    }
   ],
   clientsSidebar: [
     {
@@ -59,7 +87,7 @@ const sidebars = {
         {
           label: "OpenAI",
           type: "category",
-          collapsible: false,
+          collapsible: true,
           collapsed: false,
           link: {
             type: 'doc',
@@ -73,7 +101,7 @@ const sidebars = {
         {
           label: "LangChain",
           type: "category",
-          collapsible: false,
+          collapsible: true,
           collapsed: false,
           link: {
             type: 'doc',
@@ -86,8 +114,6 @@ const sidebars = {
         },
         'clients/slack',
         'clients/make',
-        'clients/api',
-        'clients/cli',
       ],
     },
   ],
@@ -117,22 +143,21 @@ const sidebars = {
         },
         'use-cases/actions-in-ai-agents-and-apps/index',
         'use-cases/actions-in-ai-wearables/index',
-        'use-cases/private-ai-actions-control-center/index',
         {
-          label: "Automations in Team Collaboration tools",
+          label: "Actions in team collaboration tools",
           type: "category",
           collapsible: true,
           collapsed: true,
           link: {
             type: 'doc',
-            id: 'use-cases/automations-in-team-collaboration-tools/index',
+            id: 'use-cases/actions-in-team-collaboration-tools/index',
           },
           items: [
-            'use-cases/automations-in-team-collaboration-tools/scale-back-end-service-on-aws-from-slack',
+            'use-cases/actions-in-team-collaboration-tools/scale-back-end-service-on-aws-from-slack',
           ]
         },
         'use-cases/custom-actions-in-no-code-tools/index',
-        'use-cases/ci-cd-automations/index',
+        'use-cases/actions-in-ci-cd-pipelines/index',
       ],
     }
   ],
