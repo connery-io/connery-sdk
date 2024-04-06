@@ -4,7 +4,7 @@ Use Connery actions in your OpenAI GPTs to integrate external data or interact w
 
 ## Demo
 
-See below a demo of how we use Connery's **Send email** action in the GPT to write and send emails.
+See below a demo of how we use the [Send email](https://github.com/connery-io/gmail/blob/main/src/actions/sendEmail.ts) action from the [connery-io/gmail](https://github.com/connery-io/gmail) plugin in the GPT to write and send emails.
 
 <iframe
   width="100%"
@@ -24,8 +24,7 @@ In addition to using the built-in capabilities, you can also define custom actio
 Actions allow GPTs to integrate external data or interact with the real world.
 Connect GPTs to databases, plug them into emails, or make them your shopping assistant.
 
-With Connery, you can easily create and manage your own custom actions and use them in your GPTs.
-Connery will take care of the action running, authorization, and provide you the OpenAPI specification compatible with OpenAI GPTs.
+With Connery SDK, you can easily create a plugin with actions and use them in your GPTs.
 See below how to set up Connery actions in your GPT.
 
 :::note Helpful resources
@@ -38,32 +37,35 @@ See below how to set up Connery actions in your GPT.
 
 ### Prerequisites
 
-1. Make sure you have a Connery runner up and running.
-   You can use the [Quickstart](/docs/quickstart/) guide to set it up.
-2. Install plugins with actions you want to use in your GPT.
-   You can find the list of available plugins in the [Plugins](/docs/plugins/) page.
-   In the demo above, we used the [connery-io/gmail](https://github.com/connery-io/gmail) plugin.
-3. Prepare an OpenAI GPT where you want to use Connery actions.
+1. Use [this guide](/docs/quickstart/use-plugin) to set up the plugin server with actions you want to use in the GPT.
+2. Prepare an OpenAI GPT where you want to use the actions.
+
+:::info Important
+
+Make sure your plugin server has [`PLUGIN_SERVER_URL`](/docs/sdk/plugin-server/configuration#plugin_server_url) environment variable set to the actual URL of the plugin server.
+The value of the `PLUGIN_SERVER_URL` is used in the OpenAPI specification to let the GPT know where to send the requests to run the actions.
+
+:::
 
 ### Set up actions in the GPT
 
-Once you have a Connery runner up and running and the GPT ready, you can add Connery actions to it.
+Once you have the plugin server up and running and the GPT ready, you can continue with the following steps to set up actions in the GPT.
 
-1. **Prepare OpenAPI specification URL** with all the actions installed on your runner
+1. **Get the OpenAPI specification** with all the actions from your plugin server.x
 
-Use the following URL to get the OpenAPI specification: `<PUBLIC_RUNNER_URL>/v1/actions/specs/openapi`.
-The `<PUBLIC_RUNNER_URL>` you should get during the runner setup in the [Quickstart](/docs/quickstart/) guide.
+   Send the following request to your plugin server to get the OpenAPI specification for the OpenAI GPTs:
 
-Prepare the URL and copy it to use in the next steps.
+   ```
 
-:::info Runner Public URL is required
+   curl -X 'GET' \
+     '<PLUGIN_SERVER_URL>/api/specs/openai/gpts' \
+     -H 'x-api-key: <API_KEY>'
 
-OpenAPI specification contains the URL of your runner **to let GPTs know where to send requests**.
-Therefore, you need to configure the actual public URL of your runner in the `CONNERY_RUNNER_PUBLIC_URL` environment variable in the `.env` file.
+   ```
 
-If this variable is not set, the OpenAPI URL will respond with error. If the URL is not correct, the GPT will not be able to use Connery actions from your runner.
+   Replace `<PLUGIN_SERVER_URL>` and `<API_KEY>` with the actual values of your plugin server.
 
-:::
+   Copy the OpenAPI specification from the response and save it to use in the next steps.
 
 2. Open the **Configuration** section of your GPT.
 3. Scroll down to the **Actions** section and click the **Add actions** button.
@@ -75,35 +77,12 @@ If this variable is not set, the OpenAPI URL will respond with error. If the URL
   />
 </p>
 
-4. Click the **Import from URL** button.
+4. Paste the OpenAPI specification you got from the plugin server into the **Schema** field.
 
-<p align="center">
-  <img
-    src="/img/openai/actions-configuration-in-gpt-2@2x.png"
-    alt="Actions configuration in GPT"
-  />
-</p>
+   It should automatically load the actions from the specification and show them in the **Available actions** section under the **Schema** field.
+   Check the list of actions imported from the OpenAPI specification.
 
-5. Paste the OpenAPI specification URL you prepared in the previous step into the **URL** field and click the **Import** button.
-
-<p align="center">
-  <img
-    src="/img/openai/actions-configuration-in-gpt-3@2x.png"
-    alt="Actions configuration in GPT"
-  />
-</p>
-
-6. Check the list of actions imported from the OpenAPI specification.
-
-:::info Only two actions are imported
-
-There are always two actions imported from the OpenAPI specification: `listActions` and `runAction`.
-GPT uses them to get the list of available actions from the runner and to run one of them respectively.
-In this way, GPT always has the latest list of actions available on the runner.
-
-:::
-
-7. Click the **Gear** button in the **Authentication** section to configure the authentication method for the actions.
+5. Click the **Gear** button in the **Authentication** section to configure the authentication method for the actions.
 
 <p align="center">
   <img
@@ -112,11 +91,11 @@ In this way, GPT always has the latest list of actions available on the runner.
   />
 </p>
 
-8. Select the **API Key** authentication type.
-9. Paste the API Key of your runner into the **API Key** field.
-10. Select the **Custom** auth type.
-11. Use the `x-api-key` as a **Custom Header Name**.
-12. Click the **Save** button.
+7. Select the **API Key** authentication type.
+8. Paste the API Key of your plugin server into the **API Key** field.
+9. Select the **Custom** auth type.
+10. Use the `x-api-key` as a **Custom Header Name**.
+11. Click the **Save** button.
 
 <p align="center">
   <img
@@ -125,19 +104,6 @@ In this way, GPT always has the latest list of actions available on the runner.
   />
 </p>
 
-13. Add the Connery action instructions to the **Instructions** section of your GPT
-
-We recommend adding the following instructions to the end of your instruction in the **Instructions** section of your GPT.
-This will help the GPT to understand how to use Connery actions and provide a better experience to the user.
-
-```text
-# Instructions on how to use Connery actions:
-1. Collect as much input from the user as possible based on the input parameters of the action you will run.
-2. Do not come up with the data for the input parameters yourself.
-3. Always ask the user for additional input if the data for the required input parameters is missing.
-4. Do not ask the user for more data than expected by the input parameters of the action you will run.
-```
-
 13. Press **Update** on the top right corner to update the GPT, then press **Confirm** and **View GPT**.
 
-Now, you're ready to use Connery actions in your GPT.
+Now, you're ready to use the actions in your GPT.
