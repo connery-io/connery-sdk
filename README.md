@@ -111,7 +111,7 @@ You can reach us via the following channels:
 
 - [Discussions](https://github.com/connery-io/connery/discussions) - for feedback, questions, and discussions.
 - [Issues](https://github.com/connery-io/connery/issues) - for bug reports and feature requests.
-- [Discord](https://discord.gg/7Q6Z2Y8Q) - for community collaboration.
+- [Discord](https://discord.gg/d45vsC6Z) - for community collaboration.
 - [Twitter](https://twitter.com/connery_io) - for updates and announcements.
 
 ## 🗄️ Repository structure
