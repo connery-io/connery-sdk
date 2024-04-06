@@ -51,9 +51,12 @@ The value of the `PLUGIN_SERVER_URL` is used in the OpenAPI specification to let
 
 Once you have the plugin server up and running and the GPT ready, you can continue with the following steps to set up actions in the GPT.
 
-1. **Get the OpenAPI specification** with all the actions from your plugin server.x
+1. **Get the OpenAPI specification** with all the actions from your plugin server.
 
-   Send the following request to your plugin server to get the OpenAPI specification for the OpenAI GPTs:
+   Use the [Interactive OpenAPI docs](/docs/sdk/plugin-server/rest-api#interactive-openapi-docs)
+   to request the `/api/specs/openai/gpts` endpoint and get the OpenAPI specification for the OpenAI GPTs.
+
+   Or send the following request from the terminal:
 
    ```
 
@@ -68,7 +71,7 @@ Once you have the plugin server up and running and the GPT ready, you can contin
    Copy the OpenAPI specification from the response and save it to use in the next steps.
 
 2. Open the **Configuration** section of your GPT.
-3. Scroll down to the **Actions** section and click the **Add actions** button.
+3. Scroll down to the **Actions** section and click the **Create new action** button.
 
 <p align="center">
   <img
@@ -86,24 +89,24 @@ Once you have the plugin server up and running and the GPT ready, you can contin
 
 <p align="center">
   <img
-    src="/img/openai/actions-configuration-in-gpt-4@2x.png"
+    src="/img/openai/actions-configuration-in-gpt-2@2x.png"
     alt="Actions configuration in GPT"
   />
 </p>
 
-7. Select the **API Key** authentication type.
-8. Paste the API Key of your plugin server into the **API Key** field.
-9. Select the **Custom** auth type.
-10. Use the `x-api-key` as a **Custom Header Name**.
-11. Click the **Save** button.
+6. Select the **API Key** authentication type.
+7. Paste the API Key of your plugin server into the **API Key** field.
+8. Select the **Custom** auth type.
+9. Use the `x-api-key` as a **Custom Header Name**.
+10. Click the **Save** button.
 
 <p align="center">
   <img
-    src="/img/openai/actions-configuration-in-gpt-5@2x.png"
+    src="/img/openai/actions-configuration-in-gpt-3@2x.png"
     alt="Actions configuration in GPT"
   />
 </p>
 
-13. Press **Update** on the top right corner to update the GPT, then press **Confirm** and **View GPT**.
+11. Press **Update** on the top right corner to update the GPT, then press **Confirm** and **View GPT**.
 
 Now, you're ready to use the actions in your GPT.
