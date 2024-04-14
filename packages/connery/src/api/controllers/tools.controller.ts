@@ -1,13 +1,11 @@
 import { Public } from '../auth.guard.js';
 import { Controller, Get } from '@nestjs/common';
 import {
-  ApiSecurity,
   ApiTags,
   ApiOperation,
   ApiExtraModels,
   ApiInternalServerErrorResponse,
   getSchemaPath,
-  ApiUnauthorizedResponse,
   ApiOkResponse,
 } from '@nestjs/swagger';
 import { GenericErrorResponse, GenericObjectResponse } from '../dto.js';
