@@ -40,34 +40,4 @@ export class ToolsController {
       data: undefined,
     };
   }
-
-  @ApiOperation({
-    summary: 'Verify if the request is authenticated.',
-    description: 'Verify if the request is authenticated.',
-  })
-  @ApiOkResponse({
-    description: 'The request is authenticated.',
-    schema: {
-      $ref: getSchemaPath(GenericObjectResponse),
-    },
-  })
-  @ApiExtraModels(GenericErrorResponse)
-  @ApiUnauthorizedResponse({
-    description: 'Unauthorized.',
-    schema: {
-      $ref: getSchemaPath(GenericErrorResponse),
-    },
-  })
-  @ApiSecurity('ApiKey')
-  @Get('/verify-access')
-  verifyAccess(): GenericObjectResponse<undefined> {
-    // By default every API endpoint is protected by the AuthGuard. Including this one.
-    // And the AuthGuard will throw an exception if the request is not authenticated.
-    // This endpoint does not contain any business logic, it is only used to verify if the request is authenticated by the clients.
-
-    return {
-      status: 'success',
-      data: undefined,
-    };
-  }
 }
