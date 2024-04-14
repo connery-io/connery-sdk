@@ -49,7 +49,6 @@ async function initOpeApiSpec(app: INestApplication) {
     .addTag('Plugin')
     .addTag('Actions')
     .addTag('Specs', 'Action specifications for different clients.')
-    .addTag('Tools', 'Different tooling endpoints.')
     .addServer(pluginConfigService.pluginServerUrl, 'Plugin URL')
     .build();
   const document = SwaggerModule.createDocument(app, config);
