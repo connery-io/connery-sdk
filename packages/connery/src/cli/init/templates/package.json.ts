@@ -1,6 +1,7 @@
 export default `{
   "type": "module",
   "scripts": {
+    "build": "tsc",
     "start": "tsc && node dist/index.js",
     "test": "jest --passWithNoTests",
     "format": "prettier --write ."
