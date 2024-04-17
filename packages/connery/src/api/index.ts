@@ -8,31 +8,58 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
 import { PluginConfigService } from './services/plugin-config.service.js';
 import { logAdditionalData, logError, logSuccess } from '../cli/shared.js'; // TODO move this out of CLI and share between CLI and SDK
+import serverlessExpress from '@codegenie/serverless-express';
+import { Callback, Context, Handler } from 'aws-lambda';
 
-export async function startPluginServer(pluginDefinition: PluginDefinition) {
+export async function setupPluginServer(pluginDefinition: PluginDefinition): Promise<Handler> {
   try {
-    const app = await NestFactory.create(AppModule, {
-      cors: true,
-      logger: false,
-    });
+    const app = await configureServer(pluginDefinition);
 
-    initPlugin(app, pluginDefinition);
-    await initOpeApiSpec(app);
+    if (process.env.HOSTING_MODE === 'AWS_LAMBDA') {
+      await app.init();
+      const expressApp = app.getHttpAdapter().getInstance();
+      const server = serverlessExpress({ app: expressApp });
 
-    app.useGlobalFilters(new AllExceptionsFilter());
+      // TODO: cache the server
+      logSuccess('The plugin server is configured to AWS_LAMBDA hosting mode and ready to handle requests.');
 
-    await app.listen(4201);
-    logSuccess('The plugin server is up and running.');
-    logAdditionalData('You can access it in a browser at http://localhost:4201.');
+      return async (event: any, context: Context, callback: Callback) => {
+        return server(event, context, callback);
+      };
+    } else if (process.env.HOSTING_ENV === 'STANDARD' || !process.env.HOSTING_MODE) {
+      await app.listen(4201);
+
+      logSuccess('The plugin server is up and running.');
+      logAdditionalData('You can access it in a browser at http://localhost:4201.');
+
+      return async () =>
+        console.log(
+          'The plugin server is running in a standard mode (HOSTING_ENV=STANDARD). The event handler is ignored.',
+        );
+    } else {
+      throw new Error(`Unsupported hosting environment: ${process.env.HOSTING_ENV}`);
+    }
   } catch (error: any) {
     logError(error);
+    throw error;
   }
 }
 
-function initPlugin(app: INestApplication, pluginDefinition: PluginDefinition) {
+async function configureServer(pluginDefinition: PluginDefinition): Promise<INestApplication> {
+  const app = await NestFactory.create(AppModule, { cors: true, logger: false });
+
+  // Init plugin
   const plugin = new Plugin(pluginDefinition);
   const pluginService = app.get(PluginService);
   pluginService.plugin = plugin;
+
+  // Init OpenAPI spec
+  await initOpeApiSpec(app);
+
+  // Global filters
+  app.useGlobalFilters(new AllExceptionsFilter());
+
+  return app;
 }
 
 async function initOpeApiSpec(app: INestApplication) {
