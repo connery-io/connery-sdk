@@ -1,6 +1,6 @@
 <div align="center">
 
-# The open-source SDK for<br>AI plugins and actions development
+# The open-source SDK for<br>creating AI plugins and actions
 
 [![Release](https://img.shields.io/github/v/release/connery-io/connery?color=74C649&label=Release)](https://github.com/connery-io/connery/releases)
 [![License](https://img.shields.io/github/license/connery-io/connery?color=74C649&label=License)](https://github.com/connery-io/connery/blob/main/LICENSE)
