@@ -1,3 +1,3 @@
 export * from './types/definition.js';
 export * from './types/context.js';
-export { startPluginServer } from './api/index.js';
+export { setupPluginServer } from './api/index.js';
