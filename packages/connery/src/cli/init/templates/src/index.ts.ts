@@ -1,4 +1,4 @@
-export default `import { PluginDefinition, startPluginServer } from 'connery';
+export default `import { PluginDefinition, setupPluginServer } from 'connery';
 import sampleAction from './actions/sampleAction.js';
 
 const pluginDefinition: PluginDefinition = {
@@ -14,5 +14,6 @@ const pluginDefinition: PluginDefinition = {
   ],
 };
 
-startPluginServer(pluginDefinition);
+const handler = await setupPluginServer(pluginDefinition);
+export default handler;
 `;
