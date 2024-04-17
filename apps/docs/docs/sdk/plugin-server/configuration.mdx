@@ -22,6 +22,19 @@ Required: Yes.
 
 The API key that the plugin server will use to validate incoming requests.
 
+### `HOSTING_MODE`
+
+Required: No.
+
+Default: `STANDARD`.
+
+The hosting mode adjusts the behavior of the plugin server to the specific environment where it is running.
+
+Available values:
+
+- `STANDARD` - Use this mode to run the plugin server as a standalone application or in a container.
+- `AWS_LAMBDA` - Use this mode to run the plugin server in AWS Lambda.
+
 ### `CONFIG_<configurationParameterKey>`
 
 Required: Depends on the configuration parameter validation rules in the plugin definition.
