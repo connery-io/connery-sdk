@@ -1,16 +1,14 @@
 import { ActionContext, OutputObject } from './context.js';
 
 export interface PluginDefinition {
-  title: string;
+  name: string;
   description?: string;
   actions: ActionDefinition[];
-  configurationParameters: ConfigurationParameterDefinition[];
-  maintainers: MaintainerDefinition[];
 }
 
 export interface ActionDefinition {
   key: string;
-  title: string;
+  name: string;
   description?: string;
   type: 'create' | 'read' | 'update' | 'delete';
   inputParameters: InputParameterDefinition[];
@@ -20,7 +18,7 @@ export interface ActionDefinition {
 
 export interface InputParameterDefinition {
   key: string;
-  title: string;
+  name: string;
   description?: string;
   type: 'string';
   validation?: ValidationDefinition;
@@ -28,7 +26,7 @@ export interface InputParameterDefinition {
 
 export interface OutputParameterDefinition {
   key: string;
-  title: string;
+  name: string;
   description?: string;
   type: 'string';
   validation?: ValidationDefinition;
@@ -36,19 +34,6 @@ export interface OutputParameterDefinition {
 
 export interface OperationDefinition {
   handler: (context: ActionContext) => Promise<OutputObject>;
-}
-
-export interface ConfigurationParameterDefinition {
-  key: string;
-  title: string;
-  description?: string;
-  type: 'string';
-  validation?: ValidationDefinition;
-}
-
-export interface MaintainerDefinition {
-  name: string;
-  email: string;
 }
 
 export interface ValidationDefinition {

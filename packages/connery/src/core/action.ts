@@ -1,6 +1,6 @@
 import { validateInput } from './utils/input-utils.js';
 import { validateOutput } from './utils/output-utils.js';
-import { ActionContext, ConfigurationObject, InputObject, OutputObject } from '../types/context.js';
+import { ActionContext, InputObject, OutputObject } from '../types/context.js';
 import {
   ActionDefinition,
   InputParameterDefinition,
@@ -9,11 +9,10 @@ import {
 } from '../types/definition.js';
 import { ActionRuntime, PluginRuntime } from '../types/runtime.js';
 import { RunActionResponse } from '../api/dto.js';
-import { resolveConfiguration, validateConfiguration } from './utils/configuration-utils.js';
 
 export class Action implements ActionRuntime {
   key: string;
-  title: string;
+  name: string;
   description?: string | undefined;
   type: 'create' | 'read' | 'update' | 'delete';
   inputParameters: InputParameterDefinition[];
@@ -23,7 +22,7 @@ export class Action implements ActionRuntime {
 
   constructor(definition: ActionDefinition, plugin: PluginRuntime) {
     this.key = definition.key;
-    this.title = definition.title;
+    this.name = definition.name;
     this.description = definition.description;
     this.type = definition.type;
     this.inputParameters = definition.inputParameters;
@@ -32,19 +31,11 @@ export class Action implements ActionRuntime {
     this.plugin = plugin;
   }
 
-  async run(
-    input: InputObject,
-    defaultConfiguration: ConfigurationObject | undefined,
-    customConfiguration: ConfigurationObject | undefined,
-  ): Promise<RunActionResponse> {
+  async run(input: InputObject): Promise<RunActionResponse> {
     const trimmedInput = validateInput(this.inputParameters, input);
-
-    const configuration = resolveConfiguration(defaultConfiguration, customConfiguration);
-    const trimmedConfiguration = validateConfiguration(this.plugin.configurationParameters, configuration);
 
     const actionContext: ActionContext = {
       input: trimmedInput,
-      configuration: trimmedConfiguration,
     };
     let output: OutputObject = {};
     try {
