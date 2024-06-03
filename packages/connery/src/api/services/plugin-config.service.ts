@@ -21,18 +21,6 @@ export class PluginConfigService {
 
   constructor(private configService: ConfigService) {}
 
-  get pluginServerUrl(): string {
-    const pluginServerUrl = this.configService.get('PLUGIN_SERVER_URL');
-
-    const result = PluginConfigService.pluginUrlSchema.safeParse(pluginServerUrl);
-    if (!result.success) {
-      const userFriendlyValidationError = fromZodError(result.error, PluginConfigService.validationErrorConfig);
-      throw new Error(userFriendlyValidationError.message);
-    }
-
-    return pluginServerUrl;
-  }
-
   get apiKey(): string {
     const apiKey = this.configService.get('API_KEY');
 
@@ -55,7 +43,6 @@ export class PluginConfigService {
   // All the other methods validate the configuration on demand.
   static validateEnvConfig(config: Record<string, any>): Record<string, any> {
     const requiredEnvSchema = z.object({
-      PLUGIN_SERVER_URL: PluginConfigService.pluginUrlSchema,
       API_KEY: PluginConfigService.apiKeySchema,
     });
 
