@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { readFile } from 'fs/promises';
-import { ConfigurationObject, ConfigurationValue } from '../../sdk';
 import { z } from 'zod';
 import { fromZodError } from 'zod-validation-error';
 
@@ -46,18 +45,6 @@ export class PluginConfigService {
     return apiKey;
   }
 
-  get configuration(): ConfigurationObject {
-    const allEnvVars = Object.keys(process.env);
-    const configVars = allEnvVars.filter((key) => key.startsWith('CONFIG_'));
-    const configurationObject = configVars.reduce((acc: ConfigurationObject, curr: ConfigurationValue) => {
-      const key = curr.replace('CONFIG_', '');
-      acc[key] = this.getConfigurationParameter(curr);
-      return acc;
-    }, {});
-
-    return configurationObject;
-  }
-
   async getSdkVersion(): Promise<string> {
     const data = await readFile(new URL('./../../../package.json', import.meta.url), { encoding: 'utf8' });
     const packageJson = JSON.parse(data);
@@ -83,15 +70,5 @@ export class PluginConfigService {
       ...config,
       ...result.data,
     };
-  }
-
-  private getConfigurationParameter(key: string): ConfigurationValue {
-    const configurationParameter = this.configService.get<ConfigurationValue>(key);
-
-    if (!configurationParameter) {
-      throw new Error(`ENV configuration parameter ${key} is missing`);
-    }
-
-    return configurationParameter;
   }
 }

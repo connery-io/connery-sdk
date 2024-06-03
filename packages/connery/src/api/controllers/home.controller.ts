@@ -12,16 +12,16 @@ export class HomeController {
   @ApiExcludeEndpoint()
   @Get()
   getHomePage(@Res() res: Response) {
-    const pluginTitle = this.pluginService.plugin.title;
+    const pluginName = this.pluginService.plugin.name;
     const pluginDescription = this.pluginService.plugin.description;
     const listOfActions = this.pluginService.plugin.actions
-      .map((action) => '<span class="italic">' + action.title + '</span>')
+      .map((action) => '<span class="italic">' + action.name + '</span>')
       .join(', ');
 
     const htmlContent = `
       <html>
         <head>
-          <title>${pluginTitle} - ${pluginDescription}</title>
+          <title>${pluginName} - ${pluginDescription}</title>
           <meta charset="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <script src="https://cdn.tailwindcss.com"></script>
@@ -30,7 +30,7 @@ export class HomeController {
           <div class="mx-auto max-w-3xl px-4">
             <main class="my-10 grid items-center justify-center gap-4 text-center md:gap-10 lg:gap-16">
               <div class="space-y-4">
-                <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">✨<br />${pluginTitle}</h1>
+                <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl">✨<br />${pluginName}</h1>
                 <p class="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   ${pluginDescription}
                 </p>

@@ -1,13 +1,7 @@
 import { ApiHideProperty, ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { ActionRuntime, PluginRuntime } from '../types/runtime';
-import {
-  ConfigurationParameterDefinition,
-  InputParameterDefinition,
-  MaintainerDefinition,
-  OutputParameterDefinition,
-  ValidationDefinition,
-} from '../types/definition';
-import { ConfigurationObject, InputObject, OutputObject } from '../types/context';
+import { InputParameterDefinition, OutputParameterDefinition, ValidationDefinition } from '../types/definition';
+import { InputObject, OutputObject } from '../types/context';
 
 //
 // Generic response types
@@ -82,19 +76,6 @@ export class GenericErrorResponse {
 // Response types
 //
 
-export class Maintainer {
-  @ApiProperty()
-  name: string;
-
-  @ApiProperty()
-  email: string;
-
-  constructor(maintainer: MaintainerDefinition) {
-    this.name = maintainer.name;
-    this.email = maintainer.email;
-  }
-}
-
 export class Validation {
   @ApiPropertyOptional()
   required?: boolean;
@@ -104,65 +85,16 @@ export class Validation {
   }
 }
 
-export class ConfigurationParameter {
-  @ApiProperty()
-  key: string;
-
-  @ApiProperty()
-  title: string;
-
-  @ApiPropertyOptional()
-  description?: string;
-
-  @ApiProperty({
-    enum: ['string'],
-  })
-  type: 'string';
-
-  @ApiPropertyOptional({
-    type: Validation,
-  })
-  validation?: Validation;
-
-  constructor(configurationParameter: ConfigurationParameterDefinition) {
-    this.key = configurationParameter.key;
-    this.title = configurationParameter.title;
-    this.description = configurationParameter.description;
-    this.type = configurationParameter.type;
-    this.validation = new Validation(configurationParameter.validation);
-  }
-}
-
 export class Plugin {
   @ApiProperty()
-  title: string;
+  name: string;
 
   @ApiPropertyOptional()
   description?: string;
 
-  @ApiProperty({
-    type: ConfigurationParameter,
-    isArray: true,
-    title: 'Metadata of the plugin configuration parameters.',
-    description:
-      'The configuration parameters are used to configure the plugin and its actions. For example, the API keys, the URLs, credentials, etc., can be configured here to be used in the actions. Configuration parameters can be set in the environment variables of the plugin. But also, they can be set when running an action. The configuration parameters set when running an action will override the configuration parameters set in the environment variables.',
-  })
-  configurationParameters: ConfigurationParameter[];
-
-  @ApiProperty({
-    type: Maintainer,
-    isArray: true,
-    title: 'The maintainers of the plugin.',
-  })
-  maintainers: Maintainer[];
-
   constructor(plugin: PluginRuntime) {
-    this.title = plugin.title;
+    this.name = plugin.name;
     this.description = plugin.description;
-    this.configurationParameters = plugin.configurationParameters.map(
-      (configurationParameter) => new ConfigurationParameter(configurationParameter),
-    );
-    this.maintainers = plugin.maintainers.map((maintainer) => new Maintainer(maintainer));
   }
 }
 
@@ -171,7 +103,7 @@ export class InputParameter {
   key: string;
 
   @ApiProperty()
-  title: string;
+  name: string;
 
   @ApiPropertyOptional()
   description?: string;
@@ -188,7 +120,7 @@ export class InputParameter {
 
   constructor(inputParameter: InputParameterDefinition) {
     this.key = inputParameter.key;
-    this.title = inputParameter.title;
+    this.name = inputParameter.name;
     this.description = inputParameter.description;
     this.type = inputParameter.type;
     this.validation = new Validation(inputParameter.validation);
@@ -200,7 +132,7 @@ export class OutputParameter {
   key: string;
 
   @ApiProperty()
-  title: string;
+  name: string;
 
   @ApiPropertyOptional()
   description?: string;
@@ -217,7 +149,7 @@ export class OutputParameter {
 
   constructor(outputParameter: OutputParameterDefinition) {
     this.key = outputParameter.key;
-    this.title = outputParameter.title;
+    this.name = outputParameter.name;
     this.description = outputParameter.description;
     this.type = outputParameter.type;
     this.validation = new Validation(outputParameter.validation);
@@ -229,7 +161,7 @@ export class Action {
   key: string;
 
   @ApiProperty()
-  title: string;
+  name: string;
 
   @ApiPropertyOptional()
   description?: string;
@@ -255,7 +187,7 @@ export class Action {
 
   constructor(action: ActionRuntime) {
     this.key = action.key;
-    this.title = action.title;
+    this.name = action.name;
     this.description = action.description;
     this.type = action.type;
     this.inputParameters = action.inputParameters.map((inputParameter) => new InputParameter(inputParameter));
@@ -307,8 +239,7 @@ export class RunActionRequest {
     [key: string]: any;
   };
 
-  constructor(input: InputObject, configuration?: ConfigurationObject) {
+  constructor(input: InputObject) {
     this.input = input;
-    this.configuration = configuration;
   }
 }

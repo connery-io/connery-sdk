@@ -22,7 +22,7 @@ export class OpenAiSpecsService {
     const openApiSchema: OpenAPIV3.Document = {
       openapi: '3.0.0',
       info: {
-        title: this.pluginService.plugin.title,
+        title: this.pluginService.plugin.name,
         description: this.pluginService.plugin.description,
         version: await this.pluginConfigService.getSdkVersion(),
       },
@@ -89,7 +89,7 @@ export class OpenAiSpecsService {
                     (accumulator: Record<string, OpenAPIV3.SchemaObject>, inputParameter: InputParameter) => {
                       accumulator[inputParameter.key] = {
                         type: 'string',
-                        title: inputParameter.title,
+                        title: inputParameter.name,
                         description: inputParameter.description,
                       };
                       return accumulator;
@@ -128,7 +128,7 @@ export class OpenAiSpecsService {
                           (accumulator: Record<string, OpenAPIV3.SchemaObject>, outputParameter: OutputParameter) => {
                             accumulator[outputParameter.key] = {
                               type: 'string',
-                              title: outputParameter.title,
+                              title: outputParameter.name,
                               description: outputParameter.description,
                             };
                             return accumulator;
@@ -158,7 +158,7 @@ export class OpenAiSpecsService {
       openApiSchema.paths[path] = {
         post: {
           operationId: action.key,
-          summary: action.title,
+          summary: action.name,
           description: action.description,
           // For 'read' action type we set the 'x-openai-isConsequential' to false, otherwise we set it to true.
           // This mean that the 'read' actions will not require a user confirmation before running.
@@ -185,7 +185,7 @@ export class OpenAiSpecsService {
     for (const action of this.pluginService.plugin.actions) {
       const openAiFunction: OpenAiFunctionSchema = {
         name: action.key,
-        description: this.getDescription(action.title, action.description),
+        description: this.getDescription(action.name, action.description),
         parameters: {
           type: 'object',
           properties: {},
@@ -196,7 +196,7 @@ export class OpenAiSpecsService {
       for (const inputParameter of action.inputParameters) {
         openAiFunction.parameters.properties[inputParameter.key] = {
           type: 'string',
-          description: this.getDescription(inputParameter.title, inputParameter.description),
+          description: this.getDescription(inputParameter.name, inputParameter.description),
         };
 
         if (inputParameter.validation?.required) {
@@ -210,7 +210,7 @@ export class OpenAiSpecsService {
     return openAiFunctions;
   }
 
-  private getDescription(title: string, description?: string): string {
-    return description ? `${title}: ${description}` : title;
+  private getDescription(name: string, description?: string): string {
+    return description ? `${name}: ${description}` : name;
   }
 }
