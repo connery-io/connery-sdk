@@ -20,7 +20,6 @@ import {
   RunActionResponse,
   GenericErrorResponse,
 } from '../dto.js';
-import { PluginConfigService } from '../services/plugin-config.service.js';
 
 @ApiTags('Actions')
 @ApiSecurity('ApiKey')
@@ -39,7 +38,7 @@ import { PluginConfigService } from '../services/plugin-config.service.js';
 })
 @Controller('/api/actions')
 export class ActionsController {
-  constructor(private pluginService: PluginService, private pluginConfigService: PluginConfigService) {}
+  constructor(private pluginService: PluginService) {}
 
   @ApiOperation({
     summary: 'List all actions from the plugin.',
@@ -158,8 +157,7 @@ export class ActionsController {
     }
 
     // TODO: throw validation errors as HTTP 400
-    const defaultConfiguration = this.pluginConfigService.configuration;
-    const result = await action.run(body.input, defaultConfiguration, body.configuration);
+    const result = await action.run(body.input);
 
     return {
       status: 'success',
