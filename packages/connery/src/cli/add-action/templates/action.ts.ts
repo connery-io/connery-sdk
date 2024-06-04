@@ -2,7 +2,7 @@ export default `import { ActionDefinition, ActionContext, OutputObject } from 'c
 
 const actionDefinition: ActionDefinition = {
   key: '{{key}}',
-  title: '{{title}}',
+  name: '{{name}}',
   description: '{{description}}',
   type: '{{type}}',
   inputParameters: [],
@@ -13,7 +13,7 @@ const actionDefinition: ActionDefinition = {
 };
 export default actionDefinition;
 
-export async function handler({ input, configuration }: ActionContext): Promise<OutputObject> {
+export async function handler({ input }: ActionContext): Promise<OutputObject> {
   // TODO: Implement the action logic.
 
   return {};

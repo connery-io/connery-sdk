@@ -6,12 +6,12 @@ export async function collectUserInput(): Promise<InitRepositoryParameters> {
   logEmptyLine();
 
   const answers = {
-    pluginTitle: await input({
-      message: styleQuestion('What is the plugin title?', '(e.g.: Gmail)'),
+    pluginName: await input({
+      message: styleQuestion('What is the plugin name?', '(e.g.: Gmail)'),
       transformer: styleAnswer,
       validate: (value: string) => {
         if (value.trim() === '') {
-          return styleError('Please enter the plugin title');
+          return styleError('Please enter the plugin name');
         }
         return true;
       },
@@ -30,7 +30,7 @@ export async function collectUserInput(): Promise<InitRepositoryParameters> {
       },
     }),
     authorName: await input({
-      message: styleQuestion('What is the mainainer name?'),
+      message: styleQuestion('What is the mainainer name?', '(for the license)'),
       transformer: styleAnswer,
       validate: (value: string) => {
         if (value.trim() === '') {
@@ -40,7 +40,7 @@ export async function collectUserInput(): Promise<InitRepositoryParameters> {
       },
     }),
     authorEmail: await input({
-      message: styleQuestion('What is the maintainer email?'),
+      message: styleQuestion('What is the maintainer email?', '(for the license)'),
       transformer: styleAnswer,
       validate: (value: string) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -61,7 +61,7 @@ export async function collectUserInput(): Promise<InitRepositoryParameters> {
 
   return {
     plugin: {
-      title: answers.pluginTitle.trim(),
+      name: answers.pluginName.trim(),
       description: answers.pluginDescription.trim() || `Plugin built using Connery SDK.`,
     },
     maintainer: {

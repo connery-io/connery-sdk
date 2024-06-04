@@ -75,8 +75,6 @@ async function initOpeApiSpec(app: INestApplication) {
     .addApiKey({ type: 'apiKey', in: 'header', name: 'x-api-key' }, 'ApiKey')
     .addTag('Plugin')
     .addTag('Actions')
-    .addTag('Specs', 'Action specifications for different clients.')
-    .addServer(pluginConfigService.pluginServerUrl, 'Plugin URL')
     .build();
   const document = SwaggerModule.createDocument(app, config);
 
