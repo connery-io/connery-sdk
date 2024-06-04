@@ -1,4 +1,4 @@
-export default `# {{plugin.title}}
+export default `# {{plugin.name}}
 
 {{plugin.description}}
 
@@ -13,7 +13,7 @@ This repository contains the plugin's source code.
 
 ## Built using Connery SDK
 
-This plugin is built using [Connery SDK](https://github.com/connery-io/connery), the open-source SDK for AI plugins and actions development.
+This plugin is built using [Connery SDK](https://github.com/connery-io/connery), the open-source SDK for creating AI plugins and actions.
 
 [Learn how to use the plugin and its actions.](https://sdk.connery.io/docs/quickstart/use-plugin)
 

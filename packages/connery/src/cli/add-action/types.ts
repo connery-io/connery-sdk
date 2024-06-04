@@ -1,6 +1,6 @@
 export type AddActionParameters = {
   key: string;
-  title: string;
+  name: string;
   description?: string;
   type: string;
 };

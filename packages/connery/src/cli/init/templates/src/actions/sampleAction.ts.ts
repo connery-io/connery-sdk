@@ -4,13 +4,13 @@ import { ActionDefinition, ActionContext, OutputObject } from 'connery';
 
 const actionDefinition: ActionDefinition = {
   key: 'sampleAction',
-  title: 'Sample action',
+  name: 'Sample action',
   description: 'A sample action that adds two numbers',
   type: 'read',
   inputParameters: [
     {
       key: 'number1',
-      title: 'Number 1',
+      name: 'Number 1',
       description: 'The first number to add',
       type: 'string',
       validation: {
@@ -19,7 +19,7 @@ const actionDefinition: ActionDefinition = {
     },
     {
       key: 'number2',
-      title: 'Number 2',
+      name: 'Number 2',
       description: 'The second number to add',
       type: 'string',
       validation: {
@@ -33,7 +33,7 @@ const actionDefinition: ActionDefinition = {
   outputParameters: [
     {
       key: 'sum',
-      title: 'Sum',
+      name: 'Sum',
       description: 'The sum of the two numbers',
       type: 'string',
       validation: {
@@ -44,7 +44,7 @@ const actionDefinition: ActionDefinition = {
 };
 export default actionDefinition;
 
-export async function handler({ input, configuration }: ActionContext): Promise<OutputObject> {
+export async function handler({ input }: ActionContext): Promise<OutputObject> {
   const sum = Number(input.number1) + Number(input.number2);
 
   return {
