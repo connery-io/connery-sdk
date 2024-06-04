@@ -6,12 +6,12 @@ export async function collectUserInput(): Promise<AddActionParameters> {
   logEmptyLine();
 
   const answers = {
-    actionTitle: await input({
-      message: styleQuestion('What is the action title?', '(e.g.: Send email)'),
+    actionName: await input({
+      message: styleQuestion('What is the action name?', '(e.g.: Send email)'),
       transformer: styleAnswer,
       validate: (value: string) => {
         if (value.trim() === '') {
-          return styleError('Please enter the action title');
+          return styleError('Please enter the action name');
         }
         return true;
       },
@@ -32,8 +32,8 @@ export async function collectUserInput(): Promise<AddActionParameters> {
   };
 
   return {
-    key: toCamelCase(answers.actionTitle.trim()),
-    title: answers.actionTitle.trim(),
+    key: toCamelCase(answers.actionName.trim()),
+    name: answers.actionName.trim(),
     description: answers.actionDescription.trim(),
     type: answers.actionType.trim(),
   };

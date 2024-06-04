@@ -1,6 +1,6 @@
 export type InitRepositoryParameters = {
   plugin: {
-    title: string;
+    name: string;
     description: string;
   };
   maintainer: {

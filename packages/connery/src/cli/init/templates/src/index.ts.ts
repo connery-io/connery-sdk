@@ -2,16 +2,9 @@ export default `import { PluginDefinition, setupPluginServer } from 'connery';
 import sampleAction from './actions/sampleAction.js';
 
 const pluginDefinition: PluginDefinition = {
-  title: '{{plugin.title}}',
+  name: '{{plugin.name}}',
   description: '{{plugin.description}}',
   actions: [sampleAction],
-  configurationParameters: [],
-  maintainers: [
-    {
-      name: '{{maintainer.name}}',
-      email: '{{maintainer.email}}',
-    },
-  ],
 };
 
 const handler = await setupPluginServer(pluginDefinition);
