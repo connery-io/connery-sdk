@@ -79,12 +79,18 @@ export function validateExtraOutputParameters(
 export function trimOutput(output: OutputObject): OutputObject {
   const trimmedOutput: OutputObject = {};
 
-  if (!output) {
+  if (!output || Object.keys(output).length === 0) {
     return trimmedOutput;
   }
 
   Object.keys(output).forEach((key) => {
-    trimmedOutput[key] = output[key].trim();
+    const value = output[key];
+
+    if (typeof value === 'string') {
+      trimmedOutput[key] = value.trim();
+    } else {
+      trimmedOutput[key] = value;
+    }
   });
 
   return trimmedOutput;
