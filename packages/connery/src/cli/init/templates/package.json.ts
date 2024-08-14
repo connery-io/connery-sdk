@@ -7,7 +7,7 @@ export default `{
     "format": "prettier --write ."
   },
   "dependencies": {
-    "connery": "^0.1.0"
+    "connery": "^0.3.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.6",
