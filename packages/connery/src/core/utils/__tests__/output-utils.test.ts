@@ -236,9 +236,21 @@ describe('trimOutput()', () => {
     expect(trimOutput(output)).toEqual({});
   });
 
-  it('returns the same object if the output is already trimmed', () => {
+  it('returns the same output if the output is already trimmed', () => {
     const output: OutputObject = { Name: 'John', Age: '25' };
 
     expect(trimOutput(output)).toEqual(output);
+  });
+
+  it('does not return undefined values', () => {
+    const output: OutputObject = { Age: undefined, FirstName: undefined, LastName: undefined } as any;
+
+    expect(trimOutput(output)).toEqual({});
+  });
+
+  it('returns object with the same values if the output contains properties with non string values', () => {
+    const output: OutputObject = { Age: 25, FirstName: null, LastName: '' } as any;
+
+    expect(trimOutput(output)).toEqual({ Age: 25, FirstName: null, LastName: '' });
   });
 });

@@ -240,7 +240,7 @@ describe('trimInput()', () => {
     expect(trimInput(input)).toEqual({ Name: 'John', Age: '25' });
   });
 
-  it('returns empty object if the input is empty', () => {
+  it('returns empty object if the input object is empty', () => {
     const input: InputObject = {};
 
     expect(trimInput(input)).toEqual({});
@@ -250,5 +250,17 @@ describe('trimInput()', () => {
     const input: InputObject = { Name: 'John', Age: '25' };
 
     expect(trimInput(input)).toEqual(input);
+  });
+
+  it('does not return undefined values', () => {
+    const input: InputObject = { Age: undefined, FirstName: undefined, LastName: undefined } as any;
+
+    expect(trimInput(input)).toEqual({});
+  });
+
+  it('returns object with the same values if the input contains properties with non string values', () => {
+    const input: InputObject = { Age: 25, FirstName: null, LastName: '' } as any;
+
+    expect(trimInput(input)).toEqual({ Age: 25, FirstName: null, LastName: '' });
   });
 });

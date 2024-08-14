@@ -71,12 +71,18 @@ export function validateExtraInputParameters(inputDefinitions: InputParameterDef
 export function trimInput(input: InputObject): InputObject {
   const trimmedInput: InputObject = {};
 
-  if (!input) {
+  if (!input || Object.keys(input).length === 0) {
     return trimmedInput;
   }
 
   Object.keys(input).forEach((key) => {
-    trimmedInput[key] = input[key].trim();
+    const value = input[key];
+
+    if (typeof value === 'string') {
+      trimmedInput[key] = value.trim();
+    } else {
+      trimmedInput[key] = value;
+    }
   });
 
   return trimmedInput;
