@@ -3,9 +3,5 @@ export type InitRepositoryParameters = {
     name: string;
     description: string;
   };
-  maintainer: {
-    name: string;
-    email: string;
-  };
   year: number;
 };

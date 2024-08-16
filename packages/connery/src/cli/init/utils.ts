@@ -29,44 +29,12 @@ export async function collectUserInput(): Promise<InitRepositoryParameters> {
         return true;
       },
     }),
-    authorName: await input({
-      message: styleQuestion('What is the mainainer name?', '(for the license)'),
-      transformer: styleAnswer,
-      validate: (value: string) => {
-        if (value.trim() === '') {
-          return styleError('Please enter the maintainer name');
-        }
-        return true;
-      },
-    }),
-    authorEmail: await input({
-      message: styleQuestion('What is the maintainer email?', '(for the license)'),
-      transformer: styleAnswer,
-      validate: (value: string) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const isValidEmail = emailRegex.test(value);
-
-        if (value.trim() === '') {
-          return styleError('Please enter the maintainer email');
-        }
-
-        if (!isValidEmail) {
-          return styleError('Please enter a valid email address');
-        }
-
-        return true;
-      },
-    }),
   };
 
   return {
     plugin: {
       name: answers.pluginName.trim(),
       description: answers.pluginDescription.trim() || `Plugin built using Connery SDK.`,
-    },
-    maintainer: {
-      name: answers.authorName.trim(),
-      email: answers.authorEmail.trim(),
     },
     year: new Date().getFullYear(),
   };

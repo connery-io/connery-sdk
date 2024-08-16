@@ -1,6 +1,6 @@
 export default `MIT License
 
-Copyright (c) {{year}} {{maintainer.name}} ({{maintainer.email}})
+Copyright (c) {{year}}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
