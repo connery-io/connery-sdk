@@ -1,7 +1,7 @@
 {
   "name": "connery",
   "description": "Connery SDK and CLI",
-  "repository": "https://github.com/connery-io/connery",
+  "repository": "https://github.com/connery-io/connery-sdk",
   "version": "0.1.0",
   "license": "MIT",
   "type": "module",
@@ -108,6 +108,7 @@
       [
         "@semantic-release/commit-analyzer",
         {
+          "preset": "angular",
           "releaseRules": [
             {
               "breaking": true,
@@ -126,7 +127,7 @@
               "release": "patch"
             },
             {
-              "type": "chore",
+              "type": "ci",
               "release": false
             },
             {
@@ -137,10 +138,29 @@
               "type": "docs",
               "release": false
             }
-          ]
+          ],
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES",
+              "BREAKING"
+            ]
+          }
         }
       ],
-      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "angular",
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES",
+              "BREAKING"
+            ]
+          }
+        }
+      ],
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
