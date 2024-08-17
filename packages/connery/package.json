@@ -127,7 +127,7 @@
               "release": "patch"
             },
             {
-              "type": "ci",
+              "type": "chore",
               "release": false
             },
             {
