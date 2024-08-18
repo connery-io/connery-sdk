@@ -2,8 +2,8 @@
 
 # The open-source SDK for<br>creating AI plugins and actions
 
-[![Release](https://img.shields.io/github/v/release/connery-io/connery?color=74C649&label=Release)](https://github.com/connery-io/connery/releases)
-[![License](https://img.shields.io/github/license/connery-io/connery?color=74C649&label=License)](https://github.com/connery-io/connery/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/connery-io/connery-sdk?color=74C649&label=Release)](https://github.com/connery-io/connery-sdk/releases)
+[![License](https://img.shields.io/github/license/connery-io/connery-sdk?color=74C649&label=License)](https://github.com/connery-io/connery-sdk/blob/main/LICENSE)
 
 </div>
 
@@ -109,8 +109,8 @@ Connery is still in early beta, so not everything is perfect yet. Please let us 
 
 You can reach us via the following channels:
 
-- [Discussions](https://github.com/connery-io/connery/discussions) - for feedback, questions, and discussions.
-- [Issues](https://github.com/connery-io/connery/issues) - for bug reports and feature requests.
+- [Discussions](https://github.com/connery-io/connery-sdk/discussions) - for feedback, questions, and discussions.
+- [Issues](https://github.com/connery-io/connery-sdk/issues) - for bug reports and feature requests.
 - [Discord](https://discord.gg/d45vsC6Z) - for community collaboration.
 - [Twitter](https://twitter.com/connery_io) - for updates and announcements.
 
