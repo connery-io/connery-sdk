@@ -16,7 +16,7 @@ export function validateOutput(outputDefinitions: OutputParameterDefinition[], o
 
 export function validateNumberOfOutputParameters(output?: OutputObject): void {
   // This validation also prevents DoS attacks by limiting the length of the input parameters object:
-  // (https://github.com/connery-io/connery/security/code-scanning/1)
+  // (https://github.com/connery-io/connery-sdk/security/code-scanning/1)
   if (Object.keys(output || {}).length > 100) {
     throw new Error(
       '[Output validation error] The output object is too large. The maximum number of output parameters is 100.',
