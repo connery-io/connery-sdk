@@ -1,5 +1,5 @@
 export default `/node_modules
 /dist
 .env
-.vercel
+.DS_Store
 `;
