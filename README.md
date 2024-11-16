@@ -29,7 +29,7 @@ The action can communicate with external APIs, databases, or other services.
 is an action in the [connery-io/gmail](https://github.com/connery-io/gmail) plugin._
 
 <div align="center">
-  <img width="550px" alt="Connery diagram" src="./apps/docs/static/img/repo/connery-sdk2.png">
+  <img width="550px" alt="Connery diagram" src="./img/connery-sdk2.png">
 </div>
 
 ## 🚀 Quickstart
@@ -58,19 +58,19 @@ Open the plugin in the browser: [localhost:4201](http://localhost:4201).
 
 ## ✅ Example 1: Send email from an OpenAI GPT
 
-<img alt="Send email from an OpenAI GPT" src="./apps/docs/static/img/repo/send-email-from-a-custom-gpt-using-connery-actions.gif">
+<img alt="Send email from an OpenAI GPT" src="./img/send-email-from-a-custom-gpt-using-connery-actions.gif">
 
 👉 _Learn more: [OpenAI GPT client](https://sdk.connery.io/docs/clients/openai/gpt)._
 
 ## ✅ Example 2: Summarize a webpage and send it by email from OpenGPTs
 
-<img alt="Summarize a webpage and send it by email from OpenGPTs" src="./apps/docs/static/img/repo/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
+<img alt="Summarize a webpage and send it by email from OpenGPTs" src="./img/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
 
 👉 _Learn more: [LangChain OpenGPTs client](https://sdk.connery.io/docs/clients/langchain/opengpts)._
 
 ## ✅ Example 3: Scale back-end service on AWS from Slack
 
-<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./apps/docs/static/img/repo/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
+<img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./img/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
 
 👉 _Learn more: [Slack client](https://sdk.connery.io/docs/clients/slack)._
 
@@ -78,7 +78,7 @@ Open the plugin in the browser: [localhost:4201](http://localhost:4201).
 
 Please **give the repository a star** to support the project and stay up-to-date with the latest news.
 
-<img src="./apps/docs/static/img/repo/give-us-a-star.png" alt="Give the repository a star" width="300">
+<img src="./img/give-us-a-star.png" alt="Give the repository a star" width="300">
 
 ## 💡 Use cases
 
