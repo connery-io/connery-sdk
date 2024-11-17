@@ -52,15 +52,21 @@ Run the plugin server:
 npm start
 ```
 
-Open the plugin in the browser: [localhost:4201](http://localhost:4201).
+Open the plugin in the browser ([localhost:4201](http://localhost:4201)) and use it in your AI apps.
 
 👉 _Check out the [full quickstart guide](https://docs.connery.io/sdk/guides/create-a-plugin) to learn more._
 
-## ✅ Example: Scale back-end service on AWS from Slack
+## ✅ Example 1: Send email from an OpenAI GPT
+
+<img alt="Send email from an OpenAI GPT" src="./img/send-email-from-a-custom-gpt-using-connery-actions.gif">
+
+## ✅ Example 2: Summarize a webpage and send it by email from OpenGPTs
+
+<img alt="Summarize a webpage and send it by email from OpenGPTs" src="./img/summarize-a-webpage-and-send-it-by-email-from-opengpts.gif">
+
+## ✅ Example 3: Scale back-end service on AWS from Slack
 
 <img alt="Scheduled scaling of Back End service on AWS Fargate from Slack using Connery" src="./img/scheduled-scaling-of-back-end-service-on-aws-fargate-from-slack-using-connery.gif">
-
-👉 _Learn more: Slack client._
 
 ## 🌟 Support us and stay up-to-date
 
