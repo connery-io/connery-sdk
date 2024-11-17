@@ -15,7 +15,7 @@ This repository contains the plugin's source code.
 
 This plugin is built using [Connery SDK](https://github.com/connery-io/connery-sdk), the open-source SDK for creating AI plugins and actions.
 
-[Learn how to use the plugin and its actions.](https://sdk.connery.io/docs/quickstart/use-plugin)
+[Learn how to use the plugin and its actions.](https://docs.connery.io/sdk/guides/use-a-plugin)
 
 ## Support
 

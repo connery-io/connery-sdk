@@ -36,7 +36,7 @@ export class HomeController {
                 </p>
                 <a
                     class="inline-flex items-center justify-center h-10 px-4 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-900 shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950"
-                    href="https://sdk.connery.io/docs/quickstart/use-plugin"
+                    href="https://docs.connery.io/sdk/guides/use-a-plugin"
                     target="_blank"
                   >
                     Learn how to use the plugin and its actions
