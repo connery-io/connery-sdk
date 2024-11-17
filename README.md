@@ -19,8 +19,8 @@ into a [plugin server](https://docs.connery.io/sdk/get-started/core-concepts#plu
 The plugin server handles authorization, input validation, and logging.
 So you can focus on the logic of your actions.
 
-~~The standardized API enables various clients to interact
-with actions in a unified way, regardless of the underlying implementation.~~
+The standardized API enables various clients to interact
+with actions in a unified way, regardless of the underlying implementation.
 
 An action consists of JavaSctipt code that defines its logic and metadata that describes its input and output.
 The action can communicate with external APIs, databases, or other services.
