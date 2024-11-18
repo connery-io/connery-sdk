@@ -25,4 +25,3 @@
 * [Best practices](other/best-practices.md)
 * [Deploy a plugin to AWS Lambda](other/deploy-a-plugin-to-aws-lambda.md)
 * [Run a plugin locally](other/run-a-plugin-locally.md)
-* [Use a plugin](other/use-a-plugin.md)
