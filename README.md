@@ -9,27 +9,19 @@
 
 ## 🤔 What is Connery SDK?
 
-Connery SDK is an NPM package that includes both an SDK and a CLI, designed for the development
-of [plugins](https://docs.connery.io/sdk/get-started/core-concepts#plugin)
-and [actions](https://docs.connery.io/sdk/get-started/core-concepts#action).
+The Connery SDK is an NPM package that combines an SDK and a CLI, designed to streamline the development of [plugins](https://docs.connery.io/sdk/get-started/core-concepts#plugin) and [actions](https://docs.connery.io/sdk/get-started/core-concepts#action) for AI apps.
 
-The CLI automates many things in the development process.
-Meanwhile, the SDK offers a JavaScript API for defining plugins and actions and packaging them
-into a [plugin server](https://docs.connery.io/sdk/get-started/core-concepts#plugin-server) with a standardized REST API generated from the metadata.
-The plugin server handles authorization, input validation, and logging.
-So you can focus on the logic of your actions.
+The CLI automates the development process, while the SDK provides a JavaScript API for defining plugins and actions. It also simplifies packaging them into a [plugin server](https://docs.connery.io/sdk/get-started/core-concepts#plugin-server) with a standardized REST API generated from metadata. The plugin server takes care of authorization, input validation, and logging, allowing you to focus on the core logic of your actions.
 
-The standardized API enables various clients to interact
-with actions in a unified way, regardless of the underlying implementation.
+This standardized API ensures that various [apps](https://docs.connery.io/sdk/get-started/core-concepts#app) can interact with actions in a consistent way, regardless of their implementation.
 
-An action consists of JavaSctipt code that defines its logic and metadata that describes its input and output.
-The action can communicate with external APIs, databases, or other services.
+An action consists of JavaScript code that defines its logic and metadata describing its input and output. Actions can interact with external APIs, databases, or other services.
 
-👉 _Example: [Send email](https://github.com/connery-io/gmail/blob/main/src/actions/sendEmail.ts)
-is an action in the [connery-io/gmail](https://github.com/connery-io/gmail) plugin._
+For example, [Send email](https://github.com/connery-io/gmail/blob/main/src/actions/sendEmail.ts)
+is an action in the [connery-io/gmail](https://github.com/connery-io/gmail) plugin.
 
 <div align="center">
-  <img width="550px" alt="Connery diagram" src="./img/connery-sdk2.png">
+  <img width="550px" alt="Connery diagram" src="./img/connery-sdk.png">
 </div>
 
 ## 🚀 Quickstart
@@ -52,9 +44,9 @@ Run the plugin server:
 npm start
 ```
 
-Open the plugin in the browser ([localhost:4201](http://localhost:4201)) and use it in your AI apps.
+[Explore](http://localhost:4201) the plugin in a browser and use it in AI apps.
 
-👉 _Check out the [full quickstart guide](https://docs.connery.io/sdk/guides/create-a-plugin) to learn more._
+👉 Check out the [full quickstart guide](https://docs.connery.io/sdk/guides/create-a-plugin) to learn more.
 
 ## ✅ Example 1: Send email from an OpenAI GPT
 
