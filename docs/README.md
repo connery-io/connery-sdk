@@ -1,6 +1,6 @@
 ---
 icon: star
-description: Introduction to the Connery SDK
+description: Introduction to the Connery SDK.
 ---
 
 # Introduction
@@ -9,7 +9,7 @@ description: Introduction to the Connery SDK
 The open-source GitHub repository with Connery SDK: [connery-sdk](https://github.com/connery-io/connery-sdk).
 {% endhint %}
 
-The Connery SDK is an NPM package that combines an SDK and a CLI, designed to streamline the development of [plugins](get-started/core-concepts.md#plugin) and [actions](get-started/core-concepts.md#plugin) for AI apps.
+The Connery SDK is an NPM package that combines an SDK and a CLI, designed to streamline the development of [plugins](get-started/core-concepts.md#plugin) and [actions](get-started/core-concepts.md#action) for AI apps.
 
 The CLI automates the development process, while the SDK provides a JavaScript API for defining plugins and actions. It also simplifies packaging them into a [plugin server](get-started/core-concepts.md#plugin-server) with a standardized REST API generated from metadata. The plugin server takes care of authorization, input validation, and logging, allowing you to focus on the core logic of your actions.
 
