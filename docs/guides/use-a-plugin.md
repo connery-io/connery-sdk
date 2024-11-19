@@ -1,8 +1,8 @@
 ---
+icon: arrow-progress
 description: >-
   Learn how to start a plugin server in the development environment and use it
   from Connery in Slack.
-icon: arrow-progress
 ---
 
 # Use a plugin
@@ -45,14 +45,14 @@ If you are running the plugin server on your local machine, you can use ngrok to
 ngrok http 4201
 ```
 
-## 6. Create a custom plugin on the Connery Platform <a href="#id-6-configure-the-client" id="id-6-configure-the-client"></a>
+## 6. Use the actions <a href="#id-6-configure-the-client" id="id-6-configure-the-client"></a>
 
-...
+### 6.1. Use the actions from the Connery app in Slack <a href="#id-6-configure-the-client" id="id-6-configure-the-client"></a>
 
-## 7. Create an action in the Connery Platform
+1. Create a custom plugin on the Connery Platform;
+2. Create an action in the Connery Platform based on the action from the plugin server;
+3. Use the action from the Connery app in Slack.
 
-...
+### 6.2. Run actions from other apps
 
-## 8. Run the action from Slack
-
-...
+You can use the Plugin Server’s REST API from any other app or build your own app to take advantage of the actions.
