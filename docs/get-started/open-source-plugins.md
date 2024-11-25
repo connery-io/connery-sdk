@@ -13,6 +13,7 @@ description: A manually curated list of open-source plugins built with Connery S
 | Fixed Response | [connery-io/fixed-response](https://github.com/connery-io/fixed-response) |
 | Gmail          | [connery-io/gmail](https://github.com/connery-io/gmail)                   |
 | Google Sheets  | [connery-io/google-sheets](https://github.com/connery-io/google-sheets)   |
+| MySQL          | [connery-io/mysql](https://github.com/connery-io/mysql)                   |
 | Notion         | [connery-io/notion](https://github.com/connery-io/notion)                 |
 | OpenAI         | [connery-io/openai](https://github.com/connery-io/openai)                 |
 | Perplexity     | [connery-io/perplexity](https://github.com/connery-io/perplexity)         |
